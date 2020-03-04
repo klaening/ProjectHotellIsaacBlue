@@ -8,9 +8,69 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="WELCOME TO HOTEL ISAAC!" 
+               FontSize="Title"
+               TextColor="Black"
+               Grid.Column="1" Grid.Row="1"
+               Grid.ColumnSpan="2"
+               Grid.RowSpan="2"
+               HorizontalTextAlignment="Center"
+                   />
+            
+
+            <Label
+             Text="Enter your information to proceed" 
+                FontSize="Subtitle"
+                Grid.Column="1"
+                Grid.Row="5"
+                Grid.ColumnSpan="2"
+                HorizontalTextAlignment="Center"
+            />
+
+            <Entry
+                Placeholder="Example@gmail.com"
+              Grid.Column="0"
+                Grid.Row="6"
+                Grid.ColumnSpan="4"
+                HorizontalOptions="Center"
+            />
+
+            <Entry
+                Placeholder="Password"
+              Grid.Column="0"
+                Grid.Row="7"
+                Grid.ColumnSpan="4"
+                HorizontalOptions="Center"
+            />
+
+            <Button
+            Text="Register now!"
+                Grid.Column="0"
+                Grid.Row="9"
+                Grid.ColumnSpan="4"
+                HorizontalOptions="Center"
+                
+            />
+
+
+
+        </Grid>
+        
     </StackLayout>
 
 </ContentPage>
