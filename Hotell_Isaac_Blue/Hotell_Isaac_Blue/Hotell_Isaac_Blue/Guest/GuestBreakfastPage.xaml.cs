@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Hotell_Isaac_Blue
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GuestMainPage : ContentPage
+    public partial class GuestBreakfastPage : ContentPage
     {
-        public GuestMainPage()
+        public GuestBreakfastPage()
         {
             InitializeComponent();
         }

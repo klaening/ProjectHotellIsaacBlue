@@ -17,5 +17,10 @@ namespace Hotell_Isaac_Blue
         {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GuestMainPage());
+        }
     }
 }

@@ -64,7 +64,7 @@
                 Grid.Row="9"
                 Grid.ColumnSpan="4"
                 HorizontalOptions="Center"
-                
+                Clicked="Button_Clicked"
             />
 
 

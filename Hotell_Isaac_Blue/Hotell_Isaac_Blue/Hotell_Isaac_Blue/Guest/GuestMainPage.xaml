@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Hotell_Isaac_Blue.GuestMainPage">
+    <ContentPage.Content>
+
+        <StackLayout BackgroundColor="Yellow">
+
+            <Label Text="Welcome USER" HorizontalTextAlignment="Center" Margin="0,20,0,0" FontSize="40"/>
+
+            <Grid BackgroundColor="Red"
+                  VerticalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="90"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="BookingBtn"
+                    Text="Bookings" 
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    Clicked="BookingBtn_Clicked"/>
+
+                <Button x:Name="InfoBtn"
+                    Text="Info" 
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Clicked="InfoBtn_Clicked"/>
+
+                <Button x:Name="BreakfastBtn"
+                    Text="Breakfast" 
+                    Grid.Column="2"
+                    Grid.Row="1"
+                    Clicked="BreakfastBtn_Clicked"/>
+
+                <Button x:Name="ParkingBtn"
+                    Text="Parking" 
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Clicked="ParkingBtn_Clicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
