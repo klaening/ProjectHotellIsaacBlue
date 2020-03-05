@@ -4,47 +4,62 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Hotell_Isaac_Blue.GuestMainPage">
+             x:Class="Hotell_Isaac_Blue.GuestMainPage"
+             BackgroundImageSource="gradBackG.jfif">
     <ContentPage.Content>
 
-        <StackLayout BackgroundColor="Yellow">
+        <StackLayout>
 
-            <Label Text="Welcome USER" HorizontalTextAlignment="Center" Margin="0,20,0,0" FontSize="40"/>
+            <Label Text="Welcome USER" HorizontalTextAlignment="Center" Padding="20" FontSize="40" TextColor="Black" BackgroundColor="White"/>
 
-            <Grid BackgroundColor="Red"
+            <Grid
                   VerticalOptions="CenterAndExpand">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="90"/>
-                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="170"/>
+                    <RowDefinition Height="170"/>
                 </Grid.RowDefinitions>
 
                 <Button x:Name="BookingBtn"
-                    Text="Bookings" 
-                    Grid.Column="2"
+                    CornerRadius="8"
+                    Margin="15, 10, 10, 10"
+                    Text="Bookings"
+                    FontSize="Large"
+                    BackgroundColor="FloralWhite"
+                    Grid.Column="0"
                     Grid.Row="0"
                     Clicked="BookingBtn_Clicked"/>
 
                 <Button x:Name="InfoBtn"
-                    Text="Info" 
+                    CornerRadius="8"
+                    Margin="10, 10, 15, 10"
+                    Text="Info"
+                    FontSize="Large"
+                    BackgroundColor="FloralWhite"
                     Grid.Column="1"
                     Grid.Row="0"
                     Clicked="InfoBtn_Clicked"/>
 
                 <Button x:Name="BreakfastBtn"
+                    CornerRadius="8"
+                    Margin="15, 10, 10, 10"
                     Text="Breakfast" 
-                    Grid.Column="2"
+                    FontSize="Large"
+                    BackgroundColor="FloralWhite"
+                    Grid.Column="0"
                     Grid.Row="1"
                     Clicked="BreakfastBtn_Clicked"/>
 
                 <Button x:Name="ParkingBtn"
+                    CornerRadius="8"
+                    Margin="10, 10, 15, 10"
                     Text="Parking" 
+                    FontSize="Large"
+                    BackgroundColor="FloralWhite"
                     Grid.Column="1"
                     Grid.Row="1"
                     Clicked="ParkingBtn_Clicked"/>
