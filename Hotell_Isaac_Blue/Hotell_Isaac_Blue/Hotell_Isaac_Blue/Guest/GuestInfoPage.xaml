@@ -5,11 +5,58 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestInfoPage">
+    
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Info"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Grid>
+               
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label
+                    
+                Text="About Hotel Isaac"
+                FontFamily="PatrickHand-Regular.ttf#PatrickHand-Regular.ttf"
+                FontAttributes="Bold"
+                FontSize="35"
+                TextColor="Black"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                HorizontalTextAlignment="Center"
+                Grid.Row="0"
+                />
+
+                <Image
+                Source="unnamed.jpg"  
+                Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                Grid.Row="1"
+                ScaleX="1.6"
+                    ScaleY="1.4"
+                />
+
+                <Label
+                Text="This hotel was built by the great and wise Svenne the year 1950. He built the hotel to create the Home feeling for the customers. Today we can offer you a nice outside pool and 10 rooms. " 
+                    FontSize="20"
+                    TextColor="Black"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="4"
+                    Grid.Row="3"
+                    Margin="20,0,0,20"
+                />
+                
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

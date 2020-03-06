@@ -5802,6 +5802,9 @@ namespace Hotell_Isaac_Blue.Droid
 			// aapt resource value: 0x7F070078
 			public const int tooltip_frame_light = 2131165304;
 			
+			// aapt resource value: 0x7F070079
+			public const int unnamed = 2131165305;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
