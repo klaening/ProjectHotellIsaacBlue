@@ -63,28 +63,38 @@
                     <Image Source="icon04" Grid.Column="3"
                            Margin="10,0,10,0"/>
                 </Grid>
-                <StackLayout HeightRequest="60">
+                <StackLayout HeightRequest="60"
+                             Margin="0,15,0,0">
                     <Grid BackgroundColor="#464646">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="unnamed.png" Grid.Column="1"
-                               HorizontalOptions="Center"/>
-                        <Label Text="Contact Us"
+                        <Button x:Name="GuestBreakfastHome" 
+                               Text="HOME" 
+                               Grid.Column="1"
+                               HorizontalOptions="Center"
+                               BackgroundColor="#464646" 
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               Clicked="GuestBreakfastHome_Clicked" 
+                                />
+                        <Button Text="Contact Us"
+                               BackgroundColor="#464646"
                                TextColor="White"
                                Grid.Column="2"
                                VerticalOptions="Center"
-                               Margin="0,0,35,0"
                                FontSize="14"
                                FontAttributes="Bold"
                                HorizontalOptions="Center"/>
-                        <Label Text="My Settings"
+                        
+                        <Button Text="My Settings"
+                               BackgroundColor="#464646"
                                TextColor="White"
                                Grid.Column="0"
                                VerticalOptions="Center"
-                               Margin="35,0,0,0"
                                FontSize="14"
                                FontAttributes="Bold"
                                HorizontalOptions="Center"/>

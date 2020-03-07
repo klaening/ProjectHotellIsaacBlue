@@ -20,7 +20,8 @@ namespace Hotell_Isaac_Blue.Guest
 
         private void continueParking_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GuestParkingPage());
+            Navigation.PushAsync(new GuestParkingPage3());
         }
+
     }
 }
