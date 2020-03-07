@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Hotell_Isaac_Blue.GuestBookingMainPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout x:Name="Header"
+                             HeightRequest="150">
+                    <Label Text="Booking"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="40"
+                           Margin="0,50,0,0"/>
+                </StackLayout>
+                <StackLayout x:Name="Info">
+                    <Label Margin="30, 10" 
+                           FontSize="15" 
+                           Text="Mozzarella roquefort cheddar. Goat cheesy grin camembert de normandie melted cheese cheesecake croque monsieur babybel gouda. Cream cheese melted cheese cheese triangles cheesy feet fromage frais squirty cheese cheese strings when the cheese comes out everybody's happy."/>
+                </StackLayout>
+                <Frame BackgroundColor="LightBlue" 
+                       CornerRadius="10" 
+                       Margin="35, 35"
+                       HasShadow="False">
+                    <StackLayout x:Name="Bookings" Margin="0, 35">
+                        <Label Text="You have no bookings at the moment"
+                               HorizontalTextAlignment="Center"/>
+                        <Button Text="New booking"
+                                Margin="60, 50, 60, 0"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
