@@ -1,10 +1,10 @@
-﻿
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Hotell_Isaac_Blue.GuestParkingPage">
+             x:Class="Hotell_Isaac_Blue.Guest.GuestParkingPage2">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Park Your Car And Walk"
@@ -28,32 +28,35 @@
             
                    FontSize="12"
                    Margin="10,0,0,10"/>
-
-            <Label Text="5$ each day"
+            <Label Text="Enter Book no:"
+                   FontAttributes="Bold"
+                   Margin="0,20,0,0"
+                   HorizontalOptions="Center"/>
+            <Entry Placeholder="Enter your book number here."
                    FontAttributes="Bold"
                    TextColor="Black"
-                   FontSize="25"
+                   FontSize="15"
                    HorizontalOptions="Center"
-                   Margin="0,50,0,0"/>
+                   Margin="0,0,0,0"/>
 
             <Label Text="Add parkingspot to your booking"
                    HorizontalOptions="Center"
                    Margin="0,0,0,10"/>
 
-            
 
-            <Button x:Name="bookParking" Text="Book ParkingSpot" 
+
+            <Button x:Name="continueParking" Text="Continue" 
                     WidthRequest="200"
                     HorizontalOptions="Center"
                     CornerRadius="10"
                     Margin="0,0,0,0"
-                    Clicked="bookParking_Clicked"/>
-            
+                    Clicked="continueParking_Clicked"/>
+
             <Label Text="Available Cars to Hire: 15/20"
                    HorizontalOptions="Center"
                    Margin="0,8,0,0"/>
             <StackLayout>
-               
+
                 <StackLayout HeightRequest="60">
                     <Grid BackgroundColor="#464646">
                         <Grid.ColumnDefinitions>
