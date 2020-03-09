@@ -51,7 +51,7 @@
                     Grid.Column="0"
                     Grid.Row="0"/>
 
-                    <Label Text="Mattis Vainikainen"
+                    <Label x:Name="nameParkingCheckStatus" Text="Mattis Vainikainen"
                     Grid.Column="1"
                     Grid.Row="0"
                     HorizontalOptions="Start"/>
@@ -63,7 +63,7 @@
                     Grid.Column="0"
                     Grid.Row="1"/>
 
-                    <Label Text="2020/05/01"
+                    <Label x:Name="startDateParkingCheckStatus" Text="2020/05/01"
                     Grid.Column="1"
                     Grid.Row="1"/>
 
@@ -73,7 +73,7 @@
                     Grid.Column="0"
                     Grid.Row="2"/>
 
-                    <Label Text="2020/05/11"
+                    <Label x:Name="endDateParkingCheckStatus" Text="2020/05/11"
                     Grid.Column="1"
                     Grid.Row="2"/>
                     
@@ -83,7 +83,7 @@
                     Grid.Column="0"
                     Grid.Row="3"/>
 
-                    <Label Text="001-789-5656-n"
+                    <Label x:Name="bookingNrParkingCheckStatus" Text="001-789-5656-n"
                     Grid.Column="1"
                     Grid.Row="3"/>
 
@@ -96,7 +96,7 @@
                     Grid.Column="0"
                     Grid.Row="4"/>
 
-                    <Label Text="50$"
+                    <Label x:Name="totalcostParkingCheckStatus" Text="50$"
                     TextColor="Black"
                     FontSize="20"
                     Margin="40,0,0,0"
@@ -116,13 +116,10 @@
                     Margin="0,10,0,0"
                     />
 
-            <Label Text="Available Cars to Hire: 15/20"
-                   HorizontalOptions="Center"
-                   Margin="0,0,0,0"/>
             <StackLayout>
 
                 <StackLayout HeightRequest="60"                            
-                             Margin="0,70,0,0">
+                             Margin="0,50,0,0">
                     <Grid BackgroundColor="#464646">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
