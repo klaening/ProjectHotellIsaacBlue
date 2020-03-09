@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotell_Isaac_Blue.Guest.GuestBreakfast;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,12 @@ namespace Hotell_Isaac_Blue
 
         private void GuestBreakfastHome_Clicked(object sender, EventArgs e)
         {
-            DisplayAlert("Hello", "it works", "ok");
+            Navigation.PushAsync(new GuestMainPage());
+        }
+
+        private void buyingBreakfast_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GuestBreakfastPage2());
         }
     }
 }

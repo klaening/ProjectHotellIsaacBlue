@@ -4,8 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             BackgroundColor="White"
-             x:Class="Hotell_Isaac_Blue.GuestBreakfastPage">
+             x:Class="Hotell_Isaac_Blue.Guest.GuestBreakfast.GuestBreakfastPage2">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Eat Your Breakfast With Us"
@@ -28,25 +27,27 @@
                    but your average continental breakfast. From 7 until 10am every day, you'll find staples like scrambled eggs, steel-cut oatmeal, local pastries, yogurt, house-made granola, deli meats, cheeses, fruit, bagels, pancakes, coffee, juice and tea."
             
                    FontSize="12"
-                   Margin="10,0,0,10"/>
-            
-            <Label Text="8$ each day"
-                   FontAttributes="Bold"
-                   TextColor="Black"
-                   FontSize="25"
-                   HorizontalOptions="Center"
-                   Margin="0,50,0,0"/>
-            
+                   Margin="10,0,0,40"/>
+
             <Label Text="Add breakfast to your booking"
                    HorizontalOptions="Center"
                    Margin="0,5,0,10"/>
+            
+            <Entry x:Name="breakfastBookingEntry" Placeholder="Enter your booking Nr"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontSize="15"
+                   HorizontalOptions="Center" />
 
-            <Button x:Name="buyingBreakfast" Text="Buy Breakfast" 
+            
+
+            <Button x:Name="goToBreakfastPage3" Text="Continue" 
                     WidthRequest="200"
                     HorizontalOptions="Center"
-                    CornerRadius="10" 
-                    Clicked="buyingBreakfast_Clicked" />
-            
+                    CornerRadius="10"
+                    Margin="0,0,0,20"
+                    Clicked="goToBreakfastPage3_Clicked"/>
+
             <StackLayout>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -79,9 +80,7 @@
                                BackgroundColor="#464646" 
                                FontSize="14"
                                FontAttributes="Bold"
-                               TextColor="White"
-                               Clicked="GuestBreakfastHome_Clicked" 
-                                />
+                               TextColor="White" />
                         <Button Text="Contact Us"
                                BackgroundColor="#464646"
                                TextColor="White"
@@ -90,7 +89,7 @@
                                FontSize="14"
                                FontAttributes="Bold"
                                HorizontalOptions="Center"/>
-                        
+
                         <Button Text="My Settings"
                                BackgroundColor="#464646"
                                TextColor="White"
@@ -101,15 +100,15 @@
                                HorizontalOptions="Center"/>
 
                     </Grid>
-                   
-                   
-                    
+
+
+
                 </StackLayout>
-                
-                   
-               
+
+
+
             </StackLayout>
-           
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

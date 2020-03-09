@@ -4,8 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             BackgroundColor="White"
-             x:Class="Hotell_Isaac_Blue.GuestBreakfastPage">
+             x:Class="Hotell_Isaac_Blue.Guest.GuestBreakfast.GuestBreakfastPage3">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Eat Your Breakfast With Us"
@@ -24,29 +23,94 @@
                      HeightRequest="10"
                      Margin="0,0,0,0"/>
 
-            <Label Text="For a proper wake up call, bring your bedhead down to the included community breakfast in the Lounge. It's anything
-                   but your average continental breakfast. From 7 until 10am every day, you'll find staples like scrambled eggs, steel-cut oatmeal, local pastries, yogurt, house-made granola, deli meats, cheeses, fruit, bagels, pancakes, coffee, juice and tea."
-            
-                   FontSize="12"
-                   Margin="10,0,0,10"/>
-            
-            <Label Text="8$ each day"
-                   FontAttributes="Bold"
-                   TextColor="Black"
-                   FontSize="25"
-                   HorizontalOptions="Center"
-                   Margin="0,50,0,0"/>
-            
-            <Label Text="Add breakfast to your booking"
-                   HorizontalOptions="Center"
-                   Margin="0,5,0,10"/>
+            <Frame BackgroundColor="LightBlue"
+                       BorderColor="Black"
+                       CornerRadius="15"
+                       Margin="10,10,10,0">
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-            <Button x:Name="buyingBreakfast" Text="Buy Breakfast" 
+
+                    <Label Text="Name:"
+                    FontAttributes="Bold"
+                    Margin="10,0,0,0"
+                    Grid.Column="0"
+                    Grid.Row="0"/>
+
+                    <Label x:Name="nameBreakfastCheckStatus" Text="Mattis Vainikainen"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    HorizontalOptions="Start"/>
+
+
+                    <Label Text="StartDate:"
+                    FontAttributes="Bold"                   
+                    Margin="10,0,0,0"
+                    Grid.Column="0"
+                    Grid.Row="1"/>
+
+                    <Label x:Name="startDateBreakfastCheckStatus" Text="2020/05/01"
+                    Grid.Column="1"
+                    Grid.Row="1"/>
+
+                    <Label Text="EndDate:"
+                    FontAttributes="Bold"                   
+                    Margin="10,0,0,0"
+                    Grid.Column="0"
+                    Grid.Row="2"/>
+
+                    <Label x:Name="endDateBreakfastCheckStatus" Text="2020/05/11"
+                    Grid.Column="1"
+                    Grid.Row="2"/>
+
+                    <Label Text="Booking no:"
+                    FontAttributes="Bold"                   
+                    Margin="10,0,0,0"
+                    Grid.Column="0"
+                    Grid.Row="3"/>
+
+                    <Label x:Name="bookingNrBreakfastCheckStatus" Text="001-789-5656-n"
+                    Grid.Column="1"
+                    Grid.Row="3"/>
+
+
+                    <Label Text="Total Price:"
+                    FontAttributes="Bold" 
+                    TextColor="Black"
+                    FontSize="20"
+                    Margin="10,0,0,0"
+                    Grid.Column="0"
+                    Grid.Row="4"/>
+
+                    <Label x:Name="totalcostBreakfastCheckStatus" Text="50$"
+                    TextColor="Black"
+                    FontSize="20"
+                    Grid.Column="1"
+                    Grid.Row="4"/>
+
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+
+
+            <Button Text="Add Breakfast To Your Booking" 
                     WidthRequest="200"
                     HorizontalOptions="Center"
-                    CornerRadius="10" 
-                    Clicked="buyingBreakfast_Clicked" />
-            
+                    CornerRadius="10"
+                    Margin="0,20,0,20"/>
+
             <StackLayout>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -79,9 +143,7 @@
                                BackgroundColor="#464646" 
                                FontSize="14"
                                FontAttributes="Bold"
-                               TextColor="White"
-                               Clicked="GuestBreakfastHome_Clicked" 
-                                />
+                               TextColor="White" />
                         <Button Text="Contact Us"
                                BackgroundColor="#464646"
                                TextColor="White"
@@ -90,7 +152,7 @@
                                FontSize="14"
                                FontAttributes="Bold"
                                HorizontalOptions="Center"/>
-                        
+
                         <Button Text="My Settings"
                                BackgroundColor="#464646"
                                TextColor="White"
@@ -101,15 +163,15 @@
                                HorizontalOptions="Center"/>
 
                     </Grid>
-                   
-                   
-                    
+
+
+
                 </StackLayout>
-                
-                   
-               
+
+
+
             </StackLayout>
-           
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

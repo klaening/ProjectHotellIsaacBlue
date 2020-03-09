@@ -49,13 +49,10 @@
                     Margin="0,0,0,0"
                     Clicked="bookParking_Clicked"/>
             
-            <Label Text="Available Cars to Hire: 15/20"
-                   HorizontalOptions="Center"
-                   Margin="0,8,0,0"/>
             <StackLayout>
 
                 <StackLayout HeightRequest="60"
-                             Margin="0,15,0,0">
+                             Margin="0,40,0,0">
                     <Grid BackgroundColor="#464646">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
