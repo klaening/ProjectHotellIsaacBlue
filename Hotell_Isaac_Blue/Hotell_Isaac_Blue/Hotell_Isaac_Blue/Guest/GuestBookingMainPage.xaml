@@ -7,32 +7,85 @@
              x:Class="Hotell_Isaac_Blue.GuestBookingMainPage">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
-                <StackLayout x:Name="Header"
-                             HeightRequest="150">
-                    <Label Text="Booking"
-                           HorizontalTextAlignment="Center"
-                           VerticalTextAlignment="Center"
-                           FontSize="40"
-                           Margin="0,50,0,0"/>
-                </StackLayout>
-                <StackLayout x:Name="Info">
-                    <Label Margin="30, 10" 
-                           FontSize="15" 
-                           Text="Mozzarella roquefort cheddar. Goat cheesy grin camembert de normandie melted cheese cheesecake croque monsieur babybel gouda. Cream cheese melted cheese cheese triangles cheesy feet fromage frais squirty cheese cheese strings when the cheese comes out everybody's happy."/>
-                </StackLayout>
-                <Frame BackgroundColor="LightBlue" 
-                       CornerRadius="10" 
-                       Margin="35, 35"
-                       HasShadow="False">
-                    <StackLayout x:Name="Bookings" Margin="0, 35">
-                        <Label Text="You have no bookings at the moment"
-                               HorizontalTextAlignment="Center"/>
-                        <Button Text="New booking"
-                                Margin="60, 50, 60, 0"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height=".2*"/>
+                    <RowDefinition Height=".5*"/>
+                    <RowDefinition Height=".5*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Booking" 
+                       Grid.Column="0" Grid.Row="0"
+                       FontSize="35"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+                <Label Grid.Column="0" Grid.Row="1"
+                       FontSize="15"
+                       Margin="25,0"
+                       VerticalTextAlignment="Start">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim arcu id laoreet euismod. Nam metus nisi, elementum quis velit sed, luctus pharetra nunc. Vestibulum fringilla aliquet nisl id congue. Aenean ultricies lacus eget mattis placerat. Aliquam quis arcu risus. Nullam in diam mollis dui porttitor ornare ac sed orci.
+                </Label>
+                <Label Text="Your bookings:"
+                       FontSize="17"
+                       FontAttributes="Bold"
+                       Grid.Column="0" Grid.Row="2"
+                       VerticalOptions="Start"
+                       Margin="30,0"/>
+                <Frame Grid.Column="0" Grid.Row="3"
+                       BackgroundColor="LightBlue"
+                       CornerRadius="15"
+                       Margin="30, 0"
+                       HasShadow="False"
+                       BorderColor="Black">
+                    <StackLayout>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Booking Nr"
+                                   FontAttributes="Bold"
+                                   Grid.Row="0" Grid.Column="0"
+                                   HorizontalOptions="Start"/>
+                            <Label Text="Start Date"
+                                   FontAttributes="Bold"
+                                   Grid.Row="0" Grid.Column="1"
+                                   HorizontalOptions="Start"/>
+                            <Label Text="End Date"
+                                   FontAttributes="Bold"
+                                   Grid.Row="0" Grid.Column="2"
+                                   HorizontalOptions="Start"/>
+                                <Label Text="1882-15-1272" 
+                                       Grid.Row="1" Grid.Column="0"
+                                       HorizontalOptions="Start"/>
+                                <Label Text="2020-03-09" 
+                                       Grid.Row="1" Grid.Column="1"
+                                       HorizontalOptions="Start"/>
+                                <Label Text="2020-03-15" 
+                                       Grid.Row="1" Grid.Column="2"
+                                       HorizontalOptions="Start"/>
+                        </Grid>
                     </StackLayout>
                 </Frame>
-            </StackLayout>
+                <Button Text="New Booking"
+                        FontSize="17"
+                        FontAttributes="Bold"
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"/>
+            </Grid>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
