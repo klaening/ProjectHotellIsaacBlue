@@ -79,6 +79,7 @@
                     </StackLayout>
                 </Frame>
                 <Button Text="New Booking"
+                        Clicked="NewBooking_Clicked"
                         FontSize="17"
                         FontAttributes="Bold"
                         Grid.Row="4"
