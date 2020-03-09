@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestBookingSecondPage">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
             <Grid BackgroundColor="LightBlue">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -35,8 +35,8 @@
                 </StackLayout>
 
                 <BoxView Grid.Row="5" Grid.Column="0" Margin="30,10,30,10" CornerRadius="10" Grid.ColumnSpan="2" BackgroundColor="AliceBlue"/>
-                <StackLayout Grid.Row="5" Grid.ColumnSpan="2" Margin="40,20,40,10">
-                    <Grid BackgroundColor="MistyRose">
+                <StackLayout Grid.Row="5" Grid.ColumnSpan="2" Margin="40,20,40,20">
+                    <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -56,6 +56,6 @@
                 <Button Grid.Row="6" Text="Results" CornerRadius="10" HorizontalOptions="Center" BorderWidth="50"  Grid.ColumnSpan="2">
                 </Button>
             </Grid>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
