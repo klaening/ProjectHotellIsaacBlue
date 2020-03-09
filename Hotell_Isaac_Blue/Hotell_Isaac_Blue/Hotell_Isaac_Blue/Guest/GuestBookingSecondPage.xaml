@@ -33,16 +33,29 @@
                     <DatePicker FontSize="24"/>
                     <Label Text="Dates shown here" Margin="10,0,0,0" FontSize="24"></Label>
                 </StackLayout>
-                
+
                 <BoxView Grid.Row="5" Grid.Column="0" Margin="30,10,30,10" CornerRadius="10" Grid.ColumnSpan="2" BackgroundColor="AliceBlue"/>
-                <StackLayout Grid.Row="5" Margin="30,10,10,10">
-                    <Label Text="Room 1"></Label>
+                <StackLayout Grid.Row="5" Grid.ColumnSpan="2" Margin="40,20,40,10">
+                    <Grid BackgroundColor="MistyRose">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="ROOM 1" FontSize="20" TextColor="SlateGray" Grid.Row="0" Grid.Column="0"/>
+                        <Label Text="No of guests" FontSize="20" Grid.Row="3"/>
+                        <Label Text="Add another room" FontSize="20" Grid.Row="6" Grid.Column="1"/>
+                        <Picker Grid.Row="3" Grid.Column="1"></Picker>
+                    </Grid>
                 </StackLayout>
                 <Button Grid.Row="6" Text="Results" CornerRadius="10" HorizontalOptions="Center" BorderWidth="50"  Grid.ColumnSpan="2">
                 </Button>
-
             </Grid>
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
