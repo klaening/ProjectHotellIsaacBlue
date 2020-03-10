@@ -16,5 +16,39 @@ namespace Hotell_Isaac_Blue
         {
             InitializeComponent();
         }
+
+        private void Result_Btn_Clicked(object sender, EventArgs e)
+        {
+            //Navigation.PushAsync(NavigationPage(new GuestBookingThirdPage));
+        }
+
+        private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)
+        {
+            SDDateLabel.Text = e.NewDate.ToShortDateString();
+
+            //string date = e.NewDate.ToLongDateString();
+            //string[] dateSplit = date.Split(' ');
+            //char[] dayFull = dateSplit[0].ToCharArray();
+            //string dayShort = string.Empty;
+            
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    dayShort += dayFull[i];
+            //}
+
+            //date = dayShort;
+
+            //for (int i = 1; i < date.Length; i++)
+            //{
+            //    date += " " + date[i];
+            //}
+
+            //DateLabel.Text = date;
+        }
+
+        private void DatePickerED_DateSelected(object sender, DateChangedEventArgs e)
+        {
+            EDDateLabel.Text = e.NewDate.ToShortDateString(); 
+        }
     }
 }
