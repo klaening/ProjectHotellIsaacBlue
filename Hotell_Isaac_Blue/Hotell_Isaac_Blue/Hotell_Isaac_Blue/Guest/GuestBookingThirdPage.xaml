@@ -32,11 +32,19 @@
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
+                        
                         <Label Text="Name:" 
                            Grid.Column="0" Grid.Row="0"/>
                         <Label Text="Email:"
@@ -47,16 +55,39 @@
                            Grid.Column="0" Grid.Row="3"/>
                         <Label Text="Roomtype:" 
                            Grid.Column="0" Grid.Row="4"/>
-                        <StackLayout Grid.Column="0"
-                                     Grid.Row="5"
-                                     Margin="10,0,0,0">
-                            <Label Text="No of rooms"/>
-                        </StackLayout>
-                        <Label Text="Roomtype:"
-                           Grid.Column="0" Grid.Row="6"/>
                         
+                        <Label Text="No of rooms"
+                               Grid.Column="0" Grid.Row="5"
+                               Margin="15,0"/>
+                        <Label Text="Price"
+                               Grid.Column="0" Grid.Row="6"
+                               Margin="15,0"/>
+                        <Label Text="Extra bed"
+                               Grid.Column="0" Grid.Row="7"
+                               Margin="15,0"/>
+                        <Label Text="Breakfast"
+                               Grid.Column="0" Grid.Row="8"
+                               Margin="15,0"/>
+
+
+                        <Label Text="Roomtype:"
+                           Grid.Column="0" Grid.Row="10"/>
+
+                        <Label Text="No of rooms"
+                               Grid.Column="0" Grid.Row="11"
+                               Margin="15,0"/>
+                        <Label Text="Price"
+                               Grid.Column="0" Grid.Row="12"
+                               Margin="15,0"/>
+                        <Label Text="Extra bed"
+                               Grid.Column="0" Grid.Row="13"
+                               Margin="15,0"/>
+                        <Label Text="Breakfast"
+                               Grid.Column="0" Grid.Row="14"
+                               Margin="15,0"/>
+
                         <Label Text="Total Cost:" 
-                           Grid.Column="0" Grid.Row="8"/>
+                           Grid.Column="0" Grid.Row="16"/>
 
                         <!--Här börjar användarspecifik input-->
 
@@ -70,18 +101,42 @@
                            Grid.Column="1" Grid.Row="3"/>
                         <Label Text="1-bed room" 
                            Grid.Column="1" Grid.Row="4"/>
+
+                        <Label Text="2"
+                               Grid.Column="1" Grid.Row="5"/>
+                        <Label Text="125"
+                               Grid.Column="1" Grid.Row="6"/>
+                        <Label Text="YES"
+                               Grid.Column="1" Grid.Row="7"/>
+                        <Label Text="YES"
+                               Grid.Column="1" Grid.Row="8"/>
+
                         <Label Text="2-bed room"
-                           Grid.Column="1" Grid.Row="6"/>
+                           Grid.Column="1" Grid.Row="10"/>
+
+                        <Label Text="2"
+                               Grid.Column="1" Grid.Row="11"/>
+                        <Label Text="125"
+                               Grid.Column="1" Grid.Row="12"/>
+                        <Label Text="YES"
+                               Grid.Column="1" Grid.Row="13"/>
+                        <Label Text="YES"
+                               Grid.Column="1" Grid.Row="14"/>
+
                         <Label Text="1213:-" 
-                           Grid.Column="1" Grid.Row="8"/>
+                           Grid.Column="1" Grid.Row="16"/>
+
+                     
                     </Grid>
                 </StackLayout>
             </Frame>
-            <Button Text="Confirm Booking"
+            <Button x:Name="confirmBooking"
+                    Text="Confirm Booking"
                     FontSize="16"
                     FontAttributes="Bold"
                     HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    Clicked="confirmBooking_Clicked"/>
         </StackLayout>
         
     </ContentPage.Content>
