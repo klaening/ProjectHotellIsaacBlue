@@ -9,7 +9,7 @@
         <ScrollView>
             <Grid BackgroundColor="LightBlue">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="80"/>
                     <RowDefinition Height="180"/>
                     <RowDefinition Height="250"/>
                     <RowDefinition Height="60"/>
@@ -51,11 +51,20 @@
                     </StackLayout>
                 </Frame>
 
-                <Frame Grid.Row="1" 
+                <Button x:Name="SDBtn"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="30,10,10,10" 
+                       CornerRadius="10" 
+                       BackgroundColor="Transparent"
+                       Clicked="SDBtn_Clicked"/>
+
+                <Frame
+                    Grid.Row="1" 
                        Grid.Column="1" 
                        Margin="10,10,30,10" 
                        CornerRadius="10" 
-                       Padding="5,0,5,0"
+                       Padding="0,0,0,0"
                        BackgroundColor="GhostWhite">
 
                     <StackLayout >
@@ -85,6 +94,14 @@
                         </Grid>
                     </StackLayout>
                 </Frame>
+
+                <Button x:Name="EDBtn"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       Margin="10,10,30,10" 
+                       CornerRadius="10" 
+                       BackgroundColor="Transparent"
+                       Clicked="EDBtn_Clicked"/>
 
                 <Frame Grid.Row="2" 
                        Grid.Column="0" 

@@ -50,5 +50,15 @@ namespace Hotell_Isaac_Blue
         {
             EDDateLabel.Text = e.NewDate.ToShortDateString(); 
         }
+
+        private void EDBtn_Clicked(object sender, EventArgs e)
+        {
+            DatePickerED.Focus();
+        }
+
+        private void SDBtn_Clicked(object sender, EventArgs e)
+        {
+            DatePickerSD.Focus();
+        }
     }
 }
