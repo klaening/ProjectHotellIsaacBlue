@@ -14,7 +14,28 @@ namespace Hotell_Isaac_Blue.Guest.GuestBreakfast
     {
         public GuestBreakfastPage3()
         {
+           
             InitializeComponent();
+        }
+
+        private void Breakfast_AddToBooking_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FirstPage_Home_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GuestMainPage());
+        }
+
+        private void Contact_Us_Page_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MySettings_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

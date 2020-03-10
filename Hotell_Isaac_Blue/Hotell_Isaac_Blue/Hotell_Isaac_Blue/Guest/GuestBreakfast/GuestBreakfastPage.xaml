@@ -41,11 +41,11 @@
                    HorizontalOptions="Center"
                    Margin="0,5,0,10"/>
 
-            <Button x:Name="buyingBreakfast" Text="Buy Breakfast" 
+            <Button x:Name="Breakfast_Buy" Text="Buy Breakfast" 
                     WidthRequest="200"
                     HorizontalOptions="Center"
                     CornerRadius="10" 
-                    Clicked="buyingBreakfast_Clicked" />
+                    Clicked="Breakfast_Buy_Clicked" />
             
             <StackLayout>
                 <Grid>
@@ -72,7 +72,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="GuestBreakfastHome" 
+                        <Button x:Name="FirstPage_Home" 
                                Text="HOME" 
                                Grid.Column="1"
                                HorizontalOptions="Center"
@@ -80,25 +80,27 @@
                                FontSize="14"
                                FontAttributes="Bold"
                                TextColor="White"
-                               Clicked="GuestBreakfastHome_Clicked" 
+                               Clicked="FirstPage_Home_Clicked"
                                 />
-                        <Button Text="Contact Us"
+                        <Button x:Name="Contact_Us_Page" Text="Contact Us"
                                BackgroundColor="#464646"
                                TextColor="White"
                                Grid.Column="2"
                                VerticalOptions="Center"
                                FontSize="14"
                                FontAttributes="Bold"
-                               HorizontalOptions="Center"/>
+                               HorizontalOptions="Center"
+                               Clicked="Contact_Us_Page_Clicked"/>
                         
-                        <Button Text="My Settings"
+                        <Button x:Name="MySettings" Text="My Settings"
                                BackgroundColor="#464646"
                                TextColor="White"
                                Grid.Column="0"
                                VerticalOptions="Center"
                                FontSize="14"
                                FontAttributes="Bold"
-                               HorizontalOptions="Center"/>
+                               HorizontalOptions="Center"
+                               Clicked="MySettings_Clicked"/>
 
                     </Grid>
                    

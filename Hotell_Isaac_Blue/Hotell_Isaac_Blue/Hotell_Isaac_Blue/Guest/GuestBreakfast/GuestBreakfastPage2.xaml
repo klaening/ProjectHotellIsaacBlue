@@ -33,7 +33,7 @@
                    HorizontalOptions="Center"
                    Margin="0,5,0,10"/>
             
-            <Entry x:Name="breakfastBookingEntry" Placeholder="Enter your booking Nr"
+            <Entry x:Name="BreakfastEntry" Placeholder="Enter your booking Nr"
                    FontAttributes="Bold"
                    TextColor="Black"
                    FontSize="15"
@@ -41,12 +41,12 @@
 
             
 
-            <Button x:Name="goToBreakfastPage3" Text="Continue" 
+            <Button x:Name="Breakfast_Continue" Text="Continue" 
                     WidthRequest="200"
                     HorizontalOptions="Center"
                     CornerRadius="10"
                     Margin="0,0,0,20"
-                    Clicked="goToBreakfastPage3_Clicked"/>
+                    Clicked="Breakfast_Continue_Clicked"/>
 
             <StackLayout>
                 <Grid>
@@ -73,31 +73,34 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="GuestBreakfastHome" 
+                        <Button x:Name="FirstPage_Home" 
                                Text="HOME" 
                                Grid.Column="1"
                                HorizontalOptions="Center"
                                BackgroundColor="#464646" 
                                FontSize="14"
                                FontAttributes="Bold"
-                               TextColor="White" />
-                        <Button Text="Contact Us"
+                               TextColor="White" 
+                               Clicked="FirstPage_Home_Clicked" />
+                        <Button x:Name="Contact_Us_Page" Text="Contact Us"
                                BackgroundColor="#464646"
                                TextColor="White"
                                Grid.Column="2"
                                VerticalOptions="Center"
                                FontSize="14"
                                FontAttributes="Bold"
-                               HorizontalOptions="Center"/>
+                               HorizontalOptions="Center"
+                               Clicked="Contact_Us_Page_Clicked"/>
 
-                        <Button Text="My Settings"
+                        <Button x:Name="MySettings" Text="My Settings"
                                BackgroundColor="#464646"
                                TextColor="White"
                                Grid.Column="0"
                                VerticalOptions="Center"
                                FontSize="14"
                                FontAttributes="Bold"
-                               HorizontalOptions="Center"/>
+                               HorizontalOptions="Center"
+                               Clicked="MySettings_Clicked"/>
 
                     </Grid>
 

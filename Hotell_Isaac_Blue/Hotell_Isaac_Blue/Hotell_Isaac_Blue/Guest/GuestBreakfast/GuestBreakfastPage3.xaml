@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -80,7 +80,7 @@
                     Grid.Column="0"
                     Grid.Row="3"/>
 
-                    <Label x:Name="bookingNrBreakfastCheckStatus" Text="001-789-5656-n"
+                   <Label x:Name="bookingNrBreakfastCheckStatus" Text="005-554-3-N"
                     Grid.Column="1"
                     Grid.Row="3"/>
 
@@ -105,11 +105,12 @@
 
 
 
-            <Button Text="Add Breakfast To Your Booking" 
+            <Button x:Name="Breakfast_AddToBooking" Text="Add Breakfast To Your Booking" 
                     WidthRequest="200"
                     HorizontalOptions="Center"
                     CornerRadius="10"
-                    Margin="0,20,0,20"/>
+                    Margin="0,20,0,20"
+                    Clicked="Breakfast_AddToBooking_Clicked"/>
 
             <StackLayout>
                 <Grid>
@@ -136,31 +137,36 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="GuestBreakfastHome" 
+                        <Button x:Name="FirstPage_Home" 
                                Text="HOME" 
                                Grid.Column="1"
                                HorizontalOptions="Center"
                                BackgroundColor="#464646" 
                                FontSize="14"
                                FontAttributes="Bold"
-                               TextColor="White" />
-                        <Button Text="Contact Us"
+                               TextColor="White" 
+                               Clicked="FirstPage_Home_Clicked"/>
+                        <Button x:Name="Contact_Us_Page" 
+                               Text="Contact Us"
                                BackgroundColor="#464646"
                                TextColor="White"
                                Grid.Column="2"
                                VerticalOptions="Center"
                                FontSize="14"
                                FontAttributes="Bold"
-                               HorizontalOptions="Center"/>
+                               HorizontalOptions="Center"
+                               Clicked="Contact_Us_Page_Clicked"/>
 
-                        <Button Text="My Settings"
+                        <Button x:Name="MySettings" 
+                               Text="My Settings"
                                BackgroundColor="#464646"
                                TextColor="White"
                                Grid.Column="0"
                                VerticalOptions="Center"
                                FontSize="14"
                                FontAttributes="Bold"
-                               HorizontalOptions="Center"/>
+                               HorizontalOptions="Center"
+                               Clicked="MySettings_Clicked"/>
 
                     </Grid>
 
