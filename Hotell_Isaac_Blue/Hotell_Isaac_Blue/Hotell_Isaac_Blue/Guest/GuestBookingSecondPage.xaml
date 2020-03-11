@@ -6,102 +6,106 @@
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestBookingSecondPage">
     <ContentPage.Content>
-        <ScrollView>
-            <Grid BackgroundColor="LightBlue">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
-                    <RowDefinition Height="180"/>
-                    <RowDefinition Height="250"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+        <ScrollView BackgroundColor="LightBlue">
+            <StackLayout>
+                <Label HorizontalOptions="Center" FontSize="Title" Margin="0,20,0,30">Make a booking</Label>
 
-                <Frame Grid.Row="1" 
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="180"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame Grid.Row="0" 
                        Grid.Column="0" 
                        Margin="30,10,10,10" 
                        CornerRadius="10"
                        Padding="5,0,5,0"
                        BackgroundColor="GhostWhite">
 
-                    <StackLayout>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
 
-                            <Label Grid.Row="0"
-                               Text="Start Date"
-                               Margin="10,8"
-                               TextColor="Black"
-                               FontSize="20"/>
+                                <Label Grid.Row="0"
+                                   Text="Start Date"
+                                   Margin="10,8"
+                                   TextColor="Black"
+                                   FontSize="20"/>
 
-                            <DatePicker x:Name="DatePickerSD" 
-                                        Grid.Row="0"
-                                        FontSize="24"
-                                        TextColor="Transparent"
-                                        DateSelected="DatePickerSD_DateSelected"/>
+                                <DatePicker x:Name="DatePickerSD" 
+                                            Grid.Row="0"
+                                            FontSize="24"
+                                            TextColor="Transparent"
+                                            DateSelected="DatePickerSD_DateSelected"/>
 
-                            <Label x:Name="SDDateLabel"
-                                Grid.Row="1"  
-                                FontSize="30"
-                                HorizontalOptions="Center"/>
-                        </Grid>
-                    </StackLayout>
-                </Frame>
+                                <Label x:Name="SDDateLabel"
+                                    Grid.Row="1"  
+                                    FontSize="30"
+                                    HorizontalOptions="Center"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
 
-                <Button x:Name="SDBtn"
-                       Grid.Row="1"
+                    <Button x:Name="SDBtn"
+                       Grid.Row="0"
                        Grid.Column="0"
                        Margin="30,10,10,10" 
                        CornerRadius="10" 
                        BackgroundColor="Transparent"
                        Clicked="SDBtn_Clicked"/>
 
-                <Frame
-                    Grid.Row="1" 
+                    <Frame Grid.Row="0" 
                        Grid.Column="1" 
                        Margin="10,10,30,10" 
-                       CornerRadius="10" 
-                       Padding="0,0,0,0"
+                       CornerRadius="10"
+                       Padding="5,0,5,0"
                        BackgroundColor="GhostWhite">
 
-                    <StackLayout >
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
 
-                            <Label Grid.Row="0"
-                               Text="End Date"
-                               Margin="10,8"
-                               TextColor="Black"
-                               FontSize="20"/>
+                                <Label Grid.Row="0"
+                                   Text="End Date"
+                                   Margin="10,8"
+                                   TextColor="Black"
+                                   FontSize="20"/>
 
-                            <DatePicker x:Name="DatePickerED" 
-                                        Grid.Row="0"
-                                        FontSize="24"
-                                        TextColor="Transparent"
-                                        DateSelected="DatePickerED_DateSelected"/>
+                                <DatePicker x:Name="DatePickerED" 
+                                            Grid.Row="0"
+                                            FontSize="24"
+                                            TextColor="Transparent"
+                                            DateSelected="DatePickerED_DateSelected"/>
 
-                            <Label x:Name="EDDateLabel"
-                                Grid.Row="1"  
-                                FontSize="30"
-                                HorizontalOptions="Center"/>
-                        </Grid>
-                    </StackLayout>
-                </Frame>
+                                <Label x:Name="EDDateLabel"
+                                    Grid.Row="1"  
+                                    FontSize="30"
+                                    HorizontalOptions="Center"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
 
-                <Button x:Name="EDBtn"
-                       Grid.Row="1"
+                    <Button x:Name="EDBtn"
+                       Grid.Row="0"
                        Grid.Column="1"
                        Margin="10,10,30,10" 
                        CornerRadius="10" 
                        BackgroundColor="Transparent"
                        Clicked="EDBtn_Clicked"/>
+
+                </Grid>
 
                 <Frame Grid.Row="2" 
                        Grid.Column="0" 
@@ -148,18 +152,19 @@
                         </Grid>
                     </StackLayout>
                 </Frame>
-                
+
                 <Button x:Name="Result_Btn"
-                    Grid.Row="3"
-                        Text="Results" 
+                        Grid.Row="3" 
+                        Margin="10"
+                        Text="Results"
                         CornerRadius="10" 
                         HorizontalOptions="Center"
                         BorderWidth="50"  
                         Grid.ColumnSpan="2"
                         Clicked="Result_Btn_Clicked">
                 </Button>
-
-                <!--<Frame Margin="10"
+            </StackLayout>
+            <!--<Frame Margin="10"
                        Padding="0"
                        CornerRadius="10"
                        BackgroundColor="White">
@@ -180,8 +185,6 @@
                         </BoxView>
                     </StackLayout>
                 </Frame>-->
-
-            </Grid>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

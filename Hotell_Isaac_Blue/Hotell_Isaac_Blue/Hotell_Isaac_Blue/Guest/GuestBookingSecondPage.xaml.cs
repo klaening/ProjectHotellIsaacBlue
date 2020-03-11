@@ -26,11 +26,11 @@ namespace Hotell_Isaac_Blue
         {
             SDDateLabel.Text = e.NewDate.ToShortDateString();
 
-            //string date = e.NewDate.ToLongDateString();
+            //string date = e.NewDate.ToLongDateString().ToString();
             //string[] dateSplit = date.Split(' ');
             //char[] dayFull = dateSplit[0].ToCharArray();
             //string dayShort = string.Empty;
-            
+
             //for (int i = 0; i < 3; i++)
             //{
             //    dayShort += dayFull[i];
@@ -43,7 +43,7 @@ namespace Hotell_Isaac_Blue
             //    date += " " + date[i];
             //}
 
-            //DateLabel.Text = date;
+            //SDDateLabel.Text = date;
         }
 
         private void DatePickerED_DateSelected(object sender, DateChangedEventArgs e)
