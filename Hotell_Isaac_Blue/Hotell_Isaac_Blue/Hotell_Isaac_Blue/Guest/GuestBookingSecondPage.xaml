@@ -14,10 +14,6 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="180"/>
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
 
                     <Frame Grid.Row="0" 
                        Grid.Column="0" 
