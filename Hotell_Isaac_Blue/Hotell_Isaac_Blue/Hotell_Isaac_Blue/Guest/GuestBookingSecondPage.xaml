@@ -116,7 +116,6 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
-                                <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -140,7 +139,7 @@
                                     <x:String>Family</x:String>
                                 </Picker.Items>
                             </Picker>
-                            
+
                             <Label Text="No of guests" 
                                    Grid.Row="1"
                                    Grid.Column="0"
@@ -158,52 +157,64 @@
                                     <x:String>2</x:String>
                                 </Picker.Items>
                             </Picker>
+                        </Grid>
+                        <Frame x:Name="OptionsFrame"
+                               IsVisible="False"
+                               BackgroundColor="LightGray"
+                               CornerRadius="10">
 
-                            <Label Text="Extra bed"
-                                   Grid.Row="2"
-                                   Grid.Column="0"
-                                   FontSize="20"
-                                   VerticalOptions="Center"/>
+                            <StackLayout>
+                                <Grid>
+                                    <Label Text="Extra bed"
+                                           Grid.Row="0"
+                                           Grid.Column="0"
+                                           FontSize="20"
+                                           VerticalOptions="Center"/>
 
-                            <Switch x:Name="Bed_Switch"
-                                    Grid.Row="2"
-                                    Grid.Column="1"
-                                    HorizontalOptions="Center"/>
+                                    <Switch x:Name="Bed_Switch"
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            HorizontalOptions="Center"/>
 
-                            <Label Text="Breakfast"
-                                   Grid.Row="3"
-                                   Grid.Column="0"
-                                   FontSize="20"
-                                   VerticalOptions="Center"/>
+                                    <Label Text="Breakfast"
+                                           Grid.Row="1"
+                                           Grid.Column="0"
+                                           FontSize="20"
+                                           VerticalOptions="Center"/>
 
-                            <Switch x:Name="Breakfast_Switch"
-                                    Grid.Row="3"
-                                    Grid.Column="1"
-                                    HorizontalOptions="Center"/>
+                                    <Switch x:Name="Breakfast_Switch"
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            HorizontalOptions="Center"/>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
 
-                            <Label x:Name="AddRoomLabel"
+
+                        <Grid>
+                        <Button x:Name="Options_Btn"
+                                Text="+"
+                                FontSize="28"
+                                TextColor="Blue"
+                                HorizontalOptions="Start"
+                                FontAttributes="Bold"
+                                WidthRequest="38"
+                                HeightRequest="38"
+                                BorderRadius="19"
+                                Padding="0"
+                                BackgroundColor="GhostWhite"
+                                BorderColor="Blue"
+                                BorderWidth="3"
+                                Clicked="Options_Btn_Clicked"/>
+
+                        <Label x:Name="AddRoomLabel"
                                    Text="Add another room"
                                    FontSize="20" 
-                                   Grid.Row="4" 
-                                   TextColor="Blue"
+                                   Grid.Row="0"
                                    Grid.Column="1"
-                                   VerticalTextAlignment="End"/>
-
-                            <!--<Button x:Name="Options_Btn"
-                                    Text="+"
-                                    FontSize="20"
-                                    TextColor="Blue"
-                                    Grid.Row="3"
-                                    Grid.Column="0"
-                                    HorizontalOptions="StartAndExpand"
-                                    VerticalOptions="CenterAndExpand"
-                                    WidthRequest="38"
-                                    HeightRequest="38"
-                                    BorderRadius="19"
-                                    Padding="0"
-                                    BackgroundColor="GhostWhite"
-                                    BorderColor="Blue"
-                                    BorderWidth="2"/>-->
+                                   TextColor="Blue"
+                                   VerticalTextAlignment="End"
+                                   HorizontalTextAlignment="End"/>
                         </Grid>
                     </StackLayout>
                 </Frame>

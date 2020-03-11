@@ -15,12 +15,12 @@ namespace Hotell_Isaac_Blue
         public GuestBookingSecondPage()
         {
             InitializeComponent();
-            AddTappers();
+            AddTapGestures();
         }
 
         private void Result_Btn_Clicked(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(NavigationPage(new GuestBookingThirdPage));
+            Navigation.PushAsync(new GuestBookingThirdPage());
         }
         private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)
         {
@@ -51,7 +51,7 @@ namespace Hotell_Isaac_Blue
             //EDDateLabel.Text = date;
         }
 
-        void AddTappers()
+        void AddTapGestures()
         {
             var tapSDFrame = new TapGestureRecognizer();
             tapSDFrame.Tapped += SDFrame_Tapped;
@@ -79,6 +79,20 @@ namespace Hotell_Isaac_Blue
         private void AddRoomLabel_Tapped(object sender, EventArgs e)
         {
             DisplayAlert("Alert", "Want to be able to add more frames", "OK");
+        }
+
+        private void Options_Btn_Clicked(object sender, EventArgs e)
+        {
+            if (OptionsFrame.IsVisible == false)
+            {
+                Options_Btn.Text = "-";
+                OptionsFrame.IsVisible = true;
+            }
+            else
+            {
+                Options_Btn.Text = "+";
+                OptionsFrame.IsVisible = false;
+            }
         }
     }
 }
