@@ -12,6 +12,8 @@ namespace Hotell_Isaac_Blue
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GuestBookingSecondPage : ContentPage
     {
+        DateTime startDate;
+        DateTime endDate;
         public GuestBookingSecondPage()
         {
             InitializeComponent();
@@ -24,18 +26,48 @@ namespace Hotell_Isaac_Blue
         }
         private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)
         {
-            (string date, string year) = ReturnDateAndYear(e.NewDate.ToLongDateString());
+            if (e.NewDate < DateTime.Now.Date)
+            {
+                DisplayAlert("Alert", "Start date can not preceed today's date", "OK");
+            }
+            else
+            {
+                startDate = e.NewDate;
+                (string date, string year) = ReturnDateAndYear(e.NewDate.ToLongDateString());
 
-            SDDateLabel.Text = date;
-            SDYearLabel.Text = year;
+                SDDateLabel.Text = date;
+                SDYearLabel.Text = year;
+
+                if (EDDateLabel.Text != null)
+                    TotDaysLabel.Text = CalculateTotalDays();
+            }
         }
 
         private void DatePickerED_DateSelected(object sender, DateChangedEventArgs e)
         {
-            (string date, string year) = ReturnDateAndYear(e.NewDate.ToLongDateString());
+            if (e.NewDate <= startDate)
+            {
+                DisplayAlert("Alert", "End date can not preceed start date", "OK");
+            }
+            else
+            {
+                endDate = e.NewDate;
+                (string date, string year) = ReturnDateAndYear(e.NewDate.ToLongDateString());
 
-            EDDateLabel.Text = date;
-            EDYearLabel.Text = year;
+                EDDateLabel.Text = date;
+                EDYearLabel.Text = year;
+
+                if (SDDateLabel.Text != null)
+                    TotDaysLabel.Text = CalculateTotalDays();
+            }
+        }
+
+        private string CalculateTotalDays()
+        {
+            TimeSpan ts = endDate - startDate;
+            int days = (int)ts.TotalDays;
+
+            return "Total days: " + days;
         }
 
         private (string date, string year) ReturnDateAndYear(string longDate)
