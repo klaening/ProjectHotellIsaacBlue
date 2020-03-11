@@ -20,9 +20,11 @@
       <HintPath>..\..\..\..\..\Microsoft\Xamarin\NuGet\xamarin.forms\4.3.0.908675\lib\MonoAndroid90\Xamarin.Forms.Platform.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
-
   <ItemGroup>
     <EmbeddedResource Update="Guest\GuestBookingSecondPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Guest\GuestBookingThirdPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Guest\GuestBookingMainPage.xaml">
