@@ -3,13 +3,169 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mymap="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestInfoPage">
+
+
+
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Info"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+            <Grid>
+                
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label
+                    
+                Text="About Hotel Isaac"
+                FontFamily="PatrickHand-Regular.ttf#PatrickHand-Regular.ttf"
+                FontAttributes="Bold"
+                FontSize="35"
+                TextColor="Black"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                HorizontalTextAlignment="Center"
+                Grid.Row="0"
+                />
+
+                <Image
+                Source="unnamed.jpg"  
+                Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                Grid.Row="1"
+                ScaleX="1.6"
+                    ScaleY="1.4"
+                />
+
+                <Label
+                Text="This hotel was built by the great and wise Svenne the year 1950. He built the hotel to create the Home feeling for the customers. Today we can offer you a nice outside pool and 10 rooms. " 
+                    FontSize="20"
+                    TextColor="Black"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="4"
+                    Grid.Row="3"
+                    Margin="20,0,0,20"
+                />
+
+                    <mymap:Map
+                        Grid.Column="0"
+                        Grid.ColumnSpan="4"
+                    Grid.Row="4"
+                        Grid.RowSpan="1"
+                        Margin="20"
+                    />
+
+
+
+                </Grid>
+                
+                
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                    Grid.Column="1"
+                        Grid.Row="0"
+                        Source="ic_restaurant_menu.png"
+                        Scale="2"
+                        
+                        />
+
+                    <Label
+                    Text='The Restaurant'    
+                        FontSize="35"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        HorizontalOptions="Center"
+                        Grid.Row="1"
+                        
+                    />
+
+                    <Label
+                    Text="Our restaurant is represented by italian chefs and swedish waiters. The mix between them two makes the dish pasta and meatballs the ulitamte choice."
+                        FontSize="20"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Grid.Row="2"
+                        HorizontalTextAlignment="Center"
+                        />
+                    
+                    
+                        <Label
+                    Text='Have any questions?'    
+                        FontSize="35"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        HorizontalOptions="Center"
+                        Grid.Row="3"
+                        
+                    />
+
+                    <Image
+                    Grid.Column="1"
+                        Grid.Row="4"
+                        Source="ic_contact_phone.png"
+                        Scale="2"
+                     
+                    />
+                    
+                    <Label
+                        Text="031-20 30 40"
+                        FontSize="20"
+                        TextColor="Black"
+                        Grid.Column="1"
+                        HorizontalTextAlignment="Center"
+                        Grid.Row="5"
+                    />
+
+                    <Image
+                    Grid.Column="1"
+                        Grid.Row="6"
+                        Source="ic_contact_mail.png"
+                        Scale="2"
+                     
+                    />
+
+                    <Label
+                        Text="info@hotelisaac.com"
+                        FontSize="20"
+                        TextColor="Black"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        HorizontalTextAlignment="Center"
+                        Grid.Row="7"
+                    />
+
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
