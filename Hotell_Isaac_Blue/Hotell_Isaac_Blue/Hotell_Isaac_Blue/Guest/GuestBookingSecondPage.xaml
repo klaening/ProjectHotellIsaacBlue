@@ -46,9 +46,16 @@
                                             DateSelected="DatePickerSD_DateSelected"/>
 
                                 <Label x:Name="SDDateLabel"
-                                        Grid.Row="1"  
-                                        FontSize="30"
-                                        HorizontalOptions="Center"/>
+                                       Grid.Row="1"
+                                       FontSize="30"
+                                       TextColor="Blue"
+                                       Padding="5,0,0,0"/>
+
+                                <Label x:Name="SDYearLabel"
+                                       Grid.Row="2"
+                                       FontSize="20"
+                                       TextColor="Black"
+                                       Padding="5,0,0,0"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
@@ -84,9 +91,16 @@
                                             DateSelected="DatePickerED_DateSelected"/>
 
                                 <Label x:Name="EDDateLabel"
-                                        Grid.Row="1"  
-                                        FontSize="30"
-                                        HorizontalOptions="Center"/>
+                                       Grid.Row="1"
+                                       FontSize="30"
+                                       TextColor="Blue"
+                                       Padding="5,0,0,0"/>
+
+                                <Label x:Name="EDYearLabel"
+                                       Grid.Row="2"
+                                       FontSize="20"
+                                       TextColor="Black"
+                                       Padding="5,0,0,0"/>
                             </Grid>
                         </StackLayout>
                     </Frame>

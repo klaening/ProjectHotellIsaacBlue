@@ -24,31 +24,34 @@ namespace Hotell_Isaac_Blue
         }
         private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)
         {
-            SDDateLabel.Text = e.NewDate.ToShortDateString();
+            (string date, string year) = ReturnDateAndYear(e.NewDate.ToLongDateString());
+
+            SDDateLabel.Text = date;
+            SDYearLabel.Text = year;
         }
 
         private void DatePickerED_DateSelected(object sender, DateChangedEventArgs e)
         {
-            EDDateLabel.Text = e.NewDate.ToShortDateString();
-            
-            //string date = e.NewDate.ToLongDateString().ToString();
-            //string[] dateSplit = date.Split(' ');
-            //char[] dayFull = dateSplit[0].ToCharArray();
-            //string dayShort = string.Empty;
+            (string date, string year) = ReturnDateAndYear(e.NewDate.ToLongDateString());
 
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    dayShort += dayFull[i];
-            //}
+            EDDateLabel.Text = date;
+            EDYearLabel.Text = year;
+        }
 
-            //date = dayShort;
+        private (string date, string year) ReturnDateAndYear(string longDate)
+        {
+            string[] dateSplit = longDate.Split(' ');
+            string date = dateSplit[0].Remove(3) + ",";
+            dateSplit[1] = dateSplit[1].Remove(3);
+            dateSplit[2] = dateSplit[2].Remove(dateSplit[2].Length - 1);
+            string year = dateSplit[3];
 
-            //for (int i = 1; i < date.Length; i++)
-            //{
-            //    date += " " + date[i];
-            //}
+            for (int i = 1; i < 3; i++)
+            {
+                date += " " + dateSplit[i];
+            }
 
-            //EDDateLabel.Text = date;
+            return (date, year);
         }
 
         void AddTapGestures()
