@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotell_Isaac_Blue.Guest;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,11 @@ namespace Hotell_Isaac_Blue
         public GuestParkingPage()
         {
             InitializeComponent();
+        }
+
+        private void bookParking_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GuestParkingPage2());
         }
     }
 }

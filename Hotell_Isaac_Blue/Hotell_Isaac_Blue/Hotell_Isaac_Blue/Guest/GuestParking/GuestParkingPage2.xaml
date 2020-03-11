@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Hotell_Isaac_Blue.Guest.GuestParkingPage2">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Park Your Car And Walk"
+                   Grid.Row="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="Black"/>
+
+            <Image Source="parking"
+                   Grid.Row="1" 
+                   Aspect="AspectFill"/>
+
+            <BoxView BackgroundColor="#464646"
+                     HeightRequest="10"
+                     Margin="0,0,0,0"/>
+
+            <Label Text="We always insure that your car will be safe with us. We lock our floors seperatly to make it a little bit safer. You can also pay to get 1 weeks spot in a single Garage for a small extra fee.
+                   With our -Hotell Isaac Insurance Policy- your car is also washed and polished before your checkout from our hotel. Use our free bicycles or take a walk down to the city/beach instead of using your car."
+            
+                   FontSize="12"
+                   Margin="10,0,0,10"/>
+            <Label Text="Enter Book no:"
+                   FontAttributes="Bold"
+                   Margin="0,20,0,0"
+                   HorizontalOptions="Center"/>
+            <Entry Placeholder="Enter your book number here."
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontSize="15"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,0"/>
+
+            <Label Text="Add parkingspot to your booking"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"/>
+
+
+
+            <Button x:Name="continueParking" Text="Continue" 
+                    WidthRequest="200"
+                    HorizontalOptions="Center"
+                    CornerRadius="10"
+                    Margin="0,25,0,0"
+                    Clicked="continueParking_Clicked"
+                    />
+
+            <StackLayout>
+
+                <StackLayout HeightRequest="60"
+                             Margin="0,15,0,0">
+                    <Grid BackgroundColor="#464646">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="GuestBreakfastHome" 
+                               Text="HOME" 
+                               Grid.Column="1"
+                               HorizontalOptions="Center"
+                               BackgroundColor="#464646" 
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="White" 
+                                />
+                        <Button Text="Contact Us"
+                               BackgroundColor="#464646"
+                               TextColor="White"
+                               Grid.Column="2"
+                               VerticalOptions="Center"
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+
+                        <Button Text="My Settings"
+                               BackgroundColor="#464646"
+                               TextColor="White"
+                               Grid.Column="0"
+                               VerticalOptions="Center"
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+
+                    </Grid>
+
+
+
+                </StackLayout>
+
+
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
