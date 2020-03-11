@@ -220,15 +220,11 @@
                 </Frame>
 
                 <Button x:Name="Result_Btn"
-                        Grid.Row="3" 
                         Margin="10"
                         Text="Results"
                         CornerRadius="10" 
                         HorizontalOptions="Center"
-                        BorderWidth="50"  
-                        Grid.ColumnSpan="2"
-                        Clicked="Result_Btn_Clicked">
-                </Button>
+                        Clicked="Result_Btn_Clicked"/>
             </StackLayout>
             <!--<Frame Margin="10"
                        Padding="0"
