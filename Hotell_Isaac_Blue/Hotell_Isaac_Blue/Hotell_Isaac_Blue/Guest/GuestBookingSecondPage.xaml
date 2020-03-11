@@ -3,12 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:control="clr-namespace:Hotell_Isaac_Blue"
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestBookingSecondPage">
     <ContentPage.Content>
         <ScrollView BackgroundColor="LightBlue">
             <StackLayout>
-                <Label HorizontalOptions="Center" FontSize="Title" Margin="0,20,0,30">Make a booking</Label>
+                <Label Text="Make a booking"
+                       HorizontalOptions="Center" 
+                       FontSize="Title"
+                       Margin="0,20,0,30"/>
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -38,12 +42,6 @@
                                        FontAttributes="Bold"
                                        HorizontalOptions="Center"
                                        FontSize="20"/>
-
-                                <DatePicker x:Name="DatePickerSD" 
-                                            Grid.Row="0"
-                                            FontSize="20"
-                                            TextColor="Transparent"
-                                            DateSelected="DatePickerSD_DateSelected"/>
 
                                 <Label x:Name="SDDateLabel"
                                        Grid.Row="1"
@@ -83,12 +81,6 @@
                                        FontAttributes="Bold"
                                        HorizontalOptions="Center"
                                        FontSize="20"/>
-
-                                <DatePicker x:Name="DatePickerED" 
-                                            Grid.Row="0"
-                                            FontSize="20"
-                                            TextColor="Transparent"
-                                            DateSelected="DatePickerED_DateSelected"/>
 
                                 <Label x:Name="EDDateLabel"
                                        Grid.Row="1"
@@ -206,22 +198,8 @@
 
 
                         <Grid>
-                        <Button x:Name="Options_Btn"
-                                Text="+"
-                                FontSize="28"
-                                TextColor="Blue"
-                                HorizontalOptions="Start"
-                                FontAttributes="Bold"
-                                WidthRequest="38"
-                                HeightRequest="38"
-                                BorderRadius="19"
-                                Padding="0"
-                                BackgroundColor="GhostWhite"
-                                BorderColor="Blue"
-                                BorderWidth="3"
-                                Clicked="Options_Btn_Clicked"/>
 
-                        <Label x:Name="AddRoomLabel"
+                            <Label x:Name="AddRoomLabel"
                                    Text="Add another room"
                                    FontSize="20" 
                                    Grid.Row="0"
@@ -233,12 +211,6 @@
                     </StackLayout>
                 </Frame>
 
-                <Button x:Name="Result_Btn"
-                        Margin="10"
-                        Text="Results"
-                        CornerRadius="10" 
-                        HorizontalOptions="Center"
-                        Clicked="Result_Btn_Clicked"/>
             </StackLayout>
             <!--<Frame Margin="10"
                        Padding="0"

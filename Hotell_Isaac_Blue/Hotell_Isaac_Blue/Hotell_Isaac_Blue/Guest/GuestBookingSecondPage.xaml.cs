@@ -9,93 +9,77 @@ using Xamarin.Forms.Xaml;
 
 namespace Hotell_Isaac_Blue
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
+
     public partial class GuestBookingSecondPage : ContentPage
     {
+        StackLayout parent = null;
+        public int roomNo = 1;
         public GuestBookingSecondPage()
         {
             InitializeComponent();
-            AddTapGestures();
-        }
 
-        private void Result_Btn_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new GuestBookingThirdPage());
-        }
-        private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)
-        {
-            (string date, string year) = ReturnDateAndYear(e.NewDate.ToLongDateString());
+            parent = new StackLayout();
 
-            SDDateLabel.Text = date;
-            SDYearLabel.Text = year;
-        }
-
-        private void DatePickerED_DateSelected(object sender, DateChangedEventArgs e)
-        {
-            (string date, string year) = ReturnDateAndYear(e.NewDate.ToLongDateString());
-
-            EDDateLabel.Text = date;
-            EDYearLabel.Text = year;
-        }
-
-        private (string date, string year) ReturnDateAndYear(string longDate)
-        {
-            string[] dateSplit = longDate.Split(' ');
-            string date = dateSplit[0].Remove(3) + ",";
-            dateSplit[1] = dateSplit[1].Remove(3);
-            dateSplit[2] = dateSplit[2].Remove(dateSplit[2].Length - 1);
-            string year = dateSplit[3];
-
-            for (int i = 1; i < 3; i++)
+            Button add = new Button
             {
-                date += " " + dateSplit[i];
-            }
+                Text = "+",
+                FontSize = 20,
+                HorizontalOptions = LayoutOptions.Center,
+                BackgroundColor = Color.Red
+            };
 
-            return (date, year);
-        }
-
-        void AddTapGestures()
-        {
-            var tapSDFrame = new TapGestureRecognizer();
-            tapSDFrame.Tapped += SDFrame_Tapped;
-            SDFrame.GestureRecognizers.Add(tapSDFrame);
-
-            var tapEDFrame = new TapGestureRecognizer();
-            tapEDFrame.Tapped += EDFrame_Tapped;
-            EDFrame.GestureRecognizers.Add(tapEDFrame);
-
-            var tapAddRoomLabel = new TapGestureRecognizer();
-            tapAddRoomLabel.Tapped += AddRoomLabel_Tapped;
-            AddRoomLabel.GestureRecognizers.Add(tapAddRoomLabel);
-        }
-
-        private void SDFrame_Tapped(object sender, EventArgs e)
-        {
-            DatePickerSD.Focus();
-        }
-
-        private void EDFrame_Tapped(object sender, EventArgs e)
-        {
-            DatePickerED.Focus();
-        }
-
-        private void AddRoomLabel_Tapped(object sender, EventArgs e)
-        {
-            DisplayAlert("Alert", "Want to be able to add more frames", "OK");
-        }
-
-        private void Options_Btn_Clicked(object sender, EventArgs e)
-        {
-            if (OptionsFrame.IsVisible == false)
+            Button remove = new Button
             {
-                Options_Btn.Text = "-";
-                OptionsFrame.IsVisible = true;
-            }
-            else
+                Text = "-",
+                FontSize = 20,
+                HorizontalOptions = LayoutOptions.Center,
+                BackgroundColor = Color.Red
+            };
+
+            add.Clicked += Add_Clicked;
+            remove.Clicked += Remove_Clicked;
+
+            Label firstLabel = new Label
             {
-                Options_Btn.Text = "+";
-                OptionsFrame.IsVisible = false;
+                Text = "Label " + roomNo.ToString(),
+                FontSize = 20,
+                HorizontalOptions = LayoutOptions.Center,
+                Padding = new Thickness(10),
+                BackgroundColor = Color.Green
+            };
+
+            parent.Children.Add(add);
+            parent.Children.Add(remove);
+            parent.Children.Add(firstLabel);
+
+            Content = parent;
+        }
+
+        private void Remove_Clicked(object sender, EventArgs e)
+        {
+            if (roomNo > 1)
+            {
+                parent.Children.RemoveAt(roomNo + 1);
+
+                roomNo--;
             }
+        }
+
+        private void Add_Clicked(object sender, EventArgs e)
+        {
+            ++roomNo;
+
+            Label secondLabel = new Label
+            {
+                Text = "Label " + roomNo.ToString(),
+                FontSize = 20,
+                HorizontalOptions = LayoutOptions.Center,
+                Padding = new Thickness(10),
+                BackgroundColor = Color.Blue
+            };
+
+            parent.Children.Add(secondLabel);
         }
     }
 }
