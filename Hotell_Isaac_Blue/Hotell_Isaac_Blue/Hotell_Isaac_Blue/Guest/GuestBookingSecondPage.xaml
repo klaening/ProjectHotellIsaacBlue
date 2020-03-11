@@ -110,7 +110,8 @@
 
                         <BoxView Color="Gray"
                                  HeightRequest="2"
-                                 HorizontalOptions="Fill"/>
+                                 HorizontalOptions="Fill"
+                                 Margin="0,0,0,20"/>
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -122,21 +123,73 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
+                            <Label Text="Room type"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   FontSize="20"
+                                   VerticalOptions="Center"/>
+
+                            <Picker x:Name="RoomType_Picker"
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    WidthRequest="100"
+                                    HorizontalOptions="Center">
+                                <Picker.Items>
+                                    <x:String>Standard</x:String>
+                                    <x:String>Double</x:String>
+                                    <x:String>Family</x:String>
+                                </Picker.Items>
+                            </Picker>
+                            
                             <Label Text="No of guests" 
-                                   FontSize="20" 
-                                   Grid.Row="1"/>
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   FontSize="20"
+                                   VerticalOptions="Center"/>
 
-                            <Picker Grid.Row="1" 
-                                    Grid.Column="1"/>
+                            <Picker x:Name="GuestsQty_Picker"
+                                    Grid.Row="1" 
+                                    Grid.Column="1"
+                                    WidthRequest="100"
+                                    HorizontalOptions="Center">
+                                <Picker.Items>
+                                    <x:String>0</x:String>
+                                    <x:String>1</x:String>
+                                    <x:String>2</x:String>
+                                </Picker.Items>
+                            </Picker>
 
-                            <Label Text="Add another room"
+                            <Label Text="Extra bed"
+                                   Grid.Row="2"
+                                   Grid.Column="0"
+                                   FontSize="20"
+                                   VerticalOptions="Center"/>
+
+                            <Switch x:Name="Bed_Switch"
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Center"/>
+
+                            <Label Text="Breakfast"
+                                   Grid.Row="3"
+                                   Grid.Column="0"
+                                   FontSize="20"
+                                   VerticalOptions="Center"/>
+
+                            <Switch x:Name="Breakfast_Switch"
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Center"/>
+
+                            <Label x:Name="AddRoomLabel"
+                                   Text="Add another room"
                                    FontSize="20" 
-                                   Grid.Row="3" 
+                                   Grid.Row="4" 
                                    TextColor="Blue"
                                    Grid.Column="1"
                                    VerticalTextAlignment="End"/>
 
-                            <Button x:Name="Options_Btn"
+                            <!--<Button x:Name="Options_Btn"
                                     Text="+"
                                     FontSize="20"
                                     TextColor="Blue"
@@ -150,7 +203,7 @@
                                     Padding="0"
                                     BackgroundColor="GhostWhite"
                                     BorderColor="Blue"
-                                    BorderWidth="2"/>
+                                    BorderWidth="2"/>-->
                         </Grid>
                     </StackLayout>
                 </Frame>

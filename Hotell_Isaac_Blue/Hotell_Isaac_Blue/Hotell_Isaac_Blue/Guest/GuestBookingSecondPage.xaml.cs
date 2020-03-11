@@ -60,7 +60,12 @@ namespace Hotell_Isaac_Blue
             var tapEDFrame = new TapGestureRecognizer();
             tapEDFrame.Tapped += EDFrame_Tapped;
             EDFrame.GestureRecognizers.Add(tapEDFrame);
+
+            var tapAddRoomLabel = new TapGestureRecognizer();
+            tapAddRoomLabel.Tapped += AddRoomLabel_Tapped;
+            AddRoomLabel.GestureRecognizers.Add(tapAddRoomLabel);
         }
+
         private void SDFrame_Tapped(object sender, EventArgs e)
         {
             DatePickerSD.Focus();
@@ -69,6 +74,11 @@ namespace Hotell_Isaac_Blue
         private void EDFrame_Tapped(object sender, EventArgs e)
         {
             DatePickerED.Focus();
+        }
+
+        private void AddRoomLabel_Tapped(object sender, EventArgs e)
+        {
+            DisplayAlert("Alert", "Want to be able to add more frames", "OK");
         }
     }
 }
