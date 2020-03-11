@@ -15,12 +15,13 @@
                         <RowDefinition Height="180"/>
                     </Grid.RowDefinitions>
 
-                    <Frame Grid.Row="0" 
-                       Grid.Column="0" 
-                       Margin="30,10,10,10" 
-                       CornerRadius="10"
-                       Padding="5,0,5,0"
-                       BackgroundColor="GhostWhite">
+                    <Frame x:Name="SDFrame"
+                           Grid.Row="0" 
+                           Grid.Column="0" 
+                           Margin="30,10,10,10" 
+                           CornerRadius="10"
+                           Padding="5,0,5,0"
+                           BackgroundColor="GhostWhite">
 
                         <StackLayout>
                             <Grid>
@@ -31,39 +32,34 @@
                                 </Grid.RowDefinitions>
 
                                 <Label Grid.Row="0"
-                                   Text="Start Date"
-                                   Margin="10,8"
-                                   TextColor="Black"
-                                   FontSize="20"/>
+                                       Text="START DATE"
+                                       Margin="0,8,0,0"
+                                       TextColor="SlateGray"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center"
+                                       FontSize="20"/>
 
                                 <DatePicker x:Name="DatePickerSD" 
                                             Grid.Row="0"
-                                            FontSize="24"
+                                            FontSize="20"
                                             TextColor="Transparent"
                                             DateSelected="DatePickerSD_DateSelected"/>
 
                                 <Label x:Name="SDDateLabel"
-                                    Grid.Row="1"  
-                                    FontSize="30"
-                                    HorizontalOptions="Center"/>
+                                        Grid.Row="1"  
+                                        FontSize="30"
+                                        HorizontalOptions="Center"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
 
-                    <Button x:Name="SDBtn"
-                       Grid.Row="0"
-                       Grid.Column="0"
-                       Margin="30,10,10,10" 
-                       CornerRadius="10" 
-                       BackgroundColor="Transparent"
-                       Clicked="SDBtn_Clicked"/>
-
-                    <Frame Grid.Row="0" 
-                       Grid.Column="1" 
-                       Margin="10,10,30,10" 
-                       CornerRadius="10"
-                       Padding="5,0,5,0"
-                       BackgroundColor="GhostWhite">
+                    <Frame x:Name="EDFrame"
+                           Grid.Row="0" 
+                           Grid.Column="1" 
+                           Margin="10,10,30,10" 
+                           CornerRadius="10"
+                           Padding="5,0,5,0"
+                           BackgroundColor="GhostWhite">
 
                         <StackLayout>
                             <Grid>
@@ -74,33 +70,26 @@
                                 </Grid.RowDefinitions>
 
                                 <Label Grid.Row="0"
-                                   Text="End Date"
-                                   Margin="10,8"
-                                   TextColor="Black"
-                                   FontSize="20"/>
+                                       Text="END DATE"
+                                       Margin="0,8,0,0"
+                                       TextColor="SlateGray"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center"
+                                       FontSize="20"/>
 
                                 <DatePicker x:Name="DatePickerED" 
                                             Grid.Row="0"
-                                            FontSize="24"
+                                            FontSize="20"
                                             TextColor="Transparent"
                                             DateSelected="DatePickerED_DateSelected"/>
 
                                 <Label x:Name="EDDateLabel"
-                                    Grid.Row="1"  
-                                    FontSize="30"
-                                    HorizontalOptions="Center"/>
+                                        Grid.Row="1"  
+                                        FontSize="30"
+                                        HorizontalOptions="Center"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
-
-                    <Button x:Name="EDBtn"
-                       Grid.Row="0"
-                       Grid.Column="1"
-                       Margin="10,10,30,10" 
-                       CornerRadius="10" 
-                       BackgroundColor="Transparent"
-                       Clicked="EDBtn_Clicked"/>
-
                 </Grid>
 
                 <Frame Grid.Row="2" 
@@ -108,14 +97,14 @@
                        Margin="30,10,30,10" 
                        CornerRadius="10" 
                        Grid.ColumnSpan="2"
-                       Padding="10,10,10,0"
+                       Padding="10,10,10,10"
                        BackgroundColor="GhostWhite">
 
                     <StackLayout>
                         <Label Text="ROOM 1"
                                FontAttributes="Bold"
                                FontSize="20" 
-                               TextColor="SlateGray" 
+                               TextColor="SlateGray"
                                Grid.Row="0" 
                                Grid.Column="0"/>
 
@@ -134,17 +123,34 @@
                             </Grid.ColumnDefinitions>
 
                             <Label Text="No of guests" 
-                               FontSize="20" 
-                               Grid.Row="1"/>
+                                   FontSize="20" 
+                                   Grid.Row="1"/>
 
                             <Picker Grid.Row="1" 
-                                Grid.Column="1"/>
+                                    Grid.Column="1"/>
 
                             <Label Text="Add another room"
-                               FontSize="20" 
-                               Grid.Row="3" 
-                               TextColor="Blue"
-                               Grid.Column="1"/>
+                                   FontSize="20" 
+                                   Grid.Row="3" 
+                                   TextColor="Blue"
+                                   Grid.Column="1"
+                                   VerticalTextAlignment="End"/>
+
+                            <Button x:Name="Options_Btn"
+                                    Text="+"
+                                    FontSize="20"
+                                    TextColor="Blue"
+                                    Grid.Row="3"
+                                    Grid.Column="0"
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="38"
+                                    HeightRequest="38"
+                                    BorderRadius="19"
+                                    Padding="0"
+                                    BackgroundColor="GhostWhite"
+                                    BorderColor="Blue"
+                                    BorderWidth="2"/>
                         </Grid>
                     </StackLayout>
                 </Frame>

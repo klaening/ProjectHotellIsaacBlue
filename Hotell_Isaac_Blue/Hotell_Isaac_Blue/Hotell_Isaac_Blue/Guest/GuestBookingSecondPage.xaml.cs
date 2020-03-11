@@ -15,17 +15,22 @@ namespace Hotell_Isaac_Blue
         public GuestBookingSecondPage()
         {
             InitializeComponent();
+            AddTappers();
         }
 
         private void Result_Btn_Clicked(object sender, EventArgs e)
         {
             //Navigation.PushAsync(NavigationPage(new GuestBookingThirdPage));
         }
-
         private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)
         {
             SDDateLabel.Text = e.NewDate.ToShortDateString();
+        }
 
+        private void DatePickerED_DateSelected(object sender, DateChangedEventArgs e)
+        {
+            EDDateLabel.Text = e.NewDate.ToShortDateString();
+            
             //string date = e.NewDate.ToLongDateString().ToString();
             //string[] dateSplit = date.Split(' ');
             //char[] dayFull = dateSplit[0].ToCharArray();
@@ -43,22 +48,27 @@ namespace Hotell_Isaac_Blue
             //    date += " " + date[i];
             //}
 
-            //SDDateLabel.Text = date;
+            //EDDateLabel.Text = date;
         }
 
-        private void DatePickerED_DateSelected(object sender, DateChangedEventArgs e)
+        void AddTappers()
         {
-            EDDateLabel.Text = e.NewDate.ToShortDateString(); 
-        }
+            var tapSDFrame = new TapGestureRecognizer();
+            tapSDFrame.Tapped += SDFrame_Tapped;
+            SDFrame.GestureRecognizers.Add(tapSDFrame);
 
-        private void EDBtn_Clicked(object sender, EventArgs e)
-        {
-            DatePickerED.Focus();
+            var tapEDFrame = new TapGestureRecognizer();
+            tapEDFrame.Tapped += EDFrame_Tapped;
+            EDFrame.GestureRecognizers.Add(tapEDFrame);
         }
-
-        private void SDBtn_Clicked(object sender, EventArgs e)
+        private void SDFrame_Tapped(object sender, EventArgs e)
         {
             DatePickerSD.Focus();
+        }
+
+        private void EDFrame_Tapped(object sender, EventArgs e)
+        {
+            DatePickerED.Focus();
         }
     }
 }
