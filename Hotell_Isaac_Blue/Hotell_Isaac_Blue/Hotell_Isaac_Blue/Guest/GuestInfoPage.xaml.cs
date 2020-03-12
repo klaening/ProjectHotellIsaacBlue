@@ -13,8 +13,12 @@ namespace Hotell_Isaac_Blue
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GuestInfoPage : ContentPage
     {
-        private void AddMarkers()
+
+        public GuestInfoPage()
         {
+            InitializeComponent();
+
+
             Map map = new Map
             {
 
@@ -23,8 +27,9 @@ namespace Hotell_Isaac_Blue
             var mapPosition = new Position(57.701629, 11.913693);
 
 
-            Pin pin = new Pin
+            Pin pin = new Pin()
             {
+
                 IsVisible = true,
                 Label = "Hotel Isaac",
                 Address = "Maskingatan 5, Gothenburg",
@@ -35,12 +40,6 @@ namespace Hotell_Isaac_Blue
 
             map.Pins.Add(pin);
             map.MoveToRegion(MapSpan.FromCenterAndRadius(mapPosition, Distance.FromKilometers(30)));
-        }
-
-        public GuestInfoPage()
-        {
-            InitializeComponent();
-            AddMarkers();
 
         }
 
@@ -49,9 +48,5 @@ namespace Hotell_Isaac_Blue
        
         }
 
-        private void Map_PinClicked(object sender, PinClickedEventArgs e)
-        {
-
-        }
     }
 }
