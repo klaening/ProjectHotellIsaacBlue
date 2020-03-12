@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Hotell_Isaac_Blue.GuestBookingMainPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height=".2*"/>
+                    <RowDefinition Height=".5*"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Booking" 
+                       Grid.Column="0" Grid.Row="0"
+                       FontSize="35"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+                <Label Grid.Column="0" Grid.Row="1"
+                       FontSize="15"
+                       Margin="25,0"
+                       VerticalTextAlignment="Start">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim arcu id laoreet euismod. Nam metus nisi, elementum quis velit sed, luctus pharetra nunc. Vestibulum fringilla aliquet nisl id congue. Aenean ultricies lacus eget mattis placerat. Aliquam quis arcu risus. Nullam in diam mollis dui porttitor ornare ac sed orci.
+                </Label>
+                <Label Text="Your bookings:"
+                       FontSize="17"
+                       FontAttributes="Bold"
+                       Grid.Column="0" Grid.Row="2"
+                       VerticalOptions="Start"
+                       Margin="30,0"/>
+                <Frame Grid.Column="0" Grid.Row="3"
+                       BackgroundColor="LightBlue"
+                       CornerRadius="15"
+                       Margin="30, 0"
+                       HasShadow="False"
+                       BorderColor="Black">
+                    <StackLayout>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Booking Nr"
+                                   FontAttributes="Bold"
+                                   Grid.Row="0" Grid.Column="0"
+                                   HorizontalOptions="Start"/>
+                            <Label Text="Start Date"
+                                   FontAttributes="Bold"
+                                   Grid.Row="0" Grid.Column="1"
+                                   HorizontalOptions="Start"/>
+                            <Label Text="End Date"
+                                   FontAttributes="Bold"
+                                   Grid.Row="0" Grid.Column="2"
+                                   HorizontalOptions="Start"/>
+                            <Label Text="1882-15-1272" 
+                                    Grid.Row="1" Grid.Column="0"
+                                    HorizontalOptions="Start"/>
+                            <Label Text="2020-03-09" 
+                                    Grid.Row="1" Grid.Column="1"
+                                    HorizontalOptions="Start"/>
+                            <Label Text="2020-03-15" 
+                                    Grid.Row="1" Grid.Column="2"
+                                    HorizontalOptions="Start"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+               
+                <ImageButton Source="plus.png"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Start"
+                             Grid.Column="0"
+                             Grid.Row="4"
+                             Scale="0.5"
+                             Clicked="NewBooking_Clicked"
+                             BackgroundColor="Transparent"/>
+                <Label Text="New Booking"
+                       FontAttributes="Bold"
+                       Grid.Column="0"
+                       Grid.Row="4"
+                       VerticalOptions="End"
+                       HorizontalOptions="Center"/>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
