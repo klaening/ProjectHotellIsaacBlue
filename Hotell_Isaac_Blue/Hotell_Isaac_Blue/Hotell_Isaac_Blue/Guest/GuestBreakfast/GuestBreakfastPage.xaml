@@ -24,7 +24,9 @@
                      HeightRequest="10"
                      Margin="0,0,0,0"/>
 
-            <Label Text="For a proper wake up call, bring your bedhead down to the included community breakfast in the Lounge. It's anything but your average continental breakfast. From 7 until 10am every day, you'll find staples like scrambled eggs, steel-cut oatmeal, local pastries, yogurt, house-made granola, deli meats, cheeses, fruit, bagels, pancakes, coffee, juice and tea."
+            <Label Text="For a proper wake up call, bring your bedhead down to the included community breakfast in the Lounge.
+It's anything but your average continental breakfast. From 7 until 10am every day, you'll find staples like scrambled eggs,
+steel-cut oatmeal, local pastries, yogurt, house-made granola, deli meats, cheeses, fruit, bagels, pancakes, coffee, juice and tea."
             
                    FontSize="12"
                    Margin="10,0,0,10"/>
