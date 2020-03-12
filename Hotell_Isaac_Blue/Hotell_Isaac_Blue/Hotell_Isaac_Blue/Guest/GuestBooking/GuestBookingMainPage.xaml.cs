@@ -10,11 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace Hotell_Isaac_Blue
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GuestBookingPage : ContentPage
+    public partial class GuestBookingMainPage : ContentPage
     {
-        public GuestBookingPage()
+        public GuestBookingMainPage()
         {
             InitializeComponent();
+        }
+
+        private void NewBooking_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GuestBookingSecondPage());
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Hotell_Isaac_Blue
 
         private void BookingBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GuestBookingPage());
+            Navigation.PushAsync(new GuestBookingMainPage());
         }
 
         private void InfoBtn_Clicked(object sender, EventArgs e)
