@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.Guest.GuestBreakfast.GuestBreakfastPage3">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
             <Label Text="Eat Your Breakfast With Us"
                    Grid.Row="0"
@@ -103,13 +104,11 @@
                 </StackLayout>
             </Frame>
 
-
-
             <Button x:Name="Breakfast_AddToBooking" Text="Add Breakfast To Your Booking" 
                     WidthRequest="200"
                     HorizontalOptions="Center"
                     CornerRadius="10"
-                    Margin="0,20,0,20"
+                    Margin="0,0,0,0"
                     Clicked="Breakfast_AddToBooking_Clicked"/>
 
             <StackLayout>
@@ -179,5 +178,6 @@
             </StackLayout>
 
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
