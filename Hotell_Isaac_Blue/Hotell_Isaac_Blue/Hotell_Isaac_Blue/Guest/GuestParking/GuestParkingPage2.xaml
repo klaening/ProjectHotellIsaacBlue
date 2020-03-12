@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.Guest.GuestParkingPage2">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
             <Label Text="Park Your Car And Walk"
                    Grid.Row="0"
@@ -103,5 +104,6 @@ washed and polished before your checkout from our hotel. Use our free bicycles o
             </StackLayout>
 
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

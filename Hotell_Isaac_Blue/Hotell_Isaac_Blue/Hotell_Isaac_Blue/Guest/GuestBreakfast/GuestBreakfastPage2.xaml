@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.Guest.GuestBreakfast.GuestBreakfastPage2">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
             <Label Text="Eat Your Breakfast With Us"
                    Grid.Row="0"
@@ -114,5 +115,6 @@ steel-cut oatmeal, local pastries, yogurt, house-made granola, deli meats, chees
             </StackLayout>
 
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
