@@ -91,13 +91,17 @@
 
                         <!--Här börjar användarspecifik input-->
 
-                        <Label Text="Andy Pandy" 
+                        <Label x:Name="ReviewNameLabel"
+                            Text="Andy Pandy" 
                            Grid.Column="1" Grid.Row="0"/>
-                        <Label Text="andy.pandy@gmail.com"
+                        <Label x:Name="ReviewEmailLabel"
+                            Text="andy.pandy@gmail.com"
                            Grid.Column="1" Grid.Row="1"/>
-                        <Label Text="2020-03-09" 
+                        <Label x:Name="ReviewStartDateLabel"
+                            Text="2020-03-09" 
                            Grid.Column="1" Grid.Row="2"/>
-                        <Label Text="2020-03-15"
+                        <Label x:Name="ReviewEndDateLabel"
+                            Text="2020-03-15"
                            Grid.Column="1" Grid.Row="3"/>
                         <Label Text="1-bed room" 
                            Grid.Column="1" Grid.Row="4"/>
@@ -123,7 +127,8 @@
                         <Label Text="YES"
                                Grid.Column="1" Grid.Row="14"/>
 
-                        <Label Text="1213:-" 
+                        <Label x:Name="ReviewTotalCostLabel"
+                            Text="1213:-" 
                            Grid.Column="1" Grid.Row="16"/>
 
                      

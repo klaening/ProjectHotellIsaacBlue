@@ -23,13 +23,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Guest\GuestBookingSecondPage.xaml">
+    <EmbeddedResource Update="Guest\GuestBooking\GuestBookingSecondPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Guest\GuestBookingThirdPage.xaml">
+    <EmbeddedResource Update="Guest\GuestBooking\GuestBookingThirdPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Guest\GuestBookingMainPage.xaml">
+    <EmbeddedResource Update="Guest\GuestBooking\GuestBookingMainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Guest\GuestBreakfast\GuestBreakfastPage2.xaml">
