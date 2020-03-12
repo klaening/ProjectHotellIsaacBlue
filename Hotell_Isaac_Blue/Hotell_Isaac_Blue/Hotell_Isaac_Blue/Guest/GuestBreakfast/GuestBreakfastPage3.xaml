@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.Guest.GuestBreakfast.GuestBreakfastPage3">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
             <Label Text="Eat Your Breakfast With Us"
                    Grid.Row="0"
@@ -177,5 +178,6 @@
             </StackLayout>
 
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
