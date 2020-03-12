@@ -29,12 +29,12 @@ namespace Hotell_Isaac_Blue.Guest.GuestBreakfast
 
         private void Contact_Us_Page_Clicked(object sender, EventArgs e)
         {
-
+            // Redirect to Contact Page.
         }
 
         private void MySettings_Clicked(object sender, EventArgs e)
         {
-
+            // Redirect to users own settingsPage.
         }
     }
 }

@@ -31,12 +31,12 @@ namespace Hotell_Isaac_Blue
 
         private void Contact_Us_Page_Clicked(object sender, EventArgs e)
         {
-
+            // Redirect to ContactPage
         }
 
         private void MySettings_Clicked(object sender, EventArgs e)
         {
-
+            // Redirect to users own settingsPage.
         }
     }
 }

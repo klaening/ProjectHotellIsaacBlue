@@ -6,7 +6,9 @@
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestParkingPage">
     <ContentPage.Content>
+        
         <StackLayout>
+            
             <Label Text="Park Your Car And Walk"
                    Grid.Row="0"
                    HorizontalOptions="Center"
@@ -53,12 +55,14 @@
 
                 <StackLayout HeightRequest="60"
                              Margin="0,40,0,0">
+                    
                     <Grid BackgroundColor="#464646">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
+                        
                         <Button x:Name="GuestBreakfastHome" 
                                Text="HOME" 
                                Grid.Column="1"
@@ -67,6 +71,7 @@
                                FontSize="14"
                                FontAttributes="Bold"
                                TextColor="White" />
+                        
                         <Button Text="Contact Us"
                                BackgroundColor="#464646"
                                TextColor="White"
