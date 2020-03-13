@@ -20,7 +20,7 @@ namespace Hotell_Isaac_Blue.Guest.GuestBreakfast
 
         private void Breakfast_AddToBooking_Clicked(object sender, EventArgs e)
         {
-
+            // Set bool (booking info) to true and extra payment will accure
         }
 
         private void FirstPage_Home_Clicked(object sender, EventArgs e)
@@ -30,12 +30,12 @@ namespace Hotell_Isaac_Blue.Guest.GuestBreakfast
 
         private void Contact_Us_Page_Clicked(object sender, EventArgs e)
         {
-
+            // Redirect to Contact page
         }
 
         private void MySettings_Clicked(object sender, EventArgs e)
         {
-
+            // Redirect to users own settingpage.
         }
     }
 }
