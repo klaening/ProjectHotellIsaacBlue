@@ -18,8 +18,7 @@
                     <Frame x:Name="SDFrame"
                            Grid.Row="0" 
                            Grid.Column="0" 
-                           Margin="30,10,10,10" 
-                           CornerRadius="10"
+                           Margin="30,10,10,10"
                            Padding="5,0,5,0"
                            BackgroundColor="GhostWhite">
 
@@ -63,8 +62,7 @@
                     <Frame x:Name="EDFrame"
                            Grid.Row="0" 
                            Grid.Column="1" 
-                           Margin="10,10,30,10" 
-                           CornerRadius="10"
+                           Margin="10,10,30,10"
                            Padding="5,0,5,0"
                            BackgroundColor="GhostWhite">
 
@@ -113,10 +111,9 @@
 
                 <Frame Grid.Row="2" 
                        Grid.Column="0" 
-                       Margin="30,10,30,10" 
-                       CornerRadius="10" 
+                       Margin="30,10,30,10"
                        Grid.ColumnSpan="2"
-                       Padding="10,10,10,10"
+                       Padding="10"
                        BackgroundColor="GhostWhite">
 
                     <StackLayout>
@@ -179,8 +176,7 @@
                         </Grid>
                         <Frame x:Name="OptionsFrame"
                                IsVisible="False"
-                               BackgroundColor="LightGray"
-                               CornerRadius="10">
+                               BackgroundColor="LightGray">
 
                             <StackLayout>
                                 <Grid>
@@ -219,7 +215,6 @@
                                 WidthRequest="38"
                                 HeightRequest="38"
                                 BorderRadius="19"
-                                Padding="0"
                                 BackgroundColor="GhostWhite"
                                 BorderColor="Blue"
                                 BorderWidth="3"
@@ -240,7 +235,6 @@
                 <Button x:Name="Result_Btn"
                         Margin="10"
                         Text="Results"
-                        CornerRadius="10" 
                         HorizontalOptions="Center"
                         Clicked="Result_Btn_Clicked"/>
             </StackLayout>
