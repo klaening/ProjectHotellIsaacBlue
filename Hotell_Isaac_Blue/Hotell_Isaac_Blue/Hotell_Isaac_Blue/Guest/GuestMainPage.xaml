@@ -9,27 +9,27 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Hotel Isaac" 
-                       HorizontalTextAlignment="Start"
-                       TextColor="FloralWhite"
-                       Padding="20" 
-                       FontSize="40" 
-                       Grid.Row="0"
-                       Margin="0,0,0,10"/>
                 <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
                         <RowDefinition Height="150"/>
                         <RowDefinition Height="150"/>
                         <RowDefinition Height="150"/>
                         <RowDefinition Height="150"/>
                     </Grid.RowDefinitions>
 
+                    <Image Source="hotellogo.png"
+                           WidthRequest="210"
+                           Margin="20"
+                           HorizontalOptions="Start"
+                           Grid.Row="0"/>
+
                     <Frame x:Name="BookingsFrame"
-                           Grid.Row="0"
+                           Grid.Row="1"
                            BackgroundColor="CadetBlue"
                            CornerRadius="10"
                            Margin="15,5">
@@ -49,7 +49,7 @@
                     </Frame>
 
                     <Frame x:Name="InfoFrame"
-                        Grid.Row="1"
+                        Grid.Row="2"
                            BackgroundColor="DarkMagenta"
                            CornerRadius="10"
                            Margin="15,5">
@@ -69,7 +69,7 @@
                     </Frame>
 
                     <Frame x:Name="BreakfastFrame"
-                        Grid.Row="2"
+                        Grid.Row="3"
                            BackgroundColor="YellowGreen"
                            CornerRadius="10"
                            Margin="15,5">
@@ -89,7 +89,7 @@
                     </Frame>
 
                     <Frame x:Name="ParkingFrame"
-                        Grid.Row="3"
+                        Grid.Row="4"
                            BackgroundColor="PaleVioletRed"
                            CornerRadius="10"
                            Margin="15,5">
