@@ -13,13 +13,19 @@ namespace Hotell_Isaac_Blue
 
     public partial class GuestBookingSecondPage : ContentPage
     {
-        StackLayout parent = null;
+        ScrollView parent = null;
+        StackLayout stack = null;
         public int roomNo = 1;
+
         public GuestBookingSecondPage()
         {
             InitializeComponent();
 
-            parent = new StackLayout();
+            BackgroundColor = Color.LightBlue;
+
+            parent = new ScrollView();
+
+            stack = new StackLayout();
 
             Button add = new Button
             {
@@ -49,9 +55,15 @@ namespace Hotell_Isaac_Blue
                 BackgroundColor = Color.Green
             };
 
-            parent.Children.Add(add);
-            parent.Children.Add(remove);
-            parent.Children.Add(firstLabel);
+            stack.Children.Add(add);
+            stack.Children.Add(remove);
+            stack.Children.Add(firstLabel);
+
+            var frame = new Guest.FrameTest();
+
+            stack.Children.Add(frame);
+
+            parent.Content = stack;
 
             Content = parent;
         }
@@ -60,7 +72,7 @@ namespace Hotell_Isaac_Blue
         {
             if (roomNo > 1)
             {
-                parent.Children.RemoveAt(roomNo + 1);
+                stack.Children.RemoveAt(roomNo + 1);
 
                 roomNo--;
             }
@@ -68,18 +80,11 @@ namespace Hotell_Isaac_Blue
 
         private void Add_Clicked(object sender, EventArgs e)
         {
-            ++roomNo;
+            roomNo++;
 
-            Label secondLabel = new Label
-            {
-                Text = "Label " + roomNo.ToString(),
-                FontSize = 20,
-                HorizontalOptions = LayoutOptions.Center,
-                Padding = new Thickness(10),
-                BackgroundColor = Color.Blue
-            };
+            var frame = new Guest.FrameTest();
 
-            parent.Children.Add(secondLabel);
+            stack.Children.Add(frame);
         }
     }
 }
