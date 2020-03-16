@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotell_Isaac_Blue.Guest;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,10 @@ namespace Hotell_Isaac_Blue
     {
         ScrollView parent = null;
         StackLayout stack = null;
+        StackLayout stack2 = null;
+        StackLayout stackParent = null;
         public int roomNo = 1;
+        List<FrameTest> frameList = new List<FrameTest>();
 
         public GuestBookingSecondPage()
         {
@@ -24,15 +28,31 @@ namespace Hotell_Isaac_Blue
             BackgroundColor = Color.LightBlue;
 
             parent = new ScrollView();
-
-            stack = new StackLayout();
+            stack = new StackLayout 
+            { 
+                Padding = 0,
+                Margin = 0
+            };
+            stack2 = new StackLayout
+            {
+                Padding = 0,
+                Margin = 0
+            };
+            stackParent = new StackLayout();
 
             Button add = new Button
             {
                 Text = "+",
-                FontSize = 20,
+                TextColor = Color.Black,
+                FontSize = 30,
                 HorizontalOptions = LayoutOptions.Center,
-                BackgroundColor = Color.Red
+                BackgroundColor = Color.Aqua,
+                BorderColor = Color.SlateGray,
+                BorderWidth = 5,
+                CornerRadius = 10,
+                HeightRequest = 100,
+                WidthRequest = 100,
+                Opacity = 0.2
             };
 
             Button remove = new Button
@@ -43,27 +63,27 @@ namespace Hotell_Isaac_Blue
                 BackgroundColor = Color.Red
             };
 
+            Label firstLabel = new Label
+            {
+                Text = "Hej å hå",
+                FontSize = 20,
+                BackgroundColor = Color.Blue
+            };
+
             add.Clicked += Add_Clicked;
             remove.Clicked += Remove_Clicked;
 
-            Label firstLabel = new Label
-            {
-                Text = "Label " + roomNo.ToString(),
-                FontSize = 20,
-                HorizontalOptions = LayoutOptions.Center,
-                Padding = new Thickness(10),
-                BackgroundColor = Color.Green
-            };
-
-            stack.Children.Add(add);
-            stack.Children.Add(remove);
-            stack.Children.Add(firstLabel);
-
-            var frame = new Guest.FrameTest();
+            var frame = new FrameTest(roomNo);
+            frameList.Add(frame);
 
             stack.Children.Add(frame);
+            stack2.Children.Add(add);
+            stack2.Children.Add(remove);
 
-            parent.Content = stack;
+            stackParent.Children.Add(stack);
+            stackParent.Children.Add(stack2);
+
+            parent.Content = stackParent;
 
             Content = parent;
         }
@@ -72,8 +92,9 @@ namespace Hotell_Isaac_Blue
         {
             if (roomNo > 1)
             {
-                stack.Children.RemoveAt(roomNo + 1);
-
+                //stack.Children.RemoveAt(roomNo + 1);
+                stack.Children.Remove(frameList[roomNo - 1]);
+                frameList.Remove(frameList[roomNo - 1]);
                 roomNo--;
             }
         }
@@ -82,7 +103,8 @@ namespace Hotell_Isaac_Blue
         {
             roomNo++;
 
-            var frame = new Guest.FrameTest();
+            var frame = new FrameTest(roomNo);
+            frameList.Add(frame);
 
             stack.Children.Add(frame);
         }

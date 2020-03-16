@@ -198,15 +198,6 @@
 
 
                         <Grid>
-
-                            <Label x:Name="AddRoomLabel"
-                                   Text="Add another room"
-                                   FontSize="20" 
-                                   Grid.Row="0"
-                                   Grid.Column="1"
-                                   TextColor="Blue"
-                                   VerticalTextAlignment="End"
-                                   HorizontalTextAlignment="End"/>
                         </Grid>
                     </StackLayout>
                 </Frame>

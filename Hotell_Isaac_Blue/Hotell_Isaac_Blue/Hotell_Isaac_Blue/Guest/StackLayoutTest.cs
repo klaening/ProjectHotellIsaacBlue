@@ -7,16 +7,16 @@ namespace Hotell_Isaac_Blue.Guest
 {
     public class StackLayoutTest : ContentPage
     {
-        int i = 0;
-        public StackLayoutTest()
+        public int RoomNo { get; set; }
+        public StackLayoutTest(int roomNo)
         {
-            i++;
+            RoomNo = roomNo;
 
             var layout = new StackLayout();
 
             var label = new Label
             {
-                Text = "Room " + i,
+                Text = "Room " + RoomNo,
                 FontSize = 28
             };
 
@@ -53,6 +53,11 @@ namespace Hotell_Isaac_Blue.Guest
                 WidthRequest = 100,
                 HorizontalOptions = LayoutOptions.Center,
                 ItemsSource = qtyPickerList
+            };
+
+            var removeBtn = new Button
+            {
+
             };
 
             grid.Children.Add(new Label { Text = "Room type", FontSize = 20, VerticalOptions = LayoutOptions.Center }, 0, 0);
