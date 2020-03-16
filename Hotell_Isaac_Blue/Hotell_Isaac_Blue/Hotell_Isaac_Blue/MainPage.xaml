@@ -4,11 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Hotell_Isaac_Blue.MainPage">
+             x:Class="Hotell_Isaac_Blue.MainPage"
+             BackgroundColor="#313639">
 
     <StackLayout>
         <!-- Place new controls here -->
-
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -23,62 +23,93 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
-            <Label Text="WELCOME TO HOTEL ISAAC!" 
+            <Label Text="WELCOME TO" 
                FontSize="Title"
-               TextColor="Black"
-               Grid.Column="1" Grid.Row="1"
+               TextColor="#fff"
+               Grid.Column="1" 
+               Grid.Row="1"
                Grid.ColumnSpan="2"
                Grid.RowSpan="2"
-               HorizontalTextAlignment="Center"
-                   />
+               HorizontalTextAlignment="Center"/>
 
-
-            <Image Source="redAppleLogo.png"
-                   Margin="20"
+            <Image Source="hotellogo"
                    Grid.Column="1"
                    Grid.ColumnSpan="2"
                    Grid.Row="2"
-                   Grid.RowSpan="3"></Image>
-
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
             <Label
-                Margin="0,10,0,0"
-             Text="Enter your information to proceed" 
-                FontSize="Subtitle"
+                Text="Username: "
+                TextColor="#fff"
+                FontSize="17"
+                VerticalTextAlignment="Center"
+                Grid.Row="4"
+                Grid.Column="0"
+                HorizontalOptions="End"/>
+            <Entry 
+                Placeholder="Username"
+                PlaceholderColor="#fff"
+                TextColor="#fff"
+                Grid.Column="1"
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                HorizontalOptions="Start"
+                WidthRequest="300"
+            />
+            <Label
+                Text="Password: "
+                TextColor="#fff"
+                Grid.Row="5"
+                Grid.Column="0"
+                FontSize="17"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="End"/>
+            <Entry
+                Placeholder="Password"
+                PlaceholderColor="#fff"
+                TextColor="#fff"
                 Grid.Column="1"
                 Grid.Row="5"
                 Grid.ColumnSpan="2"
-                HorizontalTextAlignment="Center"
-            />
-
-            <Entry
-                Placeholder="Example@gmail.com"
-              Grid.Column="0"
-                Grid.Row="6"
-                Grid.ColumnSpan="4"
-                HorizontalOptions="Center"
-            />
-
-            <Entry
-                Placeholder="Password"
-              Grid.Column="0"
-                Grid.Row="7"
-                Grid.ColumnSpan="4"
-                HorizontalOptions="Center"
+                HorizontalOptions="Start"
+                IsPassword="True"
+                WidthRequest="300"
             />
 
             <Button
-            Text="Register now!"
-                Grid.Column="0"
-                Grid.Row="9"
-                Grid.ColumnSpan="4"
+                Text="Log In"
+                TextColor="Black"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Grid.Row="6"
                 HorizontalOptions="Center"
+                WidthRequest="300"
+                Margin="0,10"
+                Clicked="Button_Clicked"
+                BackgroundColor="#fff"
+            />
+            <Label
+                Text="Not a member? Sign up!"
+                Grid.Row="7"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                TextColor="#fff"
+                FontSize="16"
+                HorizontalOptions="Center"
+                VerticalOptions="End"/>
+            <Button
+                Text="Sign up"
+                TextColor="black"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Grid.Row="8"
+                HorizontalOptions="Center"
+                WidthRequest="300"
+                Margin="0, 10"
+                BackgroundColor="#fff"
                 Clicked="Button_Clicked"
             />
 
-
-
         </Grid>
-        
     </StackLayout>
-
 </ContentPage>

@@ -27,30 +27,30 @@
                            Margin="20"
                            HorizontalOptions="Start"
                            Grid.Row="0"/>
-
-                    <Frame x:Name="BookingsFrame"
-                           Grid.Row="1"
-                           BackgroundColor="CadetBlue"
+                    <Frame x:Name="BookingsFrame"     
+                           BackgroundColor="#ff3f34"
                            CornerRadius="10"
+                           Grid.Row="1"
                            Margin="15,5">
                         <StackLayout>
                             <Grid>
                                 <Image Source="GMPcalendar"
                                        Grid.Column="0"
                                        Scale="0.7"
-                                       HorizontalOptions="Start"/>
+                                       HorizontalOptions="Center"/>
                                 <Label Text="Bookings"
                                        TextColor="FloralWhite"
                                        Grid.Column="1"
                                        VerticalOptions="Center"
+                                       HorizontalOptions="Start"
                                        FontSize="30"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
 
                     <Frame x:Name="InfoFrame"
-                        Grid.Row="2"
-                           BackgroundColor="DarkMagenta"
+                           Grid.Row="2"
+                           BackgroundColor="#ffd32a"
                            CornerRadius="10"
                            Margin="15,5">
                         <StackLayout>
@@ -58,19 +58,21 @@
                                 <Image Source="GMPinfo"
                                        Grid.Column="0"
                                        Scale="0.7"
-                                       HorizontalOptions="Start"/>
+                                       HorizontalOptions="Center"/>
                                 <Label Text="Info"
                                        TextColor="FloralWhite"
                                        Grid.Column="1"
                                        VerticalOptions="Center"
-                                       FontSize="30"/>
+                                       HorizontalOptions="Start"
+                                       FontSize="30"
+                                       />
                             </Grid>
                         </StackLayout>
                     </Frame>
 
                     <Frame x:Name="BreakfastFrame"
                         Grid.Row="3"
-                           BackgroundColor="YellowGreen"
+                           BackgroundColor="#05c46b"
                            CornerRadius="10"
                            Margin="15,5">
                         <StackLayout>
@@ -78,11 +80,12 @@
                                 <Image Source="GMPbreakfast"
                                        Grid.Column="0"
                                        Scale="0.7"
-                                       HorizontalOptions="Start"/>
+                                       HorizontalOptions="Center"/>
                                 <Label Text="Breakfast"
                                        TextColor="FloralWhite"
                                        Grid.Column="1"
                                        VerticalOptions="Center"
+                                       HorizontalOptions="Start"
                                        FontSize="30"/>
                             </Grid>
                         </StackLayout>
@@ -90,19 +93,20 @@
 
                     <Frame x:Name="ParkingFrame"
                         Grid.Row="4"
-                           BackgroundColor="PaleVioletRed"
+                           BackgroundColor="#3c40c6"
                            CornerRadius="10"
                            Margin="15,5">
                         <StackLayout>
                             <Grid>
-                                <Image Source="GMPcarparking"
+                                <Image Source="GMPCarParking"
                                        Grid.Column="0"
                                        Scale="0.7"
-                                       HorizontalOptions="Start"/>
+                                       HorizontalOptions="Center"/>
                                 <Label Text="Parking"
                                        TextColor="FloralWhite"
                                        Grid.Column="1"
                                        VerticalOptions="Center"
+                                       HorizontalOptions="Start"
                                        FontSize="30"/>
                             </Grid>
                         </StackLayout>
