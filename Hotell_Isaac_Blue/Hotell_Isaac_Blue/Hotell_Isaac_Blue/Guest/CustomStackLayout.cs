@@ -7,7 +7,7 @@ namespace Hotell_Isaac_Blue.Guest
 {
     public class StackLayoutTest : ContentPage
     {
-        public int RoomNo { get; set; }
+        int RoomNo { get; set; }
         public StackLayoutTest(int roomNo)
         {
             RoomNo = roomNo;
@@ -46,7 +46,7 @@ namespace Hotell_Isaac_Blue.Guest
                 ItemsSource = pickerList
             };
 
-            var qtyPickerList = new List<int> { 0, 1, 2};
+            var qtyPickerList = new List<int> { 0, 1, 2 };
 
             var GuestsQty_Picker = new Picker
             {
@@ -57,19 +57,35 @@ namespace Hotell_Isaac_Blue.Guest
 
             var removeBtn = new Button
             {
-
+                Text = "Remove room",
+                HorizontalOptions = LayoutOptions.End,
+                FontSize = 10,
+                TextColor = Color.Red
             };
+
+            removeBtn.Clicked += RemoveBtn_Clicked;
 
             grid.Children.Add(new Label { Text = "Room type", FontSize = 20, VerticalOptions = LayoutOptions.Center }, 0, 0);
             grid.Children.Add(RoomType_Picker, 1, 0);
             grid.Children.Add(new Label { Text = "No of guests", FontSize = 20, VerticalOptions = LayoutOptions.Center }, 0, 1);
-            grid.Children.Add(GuestsQty_Picker , 1, 1);
+            grid.Children.Add(GuestsQty_Picker, 1, 1);
+            grid.Children.Add(removeBtn, 1, 2);
 
             layout.Children.Add(label);
             layout.Children.Add(boxview);
             layout.Children.Add(grid);
 
             Content = layout;
+        }
+
+        private void RemoveBtn_Clicked(object sender, EventArgs e)
+        {
+            GuestBookingSecondPage gsp = new GuestBookingSecondPage();
+
+            if (gsp.RoomNo > 1)
+            {
+                gsp.Remove_Clicked(sender, e);
+            }
         }
     }
 }

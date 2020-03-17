@@ -15,11 +15,11 @@ namespace Hotell_Isaac_Blue
     public partial class GuestBookingSecondPage : ContentPage
     {
         ScrollView parent = null;
-        StackLayout stack = null;
+        public StackLayout stack = null;
         StackLayout stack2 = null;
         StackLayout stackParent = null;
-        public int roomNo = 1;
-        List<FrameTest> frameList = new List<FrameTest>();
+        public int RoomNo = 1;
+        public List<FrameTest> frameList = new List<FrameTest>();
 
         public GuestBookingSecondPage()
         {
@@ -28,11 +28,13 @@ namespace Hotell_Isaac_Blue
             BackgroundColor = Color.LightBlue;
 
             parent = new ScrollView();
-            stack = new StackLayout 
+
+            stack = new StackLayout
             { 
                 Padding = 0,
                 Margin = 0
             };
+
             stack2 = new StackLayout
             {
                 Padding = 0,
@@ -63,17 +65,10 @@ namespace Hotell_Isaac_Blue
                 BackgroundColor = Color.Red
             };
 
-            Label firstLabel = new Label
-            {
-                Text = "Hej å hå",
-                FontSize = 20,
-                BackgroundColor = Color.Blue
-            };
-
             add.Clicked += Add_Clicked;
             remove.Clicked += Remove_Clicked;
 
-            var frame = new FrameTest(roomNo);
+            var frame = new FrameTest(RoomNo);
             frameList.Add(frame);
 
             stack.Children.Add(frame);
@@ -88,22 +83,22 @@ namespace Hotell_Isaac_Blue
             Content = parent;
         }
 
-        private void Remove_Clicked(object sender, EventArgs e)
+        public void Remove_Clicked(object sender, EventArgs e)
         {
-            if (roomNo > 1)
+            if (RoomNo > 1)
             {
                 //stack.Children.RemoveAt(roomNo + 1);
-                stack.Children.Remove(frameList[roomNo - 1]);
-                frameList.Remove(frameList[roomNo - 1]);
-                roomNo--;
+                stack.Children.Remove(frameList[RoomNo - 1]);
+                frameList.Remove(frameList[RoomNo - 1]);
+                RoomNo--;
             }
         }
 
         private void Add_Clicked(object sender, EventArgs e)
         {
-            roomNo++;
+            RoomNo++;
 
-            var frame = new FrameTest(roomNo);
+            var frame = new FrameTest(RoomNo);
             frameList.Add(frame);
 
             stack.Children.Add(frame);

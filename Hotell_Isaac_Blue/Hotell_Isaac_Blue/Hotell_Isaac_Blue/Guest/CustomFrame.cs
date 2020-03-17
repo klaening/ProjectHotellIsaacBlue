@@ -5,10 +5,10 @@ using Xamarin.Forms;
 
 namespace Hotell_Isaac_Blue.Guest
 {
-    public class FrameTest : Frame
+    public class CustomFrame : Frame
     {
         public int RoomNo { get; set; }
-        public FrameTest(int roomNo)
+        public CustomFrame(int roomNo)
         {
             RoomNo = roomNo;
 
@@ -23,7 +23,7 @@ namespace Hotell_Isaac_Blue.Guest
                 HeightRequest = 180
             };
 
-            var stack = new StackLayoutTest(roomNo);
+            var stack = new CustomStackLayout(roomNo);
 
             frame.Content = stack.Content;
 
