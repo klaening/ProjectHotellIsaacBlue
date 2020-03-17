@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.MainPage"
-             BackgroundColor="#313639">
+             BackgroundColor="#026672">
 
     <StackLayout>
         <!-- Place new controls here -->
@@ -24,13 +24,14 @@
                 <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
             <Label Text="WELCOME TO" 
-               FontSize="Title"
-               TextColor="#fff"
-               Grid.Column="1" 
-               Grid.Row="1"
-               Grid.ColumnSpan="2"
-               Grid.RowSpan="2"
-               HorizontalTextAlignment="Center"/>
+                   FontSize="Title"
+                   FontFamily="Sen-Bold.ttf#Sen-Bold.ttf"
+                   TextColor="#fff"
+                   Grid.Column="1" 
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"
+                   Grid.RowSpan="2"
+                   HorizontalTextAlignment="Center"/>
 
             <Image Source="hotellogo"
                    Grid.Column="1"
@@ -38,14 +39,14 @@
                    Grid.Row="2"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"/>
-            <Label
+            <!--<Label
                 Text="Username: "
                 TextColor="#fff"
                 FontSize="17"
                 VerticalTextAlignment="Center"
                 Grid.Row="4"
                 Grid.Column="0"
-                HorizontalOptions="End"/>
+                HorizontalOptions="End"/>-->
             <Entry 
                 Placeholder="Username"
                 PlaceholderColor="#fff"
@@ -56,14 +57,14 @@
                 HorizontalOptions="Start"
                 WidthRequest="300"
             />
-            <Label
+            <!--<Label
                 Text="Password: "
                 TextColor="#fff"
                 Grid.Row="5"
                 Grid.Column="0"
                 FontSize="17"
                 VerticalTextAlignment="Center"
-                HorizontalOptions="End"/>
+                HorizontalOptions="End"/>-->
             <Entry
                 Placeholder="Password"
                 PlaceholderColor="#fff"

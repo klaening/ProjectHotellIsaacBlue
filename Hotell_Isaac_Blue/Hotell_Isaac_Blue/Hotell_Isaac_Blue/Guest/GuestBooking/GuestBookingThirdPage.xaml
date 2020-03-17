@@ -4,18 +4,21 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Hotell_Isaac_Blue.GuestBookingThirdPage">
+             x:Class="Hotell_Isaac_Blue.GuestBookingThirdPage"
+             BackgroundColor="#026672">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
                 <Label Text="Booking Result"
                        HorizontalOptions="Center"
+                       TextColor="White"
                        FontSize="30"
                        FontAttributes="Bold" 
                        Margin="30"/>
                     <Label Text="Review your booking"
                            HorizontalOptions="Center"
                            FontSize="16"
+                           TextColor="white"
                            FontAttributes="Bold"
                            Margin="0, 20, 0, 5"/>
                 <Frame BackgroundColor="LightBlue"
@@ -138,6 +141,8 @@
                 </Frame>
                 <Button x:Name="confirmBooking"
                         Text="Confirm Booking"
+                        Padding="10"
+                        BackgroundColor="white"
                         FontSize="16"
                         FontAttributes="Bold"
                         HorizontalOptions="Center"

@@ -9,7 +9,7 @@
         
         <ResourceDictionary>
             <Style TargetType="Label">
-                <Setter Property="FontFamily" Value="PatrickHand-Regular.ttf#PatrickHand-Regular.ttf"/>
+                <Setter Property="FontFamily" Value="Sen-Regular.ttf#Sen-Regular.ttf"/>
             </Style>
             <Style TargetType="Frame">
                 <Setter Property="CornerRadius" Value="10"/>

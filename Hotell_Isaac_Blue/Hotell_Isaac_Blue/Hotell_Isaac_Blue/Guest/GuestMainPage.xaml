@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestMainPage"
-             BackgroundColor="#313639">
+             BackgroundColor="#026672">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -28,7 +28,7 @@
                            HorizontalOptions="Start"
                            Grid.Row="0"/>
                     <Frame x:Name="BookingsFrame"     
-                           BackgroundColor="#ff3f34"
+                           BackgroundColor="#9FEDD7"
                            CornerRadius="10"
                            Grid.Row="1"
                            Margin="15,5">
@@ -40,22 +40,22 @@
                                        Scale="0.7"
                                        HorizontalOptions="Center"/>
                                 <Label Text="Bookings"
-                                       TextColor="FloralWhite"
+                                       TextColor="Black"
                                        Grid.Column="1"
                                        VerticalOptions="Center"
                                        HorizontalOptions="Start"
                                        FontSize="30"/>
-                                <Label Text="Text om vad man kan göra på bokningsfliken"
+                                <Label Text="Text om vad man kan göra på bokningsidan"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       TextColor="white"/>
+                                       TextColor="black"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
 
                     <Frame x:Name="InfoFrame"
                            Grid.Row="2"
-                           BackgroundColor="#ffd32a"
+                           BackgroundColor="#FEF9C7"
                            CornerRadius="10"
                            Margin="15,5">
                         <StackLayout>
@@ -66,23 +66,23 @@
                                        Scale="0.7"
                                        HorizontalOptions="Center"/>
                                 <Label Text="Info"
-                                       TextColor="FloralWhite"
+                                       TextColor="Black"
                                        Grid.Column="1"
                                        VerticalOptions="Center"
                                        HorizontalOptions="Start"
                                        FontSize="30"
                                        />
-                                <Label Text="Text om vad man kan göra på infofliken"
+                                <Label Text="Text om vad man kan göra på infosidan"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       TextColor="white"/>
+                                       TextColor="Black"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
 
                     <Frame x:Name="BreakfastFrame"
                         Grid.Row="3"
-                           BackgroundColor="#05c46b"
+                           BackgroundColor="#FCE181"
                            CornerRadius="10"
                            Margin="15,5">
                         <StackLayout>
@@ -93,22 +93,22 @@
                                        Scale="0.7"
                                        HorizontalOptions="Center"/>
                                 <Label Text="Breakfast"
-                                       TextColor="FloralWhite"
+                                       TextColor="Black"
                                        Grid.Column="1"
                                        VerticalOptions="Center"
                                        HorizontalOptions="Start"
                                        FontSize="30"/>
-                                <Label Text="Text om vad man kan göra på infofliken"
+                                <Label Text="Text om vad man kan göra på frukostsidan"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       TextColor="white"/>
+                                       TextColor="Black"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
 
                     <Frame x:Name="ParkingFrame"
                         Grid.Row="4"
-                           BackgroundColor="#3c40c6"
+                           BackgroundColor="#EDEAE5"
                            CornerRadius="10"
                            Margin="15,5">
                         <StackLayout>
@@ -119,15 +119,15 @@
                                        Scale="0.7"
                                        HorizontalOptions="Center"/>
                                 <Label Text="Parking"
-                                       TextColor="FloralWhite"
+                                       TextColor="Black"
                                        Grid.Column="1"
                                        VerticalOptions="Center"
                                        HorizontalOptions="Start"
                                        FontSize="30"/>
-                                <Label Text="Text om vad man kan göra på infofliken"
+                                <Label Text="Text om vad man kan göra på parkeringsidan"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       TextColor="white"/>
+                                       TextColor="Black"/>
                             </Grid>
                         </StackLayout>
                     </Frame>

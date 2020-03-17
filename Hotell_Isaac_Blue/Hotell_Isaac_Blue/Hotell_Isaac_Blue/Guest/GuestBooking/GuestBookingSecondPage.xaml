@@ -6,9 +6,12 @@
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestBookingSecondPage">
     <ContentPage.Content>
-        <ScrollView BackgroundColor="LightBlue">
+        <ScrollView BackgroundColor="#026672">
             <StackLayout>
-                <Label HorizontalOptions="Center" FontSize="Title" Margin="0,20,0,30">Make a booking</Label>
+                <Label HorizontalOptions="Center" 
+                       FontSize="Title" 
+                       Margin="0,20,0,30"
+                       TextColor="white">Make a booking</Label>
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -211,6 +214,7 @@
                                 FontSize="28"
                                 TextColor="Blue"
                                 HorizontalOptions="Start"
+                                VerticalOptions="Center"
                                 FontAttributes="Bold"
                                 WidthRequest="38"
                                 HeightRequest="38"
@@ -222,10 +226,10 @@
 
                         <Label x:Name="AddRoomLabel"
                                Text="Add another room"
-                               FontSize="20" 
+                               FontSize="16"
+                               TextColor="black"
                                Grid.Row="0"
                                Grid.Column="1"
-                               TextColor="Blue"
                                VerticalTextAlignment="End"
                                HorizontalTextAlignment="End"/>
                         </Grid>
@@ -234,9 +238,11 @@
 
                 <Button x:Name="Result_Btn"
                         Margin="10"
-                        Text="Results"
+                        Padding="10"
+                        Text="Confirm Booking"
                         HorizontalOptions="Center"
-                        Clicked="Result_Btn_Clicked"/>
+                        Clicked="Result_Btn_Clicked"
+                        BackgroundColor="white"/>
             </StackLayout>
             <!--<Frame Margin="10"
                        Padding="0"
