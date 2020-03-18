@@ -1,91 +1,101 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Text;
+//using Xamarin.Forms;
 
-namespace Hotell_Isaac_Blue.Guest
-{
-    public class StackLayoutTest : ContentPage
-    {
-        int RoomNo { get; set; }
-        public StackLayoutTest(int roomNo)
-        {
-            RoomNo = roomNo;
+//namespace Hotell_Isaac_Blue.Guest
+//{
+//    public class CustomStackLayout : ContentPage
+//    {
+//        public int RoomNo { get; set; }
+//        int pickerWidth = 100;
+//        //public string labelRoomNo { get; set; } = "Room ";
+//        public CustomStackLayout(int roomNo)
+//        {
+//            RoomNo = roomNo;
 
-            var layout = new StackLayout();
+//            var label = new Label
+//            {
+//                Text = "Room " + roomNo,
+//                FontSize = 28
+//            };
 
-            var label = new Label
-            {
-                Text = "Room " + RoomNo,
-                FontSize = 28
-            };
+//            var boxview = new BoxView
+//            {
+//                Color = Color.Gray,
+//                HeightRequest = 2,
+//                HorizontalOptions = LayoutOptions.Fill,
+//                Margin = new Thickness(0,0,0,20)
+//            };
 
-            var boxview = new BoxView
-            {
-                Color = Color.Gray,
-                HeightRequest = 2,
-                HorizontalOptions = LayoutOptions.Fill,
-                Margin = new Thickness(0,0,0,20)
-            };
+//            var pickerList = new List<string> { "Standard", "Double", "Family"};
 
-            var grid = new Grid();
-            grid.HorizontalOptions = LayoutOptions.Center;
+//            var RoomType_Picker = new Picker
+//            {
+//                WidthRequest = pickerWidth,
+//                HorizontalOptions = LayoutOptions.Center,
+//                ItemsSource = pickerList
+//            };
 
-            grid.ColumnDefinitions.Add(new ColumnDefinition());
-            grid.ColumnDefinitions.Add(new ColumnDefinition());
+//            var qtyPickerList = new List<int> { 0, 1, 2 };
 
-            grid.RowDefinitions.Add(new RowDefinition());
-            grid.RowDefinitions.Add(new RowDefinition());
+//            var GuestsQty_Picker = new Picker
+//            {
+//                WidthRequest = pickerWidth,
+//                HorizontalOptions = LayoutOptions.Center,
+//                ItemsSource = qtyPickerList
+//            };
 
-            var pickerList = new List<string> { "Standard", "Double", "Family"};
+//            var removeBtn = new Button
+//            {
+//                Text = "Remove room",
+//                HorizontalOptions = LayoutOptions.End,
+//                FontSize = 10,
+//                TextColor = Color.Red
+//            };
 
-            var RoomType_Picker = new Picker
-            {
-                WidthRequest = 100,
-                HorizontalOptions = LayoutOptions.Center,
-                ItemsSource = pickerList
-            };
+//            removeBtn.Clicked += RemoveBtn_Clicked;
 
-            var qtyPickerList = new List<int> { 0, 1, 2 };
+//            var grid = new Grid
+//            {
+//                ColumnDefinitions =
+//                {
+//                    new ColumnDefinition(),
+//                    new ColumnDefinition()
+//                },
+                
+//                RowDefinitions =
+//                {
+//                    new RowDefinition(),
+//                    new RowDefinition()
+//                }
+//            };
 
-            var GuestsQty_Picker = new Picker
-            {
-                WidthRequest = 100,
-                HorizontalOptions = LayoutOptions.Center,
-                ItemsSource = qtyPickerList
-            };
+//            grid.Children.Add(new Label { Text = "Room type", FontSize = 20, VerticalOptions = LayoutOptions.Center }, 0, 0);
+//            grid.Children.Add(RoomType_Picker, 1, 0);
+//            grid.Children.Add(new Label { Text = "No of guests", FontSize = 20, VerticalOptions = LayoutOptions.Center }, 0, 1);
+//            grid.Children.Add(GuestsQty_Picker, 1, 1);
+//            grid.Children.Add(new Button { Text = "+", Padding = 0, FontSize = 20, VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.Start, CornerRadius = 20, WidthRequest = 40, HeightRequest = 40 }, 0, 2);
+//            grid.Children.Add(removeBtn, 1, 2);
 
-            var removeBtn = new Button
-            {
-                Text = "Remove room",
-                HorizontalOptions = LayoutOptions.End,
-                FontSize = 10,
-                TextColor = Color.Red
-            };
+//            var layout = new StackLayout
+//            {
+//                Children =
+//                {
+//                    label,
+//                    boxview,
+//                    grid
+//                }
+//            };
 
-            removeBtn.Clicked += RemoveBtn_Clicked;
+//            Content = layout;
+//        }
 
-            grid.Children.Add(new Label { Text = "Room type", FontSize = 20, VerticalOptions = LayoutOptions.Center }, 0, 0);
-            grid.Children.Add(RoomType_Picker, 1, 0);
-            grid.Children.Add(new Label { Text = "No of guests", FontSize = 20, VerticalOptions = LayoutOptions.Center }, 0, 1);
-            grid.Children.Add(GuestsQty_Picker, 1, 1);
-            grid.Children.Add(removeBtn, 1, 2);
-
-            layout.Children.Add(label);
-            layout.Children.Add(boxview);
-            layout.Children.Add(grid);
-
-            Content = layout;
-        }
-
-        private void RemoveBtn_Clicked(object sender, EventArgs e)
-        {
-            GuestBookingSecondPage gsp = new GuestBookingSecondPage();
-
-            if (gsp.RoomNo > 1)
-            {
-                gsp.Remove_Clicked(sender, e);
-            }
-        }
-    }
-}
+//        private void RemoveBtn_Clicked(object sender, EventArgs e)
+//        {
+//            //GuestBookingSecondPage gsp = new GuestBookingSecondPage();
+            
+//            GuestBookingSecondPage.RemoveFromStack(RoomNo);
+//        }
+//    }
+//}

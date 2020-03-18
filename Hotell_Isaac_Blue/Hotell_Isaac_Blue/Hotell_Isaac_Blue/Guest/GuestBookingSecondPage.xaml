@@ -163,6 +163,19 @@
                                     <x:String>2</x:String>
                                 </Picker.Items>
                             </Picker>
+                            <Button x:Name="OptionsBtn"
+                                    Text="+"
+                                    Padding="0"
+                                    FontSize="28"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Start"
+                                    Grid.Column="0"
+                                    Grid.Row="2"
+                                    CornerRadius="20"
+                                    HeightRequest="40"
+                                    WidthRequest="40"
+                                    Clicked="OptionsBtn_Clicked"/>
+
                         </Grid>
                         <Frame x:Name="OptionsFrame"
                                IsVisible="False"

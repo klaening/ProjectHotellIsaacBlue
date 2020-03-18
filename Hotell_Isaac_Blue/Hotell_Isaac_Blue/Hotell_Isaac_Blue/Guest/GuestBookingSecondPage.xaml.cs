@@ -15,11 +15,11 @@ namespace Hotell_Isaac_Blue
     public partial class GuestBookingSecondPage : ContentPage
     {
         ScrollView parent = null;
-        public StackLayout stack = null;
+        static StackLayout stack = null;
         StackLayout stack2 = null;
         StackLayout stackParent = null;
-        public int RoomNo = 1;
-        public List<FrameTest> frameList = new List<FrameTest>();
+        static int RoomNo = 1;
+        static List<CustomFrame> frameList = new List<CustomFrame>();
 
         public GuestBookingSecondPage()
         {
@@ -57,23 +57,23 @@ namespace Hotell_Isaac_Blue
                 Opacity = 0.2
             };
 
-            Button remove = new Button
-            {
-                Text = "-",
-                FontSize = 20,
-                HorizontalOptions = LayoutOptions.Center,
-                BackgroundColor = Color.Red
-            };
+            //Button remove = new Button
+            //{
+            //    Text = "-",
+            //    FontSize = 20,
+            //    HorizontalOptions = LayoutOptions.Center,
+            //    BackgroundColor = Color.Red
+            //};
 
             add.Clicked += Add_Clicked;
-            remove.Clicked += Remove_Clicked;
+            //remove.Clicked += Remove_Clicked;
 
-            var frame = new FrameTest(RoomNo);
+            var frame = new CustomFrame(RoomNo);
             frameList.Add(frame);
 
             stack.Children.Add(frame);
             stack2.Children.Add(add);
-            stack2.Children.Add(remove);
+            //stack2.Children.Add(remove);
 
             stackParent.Children.Add(stack);
             stackParent.Children.Add(stack2);
@@ -83,25 +83,65 @@ namespace Hotell_Isaac_Blue
             Content = parent;
         }
 
-        public void Remove_Clicked(object sender, EventArgs e)
-        {
-            if (RoomNo > 1)
-            {
-                //stack.Children.RemoveAt(roomNo + 1);
-                stack.Children.Remove(frameList[RoomNo - 1]);
-                frameList.Remove(frameList[RoomNo - 1]);
-                RoomNo--;
-            }
-        }
+        //public void Remove_Clicked(object sender, EventArgs e)
+        //{
+        //    if (RoomNo > 1)
+        //    {
+        //        //stack.Children.RemoveAt(roomNo + 1);
+        //        stack.Children.Remove(frameList[RoomNo - 1]);
+        //        frameList.Remove(frameList[RoomNo - 1]);
+        //        RoomNo--;
+        //    }
+        //}
 
         private void Add_Clicked(object sender, EventArgs e)
         {
             RoomNo++;
 
-            var frame = new FrameTest(RoomNo);
+            var frame = new CustomFrame(RoomNo);
             frameList.Add(frame);
 
             stack.Children.Add(frame);
         }
+
+        private void OptionsBtn_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        public static void RemoveFromStack(int roomNo)
+        {
+            if (roomNo > 1)
+            {
+                stack.Children.Remove(frameList[roomNo - 2]);
+                frameList.Remove(frameList[roomNo - 2]);
+                RoomNo--;
+
+                //Ändra nummer på alla rum
+                //ChangeRoomNumbers(roomNo);
+            }
+        }
+
+        //private static void ChangeRoomNumbers(int roomNo)
+        //{
+        //    //Leta efter alla rum som har nummer högre än roomNo
+        //    List<CustomFrame> frameChildren = new List<CustomFrame>();
+            
+        //    foreach (var child in stack.Children)
+        //    {
+        //        if (child is CustomFrame)
+        //        {
+        //            frameChildren.Add((CustomFrame)child);
+        //        }
+        //    }
+
+        //    foreach (var frame in frameChildren)
+        //    {
+        //        if (frame.RoomNo > roomNo)
+        //        {
+        //            frame.RoomNo -= 1;
+        //        }
+        //    }
+        //}
     }
 }
