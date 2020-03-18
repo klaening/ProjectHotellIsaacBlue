@@ -26,9 +26,16 @@ namespace Hotell_Isaac_Blue
         }
         private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)
         {
-            if (e.NewDate < DateTime.Now.Date)
+            DateTime pickedDate = e.NewDate;
+
+            if (pickedDate < DateTime.Now.Date)
             {
-                DisplayAlert("Alert", "Start date can not preceed today's date", "OK");
+                DisplayAlert("Alert", "Start date can not precede today's date", "OK");
+                return;
+            }
+            if (pickedDate >= endDate)
+            {
+                DisplayAlert("Alert", "End date can not precede start date", "OK");
             }
             else
             {
@@ -45,9 +52,13 @@ namespace Hotell_Isaac_Blue
 
         private void DatePickerED_DateSelected(object sender, DateChangedEventArgs e)
         {
-            if (e.NewDate <= startDate)
+            if (e.NewDate <= DateTime.Now.Date)
             {
-                DisplayAlert("Alert", "End date can not preceed start date", "OK");
+                DisplayAlert("Alert", "End date can not precede today's date", "OK");
+            }
+            else if (e.NewDate <= startDate)
+            {
+                DisplayAlert("Alert", "End date can not precede start date", "OK");
             }
             else
             {
