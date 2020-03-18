@@ -3,12 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestMainPage"
              BackgroundColor="#026672">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
+                
                 <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -28,7 +30,7 @@
                            HorizontalOptions="Start"
                            Grid.Row="0"/>
                     <Frame x:Name="BookingsFrame"     
-                           BackgroundColor="#9FEDD7"
+                           BackgroundColor="#f1c40f"
                            CornerRadius="10"
                            Grid.Row="1"
                            Margin="15,5">
@@ -38,7 +40,8 @@
                                        Grid.Column="0"
                                        Grid.RowSpan="2"
                                        Scale="0.7"
-                                       HorizontalOptions="Center"/>
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Center"/>
                                 <Label Text="Bookings"
                                        TextColor="Black"
                                        Grid.Column="1"
@@ -55,7 +58,7 @@
 
                     <Frame x:Name="InfoFrame"
                            Grid.Row="2"
-                           BackgroundColor="#FEF9C7"
+                           BackgroundColor="#e67e22"
                            CornerRadius="10"
                            Margin="15,5">
                         <StackLayout>
@@ -64,7 +67,8 @@
                                        Grid.Column="0"
                                        Grid.RowSpan="2"
                                        Scale="0.7"
-                                       HorizontalOptions="Center"/>
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Center"/>
                                 <Label Text="Info"
                                        TextColor="Black"
                                        Grid.Column="1"
@@ -82,7 +86,7 @@
 
                     <Frame x:Name="BreakfastFrame"
                         Grid.Row="3"
-                           BackgroundColor="#FCE181"
+                           BackgroundColor="#d35400"
                            CornerRadius="10"
                            Margin="15,5">
                         <StackLayout>
@@ -91,7 +95,8 @@
                                        Grid.Column="0"
                                        Grid.RowSpan="2"
                                        Scale="0.7"
-                                       HorizontalOptions="Center"/>
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Center"/>
                                 <Label Text="Breakfast"
                                        TextColor="Black"
                                        Grid.Column="1"
@@ -108,7 +113,7 @@
 
                     <Frame x:Name="ParkingFrame"
                         Grid.Row="4"
-                           BackgroundColor="#EDEAE5"
+                           BackgroundColor="#c0392b"
                            CornerRadius="10"
                            Margin="15,5">
                         <StackLayout>
@@ -117,7 +122,8 @@
                                        Grid.Column="0"
                                        Grid.RowSpan="2"
                                        Scale="0.7"
-                                       HorizontalOptions="Center"/>
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Center"/>
                                 <Label Text="Parking"
                                        TextColor="Black"
                                        Grid.Column="1"
