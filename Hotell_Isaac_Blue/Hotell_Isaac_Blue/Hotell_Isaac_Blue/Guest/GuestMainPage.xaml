@@ -51,7 +51,8 @@
                                 <Label Text="Text om vad man kan göra på bokningsidan"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       TextColor="black"/>
+                                       TextColor="black"
+                                       HeightRequest="100"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
@@ -65,6 +66,7 @@
                             <Grid>
                                 <Image Source="GMPinfo"
                                        Grid.Column="0"
+                                       Grid.Row="0"
                                        Grid.RowSpan="2"
                                        Scale="0.7"
                                        HorizontalOptions="Start"
@@ -74,12 +76,12 @@
                                        Grid.Column="1"
                                        VerticalOptions="Center"
                                        HorizontalOptions="Start"
-                                       FontSize="30"
-                                       />
+                                       FontSize="30"/>
                                 <Label Text="Text om vad man kan göra på infosidan"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       TextColor="Black"/>
+                                       TextColor="black"
+                                       HeightRequest="100"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
@@ -106,7 +108,8 @@
                                 <Label Text="Text om vad man kan göra på frukostsidan"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       TextColor="Black"/>
+                                       TextColor="Black"
+                                       HeightRequest="100"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
@@ -118,7 +121,7 @@
                            Margin="15,5">
                         <StackLayout>
                             <Grid>
-                                <Image Source="GMPCarParking"
+                                <Image Source="GMPcar"
                                        Grid.Column="0"
                                        Grid.RowSpan="2"
                                        Scale="0.7"
@@ -133,7 +136,8 @@
                                 <Label Text="Text om vad man kan göra på parkeringsidan"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       TextColor="Black"/>
+                                       TextColor="Black"
+                                       HeightRequest="100"/>
                             </Grid>
                         </StackLayout>
                     </Frame>

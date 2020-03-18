@@ -9,19 +9,19 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Booking Result"
+                <Label Text="Overview"
                        HorizontalOptions="Center"
-                       TextColor="White"
+                       TextColor="#f1c40f"
                        FontSize="30"
                        FontAttributes="Bold" 
                        Margin="30"/>
-                    <Label Text="Review your booking"
+                    <!--<Label Text="Review your booking"
                            HorizontalOptions="Center"
                            FontSize="16"
                            TextColor="white"
                            FontAttributes="Bold"
-                           Margin="0, 20, 0, 5"/>
-                <Frame BackgroundColor="LightBlue"
+                           Margin="0, 20, 0, 5"/>-->
+                <Frame BackgroundColor="white"
                        CornerRadius="15"
                        Margin="20,0">
                     <StackLayout>

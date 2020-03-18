@@ -9,9 +9,9 @@
         <ScrollView BackgroundColor="#026672">
             <StackLayout>
                 <Label HorizontalOptions="Center" 
-                       FontSize="Title" 
+                       FontSize="30" 
                        Margin="0,20,0,30"
-                       TextColor="white">Make a booking</Label>
+                       TextColor="#f1c40f">Make a booking</Label>
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -43,7 +43,7 @@
 
                                 <DatePicker x:Name="DatePickerSD" 
                                             Grid.Row="0"
-                                            FontSize="20"
+                                            FontSize="15"
                                             TextColor="Transparent"
                                             DateSelected="DatePickerSD_DateSelected"/>
 
@@ -212,15 +212,15 @@
                         <Button x:Name="Options_Btn"
                                 Text="+"
                                 FontSize="28"
-                                TextColor="Blue"
+                                TextColor="black"
                                 HorizontalOptions="Start"
                                 VerticalOptions="Center"
                                 FontAttributes="Bold"
                                 WidthRequest="38"
                                 HeightRequest="38"
-                                BorderRadius="19"
+                                BorderRadius="20"
                                 BackgroundColor="GhostWhite"
-                                BorderColor="Blue"
+                                BorderColor="black"
                                 BorderWidth="3"
                                 Clicked="Options_Btn_Clicked"/>
 
@@ -239,10 +239,12 @@
                 <Button x:Name="Result_Btn"
                         Margin="10"
                         Padding="10"
+                        FontAttributes="Bold"
                         Text="Confirm Booking"
                         HorizontalOptions="Center"
                         Clicked="Result_Btn_Clicked"
-                        BackgroundColor="white"/>
+                        BackgroundColor="white"
+                        TextColor="#026672"/>
             </StackLayout>
             <!--<Frame Margin="10"
                        Padding="0"

@@ -10,7 +10,7 @@
         <ResourceDictionary>
             <Style TargetType="Label">
                 <Setter Property="FontFamily" Value="Sen-Regular.ttf#Sen-Regular.ttf"/>
-                <Setter Property="TextColor" Value="#FFFAFA"/>
+                <Setter Property="TextColor" Value="black"/>
             </Style>
             <Style TargetType="Frame">
                 <Setter Property="CornerRadius" Value="10"/>

@@ -21,7 +21,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Text="Booking"
-                       TextColor="white"
+                       TextColor="#f1c40f"
                        Grid.Column="0" Grid.Row="0"
                        FontSize="35"
                        HorizontalTextAlignment="Center"
@@ -42,7 +42,7 @@
                        VerticalOptions="Start"
                        Margin="30,0"/>
                 <Frame Grid.Column="0" Grid.Row="3"
-                       BackgroundColor="#9FEDD7"
+                       BackgroundColor="white"
                        CornerRadius="15"
                        Margin="30, 0"
                        HasShadow="False"
