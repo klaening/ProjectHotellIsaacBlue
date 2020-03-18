@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Hotell_Isaac_Blue.Guest
@@ -8,10 +9,13 @@ namespace Hotell_Isaac_Blue.Guest
     public class CustomFrame : Frame
     {
         public int RoomNo { get; set; }
+        public string RoomLabel { get; set; } = "Room ";
         int pickerWidth = 100;
+
         public CustomFrame(int roomNo)
         {
             RoomNo = roomNo;
+            RoomLabel += RoomNo;
 
             BackgroundColor = Color.Transparent;
 
@@ -79,7 +83,7 @@ namespace Hotell_Isaac_Blue.Guest
                     {
                         new Label
                         {
-                            Text = "Room " + roomNo,
+                            Text = RoomLabel,
                             FontSize = 28
                         },
 
