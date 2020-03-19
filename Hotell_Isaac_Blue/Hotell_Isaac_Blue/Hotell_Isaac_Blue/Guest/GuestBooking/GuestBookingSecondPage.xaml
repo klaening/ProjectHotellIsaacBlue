@@ -41,7 +41,7 @@
                                        HorizontalOptions="Center"
                                        FontSize="20"/>
 
-                                <DatePicker x:Name="DatePickerSD" 
+                                <DatePicker x:Name="DatePickerSD"
                                             Grid.Row="0"
                                             FontSize="15"
                                             TextColor="Transparent"

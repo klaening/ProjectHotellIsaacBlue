@@ -12,6 +12,7 @@ namespace Hotell_Isaac_Blue
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GuestBookingSecondPage : ContentPage
     {
+        DateTime dateMinValue = DateTime.MinValue;
         DateTime startDate;
         DateTime endDate;
         public GuestBookingSecondPage()
@@ -26,9 +27,15 @@ namespace Hotell_Isaac_Blue
         }
         private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)
         {
-            if (e.NewDate < DateTime.Now.Date)
+            DateTime pickedDate = e.NewDate;
+
+            if (pickedDate < DateTime.Now.Date)
             {
-                DisplayAlert("Alert", "Start date can not preceed today's date", "OK");
+                DisplayAlert("Alert", "Start date can not precede today's date", "OK");
+            }
+            else if (endDate != dateMinValue && pickedDate >= endDate)
+            {
+                DisplayAlert("Alert", "End date can not precede start date", "OK");
             }
             else
             {
@@ -45,9 +52,15 @@ namespace Hotell_Isaac_Blue
 
         private void DatePickerED_DateSelected(object sender, DateChangedEventArgs e)
         {
-            if (e.NewDate <= startDate)
+            DateTime pickedDate = e.NewDate;
+
+            if (pickedDate <= DateTime.Now.Date)
             {
-                DisplayAlert("Alert", "End date can not preceed start date", "OK");
+                DisplayAlert("Alert", "End date can not precede today's date", "OK");
+            }
+            else if (pickedDate <= startDate)
+            {
+                DisplayAlert("Alert", "End date can not precede start date", "OK");
             }
             else
             {
