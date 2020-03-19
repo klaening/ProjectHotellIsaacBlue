@@ -135,7 +135,7 @@ namespace Hotell_Isaac_Blue
             {
                 if (frame.RoomNo > roomNo)
                 {   
-                    frame.RoomLabel = "Hej";
+                    frame.RoomLabelProperty = "Hej";
                         //frame.RoomLabel.Replace("Room " + frame.RoomNo.ToString(), $"Room {frame.RoomNo - 1}");
                     frame.RoomNo -= 1;
                 }

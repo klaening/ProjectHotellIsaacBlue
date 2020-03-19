@@ -10,12 +10,18 @@ namespace Hotell_Isaac_Blue.Guest
     {
         public int RoomNo { get; set; }
         public string RoomLabel { get; set; } = "Room ";
+
+        public BindableProperty RoomLabelProperty { get; set; } =
+  BindableProperty.Create("RoomLabelText", typeof(string), typeof(CustomFrame), null);
+
         int pickerWidth = 100;
 
         public CustomFrame(int roomNo)
         {
             RoomNo = roomNo;
             RoomLabel += RoomNo;
+
+            var textLabel = new Label { FontSize = 20 };
 
             BackgroundColor = Color.Transparent;
 
@@ -81,11 +87,7 @@ namespace Hotell_Isaac_Blue.Guest
                 {
                     Children =
                     {
-                        new Label
-                        {
-                            Text = RoomLabel,
-                            FontSize = 28
-                        },
+                        textLabel,
 
                         new BoxView
                         {
@@ -106,6 +108,8 @@ namespace Hotell_Isaac_Blue.Guest
         private void RemoveBtn_Clicked(object sender, EventArgs e)
         {
             //GuestBookingSecondPage gsp = new GuestBookingSecondPage();
+
+            Resources["LabelTextChange"] = "Hej";
 
             GuestBookingSecondPage.RemoveFromStack(RoomNo);
         }
