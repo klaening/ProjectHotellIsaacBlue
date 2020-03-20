@@ -106,13 +106,15 @@ namespace Hotell_Isaac_Blue
 
         public static void RemoveFromStack(int roomNo)
         {
+            int frameIndex = roomNo - 2;
+
             if (roomNo > 1)
             {
-                stack2.Children.Remove(frameList[roomNo - 2]);
-                frameList.Remove(frameList[roomNo - 2]);
+                stack2.Children.Remove(frameList[frameIndex]);
+                frameList.Remove(frameList[frameIndex]);
                 RoomNo--;
 
-                //Ändra nummer på alla rum
+                //Ändra nummer på alla rum med ett rumsnummer högre än det som togs bort
                 ChangeRoomNumbers(roomNo);
             }
         }
@@ -134,12 +136,18 @@ namespace Hotell_Isaac_Blue
             foreach (var frame in frameChildren)
             {
                 if (frame.RoomNo > roomNo)
-                {   
-                    frame.RoomLabelProperty = "Hej";
-                        //frame.RoomLabel.Replace("Room " + frame.RoomNo.ToString(), $"Room {frame.RoomNo - 1}");
+                {
+                    frame.RoomLabel = frame.RoomLabel.Replace(frame.RoomNo.ToString(), (frame.RoomNo - 1).ToString());
                     frame.RoomNo -= 1;
+                    //Ta bort detta kommando efter att det uppdaterar sig på sidan
+                    frame.RoomLabel = "Hej";
                 }
             }
+        }
+
+        private void SDFrame_Tapped(object sender, EventArgs e)
+        {
+            SDPicker.IsVisible = true;
         }
     }
 }

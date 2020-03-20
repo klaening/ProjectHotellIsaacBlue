@@ -6,7 +6,7 @@
              xmlns:control="clr-namespace:Hotell_Isaac_Blue"
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestBookingSecondPage">
-    <ContentPage.Content>
+    <ContentView>
         <ScrollView BackgroundColor="LightBlue">
             <StackLayout>
                 <Label Text="Make a booking"
@@ -26,6 +26,9 @@
                            CornerRadius="10"
                            Padding="5,0,5,0"
                            BackgroundColor="GhostWhite">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SDFrame_Tapped"/>
+                        </Frame.GestureRecognizers>
 
                         <StackLayout>
                             <Grid>
@@ -41,7 +44,12 @@
                                        TextColor="SlateGray"
                                        FontAttributes="Bold"
                                        HorizontalOptions="Center"
-                                       FontSize="20"/>
+                                       FontSize="20"
+                                       />
+
+                                <DatePicker x:Name="SDPicker"
+                                    BackgroundColor="Transparent"
+                                            TextColor="Transparent"/>
 
                                 <Label x:Name="SDDateLabel"
                                        Grid.Row="1"
@@ -238,5 +246,5 @@
                     </StackLayout>
                 </Frame>-->
         </ScrollView>
-    </ContentPage.Content>
+    </ContentView>
 </ContentPage>
