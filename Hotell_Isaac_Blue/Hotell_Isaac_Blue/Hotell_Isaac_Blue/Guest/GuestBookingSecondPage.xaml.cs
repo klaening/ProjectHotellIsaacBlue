@@ -24,7 +24,7 @@ namespace Hotell_Isaac_Blue
 
         public GuestBookingSecondPage()
         {
-            InitializeComponent();
+            //InitializeComponent();
 
             RoomNo = 1;
 
@@ -137,10 +137,8 @@ namespace Hotell_Isaac_Blue
             {
                 if (frame.RoomNo > roomNo)
                 {
-                    frame.RoomLabel = frame.RoomLabel.Replace(frame.RoomNo.ToString(), (frame.RoomNo - 1).ToString());
                     frame.RoomNo -= 1;
-                    //Ta bort detta kommando efter att det uppdaterar sig på sidan
-                    frame.RoomLabel = "Hej";
+                    frame.textLabel.Text = "Room " + frame.RoomNo;
                 }
             }
         }

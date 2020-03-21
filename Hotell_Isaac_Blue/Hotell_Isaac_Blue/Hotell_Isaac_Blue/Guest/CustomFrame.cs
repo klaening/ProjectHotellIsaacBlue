@@ -9,41 +9,9 @@ namespace Hotell_Isaac_Blue.Guest
 {
     public class CustomFrame : Frame
     {
-        //public static readonly BindableProperty FrameTitleProperty = BindableProperty.Create(nameof(RoomLabel), typeof(string), typeof(CustomFrame), "Room ");
+        public Label textLabel = null;
 
-        //public event PropertyChangedEventHandler PropertyChanged;
-        //protected virtual void OnPropertyChanged(string roomLabelChanged)
-        //{
-        //    if (PropertyChanged != null)
-        //    {
-        //        PropertyChanged(this, new PropertyChangedEventArgs(roomLabelChanged));
-        //    }
-        //}
-
-
-        public static BindableProperty TextProperty = BindableProperty.Create(
-  propertyName: "Room ",
-  returnType: typeof(string),
-  declaringType: typeof(ContentView),
-  defaultValue: "Hej",
-  defaultBindingMode: BindingMode.OneWay);
-        //propertyChanged: HandleTextPropertyChanged);
-
-        public string RoomLabel
-        {
-            // ----- The display text for the composite control.
-            get
-            {
-                return (string)base.GetValue(TextProperty);
-            }
-            set
-            {
-                if (this.RoomLabel != value)
-                    base.SetValue(TextProperty, value);
-            }
-        }
-
-        //public string RoomLabel { get; set; }
+        public string RoomLabel { get; set; }
 
         public int RoomNo { get; set; }
 
@@ -54,12 +22,9 @@ namespace Hotell_Isaac_Blue.Guest
             BackgroundColor = Color.Transparent;
 
             RoomNo = roomNo;
-
             RoomLabel = "Room " + RoomNo;
 
-            var textLabel = new Label { FontSize = 20, Text = RoomLabel };
-            //Är det så här man bindar i code behind?
-            //textLabel.SetBinding(Label.TextProperty, new Binding(RoomLabel));
+            textLabel = new Label { FontSize = 20, Text = RoomLabel };
 
             var pickerList = new List<string> { "Standard", "Double", "Family" };
 
@@ -70,13 +35,14 @@ namespace Hotell_Isaac_Blue.Guest
                 ItemsSource = pickerList
             };
 
-            var qtyPickerList = new List<int> { 0, 1, 2 };
+            var qtyPickerList = new List<int> { 1, 2 };
 
             var guestsQty_Picker = new Picker
             {
                 WidthRequest = pickerWidth,
                 HorizontalOptions = LayoutOptions.Center,
-                ItemsSource = qtyPickerList
+                ItemsSource = qtyPickerList,
+                SelectedItem = qtyPickerList[0]
             };
 
             var removeBtn = new Button
