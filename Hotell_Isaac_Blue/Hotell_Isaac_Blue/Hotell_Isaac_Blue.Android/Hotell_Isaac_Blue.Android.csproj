@@ -58,7 +58,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.356" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.396" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
     <PackageReference Include="Xamarin.Forms.GoogleMaps">
       <Version>3.3.0</Version>
@@ -71,6 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\PatrickHand-Regular.ttf" />
+    <AndroidAsset Include="Assets\Sen-Bold.ttf" />
+    <AndroidAsset Include="Assets\Sen-ExtraBold.ttf" />
+    <AndroidAsset Include="Assets\Sen-Regular.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -130,12 +133,6 @@
     <AndroidResource Include="Resources\drawable\icon02.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\unnamed.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\settings.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\contactus.jfif" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +152,45 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_contact_phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\GMPbreakfast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\GMPcalendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\GMPcar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\GMPcarparking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\GMPcoffee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\GMPfood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\GMPinfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\GMPmeter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\hotellogodark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\hotellogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\BookingButtonBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\hotellogoApplicationDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\hotellogoApplication.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

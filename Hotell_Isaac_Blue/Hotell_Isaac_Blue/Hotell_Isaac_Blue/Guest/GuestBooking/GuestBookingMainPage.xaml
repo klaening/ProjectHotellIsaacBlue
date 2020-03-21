@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Hotell_Isaac_Blue.GuestBookingMainPage">
+             x:Class="Hotell_Isaac_Blue.GuestBookingMainPage"
+             BackgroundColor="#026672">
     <ContentPage.Content>
         <ScrollView>
             <Grid>
@@ -19,7 +20,8 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="Booking" 
+                <Label Text="Booking"
+                       TextColor="#f1c40f"
                        Grid.Column="0" Grid.Row="0"
                        FontSize="35"
                        HorizontalTextAlignment="Center"
@@ -28,17 +30,19 @@
                 <Label Grid.Column="0" Grid.Row="1"
                        FontSize="15"
                        Margin="25,0"
+                       TextColor="white"
                        VerticalTextAlignment="Start">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim arcu id laoreet euismod. Nam metus nisi, elementum quis velit sed, luctus pharetra nunc. Vestibulum fringilla aliquet nisl id congue. Aenean ultricies lacus eget mattis placerat. Aliquam quis arcu risus. Nullam in diam mollis dui porttitor ornare ac sed orci.
                 </Label>
                 <Label Text="Your bookings:"
                        FontSize="17"
+                       TextColor="white"
                        FontAttributes="Bold"
                        Grid.Column="0" Grid.Row="2"
                        VerticalOptions="Start"
                        Margin="30,0"/>
                 <Frame Grid.Column="0" Grid.Row="3"
-                       BackgroundColor="LightBlue"
+                       BackgroundColor="white"
                        CornerRadius="15"
                        Margin="30, 0"
                        HasShadow="False"
@@ -89,6 +93,7 @@
                              BackgroundColor="Transparent"/>
                 <Label Text="New Booking"
                        FontAttributes="Bold"
+                       TextColor="white"
                        Grid.Column="0"
                        Grid.Row="4"
                        VerticalOptions="End"

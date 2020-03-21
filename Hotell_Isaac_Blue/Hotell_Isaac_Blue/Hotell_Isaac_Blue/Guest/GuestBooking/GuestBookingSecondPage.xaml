@@ -3,16 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:control="clr-namespace:Hotell_Isaac_Blue"
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestBookingSecondPage">
-    <ContentView>
-        <ScrollView BackgroundColor="LightBlue">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#026672">
             <StackLayout>
-                <Label Text="Make a booking"
-                       HorizontalOptions="Center" 
-                       FontSize="Title"
-                       Margin="0,20,0,30"/>
+                <Label HorizontalOptions="Center" 
+                       FontSize="30" 
+                       Margin="0,20,0,30"
+                       TextColor="#f1c40f">Make a booking</Label>
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -22,13 +21,9 @@
                     <Frame x:Name="SDFrame"
                            Grid.Row="0" 
                            Grid.Column="0" 
-                           Margin="30,10,10,10" 
-                           CornerRadius="10"
+                           Margin="30,10,10,10"
                            Padding="5,0,5,0"
                            BackgroundColor="GhostWhite">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="SDFrame_Tapped"/>
-                        </Frame.GestureRecognizers>
 
                         <StackLayout>
                             <Grid>
@@ -44,12 +39,13 @@
                                        TextColor="SlateGray"
                                        FontAttributes="Bold"
                                        HorizontalOptions="Center"
-                                       FontSize="20"
-                                       />
+                                       FontSize="20"/>
 
-                                <DatePicker x:Name="SDPicker"
-                                    BackgroundColor="Transparent"
-                                            TextColor="Transparent"/>
+                                <DatePicker x:Name="DatePickerSD"
+                                            Grid.Row="0"
+                                            FontSize="15"
+                                            TextColor="Transparent"
+                                            DateSelected="DatePickerSD_DateSelected"/>
 
                                 <Label x:Name="SDDateLabel"
                                        Grid.Row="1"
@@ -69,8 +65,7 @@
                     <Frame x:Name="EDFrame"
                            Grid.Row="0" 
                            Grid.Column="1" 
-                           Margin="10,10,30,10" 
-                           CornerRadius="10"
+                           Margin="10,10,30,10"
                            Padding="5,0,5,0"
                            BackgroundColor="GhostWhite">
 
@@ -90,6 +85,12 @@
                                        HorizontalOptions="Center"
                                        FontSize="20"/>
 
+                                <DatePicker x:Name="DatePickerED" 
+                                            Grid.Row="0"
+                                            FontSize="20"
+                                            TextColor="Transparent"
+                                            DateSelected="DatePickerED_DateSelected"/>
+
                                 <Label x:Name="EDDateLabel"
                                        Grid.Row="1"
                                        FontSize="30"
@@ -106,12 +107,16 @@
                     </Frame>
                 </Grid>
 
+                <!--Test Date compare-->
+                <Label x:Name="TotDaysLabel"
+                       Text="Total days: "
+                       HorizontalTextAlignment="Center"/>
+
                 <Frame Grid.Row="2" 
                        Grid.Column="0" 
-                       Margin="30,10,30,10" 
-                       CornerRadius="10" 
+                       Margin="30,10,30,10"
                        Grid.ColumnSpan="2"
-                       Padding="10,10,10,10"
+                       Padding="10"
                        BackgroundColor="GhostWhite">
 
                     <StackLayout>
@@ -171,24 +176,10 @@
                                     <x:String>2</x:String>
                                 </Picker.Items>
                             </Picker>
-                            <Button x:Name="OptionsBtn"
-                                    Text="+"
-                                    Padding="0"
-                                    FontSize="28"
-                                    VerticalOptions="Center"
-                                    HorizontalOptions="Start"
-                                    Grid.Column="0"
-                                    Grid.Row="2"
-                                    CornerRadius="20"
-                                    HeightRequest="40"
-                                    WidthRequest="40"
-                                    Clicked="OptionsBtn_Clicked"/>
-
                         </Grid>
                         <Frame x:Name="OptionsFrame"
                                IsVisible="False"
-                               BackgroundColor="LightGray"
-                               CornerRadius="10">
+                               BackgroundColor="LightGray">
 
                             <StackLayout>
                                 <Grid>
@@ -217,12 +208,43 @@
                             </StackLayout>
                         </Frame>
 
-
                         <Grid>
+                        <Button x:Name="Options_Btn"
+                                Text="+"
+                                FontSize="28"
+                                TextColor="black"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                FontAttributes="Bold"
+                                WidthRequest="38"
+                                HeightRequest="38"
+                                BorderRadius="20"
+                                BackgroundColor="GhostWhite"
+                                BorderColor="black"
+                                BorderWidth="3"
+                                Clicked="Options_Btn_Clicked"/>
+
+                        <Label x:Name="AddRoomLabel"
+                               Text="Add another room"
+                               FontSize="16"
+                               TextColor="black"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               VerticalTextAlignment="End"
+                               HorizontalTextAlignment="End"/>
                         </Grid>
                     </StackLayout>
                 </Frame>
 
+                <Button x:Name="Result_Btn"
+                        Margin="10"
+                        Padding="10"
+                        FontAttributes="Bold"
+                        Text="Confirm Booking"
+                        HorizontalOptions="Center"
+                        Clicked="Result_Btn_Clicked"
+                        BackgroundColor="white"
+                        TextColor="#026672"/>
             </StackLayout>
             <!--<Frame Margin="10"
                        Padding="0"
@@ -246,5 +268,5 @@
                     </StackLayout>
                 </Frame>-->
         </ScrollView>
-    </ContentView>
+    </ContentPage.Content>
 </ContentPage>

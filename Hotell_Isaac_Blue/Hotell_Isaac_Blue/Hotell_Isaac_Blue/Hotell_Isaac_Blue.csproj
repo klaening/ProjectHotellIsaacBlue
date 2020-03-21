@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.356" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.396" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
     <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="3.3.0" />
     <PackageReference Include="Xamarin.Forms.GoogleMaps.Bindings" Version="2.2.0" />
@@ -23,13 +23,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Guest\GuestBookingSecondPage.xaml">
+    <EmbeddedResource Update="Guest\GuestBooking\GuestBookingSecondPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Guest\GuestBookingThirdPage.xaml">
+    <EmbeddedResource Update="Guest\GuestBooking\GuestBookingThirdPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Guest\GuestBookingMainPage.xaml">
+    <EmbeddedResource Update="Guest\GuestBooking\GuestBookingMainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Guest\GuestBreakfast\GuestBreakfastPage2.xaml">

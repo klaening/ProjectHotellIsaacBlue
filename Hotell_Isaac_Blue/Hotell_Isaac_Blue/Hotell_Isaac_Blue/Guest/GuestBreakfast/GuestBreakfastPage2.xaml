@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.Guest.GuestBreakfast.GuestBreakfastPage2">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
             <Label Text="Eat Your Breakfast With Us"
                    Grid.Row="0"
@@ -23,12 +24,13 @@
                      HeightRequest="10"
                      Margin="0,0,0,0"/>
 
-            <Label Text="For a proper wake up call, bring your bedhead down to the included community breakfast in the Lounge. It's anything
-                   but your average continental breakfast. From 7 until 10am every day, you'll find staples like scrambled eggs, steel-cut oatmeal, local pastries, yogurt, house-made granola, deli meats, cheeses, fruit, bagels, pancakes, coffee, juice and tea."
+            <Label Text="For a proper wake up call, bring your bedhead down to the included community breakfast in the Lounge.
+It's anything but your average continental breakfast. From 7 until 10am every day, you'll find staples like scrambled eggs,
+steel-cut oatmeal, local pastries, yogurt, house-made granola, deli meats, cheeses, fruit, bagels, pancakes, coffee, juice and tea."
             
                    FontSize="12"
-                   Margin="10,0,0,40"/>
-
+                   Margin="10,0,0,10"/>
+            
             <Label Text="Add breakfast to your booking"
                    HorizontalOptions="Center"
                    Margin="0,5,0,10"/>
@@ -113,5 +115,6 @@
             </StackLayout>
 
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

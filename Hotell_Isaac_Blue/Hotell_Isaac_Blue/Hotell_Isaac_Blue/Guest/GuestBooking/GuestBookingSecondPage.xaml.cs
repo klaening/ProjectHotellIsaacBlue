@@ -10,8 +10,7 @@ using Xamarin.Forms.Xaml;
 
 namespace Hotell_Isaac_Blue
 {
-    //[XamlCompilation(XamlCompilationOptions.Compile)]
-
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GuestBookingSecondPage : ContentPage
     {
         ScrollView parent = null;
