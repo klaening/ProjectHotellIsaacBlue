@@ -144,7 +144,27 @@ namespace Hotell_Isaac_Blue
 
         private void SDFrame_Tapped(object sender, EventArgs e)
         {
-            SDPicker.IsVisible = true;
+
+        }
+
+        private void Options_Btn_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DatePickerSD_DateSelected(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DatePickerED_DateSelected(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Result_Btn_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
