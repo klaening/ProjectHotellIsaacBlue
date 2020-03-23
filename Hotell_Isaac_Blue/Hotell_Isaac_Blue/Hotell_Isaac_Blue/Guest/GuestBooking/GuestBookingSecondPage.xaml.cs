@@ -23,7 +23,7 @@ namespace Hotell_Isaac_Blue
 
         public GuestBookingSecondPage()
         {
-            //InitializeComponent();
+            InitializeComponent();
 
             RoomNo = 1;
 
@@ -85,7 +85,7 @@ namespace Hotell_Isaac_Blue
 
             parent.Content = stackParent;
 
-            Content = parent;
+            //Content = parent;
         }
 
         private void Add_Clicked(object sender, EventArgs e)
@@ -144,12 +144,12 @@ namespace Hotell_Isaac_Blue
 
         private void SDFrame_Tapped(object sender, EventArgs e)
         {
-
+            DatePickerSD.Focus();
         }
 
-        private void Options_Btn_Clicked(object sender, EventArgs e)
+        private void EDFrame_Tapped(object sender, EventArgs e)
         {
-
+            DatePickerED.Focus();
         }
 
         private void DatePickerSD_DateSelected(object sender, EventArgs e)
@@ -158,6 +158,11 @@ namespace Hotell_Isaac_Blue
         }
 
         private void DatePickerED_DateSelected(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Options_Btn_Clicked(object sender, EventArgs e)
         {
 
         }
