@@ -110,9 +110,9 @@ namespace Hotell_Isaac_Blue.Guest
 
         private void RemoveBtn_Clicked(object sender, EventArgs e)
         {
-            //GuestBookingSecondPage gsp = new GuestBookingSecondPage();
+            GuestBookingSecondPage gsp = new GuestBookingSecondPage();
 
-            GuestBookingSecondPage.RemoveFromStack(RoomNo);
+            gsp.RemoveFromStack(RoomNo);
         }
     }
 }

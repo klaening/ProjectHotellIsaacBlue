@@ -50,13 +50,13 @@
 
                                 <DatePicker x:Name="DatePickerSD"
                                             Grid.Row="0"
-                                            FontSize="15"
+                                            FontSize="20"
                                             TextColor="Transparent"
                                             DateSelected="DatePickerSD_DateSelected"/>
 
                                 <Label x:Name="SDDateLabel"
                                         Grid.Row="1"
-                                        FontSize="30"
+                                        FontSize="22"
                                         TextColor="Blue"
                                         Padding="5,0,0,0"/>
 
@@ -106,7 +106,7 @@
 
                                 <Label x:Name="EDDateLabel"
                                         Grid.Row="1"
-                                        FontSize="30"
+                                        FontSize="22"
                                         TextColor="Blue"
                                         Padding="5,0,0,0"/>
 

@@ -19,17 +19,15 @@ namespace Hotell_Isaac_Blue
 
         ScrollView parent = null;
         StackLayout stack1 = null;
-        static StackLayout stack2 = null;
+        StackLayout stack2 = null;
         StackLayout stack3 = null;
         StackLayout stackParent = null;
-        static int RoomNo;
+        static int RoomNo = 1;
         static List<CustomFrame> frameList = new List<CustomFrame>();
 
         public GuestBookingSecondPage()
         {
             InitializeComponent();
-
-            RoomNo = 1;
 
             BackgroundColor = Color.LightBlue;
 
@@ -89,7 +87,7 @@ namespace Hotell_Isaac_Blue
 
             parent.Content = stackParent;
 
-            //Content = parent;
+            Content = parent;
         }
 
         private void SDFrame_Tapped(object sender, EventArgs e)
@@ -170,7 +168,7 @@ namespace Hotell_Isaac_Blue
 
         private string CalculateTotalDays()
         {
-            TimeSpan ts = endDate - startDate;
+            TimeSpan ts = endDate.Date - startDate.Date;
             int days = (int)ts.TotalDays;
 
             return "Total days: " + days;
@@ -191,7 +189,7 @@ namespace Hotell_Isaac_Blue
             //More options
         }
 
-        public static void RemoveFromStack(int roomNo)
+        public void RemoveFromStack(int roomNo)
         {
             int frameIndex = roomNo - 2;
 
@@ -206,14 +204,14 @@ namespace Hotell_Isaac_Blue
             }
         }
 
-        private static void ChangeRoomNumbers(int roomNo)
+        private void ChangeRoomNumbers(int roomNo)
         {
             //Leta efter alla rum som har nummer högre än roomNo
             List<CustomFrame> frameChildren = new List<CustomFrame>();
 
             foreach (var child in stack2.Children)
             {
-                if (child is CustomFrame)
+                if (true)
                 {
                     frameChildren.Add((CustomFrame)child);
                 }
