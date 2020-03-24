@@ -9,13 +9,21 @@ namespace Hotell_Isaac_Blue
     {
         public static double ScreenHight;
         public static double ScreenWidth;
-
+        public static string FilePath;
         public App()
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainPage());
             
+        }
+        public App(string filePath)
+        {
+            InitializeComponent();
+
+            MainPage = new NavigationPage(new MainPage());
+
+            FilePath = filePath;
         }
 
         protected override void OnStart()

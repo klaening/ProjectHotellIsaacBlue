@@ -2,18 +2,25 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Hotell_Isaac_Blue.Tables"
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestMainPage"
              BackgroundColor="#026672">
     <ContentPage.Content>
+        <!--Det här ska vi lösa grabbar-->
+        <!--<local:Accounts/>-->
         <ScrollView>
             <StackLayout>
-                
+
+                <Label x:Name="UserText"
+                           Text="{Binding UserName}"
+                       TextColor="White"
+                       FontSize="30"/>
+
                 <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100"/>
@@ -141,7 +148,8 @@
                         </StackLayout>
                     </Frame>
                 </Grid>
-            </StackLayout>
-        </ScrollView>
+
+    </StackLayout>
+    </ScrollView>
     </ContentPage.Content>
 </ContentPage>

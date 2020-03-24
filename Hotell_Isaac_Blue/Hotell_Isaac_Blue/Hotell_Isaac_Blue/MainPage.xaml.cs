@@ -1,10 +1,12 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Hotell_Isaac_Blue.Tables;
 
 namespace Hotell_Isaac_Blue
 {
@@ -13,6 +15,7 @@ namespace Hotell_Isaac_Blue
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        List<Accounts> accounts = null;
         public MainPage()
         {
             InitializeComponent();
@@ -20,7 +23,40 @@ namespace Hotell_Isaac_Blue
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GuestMainPage());
+            Navigation.PushAsync(new RegisterPage());
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+                conn.CreateTable<Accounts>();
+                accounts = conn.Table<Accounts>().ToList();
+            }
+        }
+
+        private void LoginBtn_Clicked(object sender, EventArgs e)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+                bool foundClient = false;
+
+                foreach (var user in accounts)
+                {
+                    if (user.UserName == UserNameEntry.Text && user.Password == PasswordEntry.Text)
+                    {
+                        foundClient = true;
+                        
+                        Navigation.PushAsync(new GuestMainPage(user));
+                        break;
+                    }
+                }
+
+                if (!foundClient)
+                    DisplayAlert("Login failed", "User name or password was incorrect", "OK");
+            }
         }
     }
 }

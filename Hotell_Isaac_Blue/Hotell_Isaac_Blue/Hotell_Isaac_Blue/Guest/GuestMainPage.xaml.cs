@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotell_Isaac_Blue.Tables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,18 @@ namespace Hotell_Isaac_Blue
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GuestMainPage : ContentPage
     {
+        string UserName = null;
         public GuestMainPage()
         {
             InitializeComponent();
+            AddTapGestures();
+        }
+
+        public GuestMainPage(Accounts user)
+        {
+            InitializeComponent();
+            UserName = user.UserName;
+            //UserText.Text = "Logged in as " + user.UserName;
             AddTapGestures();
         }
 
