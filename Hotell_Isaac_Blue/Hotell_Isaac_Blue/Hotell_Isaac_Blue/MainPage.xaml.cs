@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Hotell_Isaac_Blue.Tables;
+using Hotell_Isaac_Blue.Model;
 
 namespace Hotell_Isaac_Blue
 {

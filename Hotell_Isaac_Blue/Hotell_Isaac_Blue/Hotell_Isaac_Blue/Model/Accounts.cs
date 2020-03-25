@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hotell_Isaac_Blue.Tables
+namespace Hotell_Isaac_Blue.Model
 {
     public class Accounts
     {
@@ -12,17 +12,7 @@ namespace Hotell_Isaac_Blue.Tables
 
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        public string UserName
-        {
-            get
-            {
-                return userName;
-            }
-            set
-            {
-                userName = value;
-            }
-        }
+        public string UserName { get; set; }
         public string Password { get; set; }
     }
 }

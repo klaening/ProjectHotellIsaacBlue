@@ -2,18 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Hotell_Isaac_Blue.Tables"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Hotell_Isaac_Blue.Model"
+             xmlns:model="clr-namespace:Hotell_Isaac_Blue.Model"
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestMainPage"
              BackgroundColor="#026672">
     <ContentPage.Content>
-        <!--Det här ska vi lösa grabbar-->
-        <!--<local:Accounts/>-->
         <ScrollView>
             <StackLayout>
 
                 <Label x:Name="UserText"
-                           Text="{Binding UserName}"
+                       Text="{Binding UserName, Source={StaticResource Mattis}}"
                        TextColor="White"
                        FontSize="30"/>
 

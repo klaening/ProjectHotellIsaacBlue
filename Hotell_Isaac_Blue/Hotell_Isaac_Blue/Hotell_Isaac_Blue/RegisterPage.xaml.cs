@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Hotell_Isaac_Blue.Tables;
+using Hotell_Isaac_Blue.Model;
 using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
