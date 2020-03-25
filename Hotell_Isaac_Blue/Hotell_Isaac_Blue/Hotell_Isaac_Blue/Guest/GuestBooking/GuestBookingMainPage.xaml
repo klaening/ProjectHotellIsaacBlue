@@ -20,17 +20,14 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="Booking"
-                       TextColor="#f1c40f"
+                <Label Style="{StaticResource h1Label}"
+                       Text="Booking"
                        Grid.Column="0" Grid.Row="0"
-                       FontSize="35"
                        HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"
-                       FontAttributes="Bold"/>
-                <Label Grid.Column="0" Grid.Row="1"
-                       FontSize="15"
+                       VerticalTextAlignment="Center"/>
+                <Label Style="{StaticResource pLabel}"
+                       Grid.Column="0" Grid.Row="1"
                        Margin="25,0"
-                       TextColor="white"
                        VerticalTextAlignment="Start">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim arcu id laoreet euismod. Nam metus nisi, elementum quis velit sed, luctus pharetra nunc. Vestibulum fringilla aliquet nisl id congue. Aenean ultricies lacus eget mattis placerat. Aliquam quis arcu risus. Nullam in diam mollis dui porttitor ornare ac sed orci.
                 </Label>
@@ -91,9 +88,9 @@
                              Scale="0.5"
                              Clicked="NewBooking_Clicked"
                              BackgroundColor="Transparent"/>
-                <Label Text="New Booking"
+                <Label Style="{StaticResource pLabel}"
+                       Text="New Booking"
                        FontAttributes="Bold"
-                       TextColor="white"
                        Grid.Column="0"
                        Grid.Row="4"
                        VerticalOptions="End"
