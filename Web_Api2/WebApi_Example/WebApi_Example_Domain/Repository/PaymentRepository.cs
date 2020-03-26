@@ -6,22 +6,22 @@ using WebApi_Example_Domain.Models;
 
 namespace WebApi_Example_Domain.Repository
 {
-    public class StaffRepository : IStaffRepository
+    public class PaymentRepository : IPaymentRepository
     {
         private readonly string _connectionString;
 
-        public StaffRepository(string connectionString)
+        public PaymentRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        public async Task<IEnumerable<Staff>> GetStaff()
+        public async Task<IEnumerable<Payments>> GetPayments()
         {
             using (var c = new SqlConnection(_connectionString))
             {
                 try
                 {
-                    return await c.QueryAsync<Staff>("SELECT * FROM STAFF");
+                    return await c.QueryAsync<Payments>("SELECT * FROM PAYMENTS");
                 }
                 catch (System.Exception ex)
                 {
@@ -31,21 +31,21 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
-        public async Task<Staff> GetStaff(int id)
+        public async Task<Payments> GetPayment(int id)
         {
             using (var c = new SqlConnection(_connectionString))
             {
-                return await c.QueryFirstOrDefaultAsync<Staff>("SELECT * FROM STAFF WHERE ID = @id", new { id });
+                return await c.QueryFirstOrDefaultAsync<Payments>("SELECT * FROM PAYMENTS WHERE ID = @id", new { id} );
             }
         }
 
-        public async Task<bool> AddStaff(Staff staff)
+        public async Task<bool> AddPayment(Payments payment)
         {
             using (var c = new SqlConnection(_connectionString))
             {
                 try
                 {
-                    await c.ExecuteAsync("INSERT INTO STAFF (FIRSTNAME, LASTNAME, PHONENUMBER, EMAIL, DEPARTMENTSID) VALUES (@FirstName, @LastName, @PhoneNumber, @Email, @DepartmentsID)", new { staff.FIRSTNAME, staff.LASTNAME, staff.PHONENUMBER, staff.EMAIL, staff.DEPARTMENTSID });
+                    await c.ExecuteAsync("INSERT INTO PAYMENTS (TOTALCOST, TRANSACTIONTOKEN, BOOKINGSID, DISCOUNTMONEY, CUSTOMERSID) VALUES (@TotalCost, @TransactionToken, @BookingsID, @DiscountMoney, @CustomersID)", new { payment.TOTALCOST, payment.TRANSACTIONTOKEN, payment.BOOKINGSID, payment.DISCOUNTMONEY, payment.CUSTOMERSID });
                     return true;
                 }
                 catch (System.Exception)

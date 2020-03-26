@@ -4,9 +4,9 @@ using WebApi_Example_Domain.Models;
 
 namespace WebApi_Example_Domain.Services
 {
-    public interface IDepartmentService
+    public interface IRoomTypeService
     {
-        Task<IEnumerable<Departments>> GetDepartments();
-        Task<Departments> GetDepartment(int id);
+        Task<IEnumerable<RoomTypes>> GetRoomTypes();
+        Task<RoomTypes> GetRoomType(int id);
     }
 }

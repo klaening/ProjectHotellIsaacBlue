@@ -7,25 +7,25 @@ namespace WebApi_Example.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class DepartmentsController : Controller
+    public class RoomTypesController : Controller
     {
-        private readonly IDepartmentService _departmentService;
+        private readonly IRoomTypeService _roomTypeService;
 
-        public DepartmentsController(IDepartmentService departmentService)
+        public RoomTypesController(IRoomTypeService roomTypeService)
         {
-            _departmentService = departmentService;
+            _roomTypeService = roomTypeService;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _departmentService.GetDepartments());
+            return Ok(await _roomTypeService.GetRoomTypes());
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            return Ok(await _departmentService.GetDepartment(id));
+            return Ok(await _roomTypeService.GetRoomType(id));
         }
     }
 }

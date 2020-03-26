@@ -6,22 +6,22 @@ using WebApi_Example_Domain.Models;
 
 namespace WebApi_Example_Domain.Repository
 {
-    public class StaffRepository : IStaffRepository
+    public class ReviewRepository : IReviewRepository
     {
         private readonly string _connectionString;
 
-        public StaffRepository(string connectionString)
+        public ReviewRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        public async Task<IEnumerable<Staff>> GetStaff()
+        public async Task<IEnumerable<Reviews>> GetReviews()
         {
             using (var c = new SqlConnection(_connectionString))
             {
                 try
                 {
-                    return await c.QueryAsync<Staff>("SELECT * FROM STAFF");
+                    return await c.QueryAsync<Reviews>("SELECT * FROM REVIEWS");
                 }
                 catch (System.Exception ex)
                 {
@@ -31,21 +31,21 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
-        public async Task<Staff> GetStaff(int id)
+        public async Task<Reviews> GetReview(int id)
         {
             using (var c = new SqlConnection(_connectionString))
             {
-                return await c.QueryFirstOrDefaultAsync<Staff>("SELECT * FROM STAFF WHERE ID = @id", new { id });
+                return await c.QueryFirstOrDefaultAsync<Reviews>("SELECT * FROM REVIEWS WHERE ID = @id", new { id} );
             }
         }
 
-        public async Task<bool> AddStaff(Staff staff)
+        public async Task<bool> AddReview(Reviews reviews)
         {
             using (var c = new SqlConnection(_connectionString))
             {
                 try
                 {
-                    await c.ExecuteAsync("INSERT INTO STAFF (FIRSTNAME, LASTNAME, PHONENUMBER, EMAIL, DEPARTMENTSID) VALUES (@FirstName, @LastName, @PhoneNumber, @Email, @DepartmentsID)", new { staff.FIRSTNAME, staff.LASTNAME, staff.PHONENUMBER, staff.EMAIL, staff.DEPARTMENTSID });
+                    await c.ExecuteAsync("INSERT INTO REVIEWS (CUSTOMERSID, RATING, CUSTOMERREVIEW, BOOKINGSID) VALUES (@CustomersID, @Rating, @CustomerReview, @BookingsID )", new { reviews.CUSTOMERSID, reviews.RATING, reviews.CUSTOMERREVIEW, reviews.BOOKINGSID });
                     return true;
                 }
                 catch (System.Exception)

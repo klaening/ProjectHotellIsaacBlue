@@ -7,25 +7,25 @@ namespace WebApi_Example.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class DepartmentsController : Controller
+    public class PhoneNumberTypesController : Controller
     {
-        private readonly IDepartmentService _departmentService;
+        private readonly IPhoneNumberTypeService _phoneNumberTypeService;
 
-        public DepartmentsController(IDepartmentService departmentService)
+        public PhoneNumberTypesController(IPhoneNumberTypeService phoneNumberTypeService)
         {
-            _departmentService = departmentService;
+            _phoneNumberTypeService = phoneNumberTypeService;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _departmentService.GetDepartments());
+            return Ok(await _phoneNumberTypeService.GetPhoneNumberTypes());
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            return Ok(await _departmentService.GetDepartment(id));
+            return Ok(await _phoneNumberTypeService.GetPhoneNumberType(id));
         }
     }
 }
