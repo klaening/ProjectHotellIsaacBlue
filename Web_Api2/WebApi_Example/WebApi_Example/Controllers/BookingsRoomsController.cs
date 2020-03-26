@@ -7,11 +7,11 @@ namespace WebApi_Example.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class BookingRoomController : Controller
+    public class BookingsRoomsController : Controller
     {
         private readonly IBookingRoomService _bookingRoomService;
 
-        public BookingRoomController(IBookingRoomService bookingRoomService)
+        public BookingsRoomsController(IBookingRoomService bookingRoomService)
         {
             _bookingRoomService = bookingRoomService;
         }

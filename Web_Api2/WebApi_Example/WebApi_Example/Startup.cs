@@ -24,10 +24,10 @@ namespace WebApi_Example
             services.AddSingleton<IAccountRepository>(c => new AccountRepository(Configuration["ConnectionString"]));
 
             services.AddSingleton<IBookingService, BookingService>();
-            services.AddSingleton<IBookingRepository>(c => new BookingRepository(Configuration["Connection"]));
+            services.AddSingleton<IBookingRepository>(c => new BookingRepository(Configuration["ConnectionString"]));
 
             services.AddSingleton<IBookingRoomService, BookingRoomService>();
-            services.AddSingleton<IBookingRoomRepository>(c => new BookingRoomRepository(Configuration["Connection"]));
+            services.AddSingleton<IBookingRoomRepository>(c => new BookingRoomRepository(Configuration["ConnectionString"]));
 
             services.AddSingleton<ICustomerService, CustomerService>();
             services.AddSingleton<ICustomerRepository>(c => new CustomerRepository(Configuration["ConnectionString"]));
@@ -36,25 +36,25 @@ namespace WebApi_Example
             services.AddSingleton<ICustomerTypeRepository>(c => new CustomerTypeRepository(Configuration["ConnectionString"]));
 
             services.AddSingleton<IDepartmentService, DepartmentService>();
-            services.AddSingleton<IDepartmentRepository>(c => new DepartmentRepository(Configuration["Connection"]));
+            services.AddSingleton<IDepartmentRepository>(c => new DepartmentRepository(Configuration["ConnectionString"]));
 
             services.AddSingleton<IPaymentService, PaymentService>();
-            services.AddSingleton<IPaymentRepository>(c => new PaymentRepository(Configuration["Connection"]));
+            services.AddSingleton<IPaymentRepository>(c => new PaymentRepository(Configuration["ConnectionString"]));
 
             services.AddSingleton<IPhoneNumberService, PhoneNumberService>();
-            services.AddSingleton<IPhoneNumberRepository>(c => new PhoneNumberRepository(Configuration["Connection"]));
+            services.AddSingleton<IPhoneNumberRepository>(c => new PhoneNumberRepository(Configuration["ConnectionString"]));
 
             services.AddSingleton<IPhoneNumberTypeService, PhoneNumberTypeService>();
-            services.AddSingleton<IPhoneNumberTypeRepository>(c => new PhoneNumberTypeRepository(Configuration["Connection"]));
+            services.AddSingleton<IPhoneNumberTypeRepository>(c => new PhoneNumberTypeRepository(Configuration["ConnectionString"]));
 
             services.AddSingleton<IReviewService, ReviewService>();
-            services.AddSingleton<IReviewRepository>(c => new ReviewRepository(Configuration["Connection"]));
+            services.AddSingleton<IReviewRepository>(c => new ReviewRepository(Configuration["ConnectionString"]));
 
             services.AddSingleton<IRoomService, RoomService>();
-            services.AddSingleton<IRoomRepository>(c => new RoomRepository(Configuration["Connection"]));
+            services.AddSingleton<IRoomRepository>(c => new RoomRepository(Configuration["ConnectionString"]));
 
             services.AddSingleton<IRoomTypeService, RoomTypeService>();
-            services.AddSingleton<IRoomTypeRepository>(c => new RoomTypeRepository(Configuration["Connection"]));
+            services.AddSingleton<IRoomTypeRepository>(c => new RoomTypeRepository(Configuration["ConnectionString"]));
 
             services.AddSingleton<IStaffService, StaffService>();
             services.AddSingleton<IStaffRepository>(c => new StaffRepository(Configuration["ConnectionString"]));

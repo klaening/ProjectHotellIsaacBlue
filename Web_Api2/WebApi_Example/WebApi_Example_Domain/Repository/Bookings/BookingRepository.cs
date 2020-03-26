@@ -45,10 +45,10 @@ namespace WebApi_Example_Domain.Repository
             {
                 try
                 {
-                    await c.ExecuteAsync("INSERT INTO BOOKINGS (ID, QTYPERSONS, STARTDATE, ENDDATE, ETA, TIMEARRIVAL, TIMEDEPARTURE, SPECIALNEEDS" +
-                        "EXTRABED, PARKING, BREAKFAST, CUSTOMERSID, STAFFID) VALUES (@id, @qtypersons, @startdate, @enddate, @eta" +
+                    await c.ExecuteAsync("INSERT INTO BOOKINGS (QTYPERSONS, STARTDATE, ENDDATE, ETA, TIMEARRIVAL, TIMEDEPARTURE, SPECIALNEEDS" +
+                        "EXTRABED, PARKING, BREAKFAST, CUSTOMERSID, STAFFID) VALUES (@qtypersons, @startdate, @enddate, @eta" +
                         "@timearrival, @timedeparture, @specialneeds, @extrabed, @parking, @breakfast, @customersid, @staffid)",
-                        new { bookings.ID, bookings.QTYPERSONS, bookings.STARTDATE, bookings.ENDDATE, bookings.ETA, bookings.TIMEARRIVAL, bookings.TIMEDEPARTURE,
+                        new { bookings.QTYPERSONS, bookings.STARTDATE, bookings.ENDDATE, bookings.ETA, bookings.TIMEARRIVAL, bookings.TIMEDEPARTURE,
                         bookings.SPECIALNEEDS, bookings.EXTRABED, bookings.PARKING, bookings.BREAKFAST, bookings.CUSTOMERSID, bookings.STAFFID});
                     return true;
                 }

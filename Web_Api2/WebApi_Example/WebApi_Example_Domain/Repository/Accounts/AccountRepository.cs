@@ -45,7 +45,7 @@ namespace WebApi_Example_Domain.Repository
             {
                 try
                 {
-                    await c.ExecuteAsync("INSERT INTO ACCOUNTS (ID, USERNAME, USERPASSWORD, CUSTOMERSID) VALUES (@id, @username, @userpassword, @customersid)", new { accounts.ID, accounts.USERNAME, accounts.USERPASSWORD, accounts.CUSTOMERSID });
+                    await c.ExecuteAsync("INSERT INTO ACCOUNTS (USERNAME, USERPASSWORD, CUSTOMERSID) VALUES (@username, @userpassword, @customersid)", new { accounts.USERNAME, accounts.USERPASSWORD, accounts.CUSTOMERSID });
                     return true;
                 }
                 catch (System.Exception)

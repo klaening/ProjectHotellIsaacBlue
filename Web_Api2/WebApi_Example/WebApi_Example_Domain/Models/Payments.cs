@@ -10,6 +10,7 @@ namespace WebApi_Example_Domain.Models
         public decimal TOTALCOST { get; set; }
         public string TRANSACTIONTOKEN { get; set; }
         public long BOOKINGSID { get; set; }
+        //Borde vara en decimal:
         public int DISCOUNTMONEY { get; set; }
         public long CUSTOMERSID { get; set; }
     }

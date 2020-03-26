@@ -7,31 +7,31 @@ namespace WebApi_Example.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ReviewController : Controller
+    public class AccountsController : Controller
     {
-        private readonly IReviewService _reviewService;
+        private readonly IAccountService _accountService;
 
-        public ReviewController(IReviewService reviewService)
+        public AccountsController(IAccountService accountService)
         {
-            _reviewService = reviewService;
+            _accountService = accountService;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _reviewService.GetReviews());
+            return Ok(await _accountService.GetAccounts());
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            return Ok(await _reviewService.GetReview(id));
+            return Ok(await _accountService.GetAccount(id));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] Reviews review)
+        public async Task<IActionResult> Add([FromBody] Accounts accounts)
         {
-            return Ok(await _reviewService.AddReview(review));
+            return Ok(await _accountService.AddAccount(accounts));
         }
     }
 }

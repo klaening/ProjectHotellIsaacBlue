@@ -7,11 +7,11 @@ namespace WebApi_Example.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PaymentController : Controller
+    public class PaymentsController : Controller
     {
         private readonly IPaymentService _paymentService;
 
-        public PaymentController(IPaymentService paymentService)
+        public PaymentsController(IPaymentService paymentService)
         {
             _paymentService = paymentService;
         }
