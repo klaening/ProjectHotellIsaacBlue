@@ -5,11 +5,11 @@ using WebApi_Example_Domain.Repository;
 
 namespace WebApi_Example_Domain.Services
 {
-    public class CustomerTypesService : ICustomerTypesService
+    public class CustomerTypeService : ICustomerTypeService
     {
-        private readonly ICustomerTypesRepository _customerTypesRepository;
+        private readonly ICustomerTypeRepository _customerTypesRepository;
 
-        public CustomerTypesService(ICustomerTypesRepository customerTypesRepository)
+        public CustomerTypeService(ICustomerTypeRepository customerTypesRepository)
         {
             _customerTypesRepository = customerTypesRepository;
         }

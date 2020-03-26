@@ -6,11 +6,11 @@ using WebApi_Example_Domain.Models;
 
 namespace WebApi_Example_Domain.Repository
 {
-    public class CustomerTypesRepository : ICustomerTypesRepository
+    public class CustomerTypeRepository : ICustomerTypeRepository
     {
         private readonly string _connectionString;
 
-        public CustomerTypesRepository(string connectionString)
+        public CustomerTypeRepository(string connectionString)
         {
             _connectionString = connectionString;
         }

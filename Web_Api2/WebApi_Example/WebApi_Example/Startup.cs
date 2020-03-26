@@ -20,8 +20,8 @@ namespace WebApi_Example
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ICustomerTypesService, CustomerTypesService>();
-            services.AddSingleton<ICustomerTypesRepository>(c => new CustomerTypesRepository(Configuration["ConnectionString"]));
+            services.AddSingleton<ICustomerTypeService, CustomerTypeService>();
+            services.AddSingleton<ICustomerTypeRepository>(c => new CustomerTypeRepository(Configuration["ConnectionString"]));
 
             services.AddSingleton<IStaffService, StaffService>();
             services.AddSingleton<IStaffRepository>(c => new StaffRepository(Configuration["ConnectionString"]));

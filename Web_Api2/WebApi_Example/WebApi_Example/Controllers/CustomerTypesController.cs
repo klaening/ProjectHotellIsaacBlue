@@ -9,9 +9,9 @@ namespace WebApi_Example.Controllers
     [Route("api/[controller]")]
     public class CustomerTypesController : Controller
     {
-        private readonly ICustomerTypesService _customerTypesService;
+        private readonly ICustomerTypeService _customerTypesService;
 
-        public CustomerTypesController(ICustomerTypesService customerTypesService)
+        public CustomerTypesController(ICustomerTypeService customerTypesService)
         {
             _customerTypesService = customerTypesService;
         }
