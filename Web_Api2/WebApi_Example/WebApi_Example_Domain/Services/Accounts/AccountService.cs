@@ -24,6 +24,11 @@ namespace WebApi_Example_Domain.Services
             return await _accountRepository.GetAccount(id);
         }
 
+        public async Task<Accounts> GetAccount(string userName, string password)
+        {
+            return await _accountRepository.GetAccount(userName, password);
+        }
+
         public async Task<bool> AddAccount(Accounts accounts)
         {
             return await _accountRepository.AddAccount(accounts);

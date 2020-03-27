@@ -9,7 +9,11 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                
+
+                <Label x:Name="WelcomeLabel"
+                       FontSize="30"
+                       TextColor="White"/>
+
                 <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
