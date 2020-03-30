@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Hotell_Isaac_Blue.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Hotell_Isaac_Blue
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GuestMainPage : ContentPage
+    public partial class GuestMainPage : ContentPage 
     {
         public GuestMainPage()
         {

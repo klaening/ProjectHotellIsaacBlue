@@ -8,6 +8,8 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Hotell_Isaac_Blue.ViewModels;
+using Hotell_Isaac_Blue.Helpers;
 
 namespace Hotell_Isaac_Blue
 {
@@ -25,17 +27,35 @@ namespace Hotell_Isaac_Blue
         {
             var client = new HttpClient();
 
-            string jsonData = UsernameEntry.Text+"/"+PasswordEntry.Text;
+            string jsonData = UsernameEntry.Text + "/" + PasswordEntry.Text;
 
-            //StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            //content.Headers.ContentType.CharSet = string.Empty;
-
-            //string contentString = content.ToString();
-
+            //Returnerar Status kod
             var response = await client.GetAsync("https://hotellisaacbluewebapi.azurewebsites.net/api/accounts/" + jsonData);
-            
-            // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
-            string result = await response.Content.ReadAsStringAsync();
+
+
+            if (response.ToString().Contains("StatusCode: 200"))
+            {
+                //Returnerar json datan för det kontot
+                string result = await response.Content.ReadAsStringAsync();
+
+                //En lista med all aktuell data i json skriptet
+                List<string> wantedResults = Helpers.Helpers.ExtractData(result);
+
+                //Sätter den aktiva användaren till det konto som loggat in
+                ActiveUser.account = new Accounts
+                {
+                    ID = Convert.ToInt64(wantedResults[0]),
+                    UserName = wantedResults[1],
+                    UserPassword = wantedResults[2],
+                    CustomersID = Convert.ToInt64(wantedResults[3])
+                };
+
+                await Navigation.PushAsync(new GuestMainPage());
+            }
+            else
+            {
+                await DisplayAlert("Login failed", "Username or Password was incorrect", "OK");
+            }
         }
 
         private void SignUpBtn_Clicked(object sender, EventArgs e)

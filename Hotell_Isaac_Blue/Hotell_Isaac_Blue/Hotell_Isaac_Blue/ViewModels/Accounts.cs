@@ -6,6 +6,7 @@ namespace Hotell_Isaac_Blue.ViewModels
 {
     public class Accounts
     {
+        public long ID { get; set; }
         public string UserName { get; set; }
         public string UserPassword { get; set; }
         public long? CustomersID { get; set; }

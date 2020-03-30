@@ -9,6 +9,7 @@ namespace Hotell_Isaac_Blue.APIServices
 {
     public class Services
     {
+        private const string HOST = "https://hotellisaacbluewebapi.azurewebsites.net/api/";
         public static async Task PostServiceAsync(Object objectclass, string path)
         {
             var client = new HttpClient();
@@ -16,10 +17,22 @@ namespace Hotell_Isaac_Blue.APIServices
 
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("https://hotellisaacbluewebapi.azurewebsites.net/api/" + path, content);
+            var response = await client.PostAsync(HOST + path, content);
 
-            // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
+            //Kan man använda result för att ta kundens id och sen stoppa den i kontots foreign key?
             //string result = await response.Content.ReadAsStringAsync();
         }
+
+        //public static HttpResponseMessage GetLoginAccountInfo(string username, string password)
+        //{
+        //    var client = new HttpClient();
+
+        //    string jsonData = username + "/" + password;
+
+        //    //Returnerar Status kod
+        //    var response = client.GetAsync(HOST + "accounts/" + jsonData);
+
+        //    return response;
+        //}
     }
 }
