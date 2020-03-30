@@ -24,6 +24,9 @@
                            Margin="30,10,10,10"
                            Padding="5,0,5,0"
                            BackgroundColor="GhostWhite">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SDFrame_Tapped"/>
+                        </Frame.GestureRecognizers>
 
                         <StackLayout>
                             <Grid>
@@ -49,7 +52,7 @@
 
                                 <Label x:Name="SDDateLabel"
                                        Grid.Row="1"
-                                       FontSize="30"
+                                       FontSize="24"
                                        TextColor="Blue"
                                        Padding="5,0,0,0"/>
 
@@ -69,6 +72,10 @@
                            Padding="5,0,5,0"
                            BackgroundColor="GhostWhite">
 
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="EDFrame_Tapped"/>
+                        </Frame.GestureRecognizers>
+
                         <StackLayout>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -87,13 +94,13 @@
 
                                 <DatePicker x:Name="DatePickerED" 
                                             Grid.Row="0"
-                                            FontSize="20"
+                                            FontSize="15"
                                             TextColor="Transparent"
                                             DateSelected="DatePickerED_DateSelected"/>
 
                                 <Label x:Name="EDDateLabel"
                                        Grid.Row="1"
-                                       FontSize="30"
+                                       FontSize="24"
                                        TextColor="Blue"
                                        Padding="5,0,0,0"/>
 
@@ -120,7 +127,7 @@
                        BackgroundColor="GhostWhite">
 
                     <StackLayout>
-                        <Label Text="ROOM 1"
+                        <Label Text="ROOM"
                                FontAttributes="Bold"
                                FontSize="20" 
                                TextColor="SlateGray"
@@ -152,10 +159,11 @@
                                     Grid.Column="1"
                                     WidthRequest="100"
                                     HorizontalOptions="Center">
+                                
+                                <!--Ändra så att den bindar infon från en lista-->
                                 <Picker.Items>
                                     <x:String>Standard</x:String>
                                     <x:String>Double</x:String>
-                                    <x:String>Family</x:String>
                                 </Picker.Items>
                             </Picker>
 
@@ -170,8 +178,9 @@
                                     Grid.Column="1"
                                     WidthRequest="100"
                                     HorizontalOptions="Center">
+
+                                <!--Ändra så att antalet personer uppdateras utefter vilket rum som valts-->
                                 <Picker.Items>
-                                    <x:String>0</x:String>
                                     <x:String>1</x:String>
                                     <x:String>2</x:String>
                                 </Picker.Items>
@@ -209,7 +218,7 @@
                         </Frame>
 
                         <Grid>
-                        <Button x:Name="Options_Btn"
+                            <Button x:Name="Options_Btn"
                                 Text="+"
                                 FontSize="28"
                                 TextColor="black"
@@ -223,15 +232,6 @@
                                 BorderColor="black"
                                 BorderWidth="3"
                                 Clicked="Options_Btn_Clicked"/>
-
-                        <Label x:Name="AddRoomLabel"
-                               Text="Add another room"
-                               FontSize="16"
-                               TextColor="black"
-                               Grid.Row="0"
-                               Grid.Column="1"
-                               VerticalTextAlignment="End"
-                               HorizontalTextAlignment="End"/>
                         </Grid>
                     </StackLayout>
                 </Frame>
@@ -246,27 +246,6 @@
                         BackgroundColor="white"
                         TextColor="#026672"/>
             </StackLayout>
-            <!--<Frame Margin="10"
-                       Padding="0"
-                       CornerRadius="10"
-                       BackgroundColor="White">
-                    <StackLayout Margin="0"
-                        Padding="0">
-                        <Grid Padding="0"
-                          Margin="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                        </Grid>
-                        <BoxView Grid.Row="0"
-                        Margin="0,0,0,0"
-                             Color="Yellow">
-
-                        </BoxView>
-                    </StackLayout>
-                </Frame>-->
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -101,17 +101,17 @@ namespace Hotell_Isaac_Blue
 
         void AddTapGestures()
         {
-            var tapSDFrame = new TapGestureRecognizer();
-            tapSDFrame.Tapped += SDFrame_Tapped;
-            SDFrame.GestureRecognizers.Add(tapSDFrame);
+            //var tapSDFrame = new TapGestureRecognizer();
+            //tapSDFrame.Tapped += SDFrame_Tapped;
+            //SDFrame.GestureRecognizers.Add(tapSDFrame);
 
-            var tapEDFrame = new TapGestureRecognizer();
-            tapEDFrame.Tapped += EDFrame_Tapped;
-            EDFrame.GestureRecognizers.Add(tapEDFrame);
+            //var tapEDFrame = new TapGestureRecognizer();
+            //tapEDFrame.Tapped += EDFrame_Tapped;
+            //EDFrame.GestureRecognizers.Add(tapEDFrame);
 
-            var tapAddRoomLabel = new TapGestureRecognizer();
-            tapAddRoomLabel.Tapped += AddRoomLabel_Tapped;
-            AddRoomLabel.GestureRecognizers.Add(tapAddRoomLabel);
+            //var tapAddRoomLabel = new TapGestureRecognizer();
+            //tapAddRoomLabel.Tapped += AddRoomLabel_Tapped;
+            //AddRoomLabel.GestureRecognizers.Add(tapAddRoomLabel);
         }
 
         private void SDFrame_Tapped(object sender, EventArgs e)
@@ -122,11 +122,6 @@ namespace Hotell_Isaac_Blue
         private void EDFrame_Tapped(object sender, EventArgs e)
         {
             DatePickerED.Focus();
-        }
-
-        private void AddRoomLabel_Tapped(object sender, EventArgs e)
-        {
-            DisplayAlert("Alert", "Want to be able to add more frames", "OK");
         }
 
         private void Options_Btn_Clicked(object sender, EventArgs e)
