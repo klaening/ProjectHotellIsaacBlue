@@ -27,7 +27,7 @@ namespace Hotell_Isaac_Blue
 
             string jsonData = UsernameEntry.Text+"/"+PasswordEntry.Text;
 
-            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            //StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             //content.Headers.ContentType.CharSet = string.Empty;
 
             //string contentString = content.ToString();
@@ -36,6 +36,11 @@ namespace Hotell_Isaac_Blue
             
             // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
             string result = await response.Content.ReadAsStringAsync();
+        }
+
+        private void SignUpBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegisterPage());
         }
     }
 }

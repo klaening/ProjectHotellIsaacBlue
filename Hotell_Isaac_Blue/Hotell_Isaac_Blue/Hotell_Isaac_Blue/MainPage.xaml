@@ -99,7 +99,7 @@
                 FontSize="16"
                 HorizontalOptions="Center"
                 VerticalOptions="End"/>
-            <Button
+            <Button x:Name="SignUpBtn"
                 Text="Sign up"
                 TextColor="black"
                 Grid.Column="1"
@@ -109,6 +109,7 @@
                 WidthRequest="300"
                 Margin="0, 10"
                 BackgroundColor="#fff"
+                    Clicked="SignUpBtn_Clicked"
             />
 
         </Grid>
