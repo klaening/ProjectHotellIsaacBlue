@@ -14,7 +14,9 @@ namespace Hotell_Isaac_Blue
 
         private async void confirmBooking_Clicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Alert", "Successfully", "OK");
+            //await DisplayAlert("Alert", "Successfully", "OK");
+           
+
         }
     }
 }

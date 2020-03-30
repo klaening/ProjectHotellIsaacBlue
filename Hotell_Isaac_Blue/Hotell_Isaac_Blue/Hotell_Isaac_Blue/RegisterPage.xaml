@@ -12,12 +12,12 @@
                    HorizontalOptions="Center"
                    Margin="10"/>
 
-            <Entry x:Name="UserName"
+            <Entry x:Name="userNameEntry"
                    Placeholder="Enter username"
                    PlaceholderColor="White"
                    Margin="10"/>
             
-            <Entry x:Name="Password"
+            <Entry x:Name="passwordEntry"
                    Placeholder="Enter password"
                    PlaceholderColor="White"
                    Margin="10"/>

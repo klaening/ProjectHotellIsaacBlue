@@ -19,10 +19,10 @@ namespace Hotell_Isaac_Blue
 
         private async void RegisterBtn_Clicked(object sender, EventArgs e)
         {
-            string userName = UserName.Text;
-            string password = Password.Text;
+            string userName = userNameEntry.Text;
+            string password = passwordEntry.Text;
 
-            Accounts account = new Accounts 
+            ViewModels.Accounts account = new ViewModels.Accounts 
             { 
                 UserName = userName,
                 UserPassword = password
