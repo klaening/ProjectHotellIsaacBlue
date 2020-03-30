@@ -28,9 +28,9 @@ namespace Hotell_Isaac_Blue
             string jsonData = UsernameEntry.Text+"/"+PasswordEntry.Text;
 
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            content.Headers.ContentType.CharSet = string.Empty;
+            //content.Headers.ContentType.CharSet = string.Empty;
 
-            string contentString = content.ToString();
+            //string contentString = content.ToString();
 
             var response = await client.GetAsync("https://hotellisaacbluewebapi.azurewebsites.net/api/accounts/" + jsonData);
             
