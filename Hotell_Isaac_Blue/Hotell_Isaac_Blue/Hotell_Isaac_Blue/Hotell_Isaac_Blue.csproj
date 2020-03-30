@@ -32,7 +32,7 @@
     <EmbeddedResource Update="Guest\GuestBooking\GuestBookingMainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Guest\GuestBreakfast\GuestBreakfastPage2.xaml">
+    <EmbeddedResource Update="Guest\GuestBreakfast\Views\BreakfastFirstPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Guest\GuestParkingPage3.xaml">

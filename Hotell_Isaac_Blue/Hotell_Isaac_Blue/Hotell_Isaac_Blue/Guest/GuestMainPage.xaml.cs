@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotell_Isaac_Blue.Guest.GuestBreakfast.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,7 +45,7 @@ namespace Hotell_Isaac_Blue
 
         private void BreakfastFrame_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GuestBreakfastPage());
+            Navigation.PushAsync(new BreakfastFirstPage());
         }
 
         private void InfoFrame_Tapped(object sender, EventArgs e)
@@ -69,7 +70,7 @@ namespace Hotell_Isaac_Blue
 
         private void BreakfastBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GuestBreakfastPage());
+            //Navigation.PushAsync(new GuestBreakfastPage());
         }
 
         private void ParkingBtn_Clicked(object sender, EventArgs e)

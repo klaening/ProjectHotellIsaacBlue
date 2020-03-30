@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Hotell_Isaac_Blue.Guest.GuestBreakfast.ViewModels"
+             mc:Ignorable="d"
+             BackgroundColor="LightGray"
+             x:Class="Hotell_Isaac_Blue.Guest.GuestBreakfast.View.BreakfastFirstPage">
+    <ContentPage.BindingContext>
+        <local:BreakfastFirstPageViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        
+    
+    <StackLayout>
+        <StackLayout>
+            <Label Text="Come and eat together with us!"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="25" Grid.ColumnSpan="3"
+               Grid.Row="0"
+               TextColor="Black"
+               FontFamily="Bold"/>
+            <Image Source="breakfast_01"
+               Grid.ColumnSpan="3"
+               Grid.Row="1"
+               Aspect="AspectFit"
+                   Margin="10,0,10,0"/>
+        </StackLayout>
+        <StackLayout>
+            
+            <Label Text="Gone are the days of boring continental breakfasts. Instead, we're saying good morning with dumplings, prosciutto with sliced melon, and airy eggs Benedict at some of the best breakfasts our editors have eaten at hotels around the world."
+                   Margin="15,0,15,0"
+                   FontAttributes="Italic"
+                   FontSize="12"
+                   TextColor="Black"/>
+            <!--<Image Source="Coffe.png"
+               Grid.ColumnSpan="3"
+               Grid.Row="1"
+               Aspect="AspectFit"
+                   Margin="10,0,10,0"/>-->
+            <StackLayout>
+                
+                <Label Text="Only 8$ / Week!"
+                       HorizontalOptions="Center"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       Margin="0,30,0,0"
+                       />
+                <Button Text="Buy Breakfast"
+                        BackgroundColor="Gray"
+                            Margin="80,0,80,0"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="18"/>
+            </StackLayout>
+        </StackLayout>
+        <Frame BackgroundColor="LightGray"
+               CornerRadius="3"
+               Margin="0,40,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="icon01"
+                       Grid.Column="0"
+                       Grid.Row="0"/>
+                <Image Source="icon02"
+                       Grid.Column="1"
+                       Grid.Row="0"/>
+                <Image Source="icon03"
+                       Grid.Column="2"
+                       Grid.Row="0"/>
+                <Image Source="icon04"
+                       Grid.Column="3"
+                       Grid.Row="0"/>
+            </Grid>
+        </Frame>
+        <Frame BackgroundColor="Black"
+               CornerRadius="0"
+               HeightRequest="43"
+               Margin="0,0,0,0">
+            
+            <StackLayout>
+                <Grid>
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Home"
+                            Grid.Column="0"/>
+                    <Button Text="Home"
+                            Grid.Column="1"/>
+                    <Button Text="User Settings"
+                            Grid.Column="2"/>
+                </Grid>
+            </StackLayout>
+            
+        </Frame>
+            
+    </StackLayout>
+    </ScrollView>
+</ContentPage>
