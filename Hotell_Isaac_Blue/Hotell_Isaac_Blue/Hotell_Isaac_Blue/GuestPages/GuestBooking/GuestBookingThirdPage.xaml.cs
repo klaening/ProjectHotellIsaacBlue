@@ -12,9 +12,12 @@ namespace Hotell_Isaac_Blue
             InitializeComponent();
         }
 
-        private async void confirmBooking_Clicked(object sender, EventArgs e)
+        private void confirmBooking_Clicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Alert", "Successfully", "OK");
+
+            //await DisplayAlert("Alert", "Successfully", "OK");
+            Navigation.PushAsync(new CustomerRegistrationPage());
+
         }
     }
 }
