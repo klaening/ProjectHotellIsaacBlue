@@ -35,11 +35,11 @@
                    FontAttributes="Italic"
                    FontSize="12"
                    TextColor="Black"/>
-            <!--<Image Source="Coffe.png"
+            <Image Source="Coffe.png"
                Grid.ColumnSpan="3"
                Grid.Row="1"
                Aspect="AspectFit"
-                   Margin="10,0,10,0"/>-->
+                   Margin="10,0,10,0"/>
             <StackLayout>
                 
                 <Label Text="Only 8$ / Week!"
@@ -86,10 +86,7 @@
                        Grid.Row="0"/>
             </Grid>
         </Frame>
-        <Frame BackgroundColor="Black"
-               CornerRadius="0"
-               HeightRequest="43"
-               Margin="0,0,0,0">
+        <Frame HeightRequest="43">
             
             <StackLayout>
                 <Grid>
@@ -101,11 +98,11 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Text="Home"
+                    <Button Text="User Settings"
                             Grid.Column="0"/>
                     <Button Text="Home"
                             Grid.Column="1"/>
-                    <Button Text="User Settings"
+                    <Button Text="Contact Us"
                             Grid.Column="2"/>
                 </Grid>
             </StackLayout>
