@@ -25,36 +25,41 @@ namespace Hotell_Isaac_Blue
 
         private async void Login_Clicked(object sender, EventArgs e)
         {
-            var client = new HttpClient();
-
-            string jsonData = UsernameEntry.Text + "/" + PasswordEntry.Text;
-
-            //Returnerar Status kod
-            var response = await client.GetAsync("https://hotellisaacbluewebapi.azurewebsites.net/api/accounts/" + jsonData);
-
-
-            if (response.ToString().Contains("StatusCode: 200"))
-            {
-                //Returnerar json datan för det kontot
-                string result = await response.Content.ReadAsStringAsync();
-
-                //En lista med all aktuell data i json skriptet
-                List<string> wantedResults = Helpers.Helpers.ExtractData(result);
-
-                //Sätter den aktiva användaren till det konto som loggat in
-                ActiveUser.account = new Accounts
-                {
-                    ID = Convert.ToInt64(wantedResults[0]),
-                    UserName = wantedResults[1],
-                    UserPassword = wantedResults[2],
-                    CustomersID = Convert.ToInt64(wantedResults[3])
-                };
-
-                await Navigation.PushAsync(new GuestMainPage());
-            }
+            if (UsernameEntry.Text == null || PasswordEntry.Text == null)
+                await DisplayAlert("Login failed", "Username or password was incorrect", "OK");
             else
             {
-                await DisplayAlert("Login failed", "Username or Password was incorrect", "OK");
+                var client = new HttpClient();
+
+                string jsonData = UsernameEntry.Text + "/" + PasswordEntry.Text;
+
+                //Returnerar Status kod
+                var response = await client.GetAsync("https://hotellisaacbluewebapi.azurewebsites.net/api/accounts/" + jsonData);
+
+
+                if (response.ToString().Contains("StatusCode: 200"))
+                {
+                    //Returnerar json datan för det kontot
+                    string result = await response.Content.ReadAsStringAsync();
+
+                    //En lista med all aktuell data i json skriptet
+                    List<string> wantedResults = Helpers.Helpers.ExtractData(result);
+
+                    //Sätter den aktiva användaren till det konto som loggat in
+                    ActiveUser.account = new Accounts
+                    {
+                        ID = Convert.ToInt64(wantedResults[0]),
+                        UserName = wantedResults[1],
+                        UserPassword = wantedResults[2],
+                        CustomersID = Convert.ToInt64(wantedResults[3])
+                    };
+
+                    await Navigation.PushAsync(new GuestMainPage());
+                }
+                else
+                {
+                    await DisplayAlert("Login failed", "Username or password was incorrect", "OK");
+                }
             }
         }
 
