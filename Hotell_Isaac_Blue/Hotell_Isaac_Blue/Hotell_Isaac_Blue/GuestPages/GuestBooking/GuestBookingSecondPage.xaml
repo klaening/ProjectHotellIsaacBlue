@@ -46,7 +46,7 @@
 
                                 <DatePicker x:Name="DatePickerSD"
                                             Grid.Row="0"
-                                            FontSize="15"
+                                            FontSize="20"
                                             TextColor="Transparent"
                                             DateSelected="DatePickerSD_DateSelected"/>
 
@@ -94,7 +94,7 @@
 
                                 <DatePicker x:Name="DatePickerED" 
                                             Grid.Row="0"
-                                            FontSize="15"
+                                            FontSize="20"
                                             TextColor="Transparent"
                                             DateSelected="DatePickerED_DateSelected"/>
 
@@ -158,8 +158,9 @@
                                     Grid.Row="0"
                                     Grid.Column="1"
                                     WidthRequest="100"
-                                    HorizontalOptions="Center">
-                                
+                                    HorizontalOptions="Center"
+                                    SelectedItem="PickedRoom">
+
                                 <!--Ändra så att den bindar infon från en lista-->
                                 <Picker.Items>
                                     <x:String>Standard</x:String>
@@ -177,7 +178,8 @@
                                     Grid.Row="1" 
                                     Grid.Column="1"
                                     WidthRequest="100"
-                                    HorizontalOptions="Center">
+                                    HorizontalOptions="Center"
+                                    SelectedItem="PickedQty">
 
                                 <!--Ändra så att antalet personer uppdateras utefter vilket rum som valts-->
                                 <Picker.Items>

@@ -46,7 +46,7 @@ namespace Hotell_Isaac_Blue
                     List<string> wantedResults = Helpers.Helpers.ExtractData(result);
 
                     //Sätter den aktiva användaren till det konto som loggat in
-                    ActiveUser.account = new Accounts
+                    ActiveUser.Account = new Accounts
                     {
                         ID = Convert.ToInt64(wantedResults[0]),
                         UserName = wantedResults[1],
