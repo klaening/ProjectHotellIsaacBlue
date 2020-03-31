@@ -31,6 +31,10 @@ namespace Hotell_Isaac_Blue.Helpers
                 {
                     wantedResults[i] = null;
                 }
+                if (wantedResults[i].Contains('}'))
+                {
+                    wantedResults[i] = wantedResults[i].Remove(wantedResults[i].Length - 1);
+                }
             }
 
             return wantedResults;

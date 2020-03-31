@@ -19,7 +19,14 @@ namespace Hotell_Isaac_Blue
 
         private void RegisterBtn_Clicked(object sender, EventArgs e)
         {
-
+            socNrEntry.Text = ActiveCustomer.customer.SOCNUMBER;
+            firstNameEntry.Text = ActiveCustomer.customer.FIRSTNAME;
+            lastNameEntry.Text = ActiveCustomer.customer.LASTNAME;
+            emailEntry.Text = ActiveCustomer.customer.EMAIL;
+            streetAdressEntry.Text = ActiveCustomer.customer.STREETADRESS;
+            cityEntry.Text = ActiveCustomer.customer.CITY;
+            countryEntry.Text = ActiveCustomer.customer.COUNTRY;
+            iceEntry.Text = ActiveCustomer.customer.ICE;
         }
     }
 }
