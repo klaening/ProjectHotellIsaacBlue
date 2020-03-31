@@ -24,15 +24,29 @@ namespace Hotell_Isaac_Blue
             string userName = userNameEntry.Text;
             string password = passwordEntry.Text;
 
-            Accounts account = new Accounts 
-            { 
-                UserName = userName,
-                UserPassword = password
-            };
-
+            string[] userNameKey = new string[0];
             string path = "accounts/";
 
-            await APIServices.Services.PostServiceAsync(account, path);
+            var response = APIServices.Services.GetService(path, userNameKey);
+
+            if ()
+            {
+                await DisplayAlert("Taken", "Change username", "Try again");
+            }
+            else
+            {
+
+                await DisplayAlert("Available","Bra","ok");
+                //Accounts account = new Accounts
+                //{
+                //    UserName = userName,
+                //    UserPassword = password
+                //};
+            }
+
+
+
+            //await APIServices.Services.PostServiceAsync(account, path);
         }
     }
 }
