@@ -33,5 +33,11 @@ namespace WebApi_Example.Controllers
         {
             return Ok(await _bookingService.AddBooking(bookings));
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateBooking([FromBody] int id)
+        {
+            return Ok(await _bookingService.UpdateBooking(id));
+        }
     }
 }

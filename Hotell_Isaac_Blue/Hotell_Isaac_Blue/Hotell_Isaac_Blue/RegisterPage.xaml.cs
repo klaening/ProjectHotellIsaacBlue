@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Hotell_Isaac_Blue.Tables;
 
 namespace Hotell_Isaac_Blue
 {
@@ -19,10 +20,11 @@ namespace Hotell_Isaac_Blue
 
         private async void RegisterBtn_Clicked(object sender, EventArgs e)
         {
+            //Behöver kolla så att man inte kan lägga till en användare med samma namn
             string userName = userNameEntry.Text;
             string password = passwordEntry.Text;
 
-            ViewModels.Accounts account = new ViewModels.Accounts 
+            Accounts account = new Accounts 
             { 
                 UserName = userName,
                 UserPassword = password
