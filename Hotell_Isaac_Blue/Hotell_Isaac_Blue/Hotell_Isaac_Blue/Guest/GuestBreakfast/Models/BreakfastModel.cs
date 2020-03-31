@@ -18,6 +18,6 @@ namespace Hotell_Isaac_Blue.Guest.GuestBreakfast.Model
             
         }
 
-        Icommand 
+         
     }
 }

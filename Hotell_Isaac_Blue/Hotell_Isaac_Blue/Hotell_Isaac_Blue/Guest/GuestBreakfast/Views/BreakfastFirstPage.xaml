@@ -35,27 +35,30 @@
                    FontAttributes="Italic"
                    FontSize="12"
                    TextColor="Black"/>
-            <Image Source="Coffe.png"
+            <!--<Image Source="Coffe.png"
                Grid.ColumnSpan="3"
                Grid.Row="1"
                Aspect="AspectFit"
-                   Margin="10,0,10,0"/>
+                   Margin="10,0,10,0"/>-->
             <StackLayout>
-                
-                <Label Text="Only 8$ / Week!"
+                   
+                    <Label Text="Only 8$ / Week!"
                        HorizontalOptions="Center"
                        FontSize="20"
                        FontAttributes="Bold"
                        TextColor="Black"
                        Margin="0,30,0,0"
                        />
-                <Button Text="Buy Breakfast"
+                    <Entry x:Name="BookingEntry" Placeholder="Enter Booking Nr"
+                        Margin=" 75,0,75,0"/>
+                    <Button Text="Buy Breakfast"
                         BackgroundColor="Gray"
-                            Margin="80,0,80,0"
+                        Margin="80,0,80,0"
                         TextColor="White"
                         FontAttributes="Bold"
                         FontSize="18"/>
-            </StackLayout>
+                    
+                </StackLayout>
         </StackLayout>
         <Frame BackgroundColor="LightGray"
                CornerRadius="3"
