@@ -5,7 +5,7 @@ using Hotell_Isaac_Blue;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Hotell_Isaac_Blue.ViewModels;
+using Hotell_Isaac_Blue.Tables;
 namespace Hotell_Isaac_Blue
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Hotell_Isaac_Blue.ViewModels;
+using Hotell_Isaac_Blue.Tables;
 
 namespace Hotell_Isaac_Blue
 {
