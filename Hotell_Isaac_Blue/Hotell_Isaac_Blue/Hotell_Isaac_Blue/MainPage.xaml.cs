@@ -31,7 +31,9 @@ namespace Hotell_Isaac_Blue
             {
                 string[] primaryKeys = new string[] { UsernameEntry.Text, PasswordEntry.Text };
 
-                var response = APIServices.Services.GetService(primaryKeys);
+                string path = "accounts/";
+
+                var response = APIServices.Services.GetService(path, primaryKeys);
 
                 if (response.IsSuccessStatusCode)
                 {

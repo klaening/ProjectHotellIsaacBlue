@@ -23,7 +23,7 @@ namespace Hotell_Isaac_Blue.APIServices
             //string result = await response.Content.ReadAsStringAsync();
         }
 
-        public static HttpResponseMessage GetService(string[] primaryKeys)
+        public static HttpResponseMessage GetService(string path, string[] primaryKeys)
         {
             var client = new HttpClient();
 
@@ -35,7 +35,7 @@ namespace Hotell_Isaac_Blue.APIServices
             }
 
             //Returnerar Status kod
-            var response = client.GetAsync("https://hotellisaacbluewebapi.azurewebsites.net/api/accounts/" + jsonData);
+            var response = client.GetAsync("https://hotellisaacbluewebapi.azurewebsites.net/api/" + path + jsonData);
 
             var statusCode = response.Result;
 
