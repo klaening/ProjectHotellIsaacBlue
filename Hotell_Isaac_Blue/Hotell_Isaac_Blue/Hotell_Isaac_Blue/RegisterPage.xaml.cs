@@ -20,6 +20,7 @@ namespace Hotell_Isaac_Blue
 
         private async void RegisterBtn_Clicked(object sender, EventArgs e)
         {
+            //Behöver kolla så att man inte kan lägga till en användare med samma namn
             string userName = userNameEntry.Text;
             string password = passwordEntry.Text;
 

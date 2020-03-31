@@ -23,7 +23,7 @@ namespace Hotell_Isaac_Blue.APIServices
             //string result = await response.Content.ReadAsStringAsync();
         }
 
-        public static HttpResponseMessage GetDatabaseInfo(string[] primaryKeys)
+        public static HttpResponseMessage GetService(string[] primaryKeys)
         {
             var client = new HttpClient();
 

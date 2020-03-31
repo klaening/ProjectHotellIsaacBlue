@@ -31,13 +31,13 @@ namespace Hotell_Isaac_Blue
             {
                 string[] primaryKeys = new string[] { UsernameEntry.Text, PasswordEntry.Text };
 
-                var response = APIServices.Services.GetDatabaseInfo(primaryKeys);
+                var response = APIServices.Services.GetService(primaryKeys);
 
                 if (response.IsSuccessStatusCode)
                 {
                     //Returnerar json datan för det kontot
                     string result = await response.Content.ReadAsStringAsync();
-
+                    //Skapar en aktiv användare så vi kommer åt datan överallt
                     ActiveUser.CreateActiveUser(result);
 
                     await Navigation.PushAsync(new GuestMainPage());
