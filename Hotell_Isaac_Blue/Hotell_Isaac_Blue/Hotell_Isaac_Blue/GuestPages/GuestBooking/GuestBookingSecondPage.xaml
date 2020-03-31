@@ -6,28 +6,25 @@
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.GuestBookingSecondPage">
     <ContentPage.Content>
-        <ScrollView BackgroundColor="#026672">
+        <ScrollView>
             <StackLayout>
-                <Label HorizontalOptions="Center" 
-                       FontSize="30" 
-                       Margin="0,20,0,30"
-                       TextColor="#f1c40f">Make a booking</Label>
+                <Label Text="Make a booking"
+                       Style="{StaticResource h1Label}"
+                       HorizontalOptions="Center"
+                       Margin="0,20,0,30"/>
 
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="180"/>
                     </Grid.RowDefinitions>
-
                     <Frame x:Name="SDFrame"
                            Grid.Row="0" 
                            Grid.Column="0" 
                            Margin="30,10,10,10"
-                           Padding="5,0,5,0"
-                           BackgroundColor="GhostWhite">
+                           Padding="5,0,5,0">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="SDFrame_Tapped"/>
                         </Frame.GestureRecognizers>
-
                         <StackLayout>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -39,11 +36,10 @@
                                 <Label Grid.Row="0"
                                        Text="START DATE"
                                        Margin="0,8,0,0"
-                                       TextColor="SlateGray"
+                                       TextColor="DarkSlateGray"
                                        FontAttributes="Bold"
                                        HorizontalOptions="Center"
                                        FontSize="20"/>
-
                                 <DatePicker x:Name="DatePickerSD"
                                             Grid.Row="0"
                                             FontSize="20"
@@ -53,13 +49,12 @@
                                 <Label x:Name="SDDateLabel"
                                        Grid.Row="1"
                                        FontSize="24"
-                                       TextColor="Blue"
+                                       TextColor="DarkSlateGray"
                                        Padding="5,0,0,0"/>
-
                                 <Label x:Name="SDYearLabel"
                                        Grid.Row="2"
                                        FontSize="20"
-                                       TextColor="Black"
+                                       TextColor="DarkSlateGray"
                                        Padding="5,0,0,0"/>
                             </Grid>
                         </StackLayout>
@@ -69,8 +64,7 @@
                            Grid.Row="0" 
                            Grid.Column="1" 
                            Margin="10,10,30,10"
-                           Padding="5,0,5,0"
-                           BackgroundColor="GhostWhite">
+                           Padding="5,0,5,0">
 
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="EDFrame_Tapped"/>
@@ -87,7 +81,7 @@
                                 <Label Grid.Row="0"
                                        Text="END DATE"
                                        Margin="0,8,0,0"
-                                       TextColor="SlateGray"
+                                       TextColor="DarkSlateGray"
                                        FontAttributes="Bold"
                                        HorizontalOptions="Center"
                                        FontSize="20"/>
@@ -101,13 +95,12 @@
                                 <Label x:Name="EDDateLabel"
                                        Grid.Row="1"
                                        FontSize="24"
-                                       TextColor="Blue"
+                                       TextColor="DarkSlateGray"
                                        Padding="5,0,0,0"/>
-
                                 <Label x:Name="EDYearLabel"
                                        Grid.Row="2"
                                        FontSize="20"
-                                       TextColor="Black"
+                                       TextColor="DarkSlateGray"
                                        Padding="5,0,0,0"/>
                             </Grid>
                         </StackLayout>
@@ -123,14 +116,12 @@
                        Grid.Column="0" 
                        Margin="30,10,30,10"
                        Grid.ColumnSpan="2"
-                       Padding="10"
-                       BackgroundColor="GhostWhite">
-
+                       Padding="10">
                     <StackLayout>
                         <Label Text="ROOM"
                                FontAttributes="Bold"
                                FontSize="20" 
-                               TextColor="SlateGray"
+                               TextColor="DarKSlateGray"
                                Grid.Row="0" 
                                Grid.Column="0"/>
 
@@ -191,7 +182,6 @@
                         <Frame x:Name="OptionsFrame"
                                IsVisible="False"
                                BackgroundColor="LightGray">
-
                             <StackLayout>
                                 <Grid>
                                     <Label Text="Extra bed"
@@ -222,7 +212,7 @@
                         <Grid>
                             <Button x:Name="Options_Btn"
                                 Text="+"
-                                FontSize="28"
+                                FontSize="25"
                                 TextColor="black"
                                 HorizontalOptions="Start"
                                 VerticalOptions="Center"
@@ -239,14 +229,11 @@
                 </Frame>
 
                 <Button x:Name="Result_Btn"
-                        Margin="10"
-                        Padding="10"
-                        FontAttributes="Bold"
                         Text="Confirm Booking"
+                        Margin="10"
+                        Padding="10"                      
                         HorizontalOptions="Center"
-                        Clicked="Result_Btn_Clicked"
-                        BackgroundColor="white"
-                        TextColor="#026672"/>
+                        Clicked="Result_Btn_Clicked"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

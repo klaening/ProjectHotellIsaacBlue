@@ -4,16 +4,14 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Hotell_Isaac_Blue.GuestMainPage"
-             BackgroundColor="#026672">
+             x:Class="Hotell_Isaac_Blue.GuestMainPage">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-
                 <Label x:Name="WelcomeLabel"
-                       FontSize="30"
-                       TextColor="White"/>
-
+                       Text="Welcome mr X"
+                       Style="{StaticResource h1Label}"
+                       Margin="20,0"/>
                 <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -34,7 +32,6 @@
                            Grid.Row="0"/>
                     <Frame x:Name="BookingsFrame"     
                            BackgroundColor="#f1c40f"
-                           CornerRadius="10"
                            Grid.Row="1"
                            Margin="15,5">
                         <StackLayout>
@@ -46,15 +43,14 @@
                                        HorizontalOptions="Start"
                                        VerticalOptions="Center"/>
                                 <Label Text="Bookings"
-                                       TextColor="Black"
+                                       Style="{StaticResource h2Label}"
                                        Grid.Column="1"
                                        VerticalOptions="Center"
-                                       HorizontalOptions="Start"
-                                       FontSize="30"/>
+                                       HorizontalOptions="Start"/>
                                 <Label Text="Text om vad man kan göra på bokningsidan"
+                                       Style="{StaticResource pLabel}"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       TextColor="black"
                                        HeightRequest="100"/>
                             </Grid>
                         </StackLayout>
@@ -63,7 +59,6 @@
                     <Frame x:Name="InfoFrame"
                            Grid.Row="2"
                            BackgroundColor="#e67e22"
-                           CornerRadius="10"
                            Margin="15,5">
                         <StackLayout>
                             <Grid>
@@ -75,24 +70,22 @@
                                        HorizontalOptions="Start"
                                        VerticalOptions="Center"/>
                                 <Label Text="Info"
-                                       TextColor="Black"
+                                       Style="{StaticResource h2Label}"
                                        Grid.Column="1"
                                        VerticalOptions="Center"
-                                       HorizontalOptions="Start"
-                                       FontSize="30"/>
+                                       HorizontalOptions="Start"/>
                                 <Label Text="Text om vad man kan göra på infosidan"
+                                       Style="{StaticResource pLabel}"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       TextColor="black"
                                        HeightRequest="100"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
 
                     <Frame x:Name="BreakfastFrame"
-                        Grid.Row="3"
+                           Grid.Row="3"
                            BackgroundColor="#d35400"
-                           CornerRadius="10"
                            Margin="15,5">
                         <StackLayout>
                             <Grid>
@@ -103,15 +96,14 @@
                                        HorizontalOptions="Start"
                                        VerticalOptions="Center"/>
                                 <Label Text="Breakfast"
-                                       TextColor="Black"
+                                       Style="{StaticResource h2Label}"
                                        Grid.Column="1"
                                        VerticalOptions="Center"
-                                       HorizontalOptions="Start"
-                                       FontSize="30"/>
+                                       HorizontalOptions="Start"/>
                                 <Label Text="Text om vad man kan göra på frukostsidan"
+                                       Style="{StaticResource pLabel}"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       TextColor="Black"
                                        HeightRequest="100"/>
                             </Grid>
                         </StackLayout>
@@ -120,7 +112,6 @@
                     <Frame x:Name="ParkingFrame"
                         Grid.Row="4"
                            BackgroundColor="#c0392b"
-                           CornerRadius="10"
                            Margin="15,5">
                         <StackLayout>
                             <Grid>
@@ -131,15 +122,14 @@
                                        HorizontalOptions="Start"
                                        VerticalOptions="Center"/>
                                 <Label Text="Parking"
-                                       TextColor="Black"
+                                       Style="{StaticResource h2Label}"
                                        Grid.Column="1"
                                        VerticalOptions="Center"
-                                       HorizontalOptions="Start"
-                                       FontSize="30"/>
+                                       HorizontalOptions="Start"/>
                                 <Label Text="Text om vad man kan göra på parkeringsidan"
+                                       Style="{StaticResource pLabel}"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       TextColor="Black"
                                        HeightRequest="100"/>
                             </Grid>
                         </StackLayout>

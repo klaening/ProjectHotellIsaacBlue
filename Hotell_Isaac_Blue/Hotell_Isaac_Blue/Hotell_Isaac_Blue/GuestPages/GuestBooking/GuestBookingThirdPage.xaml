@@ -10,9 +10,8 @@
         <ScrollView>
             <StackLayout>
                 <Label Text="Overview"
+                       Style="{StaticResource h1Label}"
                        HorizontalOptions="Center"
-                       TextColor="#f1c40f"
-                       FontSize="30"
                        FontAttributes="Bold" 
                        Margin="30"/>
                     <!--<Label Text="Review your booking"
