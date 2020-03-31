@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hotell_Isaac_Blue.Tables;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -31,7 +32,7 @@ namespace Hotell_Isaac_Blue
             extraBed = Bed_Switch.IsToggled;
             breakfast = Breakfast_Switch.IsToggled;
 
-            ActiveBooking.Booking = new ViewModels.Bookings
+            ActiveBooking.Booking = new Bookings
             {
                 QTYPERSONS = guestQty,
                 STARTDATE = startDate,

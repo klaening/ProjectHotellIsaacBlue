@@ -8,7 +8,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Hotell_Isaac_Blue.ViewModels;
+using Hotell_Isaac_Blue.Tables;
 using Hotell_Isaac_Blue.Helpers;
 
 namespace Hotell_Isaac_Blue

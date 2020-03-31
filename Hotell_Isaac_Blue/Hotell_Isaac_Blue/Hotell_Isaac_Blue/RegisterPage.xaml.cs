@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Hotell_Isaac_Blue.Tables;
 
 namespace Hotell_Isaac_Blue
 {
@@ -22,7 +23,7 @@ namespace Hotell_Isaac_Blue
             string userName = userNameEntry.Text;
             string password = passwordEntry.Text;
 
-            ViewModels.Accounts account = new ViewModels.Accounts 
+            Accounts account = new Accounts 
             { 
                 UserName = userName,
                 UserPassword = password
