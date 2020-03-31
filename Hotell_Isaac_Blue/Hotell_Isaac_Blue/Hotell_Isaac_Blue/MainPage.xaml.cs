@@ -29,30 +29,16 @@ namespace Hotell_Isaac_Blue
                 await DisplayAlert("Login failed", "Username or password was incorrect", "OK");
             else
             {
-                var client = new HttpClient();
+                string[] primaryKeys = new string[] { UsernameEntry.Text, PasswordEntry.Text };
 
-                string jsonData = UsernameEntry.Text + "/" + PasswordEntry.Text;
+                var response = APIServices.Services.GetDatabaseInfo(primaryKeys);
 
-                //Returnerar Status kod
-                var response = await client.GetAsync("https://hotellisaacbluewebapi.azurewebsites.net/api/accounts/" + jsonData);
-
-
-                if (response.ToString().Contains("StatusCode: 200"))
+                if (response.IsSuccessStatusCode)
                 {
                     //Returnerar json datan för det kontot
                     string result = await response.Content.ReadAsStringAsync();
 
-                    //En lista med all aktuell data i json skriptet
-                    List<string> wantedResults = Helpers.Helpers.ExtractData(result);
-
-                    //Sätter den aktiva användaren till det konto som loggat in
-                    ActiveUser.Account = new Accounts
-                    {
-                        ID = Convert.ToInt64(wantedResults[0]),
-                        UserName = wantedResults[1],
-                        UserPassword = wantedResults[2],
-                        CustomersID = Convert.ToInt64(wantedResults[3])
-                    };
+                    ActiveUser.CreateActiveUser(result);
 
                     await Navigation.PushAsync(new GuestMainPage());
                 }
