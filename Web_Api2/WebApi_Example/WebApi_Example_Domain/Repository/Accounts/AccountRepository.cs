@@ -39,6 +39,14 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
+        public async Task<Accounts> GetAccount(string userName, string password)
+        {
+            using (var c = new SqlConnection(_connectionString))
+            {
+                return await c.QueryFirstOrDefaultAsync<Accounts>("SELECT * FROM ACCOUNTS WHERE USERNAME = @userName AND USERPASSWORD = @password", new { userName, password });
+            }
+        }
+
         public async Task<bool> AddAccount(Accounts accounts)
         {
             using (var c = new SqlConnection(_connectionString))

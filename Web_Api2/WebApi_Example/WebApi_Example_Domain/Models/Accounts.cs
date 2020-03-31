@@ -9,6 +9,6 @@ namespace WebApi_Example_Domain.Models
         public int ID { get; set; }
         public string USERNAME { get; set; }
         public string USERPASSWORD { get; set; }
-        public long CUSTOMERSID { get; set; }
+        public long? CUSTOMERSID { get; set; }
     }
 }

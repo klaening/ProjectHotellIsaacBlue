@@ -28,6 +28,12 @@ namespace WebApi_Example.Controllers
             return Ok(await _accountService.GetAccount(id));
         }
 
+        [HttpGet("{userName}/{password}")]
+        public async Task<IActionResult> Get(string userName, string password)
+        {
+            return Ok(await _accountService.GetAccount(userName, password));
+        }
+
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] Accounts accounts)
         {

@@ -15,14 +15,31 @@ namespace Hotell_Isaac_Blue
         DateTime dateMinValue = DateTime.MinValue;
         DateTime startDate;
         DateTime endDate;
+        string roomType;
+        short guestQty;
+        bool extraBed = false;
+        bool breakfast = false;
         public GuestBookingSecondPage()
         {
             InitializeComponent();
-            AddTapGestures();
         }
 
         private void Result_Btn_Clicked(object sender, EventArgs e)
         {
+            roomType = (string)RoomType_Picker.SelectedItem;
+            guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
+            extraBed = Bed_Switch.IsToggled;
+            breakfast = Breakfast_Switch.IsToggled;
+
+            ActiveBooking.Booking = new ViewModels.Bookings
+            {
+                QTYPERSONS = guestQty,
+                STARTDATE = startDate,
+                ENDDATE = endDate,
+                EXTRABED = extraBed,
+                BREAKFAST = breakfast
+            };
+
             Navigation.PushAsync(new GuestBookingThirdPage());
         }
         private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)
@@ -99,21 +116,6 @@ namespace Hotell_Isaac_Blue
             return (date, year);
         }
 
-        void AddTapGestures()
-        {
-            var tapSDFrame = new TapGestureRecognizer();
-            tapSDFrame.Tapped += SDFrame_Tapped;
-            SDFrame.GestureRecognizers.Add(tapSDFrame);
-
-            var tapEDFrame = new TapGestureRecognizer();
-            tapEDFrame.Tapped += EDFrame_Tapped;
-            EDFrame.GestureRecognizers.Add(tapEDFrame);
-
-            var tapAddRoomLabel = new TapGestureRecognizer();
-            tapAddRoomLabel.Tapped += AddRoomLabel_Tapped;
-            AddRoomLabel.GestureRecognizers.Add(tapAddRoomLabel);
-        }
-
         private void SDFrame_Tapped(object sender, EventArgs e)
         {
             DatePickerSD.Focus();
@@ -122,11 +124,6 @@ namespace Hotell_Isaac_Blue
         private void EDFrame_Tapped(object sender, EventArgs e)
         {
             DatePickerED.Focus();
-        }
-
-        private void AddRoomLabel_Tapped(object sender, EventArgs e)
-        {
-            DisplayAlert("Alert", "Want to be able to add more frames", "OK");
         }
 
         private void Options_Btn_Clicked(object sender, EventArgs e)

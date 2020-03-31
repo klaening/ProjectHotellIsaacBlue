@@ -8,6 +8,10 @@
     <Application.Resources>
         <ResourceDictionary>
 
+            <Style TargetType="ScrollView">
+                <Setter Property="BackgroundColor" Value="#026672"/>
+            </Style>
+
             <Style TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="#026672"/>
             </Style>
