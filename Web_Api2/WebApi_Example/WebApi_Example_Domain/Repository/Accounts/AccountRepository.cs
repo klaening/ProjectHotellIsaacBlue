@@ -39,6 +39,14 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
+        public async Task<Accounts> GetAccount(string id)
+        {
+            using (var c = new SqlConnection(_connectionString))
+            {
+                return await c.QueryFirstOrDefaultAsync<Accounts>("SELECT * FROM ACCOUNTS WHERE USERNAME = @id", new { id });
+            }
+        }
+
         public async Task<Accounts> GetAccount(string userName, string password)
         {
             using (var c = new SqlConnection(_connectionString))

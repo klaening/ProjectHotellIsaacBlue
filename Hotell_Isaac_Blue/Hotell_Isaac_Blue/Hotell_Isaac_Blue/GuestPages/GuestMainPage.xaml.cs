@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using Hotell_Isaac_Blue.Tables;
 using Hotell_Isaac_Blue.GuestPages.BreakFast.Views;
 using Hotell_Isaac_Blue.ViewModels;
 using Xamarin.Forms;
