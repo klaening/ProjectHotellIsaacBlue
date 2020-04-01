@@ -34,5 +34,10 @@ namespace Hotell_Isaac_Blue
 
             await APIServices.Services.PostServiceAsync(account, path);
         }
+
+        private void SignInBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MainPage());
+        }
     }
 }
