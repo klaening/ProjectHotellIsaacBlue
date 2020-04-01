@@ -12,31 +12,58 @@ namespace Hotell_Isaac_Blue
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GuestBookingThirdPage : ContentPage
     {
+        DateTime startDate = ActiveBooking.Booking.STARTDATE;
+        DateTime endDate = ActiveBooking.Booking.ENDDATE;
+        RoomTypes roomType = null;
         public GuestBookingThirdPage()
         {
             //FUUUUUUUUL KOOOOOOOOOD!!!!!!!
             InitializeComponent();
 
+            GetRoomType(ActiveBooking.RoomID);
+
             ReviewNameLabel.Text = $"{ActiveCustomer.Customer.FIRSTNAME} {ActiveCustomer.Customer.LASTNAME}";
             ReviewEmailLabel.Text = ActiveCustomer.Customer.EMAIL;
             ReviewStartDateLabel.Text = ActiveBooking.Booking.STARTDATE.ToString();
             ReviewEndDateLabel.Text = ActiveBooking.Booking.ENDDATE.ToString();
-            ReviewTotalDays.Text = ActiveBooking.TotalDays.ToString();
-            ReviewRoomType.Text = ActiveBooking.RoomType.NAME;
-            ReviewPrice.Text = ActiveBooking.RoomType.COST.ToString();
+            ReviewTotalDays.Text = Helpers.Helpers.CalculateTotalDays(startDate, endDate).ToString();
+            ReviewRoomType.Text = roomType.NAME;
+            ReviewPrice.Text = roomType.COST.ToString();
             ReviewExtraBed.Text = ActiveBooking.Booking.EXTRABED.ToString();
             ReviewBreakfast.Text = ActiveBooking.Booking.BREAKFAST.ToString();
 
             ReviewTotalCostLabel.Text = GetTotalPrice();
         }
 
+        private async void GetRoomType(int roomID)
+        {
+            var path = "rooms/";
+            var source = new string[] { roomID.ToString() };
+
+            var response = APIServices.Services.GetService(path, source);
+            string result = await response.Content.ReadAsStringAsync();
+
+            Rooms room = JsonConvert.DeserializeObject<Rooms>(result);
+
+            path = "roomtypes/";
+            source[0] = room.ROOMTYPESID.ToString();
+
+            response = APIServices.Services.GetService(path, source);
+            result = await response.Content.ReadAsStringAsync();
+
+            roomType = JsonConvert.DeserializeObject<RoomTypes>(result);
+        }
+
         private string GetTotalPrice()
         {
-            decimal? totalPrice = ActiveBooking.RoomType.COST * ActiveBooking.TotalDays;
+            int totalDays = Helpers.Helpers.CalculateTotalDays(startDate, endDate);
+
+            //Här är felet
+            decimal? totalPrice = roomType.COST * totalDays;
             if (ActiveBooking.Booking.BREAKFAST == true)
-                totalPrice += 80 * ActiveBooking.TotalDays;
+                totalPrice += 80 * totalDays;
             if (ActiveBooking.Booking.EXTRABED == true)
-                totalPrice += 100 * ActiveBooking.TotalDays;
+                totalPrice += 100 * totalDays;
 
             return totalPrice.ToString();
         }

@@ -22,7 +22,8 @@
                            Margin="0, 20, 0, 5"/>-->
                 <Frame BackgroundColor="white"
                        CornerRadius="15"
-                       Margin="20,0">
+                       Margin="20,0"
+                       Padding="10,30">
                     <StackLayout>
                         <Grid Margin="15, 0">
                             <Grid.RowDefinitions>
@@ -38,9 +39,7 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
+                                <RowDefinition Height="30"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -73,7 +72,8 @@
 
 
                             <Label Text="Total Cost:" 
-                               Grid.Column="0" Grid.Row="13"/>
+                               Grid.Column="0" Grid.Row="12"
+                                   FontSize="20"/>
 
                             <!--Här börjar användarspecifik input-->
 
@@ -108,8 +108,10 @@
                                    Grid.Column="1" Grid.Row="9"/>
 
                             <Label x:Name="ReviewTotalCostLabel"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
                                 Text="Info not available" 
-                               Grid.Column="1" Grid.Row="13"/>
+                               Grid.Column="1" Grid.Row="12"/>
 
 
                         </Grid>

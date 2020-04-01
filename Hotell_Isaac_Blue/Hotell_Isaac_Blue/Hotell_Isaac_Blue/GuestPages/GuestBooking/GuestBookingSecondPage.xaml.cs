@@ -17,7 +17,7 @@ namespace Hotell_Isaac_Blue
         DateTime dateMinValue = DateTime.MinValue;
         DateTime startDate;
         DateTime endDate;
-        string roomType;
+        string pickedRoomType = null;
         short guestQty;
         bool extraBed = false;
         bool breakfast = false;
@@ -28,7 +28,7 @@ namespace Hotell_Isaac_Blue
 
         private async void Result_Btn_Clicked(object sender, EventArgs e)
         {
-            roomType = (string)RoomType_Picker.SelectedItem;
+            pickedRoomType = (string)RoomType_Picker.SelectedItem;
             guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
             extraBed = Bed_Switch.IsToggled;
             breakfast = Breakfast_Switch.IsToggled;
@@ -42,10 +42,10 @@ namespace Hotell_Isaac_Blue
                 BREAKFAST = breakfast
             };
 
-            RoomTypes rt = new RoomTypes();
-            ActiveBooking.RoomType = rt;
+            //RoomTypes rt = new RoomTypes();
+            //ActiveBooking.RoomType = rt;
 
-            ActiveBooking.RoomType.NAME = roomType;
+            //ActiveBooking.RoomType.NAME = roomType;
 
             if (ActiveUser.Account.CustomersID == null)
                 await Navigation.PushAsync(new AccountRegistrationPage());
@@ -63,15 +63,15 @@ namespace Hotell_Isaac_Blue
             try
             {
                 var path = "roomtypes/";
-                var source = new string[] { ActiveBooking.RoomType.NAME };
+                var source = new string[] { pickedRoomType };
 
                 var response = APIServices.Services.GetService(path, source);
-
                 string result = await response.Content.ReadAsStringAsync();
 
-                var roomType = JsonConvert.DeserializeObject<RoomTypes>(result);
+                //Vi får ett objekt av en RoomTypes som vi vill använda på BookingThirdPage
+                RoomTypes roomType = JsonConvert.DeserializeObject<RoomTypes>(result);
 
-                ActiveBooking.RoomType = roomType;
+                //ActiveBooking.RoomType = pickedRoomType;
 
             }
             catch (Exception)
@@ -115,7 +115,7 @@ namespace Hotell_Isaac_Blue
                 SDYearLabel.Text = year;
 
                 if (EDDateLabel.Text != null)
-                    TotDaysLabel.Text = CalculateTotalDays();
+                    TotDaysLabel.Text = Helpers.Helpers.CalculateTotalDays(startDate, endDate).ToString();
             }
         }
 
@@ -140,18 +140,8 @@ namespace Hotell_Isaac_Blue
                 EDYearLabel.Text = year;
 
                 if (SDDateLabel.Text != null)
-                    TotDaysLabel.Text = CalculateTotalDays();
+                    TotDaysLabel.Text = Helpers.Helpers.CalculateTotalDays(startDate, endDate).ToString();
             }
-        }
-
-        private string CalculateTotalDays()
-        {
-            TimeSpan ts = endDate - startDate;
-            int totalDays = (int)ts.TotalDays;
-
-            ActiveBooking.TotalDays = totalDays;
-
-            return "Total days: " + totalDays;
         }
 
         private (string date, string year) ReturnDateAndYear(string longDate)
