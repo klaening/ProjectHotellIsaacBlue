@@ -28,36 +28,36 @@ namespace Hotell_Isaac_Blue
 
         private async void Result_Btn_Clicked(object sender, EventArgs e)
         {
-            pickedRoomType = (string)RoomType_Picker.SelectedItem;
-            guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
-            extraBed = Bed_Switch.IsToggled;
-            breakfast = Breakfast_Switch.IsToggled;
-
-            ActiveBooking.Booking = new Bookings
-            {
-                QTYPERSONS = guestQty,
-                STARTDATE = startDate,
-                ENDDATE = endDate,
-                EXTRABED = extraBed,
-                BREAKFAST = breakfast
-            };
-
-            //RoomTypes rt = new RoomTypes();
-            //ActiveBooking.RoomType = rt;
-
-            //ActiveBooking.RoomType.NAME = roomType;
-
             if (ActiveUser.Account.CustomersID == null)
                 await Navigation.PushAsync(new AccountRegistrationPage());
             else
             {
+                pickedRoomType = (string)RoomType_Picker.SelectedItem;
+                guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
+                extraBed = Bed_Switch.IsToggled;
+                breakfast = Breakfast_Switch.IsToggled;
+
+                ActiveBooking.Booking = new Bookings
+                {
+                    QTYPERSONS = guestQty,
+                    STARTDATE = startDate,
+                    ENDDATE = endDate,
+                    EXTRABED = extraBed,
+                    BREAKFAST = breakfast,
+                    CUSTOMERSID = ActiveUser.Account.CustomersID
+                };
+
                 GetRoomType();
-                GetCustomer();
+
+                ActiveBooking.Booking.CUSTOMERSID = ActiveUser.Account.CustomersID;
 
                 await Navigation.PushAsync(new GuestBookingThirdPage());
             }
         }
 
+        /// <summary>
+        /// Kanske kan ta bort denna
+        /// </summary>
         private async void GetRoomType()
         {
             try
@@ -70,28 +70,12 @@ namespace Hotell_Isaac_Blue
 
                 //Vi får ett objekt av en RoomTypes som vi vill använda på BookingThirdPage
                 RoomTypes roomType = JsonConvert.DeserializeObject<RoomTypes>(result);
-
-                //ActiveBooking.RoomType = pickedRoomType;
-
             }
             catch (Exception)
-            {
-                await DisplayAlert("Hej", "Hej", "OK");            
+            {   ///////////////////////////////////////////////
+                await DisplayAlert("Hej", "Hej", "OK");
+                ///////////////////////////////////////////////
             }
-        }
-
-        private async void GetCustomer()
-        {
-            var path = "customers/";
-
-            string[] source = new string[] { ActiveUser.Account.CustomersID.ToString() };
-
-            var response = APIServices.Services.GetService(path, source);
-            string result = await response.Content.ReadAsStringAsync();
-
-            var activeCustomer = JsonConvert.DeserializeObject<Customers>(result);
-
-            ActiveCustomer.Customer = activeCustomer;
         }
 
         private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)

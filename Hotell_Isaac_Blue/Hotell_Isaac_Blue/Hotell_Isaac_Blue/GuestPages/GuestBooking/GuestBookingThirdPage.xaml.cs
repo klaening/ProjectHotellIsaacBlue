@@ -15,15 +15,17 @@ namespace Hotell_Isaac_Blue
         DateTime startDate = ActiveBooking.Booking.STARTDATE;
         DateTime endDate = ActiveBooking.Booking.ENDDATE;
         RoomTypes roomType = null;
+        Customers customerDetails = null;
         public GuestBookingThirdPage()
         {
             //FUUUUUUUUL KOOOOOOOOOD!!!!!!!
             InitializeComponent();
 
+            GetCustomer(ActiveUser.Account.CustomersID.ToString());
             GetRoomType(ActiveBooking.RoomID);
 
-            ReviewNameLabel.Text = $"{ActiveCustomer.Customer.FIRSTNAME} {ActiveCustomer.Customer.LASTNAME}";
-            ReviewEmailLabel.Text = ActiveCustomer.Customer.EMAIL;
+            ReviewNameLabel.Text = $"{customerDetails.FIRSTNAME} {customerDetails.LASTNAME}";
+            ReviewEmailLabel.Text = customerDetails.EMAIL;
             ReviewStartDateLabel.Text = ActiveBooking.Booking.STARTDATE.ToString();
             ReviewEndDateLabel.Text = ActiveBooking.Booking.ENDDATE.ToString();
             ReviewTotalDays.Text = Helpers.Helpers.CalculateTotalDays(startDate, endDate).ToString();
@@ -33,6 +35,20 @@ namespace Hotell_Isaac_Blue
             ReviewBreakfast.Text = ActiveBooking.Booking.BREAKFAST.ToString();
 
             ReviewTotalCostLabel.Text = GetTotalPrice();
+        }
+
+        private async void GetCustomer(string id)
+        {
+            var path = "customers/";
+
+            string[] source = new string[] { id };
+
+            var response = APIServices.Services.GetService(path, source);
+            string result = await response.Content.ReadAsStringAsync();
+
+            var activeCustomer = JsonConvert.DeserializeObject<Customers>(result);
+
+            customerDetails = activeCustomer;
         }
 
         private async void GetRoomType(int roomID)
@@ -71,7 +87,7 @@ namespace Hotell_Isaac_Blue
         private async void confirmBooking_Clicked(object sender, EventArgs e)
         {
             //Skapar ett nytt Booking object och anropar en Service som kallar på Stored Procedure sp_BookingsInsert
-            Bookings booking = ActiveBooking.Booking;
+            ActiveBooking booking = new ActiveBooking();
 
             var path = "bookings/";
 
@@ -122,11 +138,6 @@ namespace Hotell_Isaac_Blue
             //    await Navigation.PushAsync(new CustomerRegistrationPage());
             //}
             ////await DisplayAlert("Alert", "Successfully", "OK");
-
-        }
-
-        private void GetInfo_Clicked(object sender, EventArgs e)
-        {
 
         }
     }

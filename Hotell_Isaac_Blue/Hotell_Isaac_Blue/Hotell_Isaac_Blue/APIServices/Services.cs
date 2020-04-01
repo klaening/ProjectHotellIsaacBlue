@@ -17,7 +17,7 @@ namespace Hotell_Isaac_Blue.APIServices
 
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync(HOST + path, content);
+            var response = await client.PostAsync("https://localhost:44341/api/" + path, content);
 
             //Kan man använda result för att ta kundens id och sen stoppa den i kontots foreign key?
             //string result = await response.Content.ReadAsStringAsync();
