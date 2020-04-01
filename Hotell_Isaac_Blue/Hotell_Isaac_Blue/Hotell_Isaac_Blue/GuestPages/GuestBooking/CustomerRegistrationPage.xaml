@@ -7,44 +7,57 @@
              x:Class="Hotell_Isaac_Blue.CustomerRegistrationPage">
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Enter your information below:"
+                   Style="{StaticResource pLabel}"
+                   FontSize="20"
+                   Margin="50, 5, 50, 0"/>
             <Entry
                 x:Name="socNrEntry"
-                Placeholder="Enter your soc nr"
-                PlaceholderColor="White"/>
+                Placeholder="S.S.N"
+                PlaceholderColor="White"
+                Margin="50, 5, 50, 0"/>
             <Entry
                 x:Name="firstNameEntry"
-                Placeholder="Enter your first name"
-                PlaceholderColor="White"/>
+                Placeholder="First Name"
+                PlaceholderColor="White"
+                Margin="50, 5, 50, 0"/>
             <Entry
                 x:Name="lastNameEntry"
-                Placeholder="Enter your last name"
-                PlaceholderColor="White"/>
+                Placeholder="Last Name"
+                PlaceholderColor="White"
+                Margin="50, 5, 50, 0"/>
             <Entry
                 x:Name="emailEntry"
-                Placeholder="Enter your email"
-                PlaceholderColor="White"/>
+                Placeholder="Email"
+                PlaceholderColor="White"
+                Margin="50, 5, 50, 0"/>
             <Entry
                 x:Name="streetAdressEntry"
-                Placeholder="Enter your street adress"
-                PlaceholderColor="White"/>
+                Placeholder="Street adress"
+                PlaceholderColor="White"
+                Margin="50, 5, 50, 0"/>
             <Entry
                 x:Name="cityEntry"
-                Placeholder="Enter your city"
-                PlaceholderColor="White"/>
+                Placeholder="City"
+                PlaceholderColor="White"
+                Margin="50, 5, 50, 0"/>
             <Entry
                 x:Name="countryEntry"
-                Placeholder="Enter your country"
-                PlaceholderColor="White"/>
+                Placeholder="Country"
+                PlaceholderColor="White"
+                Margin="50, 5, 50, 0"/>
             <Entry
                 x:Name="iceEntry"
-                Placeholder="Enter name of an ICE contact"
-                PlaceholderColor="White"/>
+                Placeholder="ICE contact"
+                PlaceholderColor="White"
+                Margin="50, 5, 50, 0"/>
             <Button
                 x:Name="RegisterBtn"
                 Margin="15"
-                Text="Register new customer"
+                Text="Register"
                 Clicked="RegisterBtn_Clicked"
-                />
+                HorizontalOptions="Center"
+                WidthRequest="150"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
