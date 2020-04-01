@@ -59,5 +59,21 @@ namespace WebApi_Example_Domain.Repository
 
             }
         }
+
+        public async Task<bool> UpdateBooking(int id)
+        {
+            using (var c = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    await c.ExecuteAsync("UPDATE BOOKINGS SET BREAKFAST = 0 WHERE ID = @id", new { id });
+                    return true;
+                }
+                catch (System.Exception)
+                {
+                    return false;
+                }
+            }
+        }
     }
 }
