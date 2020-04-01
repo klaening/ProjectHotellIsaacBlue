@@ -7,6 +7,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Hotell_Isaac_Blue.Tables;
+using System.Net;
 
 namespace Hotell_Isaac_Blue
 {
@@ -24,12 +25,12 @@ namespace Hotell_Isaac_Blue
             string userName = userNameEntry.Text;
             string password = passwordEntry.Text;
 
-            string[] userNameKey = new string[0];
+            string[] userNameKey = { userName };
             string path = "accounts/";
 
             var response = APIServices.Services.GetService(path, userNameKey);
 
-            if ()
+            if (response.StatusCode == HttpStatusCode.OK)
             {
                 await DisplayAlert("Taken", "Change username", "Try again");
             }
