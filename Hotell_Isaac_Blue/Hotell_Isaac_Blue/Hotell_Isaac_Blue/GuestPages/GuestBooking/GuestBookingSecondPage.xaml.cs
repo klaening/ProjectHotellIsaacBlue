@@ -42,19 +42,45 @@ namespace Hotell_Isaac_Blue
                 BREAKFAST = breakfast
             };
 
+            RoomTypes rt = new RoomTypes();
+            ActiveBooking.RoomType = rt;
+
+            ActiveBooking.RoomType.NAME = roomType;
+
             if (ActiveUser.Account.CustomersID == null)
                 await Navigation.PushAsync(new RegisterPage());
             else
             {
-                Customers customer = new Customers();
-
-                GetCustomer(customer);
+                GetRoomType();
+                GetCustomer();
 
                 await Navigation.PushAsync(new GuestBookingThirdPage());
             }
         }
 
-        private async void GetCustomer(Customers customer)
+        private async void GetRoomType()
+        {
+            try
+            {
+                var path = "roomtypes/";
+                var source = new string[] { ActiveBooking.RoomType.NAME };
+
+                var response = APIServices.Services.GetService(path, source);
+
+                string result = await response.Content.ReadAsStringAsync();
+
+                var roomType = JsonConvert.DeserializeObject<RoomTypes>(result);
+
+                ActiveBooking.RoomType = roomType;
+
+            }
+            catch (Exception)
+            {
+                await DisplayAlert("Hej", "Hej", "OK");            
+            }
+        }
+
+        private async void GetCustomer()
         {
             var path = "customers/";
 
@@ -121,9 +147,11 @@ namespace Hotell_Isaac_Blue
         private string CalculateTotalDays()
         {
             TimeSpan ts = endDate - startDate;
-            int days = (int)ts.TotalDays;
+            int totalDays = (int)ts.TotalDays;
 
-            return "Total days: " + days;
+            ActiveBooking.TotalDays = totalDays;
+
+            return "Total days: " + totalDays;
         }
 
         private (string date, string year) ReturnDateAndYear(string longDate)
