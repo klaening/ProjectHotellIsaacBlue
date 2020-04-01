@@ -23,9 +23,17 @@ namespace WebApi_Example.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get(string id)
         {
-            return Ok(await _accountService.GetAccount(id));
+            try
+            {
+                int idInt = int.Parse(id);
+                return Ok(await _accountService.GetAccount(idInt));
+            }
+            catch (System.Exception)
+            {
+                return Ok(await _accountService.GetAccount(id));
+            }
         }
 
         [HttpGet("{userName}/{password}")]

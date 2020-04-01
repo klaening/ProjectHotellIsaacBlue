@@ -23,16 +23,23 @@ namespace Hotell_Isaac_Blue.APIServices
             //string result = await response.Content.ReadAsStringAsync();
         }
 
-        //public static HttpResponseMessage GetLoginAccountInfo(string username, string password)
-        //{
-        //    var client = new HttpClient();
+        public static HttpResponseMessage GetService(string path, string[] primaryKeys)
+        {
+            var client = new HttpClient();
 
-        //    string jsonData = username + "/" + password;
+            string primaryKey = string.Empty;
 
-        //    //Returnerar Status kod
-        //    var response = client.GetAsync(HOST + "accounts/" + jsonData);
+            foreach (var key in primaryKeys)
+            {
+                primaryKey += key + "/";
+            }
 
-        //    return response;
-        //}
+            //Returnerar Status kod
+            var response = client.GetAsync("https://hotellisaacbluewebapi.azurewebsites.net/api/" + path + primaryKey);
+
+            var statusCode = response.Result;
+
+            return statusCode;
+        }
     }
 }

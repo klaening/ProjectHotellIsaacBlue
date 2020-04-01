@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hotell_Isaac_Blue.ViewModels
+namespace Hotell_Isaac_Blue.Tables
 {
     public class Bookings
     {
@@ -15,7 +15,7 @@ namespace Hotell_Isaac_Blue.ViewModels
         public DateTime? TIMEDEPARTURE { get; set; }
         public string SPECIALNEEDS { get; set; }
         public bool EXTRABED { get; set; }
-        public bool? PARKING { get; set; }
+        public bool PARKING { get; set; }
         public bool BREAKFAST { get; set; }
 
         //FOREIGN KEYS

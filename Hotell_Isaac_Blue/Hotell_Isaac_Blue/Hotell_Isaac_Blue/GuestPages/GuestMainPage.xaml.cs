@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Hotell_Isaac_Blue.ViewModels;
+using Hotell_Isaac_Blue.Tables;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
