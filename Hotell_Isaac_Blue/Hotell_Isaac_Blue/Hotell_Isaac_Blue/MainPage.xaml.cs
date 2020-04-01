@@ -56,7 +56,7 @@ namespace Hotell_Isaac_Blue
 
         private void SignUpBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new RegisterPage());
+            Navigation.PushAsync(new AccountRegistrationPage());
         }
     }
 }

@@ -48,7 +48,7 @@ namespace Hotell_Isaac_Blue
             ActiveBooking.RoomType.NAME = roomType;
 
             if (ActiveUser.Account.CustomersID == null)
-                await Navigation.PushAsync(new RegisterPage());
+                await Navigation.PushAsync(new AccountRegistrationPage());
             else
             {
                 GetRoomType();

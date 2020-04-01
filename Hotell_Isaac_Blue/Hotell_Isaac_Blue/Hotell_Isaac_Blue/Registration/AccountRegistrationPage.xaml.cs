@@ -12,9 +12,9 @@ using System.Net;
 namespace Hotell_Isaac_Blue
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegisterPage : ContentPage
+    public partial class AccountRegistrationPage : ContentPage
     {
-        public RegisterPage()
+        public AccountRegistrationPage()
         {
             InitializeComponent();
         }
