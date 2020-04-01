@@ -2,14 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Hotell_Isaac_Blue.Tables;
 using Hotell_Isaac_Blue.Helpers;
+using System.Net;
 
 namespace Hotell_Isaac_Blue
 {
@@ -25,9 +21,7 @@ namespace Hotell_Isaac_Blue
 
         private async void Login_Clicked(object sender, EventArgs e)
         {
-            if (UsernameEntry.Text == null || PasswordEntry.Text == null)
-                await DisplayAlert("Login failed", "Username or password was incorrect", "OK");
-            else
+            try
             {
                 string[] primaryKeys = new string[] { UsernameEntry.Text, PasswordEntry.Text };
 
@@ -35,20 +29,29 @@ namespace Hotell_Isaac_Blue
 
                 var response = APIServices.Services.GetService(path, primaryKeys);
 
-                if (response.IsSuccessStatusCode)
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
                     //Returnerar json datan för det kontot
                     string result = await response.Content.ReadAsStringAsync();
-                    //Skapar en aktiv användare så vi kommer åt datan överallt
-                    ActiveUser.CreateActiveUser(result);
+                    var activeUser = JsonConvert.DeserializeObject<Accounts>(result);
+                    ActiveUser.Account = activeUser;
 
                     await Navigation.PushAsync(new GuestMainPage());
                 }
                 else
                 {
-                    await DisplayAlert("Login failed", "Username or password was incorrect", "OK");
+                    LoginFailedMessage();
                 }
             }
+            catch (Exception)
+            {
+                LoginFailedMessage();            
+            }
+        }
+
+        private async void LoginFailedMessage()
+        {
+            await DisplayAlert("Login failed", "Username or password was incorrect", "OK");
         }
 
         private void SignUpBtn_Clicked(object sender, EventArgs e)

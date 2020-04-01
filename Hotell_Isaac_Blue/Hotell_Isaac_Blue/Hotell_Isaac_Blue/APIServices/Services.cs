@@ -27,15 +27,15 @@ namespace Hotell_Isaac_Blue.APIServices
         {
             var client = new HttpClient();
 
-            string jsonData = string.Empty;
+            string primaryKey = string.Empty;
 
             foreach (var key in primaryKeys)
             {
-                jsonData += key + "/";
+                primaryKey += key + "/";
             }
 
             //Returnerar Status kod
-            var response = client.GetAsync("https://hotellisaacbluewebapi.azurewebsites.net/api/" + path + jsonData);
+            var response = client.GetAsync("https://hotellisaacbluewebapi.azurewebsites.net/api/" + path + primaryKey);
 
             var statusCode = response.Result;
 
