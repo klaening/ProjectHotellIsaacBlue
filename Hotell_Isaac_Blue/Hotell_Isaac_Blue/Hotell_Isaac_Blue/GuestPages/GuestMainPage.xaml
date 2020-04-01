@@ -8,14 +8,11 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label x:Name="WelcomeLabel"
-                       Text="Welcome mr X"
-                       Style="{StaticResource h1Label}"
-                       Margin="20,0"/>
+
                 <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100"/>
@@ -26,111 +23,111 @@
                     </Grid.RowDefinitions>
 
                     <Image Source="hotellogo.png"
-                           WidthRequest="210"
-                           Margin="20"
-                           HorizontalOptions="Start"
-                           Grid.Row="0"/>
+                    WidthRequest="210"
+                    Margin="20,0"
+                    HorizontalOptions="Start"
+                    Grid.Row="0"/>
                     <Frame x:Name="BookingsFrame"     
-                           BackgroundColor="#f1c40f"
-                           Grid.Row="1"
-                           Margin="15,5">
+                    BackgroundColor="#f1c40f"
+                    Grid.Row="1"
+                    Margin="15,5">
                         <StackLayout>
                             <Grid>
                                 <Image Source="GMPcalendar"
-                                       Grid.Column="0"
-                                       Grid.RowSpan="2"
-                                       Scale="0.7"
-                                       HorizontalOptions="Start"
-                                       VerticalOptions="Center"/>
+                                Grid.Column="0"
+                                Grid.RowSpan="2"
+                                Scale="0.7"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"/>
                                 <Label Text="Bookings"
-                                       Style="{StaticResource h2Label}"
-                                       Grid.Column="1"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="Start"/>
+                                Style="{StaticResource h2Label}"
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"/>
                                 <Label Text="Text om vad man kan göra på bokningsidan"
-                                       Style="{StaticResource pLabel}"
-                                       Grid.Column="1"
-                                       Grid.Row="1"
-                                       HeightRequest="100"/>
+                                Style="{StaticResource pLabel}"
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                HeightRequest="100"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
 
                     <Frame x:Name="InfoFrame"
-                           Grid.Row="2"
-                           BackgroundColor="#e67e22"
-                           Margin="15,5">
+                    Grid.Row="2"
+                    BackgroundColor="#e67e22"
+                    Margin="15,5">
                         <StackLayout>
                             <Grid>
                                 <Image Source="GMPinfo"
-                                       Grid.Column="0"
-                                       Grid.Row="0"
-                                       Grid.RowSpan="2"
-                                       Scale="0.7"
-                                       HorizontalOptions="Start"
-                                       VerticalOptions="Center"/>
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Scale="0.7"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"/>
                                 <Label Text="Info"
-                                       Style="{StaticResource h2Label}"
-                                       Grid.Column="1"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="Start"/>
+                                Style="{StaticResource h2Label}"
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"/>
                                 <Label Text="Text om vad man kan göra på infosidan"
-                                       Style="{StaticResource pLabel}"
-                                       Grid.Column="1"
-                                       Grid.Row="1"
-                                       HeightRequest="100"/>
+                                Style="{StaticResource pLabel}"
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                HeightRequest="100"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
 
                     <Frame x:Name="BreakfastFrame"
-                           Grid.Row="3"
-                           BackgroundColor="#d35400"
-                           Margin="15,5">
+                    Grid.Row="3"
+                    BackgroundColor="#d35400"
+                    Margin="15,5">
                         <StackLayout>
                             <Grid>
                                 <Image Source="GMPbreakfast"
-                                       Grid.Column="0"
-                                       Grid.RowSpan="2"
-                                       Scale="0.7"
-                                       HorizontalOptions="Start"
-                                       VerticalOptions="Center"/>
+                                Grid.Column="0"
+                                Grid.RowSpan="2"
+                                Scale="0.7"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"/>
                                 <Label Text="Breakfast"
-                                       Style="{StaticResource h2Label}"
-                                       Grid.Column="1"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="Start"/>
+                                Style="{StaticResource h2Label}"
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"/>
                                 <Label Text="Text om vad man kan göra på frukostsidan"
-                                       Style="{StaticResource pLabel}"
-                                       Grid.Column="1"
-                                       Grid.Row="1"
-                                       HeightRequest="100"/>
+                                Style="{StaticResource pLabel}"
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                HeightRequest="100"/>
                             </Grid>
                         </StackLayout>
                     </Frame>
 
                     <Frame x:Name="ParkingFrame"
-                        Grid.Row="4"
-                           BackgroundColor="#c0392b"
-                           Margin="15,5">
+                Grid.Row="4"
+                    BackgroundColor="#c0392b"
+                    Margin="15,5">
                         <StackLayout>
                             <Grid>
                                 <Image Source="GMPcar"
-                                       Grid.Column="0"
-                                       Grid.RowSpan="2"
-                                       Scale="0.7"
-                                       HorizontalOptions="Start"
-                                       VerticalOptions="Center"/>
+                                Grid.Column="0"
+                                Grid.RowSpan="2"
+                                Scale="0.7"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"/>
                                 <Label Text="Parking"
-                                       Style="{StaticResource h2Label}"
-                                       Grid.Column="1"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="Start"/>
+                                Style="{StaticResource h2Label}"
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"/>
                                 <Label Text="Text om vad man kan göra på parkeringsidan"
-                                       Style="{StaticResource pLabel}"
-                                       Grid.Column="1"
-                                       Grid.Row="1"
-                                       HeightRequest="100"/>
+                                Style="{StaticResource pLabel}"
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                HeightRequest="100"/>
                             </Grid>
                         </StackLayout>
                     </Frame>

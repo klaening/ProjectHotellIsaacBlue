@@ -6,9 +6,7 @@
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.MainPage"
              BackgroundColor="#026672">
-
     <StackLayout>
-        <!-- Place new controls here -->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -40,56 +38,39 @@
                    Grid.Row="2"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"/>
-            <!--<Label
-                Text="Username: "
-                TextColor="#fff"
-                FontSize="17"
-                VerticalTextAlignment="Center"
-                Grid.Row="4"
-                Grid.Column="0"
-                HorizontalOptions="End"/>-->
+
             <Entry x:Name="UsernameEntry"
-                Placeholder="Username"
-                PlaceholderColor="#fff"
-                TextColor="#fff"
-                Grid.Column="1"
-                Grid.Row="4"
-                Grid.ColumnSpan="2"
-                HorizontalOptions="Start"
-                WidthRequest="300"
-            />
-            <!--<Label
-                Text="Password: "
-                TextColor="#fff"
-                Grid.Row="5"
-                Grid.Column="0"
-                FontSize="17"
-                VerticalTextAlignment="Center"
-                HorizontalOptions="End"/>-->
+                    Placeholder="Username"
+                    PlaceholderColor="#fff"
+                    TextColor="#fff"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="Start"
+                    WidthRequest="300"/>
+
             <Entry x:Name="PasswordEntry"
-                Placeholder="Password"
-                PlaceholderColor="#fff"
-                TextColor="#fff"
-                Grid.Column="1"
-                Grid.Row="5"
-                Grid.ColumnSpan="2"
-                HorizontalOptions="Start"
-                IsPassword="True"
-                WidthRequest="300"
-            />
+                    Placeholder="Password"
+                    PlaceholderColor="#fff"
+                    TextColor="#fff"
+                    Grid.Column="1"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="Start"
+                    IsPassword="True"
+                    WidthRequest="300"/>
 
             <Button x:Name="Login"
-                Text="Log In"
-                TextColor="Black"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
-                Grid.Row="6"
-                HorizontalOptions="Center"
-                WidthRequest="300"
-                Margin="0,10"
-                Clicked="Login_Clicked"
-                BackgroundColor="#fff"
-            />
+                    Text="Log In"
+                    TextColor="Black"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="6"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    Margin="0,10"
+                    Clicked="Login_Clicked"
+                    BackgroundColor="#fff"/>
             <Label
                 Text="Not a member? Sign up!"
                 Grid.Row="7"
@@ -100,17 +81,16 @@
                 HorizontalOptions="Center"
                 VerticalOptions="End"/>
             <Button x:Name="SignUpBtn"
-                Text="Sign up"
-                TextColor="black"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
-                Grid.Row="8"
-                HorizontalOptions="Center"
-                WidthRequest="300"
-                Margin="0, 10"
-                BackgroundColor="#fff"
-                    Clicked="SignUpBtn_Clicked"
-            />
+                    Text="Sign up"
+                    TextColor="black"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="8"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    Margin="0, 10"
+                    BackgroundColor="#fff"
+                    Clicked="SignUpBtn_Clicked"/>
 
         </Grid>
     </StackLayout>

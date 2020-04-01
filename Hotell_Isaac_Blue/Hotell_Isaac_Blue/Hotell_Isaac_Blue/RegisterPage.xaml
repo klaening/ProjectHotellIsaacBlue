@@ -4,29 +4,44 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Hotell_Isaac_Blue.RegisterPage">
+             x:Class="Hotell_Isaac_Blue.RegisterPage"
+             BackgroundColor="#026672">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Register new account"
                    Style="{StaticResource h2Label}"
                    HorizontalOptions="Center"
-                   Margin="10"/>
+                   Margin="10, 60, 10, 0"/>
 
             <Entry x:Name="userNameEntry"
-                   Placeholder="Enter username"
+                   TextColor="white"
+                   Placeholder="Username"
                    PlaceholderColor="White"
-                   Margin="10"/>
+                   Margin="50, 60, 50, 10"/>
             
             <Entry x:Name="passwordEntry"
-                   Placeholder="Enter password"
+                   TextColor="White"
+                   Placeholder="Password"
                    PlaceholderColor="White"
-                   Margin="10"/>
+                   Margin="50, 5, 50, 0"/>
 
             <Button x:Name="RegisterBtn"
                     Text="Register"
                     HorizontalOptions="Center"
-                    Margin="30"
+                    Margin="30, 15, 30, 15"
+                    WidthRequest="150"
                     Clicked="RegisterBtn_Clicked"/>
+
+            <Label Text="Already have an account?"
+                   Style="{StaticResource pLabel}"
+                   HorizontalOptions="Center"
+                   Margin="0, 30, 0,0"/>
+            <Button x:Name="SignInBtn"
+                    Text="Sign In"
+                    Margin="0, 15"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    Clicked="SignInBtn_Clicked"/>
 
         </StackLayout>
     </ContentPage.Content>

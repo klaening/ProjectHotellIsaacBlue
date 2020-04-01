@@ -42,7 +42,7 @@
             </Style>
 
             <Style TargetType="Button">
-                <Setter Property="FontFamily" Value="Sen-Regular.ttf#Sen-Regular.ttf"/>
+                <Setter Property="FontFamily" Value="Sen-Bold.ttf#Sen-Bold.ttf"/>
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="BackgroundColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="10"/>

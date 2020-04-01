@@ -7,6 +7,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Hotell_Isaac_Blue.Tables;
+using System.Net;
 
 namespace Hotell_Isaac_Blue
 {
@@ -24,15 +25,33 @@ namespace Hotell_Isaac_Blue
             string userName = userNameEntry.Text;
             string password = passwordEntry.Text;
 
-            Accounts account = new Accounts 
-            { 
-                UserName = userName,
-                UserPassword = password
-            };
-
+            string[] userNameKey = { userName };
             string path = "accounts/";
 
-            await APIServices.Services.PostServiceAsync(account, path);
+            var response = APIServices.Services.GetService(path, userNameKey);
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                await DisplayAlert("Username already taken", "Please choose another username", "Try again");
+            }
+            else
+            {
+                Accounts account = new Accounts
+                {
+                    UserName = userName,
+                    UserPassword = password
+                };
+
+                ActiveUser.Account = account;
+                await APIServices.Services.PostServiceAsync(account, path);
+
+                await Navigation.PushAsync(new GuestMainPage());
+            }
+        }
+
+        private void SignInBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MainPage());
         }
     }
 }
