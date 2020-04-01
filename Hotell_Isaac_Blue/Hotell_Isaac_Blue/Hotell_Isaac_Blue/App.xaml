@@ -49,6 +49,13 @@
                 <Setter Property="Padding" Value="0"/>
             </Style>
 
+            <Style TargetType="Entry">
+                <Setter Property="FontFamily" Value="Sen-Regular.ttf#Sen-Regular.ttf"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="PlaceholderColor" Value="White"/>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

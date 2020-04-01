@@ -14,15 +14,11 @@
                    Margin="10, 60, 10, 0"/>
 
             <Entry x:Name="userNameEntry"
-                   TextColor="white"
                    Placeholder="Username"
-                   PlaceholderColor="White"
                    Margin="50, 60, 50, 10"/>
             
             <Entry x:Name="passwordEntry"
-                   TextColor="White"
                    Placeholder="Password"
-                   PlaceholderColor="White"
                    Margin="50, 5, 50, 0"/>
 
             <Button x:Name="RegisterBtn"
