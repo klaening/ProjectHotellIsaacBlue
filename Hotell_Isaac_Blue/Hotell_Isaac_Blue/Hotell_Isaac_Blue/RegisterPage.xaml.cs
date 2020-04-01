@@ -36,18 +36,17 @@ namespace Hotell_Isaac_Blue
             }
             else
             {
+                Accounts account = new Accounts
+                {
+                    UserName = userName,
+                    UserPassword = password
+                };
 
-                await DisplayAlert("Username available","", "Ok");
-                //Accounts account = new Accounts
-                //{
-                //    UserName = userName,
-                //    UserPassword = password
-                //};
+                ActiveUser.Account = account;
+                await APIServices.Services.PostServiceAsync(account, path);
+
+                await Navigation.PushAsync(new GuestMainPage());
             }
-
-
-
-            //await APIServices.Services.PostServiceAsync(account, path);
         }
     }
 }
