@@ -23,11 +23,11 @@ namespace Hotell_Isaac_Blue
         {
             try
             {
-                string[] primaryKeys = new string[] { UsernameEntry.Text, PasswordEntry.Text };
-
                 string path = "accounts/";
 
-                var response = APIServices.Services.GetService(path, primaryKeys);
+                string[] source = new string[] { UsernameEntry.Text, PasswordEntry.Text };
+
+                var response = APIServices.Services.GetService(path, source);
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {

@@ -7,6 +7,6 @@ namespace Hotell_Isaac_Blue
 {
     public static class ActiveCustomer
     {
-        public static Customers customer { get; set; }
+        public static Customers Customer { get; set; }
     }
 }

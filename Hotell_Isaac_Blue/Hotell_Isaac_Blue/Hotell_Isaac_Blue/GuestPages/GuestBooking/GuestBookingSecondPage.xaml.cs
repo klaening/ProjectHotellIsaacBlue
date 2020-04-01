@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Hotell_Isaac_Blue.Tables;
-
+using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,7 +26,7 @@ namespace Hotell_Isaac_Blue
             InitializeComponent();
         }
 
-        private void Result_Btn_Clicked(object sender, EventArgs e)
+        private async void Result_Btn_Clicked(object sender, EventArgs e)
         {
             roomType = (string)RoomType_Picker.SelectedItem;
             guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
@@ -41,8 +42,32 @@ namespace Hotell_Isaac_Blue
                 BREAKFAST = breakfast
             };
 
-            Navigation.PushAsync(new GuestBookingThirdPage());
+            if (ActiveUser.Account.CustomersID == null)
+                await Navigation.PushAsync(new RegisterPage());
+            else
+            {
+                Customers customer = new Customers();
+
+                GetCustomer(customer);
+
+                await Navigation.PushAsync(new GuestBookingThirdPage());
+            }
         }
+
+        private async void GetCustomer(Customers customer)
+        {
+            var path = "customers/";
+
+            string[] source = new string[] { ActiveUser.Account.CustomersID.ToString() };
+
+            var response = APIServices.Services.GetService(path, source);
+            string result = await response.Content.ReadAsStringAsync();
+
+            var activeCustomer = JsonConvert.DeserializeObject<Customers>(result);
+
+            ActiveCustomer.Customer = activeCustomer;
+        }
+
         private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)
         {
             DateTime pickedDate = e.NewDate;
