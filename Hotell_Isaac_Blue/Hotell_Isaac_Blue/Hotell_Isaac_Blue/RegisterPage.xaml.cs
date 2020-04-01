@@ -32,12 +32,12 @@ namespace Hotell_Isaac_Blue
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                await DisplayAlert("Taken", "Change username", "Try again");
+                await DisplayAlert("Username already taken", "Please choose another username", "Try again");
             }
             else
             {
 
-                await DisplayAlert("Available","Bra","ok");
+                await DisplayAlert("Username available","", "Ok");
                 //Accounts account = new Accounts
                 //{
                 //    UserName = userName,
