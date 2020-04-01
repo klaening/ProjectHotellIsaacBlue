@@ -44,6 +44,12 @@ namespace Hotell_Isaac_Blue
         private async void confirmBooking_Clicked(object sender, EventArgs e)
         {
             //Skapar ett nytt Booking object och anropar en Service som kallar på Stored Procedure sp_BookingsInsert
+            Bookings booking = ActiveBooking.Booking;
+
+            var path = "bookings/";
+
+            var response = APIServices.Services.PostServiceAsync(path, booking);
+
 
 
             //if (ActiveUser.Account.CustomersID != null)
