@@ -23,9 +23,17 @@ namespace WebApi_Example.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get(string id)
         {
-            return Ok(await _roomTypeService.GetRoomType(id));
+            try
+            {
+                int idInt = int.Parse(id);
+                return Ok(await _roomTypeService.GetRoomType(idInt));
+            }
+            catch (System.Exception)
+            {
+                return Ok(await _roomTypeService.GetRoomType(id));
+            }
         }
     }
 }

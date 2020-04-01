@@ -61,17 +61,14 @@
 
                             <Label Text="Roomtype:" 
                                Grid.Column="0" Grid.Row="6"/>
-                            <Label Text="No of rooms"
+                            <Label Text="Price"
                                    Grid.Column="0" Grid.Row="7"
                                    Margin="15,0"/>
-                            <Label Text="Price"
+                            <Label Text="Extra bed"
                                    Grid.Column="0" Grid.Row="8"
                                    Margin="15,0"/>
-                            <Label Text="Extra bed"
-                                   Grid.Column="0" Grid.Row="9"
-                                   Margin="15,0"/>
                             <Label Text="Breakfast"
-                                   Grid.Column="0" Grid.Row="10"
+                                   Grid.Column="0" Grid.Row="9"
                                    Margin="15,0"/>
 
 
@@ -97,19 +94,21 @@
                                    Grid.Column="1" Grid.Row="4"/>
 
 
-                            <Label Text="No type chosen"
+                            <Label x:Name="ReviewRoomType"
+                                Text="No type chosen"
                                    Grid.Column="1" Grid.Row="6"/>
-                            <Label Text="No price"
+                            <Label x:Name="ReviewPrice"
+                                   Text="Info not available"
                                    Grid.Column="1" Grid.Row="7"/>
-                            <Label Text="Not chosen"
+                            <Label x:Name="ReviewExtraBed"
+                                Text="Not chosen"
                                    Grid.Column="1" Grid.Row="8"/>
-                            <Label Text="Not chosen"
+                            <Label x:Name="ReviewBreakfast"
+                                Text="Not chosen"
                                    Grid.Column="1" Grid.Row="9"/>
-                            <Label Text="Not chosen"
-                                   Grid.Column="1" Grid.Row="10"/>
 
                             <Label x:Name="ReviewTotalCostLabel"
-                                Text="1213:-" 
+                                Text="Info not available" 
                                Grid.Column="1" Grid.Row="13"/>
 
 
