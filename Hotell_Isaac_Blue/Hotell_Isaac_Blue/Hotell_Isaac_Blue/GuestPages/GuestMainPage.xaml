@@ -139,6 +139,9 @@
                         </StackLayout>
                     </Frame>
 
+                    
+                    
+                   <!--Knapp för log out-->
 
                     <ImageButton x:Name="MyProfileBtn"
                                  Source="icon01"
@@ -166,10 +169,7 @@
                                     HeightRequest="40"
                                     Clicked="LogOutBtn_Clicked"/>
                         </StackLayout>
-
                     </Frame>
-                    
-                    
                 </Grid>
             </StackLayout>
         </ScrollView>

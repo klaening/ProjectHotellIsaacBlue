@@ -93,7 +93,7 @@ namespace Hotell_Isaac_Blue
         private async void LogOutBtn_Clicked(object sender, EventArgs e)
         {
 
-            var logOut = await DisplayAlert("Logging out!","Are you sure you want to log out?", "Yes", "No");
+            var logOut = await DisplayAlert("Logging out!","Are you sure you want to log out?", "Log Out", "Stay");
             if (logOut)
             {
                 ActiveUser.Account = null;
