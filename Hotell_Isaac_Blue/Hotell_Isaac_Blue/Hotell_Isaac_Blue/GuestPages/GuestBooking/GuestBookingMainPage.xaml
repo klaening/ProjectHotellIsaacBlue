@@ -62,13 +62,16 @@
                                    FontAttributes="Bold"
                                    Grid.Row="0" Grid.Column="2"
                                    HorizontalOptions="Start"/>
-                            <Label Text="1882-15-1272" 
+                            <Label x:Name="bookingNr"
+                                Text="1882-15-1272" 
                                     Grid.Row="1" Grid.Column="0"
                                     HorizontalOptions="Start"/>
-                            <Label Text="2020-03-09" 
+                            <Label x:Name="startDate"
+                                Text="2020-03-09" 
                                     Grid.Row="1" Grid.Column="1"
                                     HorizontalOptions="Start"/>
-                            <Label Text="2020-03-15" 
+                            <Label x:Name="endDate"
+                                Text="2020-03-15" 
                                     Grid.Row="1" Grid.Column="2"
                                     HorizontalOptions="Start"/>
                         </Grid>
