@@ -132,7 +132,12 @@ namespace Hotell_Isaac_Blue
         {
             string[] dateSplit = longDate.Split(' ');
             string date = dateSplit[0].Remove(3) + ",";
-            dateSplit[1] = dateSplit[1].Remove(3);
+            
+            if (dateSplit[1].Length > 3)
+            {
+                dateSplit[1] = dateSplit[1].Remove(3);
+            }
+
             dateSplit[2] = dateSplit[2].Remove(dateSplit[2].Length - 1);
             string year = dateSplit[3];
 

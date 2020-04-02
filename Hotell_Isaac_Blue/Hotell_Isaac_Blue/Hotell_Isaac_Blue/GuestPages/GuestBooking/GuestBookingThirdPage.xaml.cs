@@ -94,7 +94,7 @@ namespace Hotell_Isaac_Blue
             return totalPrice.ToString();
         }
 
-        private void confirmBooking_Clicked(object sender, EventArgs e)
+        private async void confirmBooking_Clicked(object sender, EventArgs e)
         {
             //Skapar ett nytt Booking object och anropar en Service som kallar på Stored Procedure sp_BookingsInsert
             //ActiveBooking booking = ActiveBooking;
@@ -104,8 +104,10 @@ namespace Hotell_Isaac_Blue
             var response = APIServices.Services.PostServiceAsync(path, ActiveBooking);
 
             //Kolla om det gick bra, isf töm ActiveBooking.Booking
+            //Får ingen info i responsen står fortfarande Waiting for results eller liknande
+            await DisplayAlert("Booking succesful!", "Show bookings", "OK");
 
-            Navigation.PushAsync(new GuestBookingMainPage());
+            await Navigation.PushAsync(new GuestBookingMainPage());
         }
     }
 }

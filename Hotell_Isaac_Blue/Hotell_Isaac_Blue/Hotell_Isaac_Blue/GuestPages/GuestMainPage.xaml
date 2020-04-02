@@ -35,6 +35,9 @@
                     Grid.Row="1"
                     Grid.ColumnSpan="2"
                     Margin="15,5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BookingsFrame_Tapped"/>
+                        </Frame.GestureRecognizers>
                         <StackLayout>
                             <Grid>
                                 <Image Source="GMPcalendar"
@@ -62,6 +65,9 @@
                     Grid.ColumnSpan="2"
                     BackgroundColor="#e67e22"
                     Margin="15,5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="InfoFrame_Tapped"/>
+                        </Frame.GestureRecognizers>
                         <StackLayout>
                             <Grid>
                                 <Image Source="GMPinfo"
@@ -90,6 +96,9 @@
                     Grid.ColumnSpan="2"
                     BackgroundColor="#d35400"
                     Margin="15,5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BreakfastFrame_Tapped"/>
+                        </Frame.GestureRecognizers>
                         <StackLayout>
                             <Grid>
                                 <Image Source="GMPbreakfast"
@@ -117,6 +126,9 @@
                     Grid.ColumnSpan="2"
                     BackgroundColor="#c0392b"
                     Margin="15,5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ParkingFrame_Tapped"/>
+                        </Frame.GestureRecognizers>
                         <StackLayout>
                             <Grid>
                                 <Image Source="GMPcar"
