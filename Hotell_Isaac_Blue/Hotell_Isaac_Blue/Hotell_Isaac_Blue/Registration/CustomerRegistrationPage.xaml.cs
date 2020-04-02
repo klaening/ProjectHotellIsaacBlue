@@ -21,6 +21,8 @@ namespace Hotell_Isaac_Blue
         private async void RegisterBtn_Clicked(object sender, EventArgs e)
         {
 
+            // Skapa en get på Customer socnumber i web api
+
             Customers customer = new Customers()
             {
                 SOCNUMBER = socNrEntry.Text,

@@ -77,5 +77,28 @@ namespace Hotell_Isaac_Blue
         {
             Navigation.PushAsync(new GuestParkingPage());
         }
+
+        private void MyProfileBtn_Clicked(object sender, EventArgs e)
+        {
+            if (MyProfileFrame.IsVisible == true)
+            {
+                MyProfileFrame.IsVisible = false;
+            }
+            else if (MyProfileFrame.IsVisible == false)
+            {
+                MyProfileFrame.IsVisible = true;
+            }
+        }
+
+        private async void LogOutBtn_Clicked(object sender, EventArgs e)
+        {
+
+            var logOut = await DisplayAlert("Logging out!","Are you sure you want to log out?", "Log Out", "Stay");
+            if (logOut)
+            {
+                ActiveUser.Account = null;
+                await Navigation.PushAsync(new MainPage());
+            }
+        }
     }
 }
