@@ -42,8 +42,9 @@ namespace Hotell_Isaac_Blue
                     UserPassword = password
                 };
 
-                ActiveUser.Account = account;
                 await APIServices.Services.PostServiceAsync(path, account);
+                
+                ActiveUser.Account = account;
 
                 await Navigation.PushAsync(new GuestMainPage());
             }

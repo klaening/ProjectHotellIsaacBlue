@@ -7,6 +7,6 @@ namespace WebApi_Example_Domain.Models
     public class ActiveBooking
     {
         public Bookings Booking { get; set; }
-        public int RoomID { get; set; }
+        public short RoomID { get; set; }
     }
 }

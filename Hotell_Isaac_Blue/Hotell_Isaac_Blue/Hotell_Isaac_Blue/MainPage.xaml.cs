@@ -31,7 +31,7 @@ namespace Hotell_Isaac_Blue
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    //Returnerar json datan för det kontot
+                    //Returnerar json data för det kontot
                     string result = await response.Content.ReadAsStringAsync();
                     var activeUser = JsonConvert.DeserializeObject<Accounts>(result);
                     ActiveUser.Account = activeUser;

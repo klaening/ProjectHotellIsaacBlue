@@ -12,14 +12,25 @@ namespace Hotell_Isaac_Blue
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GuestBookingThirdPage : ContentPage
     {
-        DateTime startDate = ActiveBooking.Booking.STARTDATE;
-        DateTime endDate = ActiveBooking.Booking.ENDDATE;
+        ActiveBooking ActiveBooking = null;
+        DateTime startDate = DateTime.MinValue;
+        DateTime endDate = DateTime.MinValue;
         RoomTypes roomType = null;
         Customers customerDetails = null;
-        public GuestBookingThirdPage()
+
+        public GuestBookingThirdPage() { }
+
+        public GuestBookingThirdPage(ActiveBooking activeBooking)
         {
             //FUUUUUUUUL KOOOOOOOOOD!!!!!!!
             InitializeComponent();
+
+            ActiveBooking = activeBooking;
+
+            startDate = ActiveBooking.Booking.STARTDATE;
+            endDate = ActiveBooking.Booking.ENDDATE.Date;
+
+            ActiveBooking = activeBooking;
 
             GetCustomer(ActiveUser.Account.CustomersID.ToString());
             GetRoomType(ActiveBooking.RoomID);
@@ -83,14 +94,18 @@ namespace Hotell_Isaac_Blue
             return totalPrice.ToString();
         }
 
-        private async void confirmBooking_Clicked(object sender, EventArgs e)
+        private void confirmBooking_Clicked(object sender, EventArgs e)
         {
             //Skapar ett nytt Booking object och anropar en Service som kallar på Stored Procedure sp_BookingsInsert
-            ActiveBooking booking = new ActiveBooking();
+            //ActiveBooking booking = ActiveBooking;
 
             var path = "bookings/";
 
-            var response = APIServices.Services.PostServiceAsync(path, booking);
+            var response = APIServices.Services.PostServiceAsync(path, ActiveBooking);
+
+            //Kolla om det gick bra, isf töm ActiveBooking.Booking
+
+            Navigation.PushAsync(new GuestBookingMainPage());
         }
     }
 }

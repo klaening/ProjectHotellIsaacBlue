@@ -21,15 +21,16 @@ namespace Hotell_Isaac_Blue
         short guestQty;
         bool extraBed = false;
         bool breakfast = false;
+        RoomTypes RoomType = null;
         public GuestBookingSecondPage()
         {
             InitializeComponent();
         }
 
-        private async void Result_Btn_Clicked(object sender, EventArgs e)
+        private void Result_Btn_Clicked(object sender, EventArgs e)
         {
             if (ActiveUser.Account.CustomersID == null)
-                await Navigation.PushAsync(new AccountRegistrationPage());
+                Navigation.PushAsync(new AccountRegistrationPage());
             else
             {
                 pickedRoomType = (string)RoomType_Picker.SelectedItem;
@@ -37,7 +38,9 @@ namespace Hotell_Isaac_Blue
                 extraBed = Bed_Switch.IsToggled;
                 breakfast = Breakfast_Switch.IsToggled;
 
-                ActiveBooking.Booking = new Bookings
+                ActiveBooking active = new ActiveBooking();
+
+                active.Booking = new Bookings
                 {
                     QTYPERSONS = guestQty,
                     STARTDATE = startDate,
@@ -49,9 +52,11 @@ namespace Hotell_Isaac_Blue
 
                 GetRoomType();
 
-                ActiveBooking.Booking.CUSTOMERSID = ActiveUser.Account.CustomersID;
+                //Nånstans ska det göras en check på om det finns ett sådant rum ledigt de datumen
 
-                await Navigation.PushAsync(new GuestBookingThirdPage());
+                active.RoomID = RoomType.ID;
+
+                Navigation.PushAsync(new GuestBookingThirdPage(active));
             }
         }
 
@@ -69,7 +74,8 @@ namespace Hotell_Isaac_Blue
                 string result = await response.Content.ReadAsStringAsync();
 
                 //Vi får ett objekt av en RoomTypes som vi vill använda på BookingThirdPage
-                RoomTypes roomType = JsonConvert.DeserializeObject<RoomTypes>(result);
+                RoomType = JsonConvert.DeserializeObject<RoomTypes>(result);
+
             }
             catch (Exception)
             {   ///////////////////////////////////////////////
@@ -97,9 +103,6 @@ namespace Hotell_Isaac_Blue
 
                 SDDateLabel.Text = date;
                 SDYearLabel.Text = year;
-
-                if (EDDateLabel.Text != null)
-                    TotDaysLabel.Text = Helpers.Helpers.CalculateTotalDays(startDate, endDate).ToString();
             }
         }
 
@@ -122,9 +125,6 @@ namespace Hotell_Isaac_Blue
 
                 EDDateLabel.Text = date;
                 EDYearLabel.Text = year;
-
-                if (SDDateLabel.Text != null)
-                    TotDaysLabel.Text = Helpers.Helpers.CalculateTotalDays(startDate, endDate).ToString();
             }
         }
 

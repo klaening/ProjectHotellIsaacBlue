@@ -13,7 +13,10 @@ namespace Hotell_Isaac_Blue.APIServices
         public static async Task PostServiceAsync(string path, Object objectclass)
         {
             var client = new HttpClient();
-            var json = JsonConvert.SerializeObject(objectclass);
+            var json = JsonConvert.SerializeObject(objectclass, new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            });
 
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -27,15 +30,15 @@ namespace Hotell_Isaac_Blue.APIServices
         {
             var client = new HttpClient();
 
-            string primaryKey = string.Empty;
+            string source = string.Empty;
 
             foreach (var key in primaryKeys)
             {
-                primaryKey += key + "/";
+                source += key + "/";
             }
 
             //Returnerar Status kod
-            var response = client.GetAsync(HOST + path + primaryKey);
+            var response = client.GetAsync(HOST + path + source);
 
             var statusCode = response.Result;
 
