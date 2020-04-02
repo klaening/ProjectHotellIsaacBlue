@@ -10,7 +10,7 @@ namespace Hotell_Isaac_Blue.APIServices
     public class Services
     {
         private const string HOST = "https://hotellisaacbluewebapi.azurewebsites.net/api/";
-        public static async Task PostServiceAsync(Object objectclass, string path)
+        public static async Task PostServiceAsync(string path, Object objectclass)
         {
             var client = new HttpClient();
             var json = JsonConvert.SerializeObject(objectclass);

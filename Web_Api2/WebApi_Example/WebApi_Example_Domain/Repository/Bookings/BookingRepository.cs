@@ -39,17 +39,28 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
-        public async Task<bool> AddBooking(Bookings bookings)
+        public async Task<bool> AddBooking(Bookings bookings, int roomID)
         {
             using (var c = new SqlConnection(_connectionString))
             {
                 try
                 {
-                    await c.ExecuteAsync("INSERT INTO BOOKINGS (QTYPERSONS, STARTDATE, ENDDATE, ETA, TIMEARRIVAL, TIMEDEPARTURE, SPECIALNEEDS" +
-                        "EXTRABED, PARKING, BREAKFAST, CUSTOMERSID, STAFFID) VALUES (@qtypersons, @startdate, @enddate, @eta" +
-                        "@timearrival, @timedeparture, @specialneeds, @extrabed, @parking, @breakfast, @customersid, @staffid)",
-                        new { bookings.QTYPERSONS, bookings.STARTDATE, bookings.ENDDATE, bookings.ETA, bookings.TIMEARRIVAL, bookings.TIMEDEPARTURE,
-                        bookings.SPECIALNEEDS, bookings.EXTRABED, bookings.PARKING, bookings.BREAKFAST, bookings.CUSTOMERSID, bookings.STAFFID});
+                    await c.ExecuteAsync("EXEC sp_BOOKINGS_INSERT @CUSTOMERSID = @customersID, @QTYPERSONS = @qtyPersons, @STARTDATE = @startDate, " +
+                        "@ENDDATE = @endDate, @ETA = @eta, @TIMEARRIVAL = @timeArrival, @SPECIALNEEDS = @specialNeeds, @EXTRABED = @extraBed, @PARKING = " +
+                        "@parking, @BREAKFAST = @breakfast, @STAFFID = @staffID, @ROOMID = @roomID", new {
+    bookings.QTYPERSONS,
+    bookings.STARTDATE,
+    bookings.ENDDATE,
+    bookings.ETA,
+    bookings.TIMEARRIVAL,
+    bookings.TIMEDEPARTURE,
+    bookings.SPECIALNEEDS, 
+    bookings.EXTRABED, 
+    bookings.PARKING, 
+    bookings.BREAKFAST, 
+    bookings.CUSTOMERSID, 
+    bookings.STAFFID,
+    roomID });
                     return true;
                 }
                 catch (System.Exception)

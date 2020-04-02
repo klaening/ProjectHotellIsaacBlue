@@ -5,6 +5,7 @@ using Hotell_Isaac_Blue;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Hotell_Isaac_Blue.Tables;
+using Newtonsoft.Json;
 
 namespace Hotell_Isaac_Blue
 {
@@ -13,19 +14,42 @@ namespace Hotell_Isaac_Blue
     {
         public GuestBookingThirdPage()
         {
+            //FUUUUUUUUL KOOOOOOOOOD!!!!!!!
             InitializeComponent();
 
             ReviewNameLabel.Text = $"{ActiveCustomer.Customer.FIRSTNAME} {ActiveCustomer.Customer.LASTNAME}";
             ReviewEmailLabel.Text = ActiveCustomer.Customer.EMAIL;
             ReviewStartDateLabel.Text = ActiveBooking.Booking.STARTDATE.ToString();
             ReviewEndDateLabel.Text = ActiveBooking.Booking.ENDDATE.ToString();
+            ReviewTotalDays.Text = ActiveBooking.TotalDays.ToString();
+            ReviewRoomType.Text = ActiveBooking.RoomType.NAME;
+            ReviewPrice.Text = ActiveBooking.RoomType.COST.ToString();
+            ReviewExtraBed.Text = ActiveBooking.Booking.EXTRABED.ToString();
+            ReviewBreakfast.Text = ActiveBooking.Booking.BREAKFAST.ToString();
 
-            //Binda alla element i ThirdPage till vad användaren har eller skriva kod för det?
+            ReviewTotalCostLabel.Text = GetTotalPrice();
+        }
+
+        private string GetTotalPrice()
+        {
+            decimal? totalPrice = ActiveBooking.RoomType.COST * ActiveBooking.TotalDays;
+            if (ActiveBooking.Booking.BREAKFAST == true)
+                totalPrice += 80 * ActiveBooking.TotalDays;
+            if (ActiveBooking.Booking.EXTRABED == true)
+                totalPrice += 100 * ActiveBooking.TotalDays;
+
+            return totalPrice.ToString();
         }
 
         private async void confirmBooking_Clicked(object sender, EventArgs e)
         {
-            //Skapar ett nytt Booking element och anropar en Service som kallar på Stored Procedure sp_BookingsInsert
+            //Skapar ett nytt Booking object och anropar en Service som kallar på Stored Procedure sp_BookingsInsert
+            Bookings booking = ActiveBooking.Booking;
+
+            var path = "bookings/";
+
+            var response = APIServices.Services.PostServiceAsync(path, booking);
+
 
 
             //if (ActiveUser.Account.CustomersID != null)

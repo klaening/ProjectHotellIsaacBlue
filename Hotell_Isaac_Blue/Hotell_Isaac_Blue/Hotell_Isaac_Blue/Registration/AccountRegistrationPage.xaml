@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Hotell_Isaac_Blue.RegisterPage"
+             x:Class="Hotell_Isaac_Blue.AccountRegistrationPage"
              BackgroundColor="#026672">
     <ContentPage.Content>
         <StackLayout>
@@ -19,6 +19,7 @@
             
             <Entry x:Name="passwordEntry"
                    Placeholder="Password"
+                   IsPassword="True"
                    Margin="50, 5, 50, 0"/>
 
             <Button x:Name="RegisterBtn"

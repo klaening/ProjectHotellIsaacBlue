@@ -24,9 +24,9 @@ namespace WebApi_Example_Domain.Services
             return await _bookingRepository.GetBooking(id);
         }
 
-        public async Task<bool> AddBooking(Bookings bookings)
+        public async Task<bool> AddBooking(Bookings bookings, int roomID)
         {
-            return await _bookingRepository.AddBooking(bookings);
+            return await _bookingRepository.AddBooking(bookings, roomID);
         }
 
         public async Task<bool> UpdateBooking(int id)
