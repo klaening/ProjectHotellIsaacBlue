@@ -159,10 +159,12 @@
                            BackgroundColor="DarkGray">
                         <StackLayout
                             VerticalOptions="End">
-                            <Button Text="Log out"
+                            <Button x:Name="LogOutBtn"
+                                    Text="Log out"
                                     HorizontalOptions="Center"
                                     WidthRequest="150"
-                                    HeightRequest="40"/>
+                                    HeightRequest="40"
+                                    Clicked="LogOutBtn_Clicked"/>
                         </StackLayout>
 
                     </Frame>
