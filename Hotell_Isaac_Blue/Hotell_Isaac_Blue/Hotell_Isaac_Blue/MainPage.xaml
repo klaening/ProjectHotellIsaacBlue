@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Hotell_Isaac_Blue.MainPage"
-             BackgroundColor="#026672">
+             BackgroundColor="#026672"
+             NavigationPage.HasNavigationBar="False">
     <StackLayout>
         <Grid>
             <Grid.ColumnDefinitions>

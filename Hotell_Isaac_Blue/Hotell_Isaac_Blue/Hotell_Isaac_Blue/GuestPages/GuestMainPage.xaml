@@ -9,7 +9,6 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -28,6 +27,15 @@
                     Margin="20,0"
                     HorizontalOptions="Start"
                     Grid.Row="0"/>
+                    
+                    <ImageButton x:Name="MyProfileBtn"
+                                 Source="icon01"
+                                 Scale="0.6"
+                                 Grid.Row="0"
+                                 HorizontalOptions="End"
+                                 VerticalOptions="Center"
+                                 Clicked="MyProfileBtn_Clicked"/>
+                    
                     <Frame x:Name="BookingsFrame"     
                     BackgroundColor="#f1c40f"
                     Grid.Row="1"

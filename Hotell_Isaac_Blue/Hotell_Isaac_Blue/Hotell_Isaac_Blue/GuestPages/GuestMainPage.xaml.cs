@@ -77,5 +77,10 @@ namespace Hotell_Isaac_Blue
         {
             Navigation.PushAsync(new GuestParkingPage());
         }
+
+        private void MyProfileBtn_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
