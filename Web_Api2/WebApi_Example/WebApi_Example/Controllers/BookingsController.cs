@@ -29,8 +29,10 @@ namespace WebApi_Example.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] Bookings bookings, int roomID)
+        public async Task<IActionResult> Add([FromBody] ActiveBooking activeBooking)
         {
+            var bookings = activeBooking.Booking;
+            var roomID = activeBooking.RoomID;
             return Ok(await _bookingService.AddBooking(bookings, roomID));
         }
 

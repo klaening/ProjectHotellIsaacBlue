@@ -17,10 +17,10 @@ namespace Hotell_Isaac_Blue.APIServices
 
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("https://localhost:44341/api/" + path, content);
+            var response = await client.PostAsync(HOST + path, content);
 
             //Kan man använda result för att ta kundens id och sen stoppa den i kontots foreign key?
-            //string result = await response.Content.ReadAsStringAsync();
+            string result = await response.Content.ReadAsStringAsync();
         }
 
         public static HttpResponseMessage GetService(string path, string[] primaryKeys)
@@ -35,7 +35,7 @@ namespace Hotell_Isaac_Blue.APIServices
             }
 
             //Returnerar Status kod
-            var response = client.GetAsync("https://hotellisaacbluewebapi.azurewebsites.net/api/" + path + primaryKey);
+            var response = client.GetAsync(HOST + path + primaryKey);
 
             var statusCode = response.Result;
 
