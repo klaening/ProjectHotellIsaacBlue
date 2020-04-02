@@ -154,7 +154,7 @@
 
                                 <!--Ändra så att den bindar infon från en lista-->
                                 <Picker.Items>
-                                    <x:String>Standard</x:String>
+                                    <x:String>Single</x:String>
                                     <x:String>Double</x:String>
                                 </Picker.Items>
                             </Picker>
