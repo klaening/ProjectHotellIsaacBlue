@@ -80,7 +80,14 @@ namespace Hotell_Isaac_Blue
 
         private void MyProfileBtn_Clicked(object sender, EventArgs e)
         {
-
+            if (MyProfileFrame.IsVisible == true)
+            {
+                MyProfileFrame.IsVisible = false;
+            }
+            else if (MyProfileFrame.IsVisible == false)
+            {
+                MyProfileFrame.IsVisible = true;
+            }
         }
     }
 }
