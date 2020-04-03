@@ -54,7 +54,7 @@ namespace Hotell_Isaac_Blue
 
             string[] source = new string[] { id };
 
-            var response = APIServices.Services.GetService(path, source);
+            var response = APIServices.Services.GetRequest(path, source);
             string result = await response.Content.ReadAsStringAsync();
 
             var activeCustomer = JsonConvert.DeserializeObject<Customers>(result);
@@ -67,7 +67,7 @@ namespace Hotell_Isaac_Blue
             var path = "rooms/";
             var source = new string[] { roomID.ToString() };
 
-            var response = APIServices.Services.GetService(path, source);
+            var response = APIServices.Services.GetRequest(path, source);
             string result = await response.Content.ReadAsStringAsync();
 
             Rooms room = JsonConvert.DeserializeObject<Rooms>(result);
@@ -75,7 +75,7 @@ namespace Hotell_Isaac_Blue
             path = "roomtypes/";
             source[0] = room.ROOMTYPESID.ToString();
 
-            response = APIServices.Services.GetService(path, source);
+            response = APIServices.Services.GetRequest(path, source);
             result = await response.Content.ReadAsStringAsync();
 
             roomType = JsonConvert.DeserializeObject<RoomTypes>(result);
@@ -101,7 +101,7 @@ namespace Hotell_Isaac_Blue
 
             var path = "bookings/";
 
-            var response = APIServices.Services.PostServiceAsync(path, ActiveBooking);
+            var response = APIServices.Services.PostRequestAsync(path, ActiveBooking);
 
             //Kolla om det gick bra, isf töm ActiveBooking.Booking
             //Får ingen info i responsen står fortfarande Waiting for results eller liknande

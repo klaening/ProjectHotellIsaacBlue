@@ -37,7 +37,7 @@ namespace Hotell_Isaac_Blue
 
             string path = "customers/";
 
-            await APIServices.Services.PostServiceAsync(path, customer);
+            await APIServices.Services.PostRequestAsync(path, customer);
         }
     }
 }

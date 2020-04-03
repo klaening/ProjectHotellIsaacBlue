@@ -28,7 +28,7 @@ namespace Hotell_Isaac_Blue
             string[] userNameKey = { userName };
             string path = "accounts/";
 
-            var response = APIServices.Services.GetService(path, userNameKey);
+            var response = APIServices.Services.GetRequest(path, userNameKey);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -42,7 +42,7 @@ namespace Hotell_Isaac_Blue
                     UserPassword = password
                 };
 
-                await APIServices.Services.PostServiceAsync(path, account);
+                await APIServices.Services.PostRequestAsync(path, account);
                 
                 ActiveUser.Account = account;
 

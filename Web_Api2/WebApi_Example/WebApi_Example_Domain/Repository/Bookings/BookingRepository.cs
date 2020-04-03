@@ -91,13 +91,22 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
-        public async Task<bool> UpdateBooking(int id)
+        public async Task<bool> UpdateBooking(Bookings bookings)
         {
             using (var c = new SqlConnection(_connectionString))
             {
                 try
                 {
-                    await c.ExecuteAsync("UPDATE BOOKINGS SET BREAKFAST = 0 WHERE ID = @id", new { id });
+                    StringBuilder syntax = new StringBuilder();
+
+                    string str = string.Empty;
+
+                    foreach (var column in bookings.GetType().GetProperties())
+                    {
+                        syntax.Append($"UPDATE {bookings.GetType().Name} SET {column.Name} = {column.GetValue(str)}");
+                    }
+
+                    await c.ExecuteAsync("");
                     return true;
                 }
                 catch (System.Exception)
