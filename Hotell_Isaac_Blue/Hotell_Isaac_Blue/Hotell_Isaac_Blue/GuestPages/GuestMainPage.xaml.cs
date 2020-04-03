@@ -16,7 +16,7 @@ namespace Hotell_Isaac_Blue
         public GuestMainPage()
         {
             InitializeComponent();
-            menuUserName.Text = ActiveUser.Account.UserName;
+            menuUserName.Text = "Hi! " + ActiveUser.Account.UserName;
         }
 
         private void ParkingFrame_Tapped(object sender, EventArgs e)
