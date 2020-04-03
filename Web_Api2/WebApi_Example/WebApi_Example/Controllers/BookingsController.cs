@@ -39,7 +39,7 @@ namespace WebApi_Example.Controllers
         [HttpPut()]
         public async Task<IActionResult> UpdateBooking([FromBody] Bookings bookings)
         {
-            return Ok(await _bookingService.UpdateBooking(activeBooking));
+            return Ok(await _bookingService.UpdateBooking(bookings));
         }
     }
 }

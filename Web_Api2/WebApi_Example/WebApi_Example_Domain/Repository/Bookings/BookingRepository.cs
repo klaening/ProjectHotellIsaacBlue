@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
@@ -99,14 +100,38 @@ namespace WebApi_Example_Domain.Repository
                 {
                     StringBuilder syntax = new StringBuilder();
 
-                    string str = string.Empty;
+                    string tableName = bookings.GetType().Name;
+                    long id = bookings.ID;
+
+                    syntax.Append($"UPDATE {tableName} SET ");
 
                     foreach (var column in bookings.GetType().GetProperties())
                     {
-                        syntax.Append($"UPDATE {bookings.GetType().Name} SET {column.Name} = {column.GetValue(str)}");
+                        if (column.Name != "ID")
+                        {
+                            syntax.Append($"{column.Name} = ");
+
+                            if (column.GetValue(bookings) == null)
+                                syntax.Append("NULL, ");
+                            else if (column.PropertyType.Equals(typeof(Boolean)))
+                            {
+                                if ((bool)column.GetValue(bookings))
+                                    syntax.Append("1, ");
+                                else
+                                    syntax.Append("0, ");
+                            }
+                            else if (column.PropertyType.Equals(typeof(DateTime)) || column.PropertyType.Equals(typeof(DateTime?)))
+                                syntax.Append($"'{column.GetValue(bookings)}', ");
+                            else
+                                syntax.Append($"{column.GetValue(bookings)}, ");
+                        }
                     }
 
-                    await c.ExecuteAsync("");
+                    syntax.Remove(syntax.Length - 2, 1);
+
+                    syntax.Append($"WHERE ID = {id}");
+
+                    await c.ExecuteAsync(syntax.ToString());
                     return true;
                 }
                 catch (System.Exception)
