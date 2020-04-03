@@ -27,7 +27,7 @@ namespace Hotell_Isaac_Blue
 
                 string[] source = new string[] { UsernameEntry.Text, PasswordEntry.Text };
 
-                var response = APIServices.Services.GetService(path, source);
+                var response = APIServices.Services.GetRequest(path, source);
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {

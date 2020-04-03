@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
@@ -91,13 +92,46 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
-        public async Task<bool> UpdateBooking(int id)
+        public async Task<bool> UpdateBooking(Bookings bookings)
         {
             using (var c = new SqlConnection(_connectionString))
             {
                 try
                 {
-                    await c.ExecuteAsync("UPDATE BOOKINGS SET BREAKFAST = 0 WHERE ID = @id", new { id });
+                    StringBuilder syntax = new StringBuilder();
+
+                    string tableName = bookings.GetType().Name;
+                    long id = bookings.ID;
+
+                    syntax.Append($"UPDATE {tableName} SET ");
+
+                    foreach (var column in bookings.GetType().GetProperties())
+                    {
+                        if (column.Name != "ID")
+                        {
+                            syntax.Append($"{column.Name} = ");
+
+                            if (column.GetValue(bookings) == null)
+                                syntax.Append("NULL, ");
+                            else if (column.PropertyType.Equals(typeof(Boolean)))
+                            {
+                                if ((bool)column.GetValue(bookings))
+                                    syntax.Append("1, ");
+                                else
+                                    syntax.Append("0, ");
+                            }
+                            else if (column.PropertyType.Equals(typeof(DateTime)) || column.PropertyType.Equals(typeof(DateTime?)))
+                                syntax.Append($"'{column.GetValue(bookings)}', ");
+                            else
+                                syntax.Append($"{column.GetValue(bookings)}, ");
+                        }
+                    }
+
+                    syntax.Remove(syntax.Length - 2, 1);
+
+                    syntax.Append($"WHERE ID = {id}");
+
+                    await c.ExecuteAsync(syntax.ToString());
                     return true;
                 }
                 catch (System.Exception)

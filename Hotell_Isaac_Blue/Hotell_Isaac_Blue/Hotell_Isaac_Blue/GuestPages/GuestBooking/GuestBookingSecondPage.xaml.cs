@@ -70,7 +70,7 @@ namespace Hotell_Isaac_Blue
                 var path = "roomtypes/";
                 var source = new string[] { pickedRoomType };
 
-                var response = APIServices.Services.GetService(path, source);
+                var response = APIServices.Services.GetRequest(path, source);
                 string result = await response.Content.ReadAsStringAsync();
 
                 //Vi får ett objekt av en RoomTypes som vi vill använda på BookingThirdPage
