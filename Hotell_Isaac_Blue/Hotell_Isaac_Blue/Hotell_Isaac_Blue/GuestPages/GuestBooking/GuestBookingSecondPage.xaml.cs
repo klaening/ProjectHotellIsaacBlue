@@ -30,7 +30,7 @@ namespace Hotell_Isaac_Blue
         private void Result_Btn_Clicked(object sender, EventArgs e)
         {
             if (ActiveUser.Account.CustomersID == null)
-                Navigation.PushAsync(new AccountRegistrationPage());
+                Navigation.PushAsync(new CustomerRegistrationPage());
             else
             {
                 pickedRoomType = (string)RoomType_Picker.SelectedItem;

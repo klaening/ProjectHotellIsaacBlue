@@ -98,6 +98,9 @@ namespace WebApi_Example_Domain.Repository
             {
                 try
                 {
+                    //Den löser booleans
+                    //Den ska lösa DateTimes också
+
                     StringBuilder syntax = new StringBuilder();
 
                     string tableName = bookings.GetType().Name;

@@ -44,5 +44,20 @@ namespace Hotell_Isaac_Blue.APIServices
 
             return statusCode;
         }
+
+        public static async Task PutRequestAsync(string path, Object objectclass)
+        {
+            var client = new HttpClient();
+            var json = JsonConvert.SerializeObject(objectclass, new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            });
+
+            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync(HOST + path, content);
+
+            string result = await response.Content.ReadAsStringAsync();
+        }
     }
 }

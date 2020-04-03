@@ -35,7 +35,8 @@ namespace Hotell_Isaac_Blue
                 ICE = iceEntry.Text,
             };
 
-            string path = "customers/";
+            
+            string path = "customers/account/" + ActiveUser.Account.ID;
 
             await APIServices.Services.PostRequestAsync(path, customer);
         }

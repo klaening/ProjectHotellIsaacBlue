@@ -1,6 +1,8 @@
 ﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Text;
 using System.Threading.Tasks;
 using WebApi_Example_Domain.Models;
 
@@ -69,6 +71,49 @@ namespace WebApi_Example_Domain.Repository
                     return false;
                 }
 
+            }
+        }
+
+        public async Task<bool> UpdateAccount(Accounts account)
+        {
+            using (var c = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    //Den löser booleans
+                    //Den ska lösa DateTimes också
+
+                    StringBuilder syntax = new StringBuilder();
+
+                    string tableName = account.GetType().Name;
+                    long id = account.ID;
+
+                    syntax.Append($"UPDATE {tableName} SET ");
+
+                    foreach (var column in account.GetType().GetProperties())
+                    {
+                        if (column.Name != "ID")
+                        {
+                            syntax.Append($"{column.Name} = ");
+
+                            if (column.GetValue(account) == null)
+                                syntax.Append("NULL, ");
+                            else
+                                syntax.Append($"'{column.GetValue(account)}', ");
+                        }
+                    }
+
+                    syntax.Remove(syntax.Length - 2, 1);
+
+                    syntax.Append($"WHERE ID = {id}");
+
+                    await c.ExecuteAsync(syntax.ToString());
+                    return true;
+                }
+                catch (System.Exception)
+                {
+                    return false;
+                }
             }
         }
     }
