@@ -80,34 +80,7 @@ namespace WebApi_Example_Domain.Repository
             {
                 try
                 {
-                    //Den löser booleans
-                    //Den ska lösa DateTimes också
-
-                    StringBuilder syntax = new StringBuilder();
-
-                    string tableName = account.GetType().Name;
-                    long id = account.ID;
-
-                    syntax.Append($"UPDATE {tableName} SET ");
-
-                    foreach (var column in account.GetType().GetProperties())
-                    {
-                        if (column.Name != "ID")
-                        {
-                            syntax.Append($"{column.Name} = ");
-
-                            if (column.GetValue(account) == null)
-                                syntax.Append("NULL, ");
-                            else
-                                syntax.Append($"'{column.GetValue(account)}', ");
-                        }
-                    }
-
-                    syntax.Remove(syntax.Length - 2, 1);
-
-                    syntax.Append($"WHERE ID = {id}");
-
-                    await c.ExecuteAsync(syntax.ToString());
+                    await c.ExecuteAsync("UPDATE ACCOUNTS SET USERNAME = @username, USERPASSWORD = @userpassword, CUSTOMERSID = @customersid WHERE ID = @id", new { account.USERNAME, account.USERPASSWORD, account.CUSTOMERSID, account.ID });
                     return true;
                 }
                 catch (System.Exception)
