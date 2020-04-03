@@ -28,7 +28,6 @@
                     HorizontalOptions="Start"
                     Grid.Row="0"
                     Grid.ColumnSpan="3"/>
-               
                     <Frame x:Name="BookingsFrame"     
                     BackgroundColor="#f1c40f"
                     Grid.Row="1"
@@ -153,7 +152,9 @@
                    <!--Knapp för log out-->
 
                     <ImageButton x:Name="MyProfileBtn"
-                                 Source="icon01"
+                                 Source="account.png"
+                                 Margin="0, 0, 0,-20"
+                                 BackgroundColor="Transparent"
                                  Scale="0.4"
                                  Grid.Row="0"
                                  Grid.Column="2"
