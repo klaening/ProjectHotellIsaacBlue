@@ -35,7 +35,9 @@ namespace Hotell_Isaac_Blue
                 ICE = iceEntry.Text,
             };
 
-            
+            //Default är 1
+            customer.CUSTOMERTYPESID = 1;
+
             string path = "customers/account/" + ActiveUser.Account.ID;
 
             await APIServices.Services.PostRequestAsync(path, customer);

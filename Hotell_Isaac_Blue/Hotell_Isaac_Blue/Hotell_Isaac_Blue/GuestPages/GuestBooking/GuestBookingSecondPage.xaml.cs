@@ -38,9 +38,7 @@ namespace Hotell_Isaac_Blue
                 extraBed = Bed_Switch.IsToggled;
                 breakfast = Breakfast_Switch.IsToggled;
 
-                ActiveBooking active = new ActiveBooking();
-
-                active.Booking = new Bookings
+                ActiveBooking.Booking = new Bookings
                 {
                     QTYPERSONS = guestQty,
                     STARTDATE = startDate,
@@ -54,9 +52,9 @@ namespace Hotell_Isaac_Blue
 
                 //Nånstans ska det göras en check på om det finns ett sådant rum ledigt de datumen
 
-                active.RoomID = RoomType.ID;
+                ActiveBooking.RoomID = RoomType.ID;
 
-                Navigation.PushAsync(new GuestBookingThirdPage(active));
+                Navigation.PushAsync(new GuestBookingThirdPage());
             }
         }
 

@@ -12,25 +12,18 @@ namespace Hotell_Isaac_Blue
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GuestBookingThirdPage : ContentPage
     {
-        ActiveBooking ActiveBooking = null;
         DateTime startDate = DateTime.MinValue;
         DateTime endDate = DateTime.MinValue;
         RoomTypes roomType = null;
         Customers customerDetails = null;
 
-        public GuestBookingThirdPage() { }
-
-        public GuestBookingThirdPage(ActiveBooking activeBooking)
+        public GuestBookingThirdPage()
         {
             //FUUUUUUUUL KOOOOOOOOOD!!!!!!!
             InitializeComponent();
 
-            ActiveBooking = activeBooking;
-
             startDate = ActiveBooking.Booking.STARTDATE;
             endDate = ActiveBooking.Booking.ENDDATE.Date;
-
-            ActiveBooking = activeBooking;
 
             GetCustomer(ActiveUser.Account.CustomersID.ToString());
             GetRoomType(ActiveBooking.RoomID);
@@ -99,9 +92,11 @@ namespace Hotell_Isaac_Blue
             //Skapar ett nytt Booking object och anropar en Service som kallar på Stored Procedure sp_BookingsInsert
             //ActiveBooking booking = ActiveBooking;
 
-            var path = "bookings/";
+            var path = "bookings/room/" + ActiveBooking.RoomID;
 
-            var response = APIServices.Services.PostRequestAsync(path, ActiveBooking);
+            Bookings booking = ActiveBooking.Booking;
+
+            var response = APIServices.Services.PostRequestAsync(path, booking);
 
             //Kolla om det gick bra, isf töm ActiveBooking.Booking
             //Får ingen info i responsen står fortfarande Waiting for results eller liknande
