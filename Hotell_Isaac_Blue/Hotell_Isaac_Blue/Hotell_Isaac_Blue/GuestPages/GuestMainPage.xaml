@@ -28,8 +28,7 @@
                     HorizontalOptions="Start"
                     Grid.Row="0"
                     Grid.ColumnSpan="2"/>
-                    
-                    
+               
                     <Frame x:Name="BookingsFrame"     
                     BackgroundColor="#f1c40f"
                     Grid.Row="1"
@@ -150,9 +149,7 @@
                             </Grid>
                         </StackLayout>
                     </Frame>
-
-                    
-                    
+        
                    <!--Knapp för log out-->
 
                     <ImageButton x:Name="MyProfileBtn"
@@ -165,22 +162,40 @@
                                  Clicked="MyProfileBtn_Clicked"/>
 
                     <Frame x:Name="MyProfileFrame" 
-                           IsVisible="False"
-                           Margin="0, -20, 10, 0"
+                           IsVisible="True"
+                           Margin="0, -20, -10, 0"
                            Grid.Column="1"
                            Grid.Row="1"
-                           Grid.RowSpan="1"
+                           Grid.RowSpan="2"
                            BorderColor="White"
-                           BackgroundColor="DarkGray">
-                        <StackLayout
-                            VerticalOptions="End">
-                            <Button x:Name="LogOutBtn"
-                                    Text="Log out"
+                           Padding="0"
+                           BackgroundColor="#2C3A3E">
+                        <StackLayout>
+                                <Grid>
+                                    <Label x:Name="menuUserName"
+                                       Text="Andreas Carlsson"
+                                       Style="{StaticResource h2Label}"
+                                       FontSize="15"
+                                       Grid.Row="1"
+                                       HorizontalOptions="Center"/>
+                                    <Button x:Name="SettingsBtn"
+                                    Text="Settings"
+                                    TextColor="White"
+                                    Grid.Row="3"
                                     HorizontalOptions="Center"
-                                    WidthRequest="150"
                                     HeightRequest="40"
-                                    Clicked="LogOutBtn_Clicked"/>
-                        </StackLayout>
+                                    Clicked="LogOutBtn_Clicked"
+                                    BackgroundColor="Transparent"/>
+                                    <Button x:Name="LogOutBtn"
+                                    Text="Sign out"
+                                    TextColor="White"
+                                    Grid.Row="4"
+                                    HorizontalOptions="Center"
+                                    HeightRequest="40"
+                                    Clicked="LogOutBtn_Clicked"
+                                    BackgroundColor="Transparent"/>
+                                </Grid>
+                            </StackLayout>
                     </Frame>
                 </Grid>
             </StackLayout>
