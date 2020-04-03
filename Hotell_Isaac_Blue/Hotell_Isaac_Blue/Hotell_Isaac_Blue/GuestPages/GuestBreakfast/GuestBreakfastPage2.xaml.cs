@@ -39,7 +39,6 @@ namespace Hotell_Isaac_Blue.Guest.GuestBreakfast
                 await APIServices.Services.PutRequestAsync(path, updatedBooking);
             }
 
-
             await Navigation.PushAsync(new GuestBreakfastPage3());
         }
 

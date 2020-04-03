@@ -52,7 +52,7 @@ namespace Hotell_Isaac_Blue.APIServices
 
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync(HOST + path, content);
+            var response = await client.PutAsync(HOST + path, content);
         }
     }
 }
