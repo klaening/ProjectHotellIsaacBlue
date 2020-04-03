@@ -16,6 +16,7 @@ namespace Hotell_Isaac_Blue
         public GuestMainPage()
         {
             InitializeComponent();
+            menuUserName.Text = "Hi! " + ActiveUser.Account.UserName;
         }
 
         private void ParkingFrame_Tapped(object sender, EventArgs e)
@@ -79,6 +80,11 @@ namespace Hotell_Isaac_Blue
                 ActiveUser.Account = null;
                 await Navigation.PushAsync(new MainPage());
             }
+        }
+
+        private void CloseUserMenu_Clicked(object sender, EventArgs e)
+        {
+            MyProfileFrame.IsVisible = false;
         }
     }
 }
