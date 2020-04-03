@@ -155,7 +155,7 @@
                                  Source="account.png"
                                  Margin="0, 0, 0,-20"
                                  BackgroundColor="Transparent"
-                                 Scale="0.4"
+                                 Scale="0.3"
                                  Grid.Row="0"
                                  Grid.Column="2"
                                  HorizontalOptions="End"
@@ -164,37 +164,77 @@
 
                     <Frame x:Name="MyProfileFrame" 
                            IsVisible="True"
-                           Margin="0, -20, -10, 0"
+                           Margin="0, 20, -10, 0"
                            Grid.Column="1"
                            Grid.ColumnSpan="2"
-                           Grid.Row="1"
-                           Grid.RowSpan="2"
+                           Grid.Row="0"
+                           Grid.RowSpan="3"
                            BorderColor="White"
                            Padding="0"
                            BackgroundColor="#2C3A3E">
                         <StackLayout>
                             <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40*"/>
+                                    <ColumnDefinition Width="60*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
                                 <Label x:Name="menuUserName"
                                        Text="Andreas Carlsson"
                                        Style="{StaticResource h2Label}"
-                                       FontSize="20"
+                                       FontSize="23"
                                        Grid.Row="1"
+                                       Grid.ColumnSpan="2"
                                        HorizontalOptions="Center"/>
-                                    <Button x:Name="SettingsBtn"
+                                <ImageButton x:Name="CloseUserMenu"
+                                             Source="close.png"
+                                             Scale=".4"
+                                             BackgroundColor="Transparent"
+                                             Grid.Column="1"
+                                             Grid.Row="0"
+                                             HorizontalOptions="End"
+                                             Margin="0,0,10,0"
+                                             Clicked="CloseUserMenu_Clicked"/>
+                                <BoxView BackgroundColor="White"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="Center"
+                                         WidthRequest="220"
+                                         HeightRequest="3"
+                                         Grid.Row="2"
+                                         Grid.ColumnSpan="2"/>
+                                <Image Source="settings.png"
+                                       Scale=".4"
+                                       HorizontalOptions="End"
+                                       Grid.Row="3"
+                                       Grid.Column="0"/>
+                                <Button x:Name="SettingsBtn"
                                     Text="Settings"
                                     TextColor="White"
-                                    FontSize="17"
+                                    FontSize="18"
                                     Grid.Row="3"
-                                    HorizontalOptions="Center"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
                                     HeightRequest="40"
                                     Clicked="LogOutBtn_Clicked"
                                     BackgroundColor="Transparent"/>
-                                    <Button x:Name="LogOutBtn"
+                                <Image Source="logout.png"
+                                       Scale=".4"
+                                       Grid.Row="4"
+                                       HorizontalOptions="End"/>
+                                <Button x:Name="LogOutBtn"
                                     Text="Sign out"
                                     TextColor="White"
-                                    FontSize="17"
+                                    FontSize="18"
                                     Grid.Row="4"
-                                    HorizontalOptions="Center"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
                                     HeightRequest="40"
                                     Clicked="LogOutBtn_Clicked"
                                     BackgroundColor="Transparent"/>

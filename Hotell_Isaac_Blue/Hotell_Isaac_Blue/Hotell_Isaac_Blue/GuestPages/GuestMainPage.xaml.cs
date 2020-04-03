@@ -81,5 +81,10 @@ namespace Hotell_Isaac_Blue
                 await Navigation.PushAsync(new MainPage());
             }
         }
+
+        private void CloseUserMenu_Clicked(object sender, EventArgs e)
+        {
+            MyProfileFrame.IsVisible = false;
+        }
     }
 }
