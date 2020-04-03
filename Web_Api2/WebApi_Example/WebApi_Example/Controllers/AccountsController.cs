@@ -47,5 +47,7 @@ namespace WebApi_Example.Controllers
         {
             return Ok(await _accountService.AddAccount(accounts));
         }
+
+ 
     }
 }

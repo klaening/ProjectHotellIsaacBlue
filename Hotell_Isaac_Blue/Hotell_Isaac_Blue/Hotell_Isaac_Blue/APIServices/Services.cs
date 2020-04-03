@@ -10,6 +10,8 @@ namespace Hotell_Isaac_Blue.APIServices
     public class Services
     {
         private const string HOST = "https://hotellisaacbluewebapi.azurewebsites.net/api/";
+        private const string HOST1 = "https://localhost:44341/api/";
+        
         public static async Task PostServiceAsync(Object objectclass, string path)
         {
             var client = new HttpClient();
@@ -40,6 +42,18 @@ namespace Hotell_Isaac_Blue.APIServices
             var statusCode = response.Result;
 
             return statusCode;
+        }
+
+        //EJ KLAR! UNDER CONSTRUCTION
+        public static async Task PutServiceAsync(Object objectclass,string path)
+        {
+            var client = new HttpClient();
+            
+            var json = JsonConvert.SerializeObject(objectclass);
+
+            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PutAsync(HOST + path, content);
         }
     }
 }

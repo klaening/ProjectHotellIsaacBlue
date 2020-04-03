@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using WebApi_Example_Domain.Models;
 using WebApi_Example_Domain.Services;
+using System.Web;
 
 namespace WebApi_Example.Controllers
 {
@@ -33,6 +34,12 @@ namespace WebApi_Example.Controllers
         {
             return Ok(await _bookingService.AddBooking(bookings));
         }
+
+        //[HttpPost("{id}")]
+        //public async Task<IActionResult> UpdateBooking([FromBody] int id)
+        //{
+        //    return Ok(await _bookingService.UpdateBooking(id));
+        //}
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateBooking([FromBody] int id)

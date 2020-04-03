@@ -19,27 +19,30 @@ namespace Hotell_Isaac_Blue.GuestPages.BreakFast.Views
     {
         public BreakfastFirstPage()
         {           
-            InitializeComponent();           
+            InitializeComponent();
+            
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            string path = "bookings/";
+            
 
             string[] key = new string[] { BookingEntry.Text };
+            string path = "bookings/";
 
             var response = APIServices.Services.GetService(path, key);
             string result = await response.Content.ReadAsStringAsync();
             var testBooking = JsonConvert.DeserializeObject<Bookings>(result);
+
             
-            if(response.IsSuccessStatusCode)
+
+            if (response.IsSuccessStatusCode)
             {
                 await DisplayAlert("Success!", "Added Breakfast", "ok");
-                ActiveBooking.Booking = testBooking;
-                ActiveBooking.Booking.BREAKFAST = false;
-                //Update webapi!
-                
-                
+
+                testBooking.BREAKFAST = false;
+                await APIServices.Services.PutServiceAsync(testBooking,path + key[0] +"/");
+             
             }
             else
             {
