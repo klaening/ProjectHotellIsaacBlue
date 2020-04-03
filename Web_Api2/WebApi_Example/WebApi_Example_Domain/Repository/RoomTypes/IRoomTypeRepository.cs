@@ -8,5 +8,6 @@ namespace WebApi_Example_Domain.Repository
     {
         Task<IEnumerable<RoomTypes>> GetRoomTypes();
         Task<RoomTypes> GetRoomType(int id);
+        Task<RoomTypes> GetRoomType(string name);
     }
 }

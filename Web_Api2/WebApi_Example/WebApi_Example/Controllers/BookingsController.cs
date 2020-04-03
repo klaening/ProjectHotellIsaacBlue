@@ -29,22 +29,16 @@ namespace WebApi_Example.Controllers
             return Ok(await _bookingService.GetBooking(id));
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Add([FromBody] Bookings bookings)
+        [HttpPost("room/{roomID}")]
+        public async Task<IActionResult> Add([FromBody] Bookings bookings, short roomID)
         {
-            return Ok(await _bookingService.AddBooking(bookings));
+            return Ok(await _bookingService.AddBooking(bookings, roomID));
         }
 
-        //[HttpPost("{id}")]
-        //public async Task<IActionResult> UpdateBooking([FromBody] int id)
-        //{
-        //    return Ok(await _bookingService.UpdateBooking(id));
-        //}
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateBooking([FromBody] int id)
+        [HttpPut()]
+        public async Task<IActionResult> UpdateBooking([FromBody] Bookings booking)
         {
-            return Ok(await _bookingService.UpdateBooking(id));
+            return Ok(await _bookingService.UpdateBooking(booking));
         }
     }
 }

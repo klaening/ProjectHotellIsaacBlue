@@ -5,8 +5,9 @@ using Hotell_Isaac_Blue.Tables;
 
 namespace Hotell_Isaac_Blue
 {
-    public class ActiveBooking
+    public static class ActiveBooking
     {
         public static Bookings Booking { get; set; }
+        public static short RoomID { get; set; }
     }
 }

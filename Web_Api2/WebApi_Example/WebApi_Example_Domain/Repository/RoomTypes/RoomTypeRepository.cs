@@ -38,5 +38,13 @@ namespace WebApi_Example_Domain.Repository
                 return await c.QueryFirstOrDefaultAsync<RoomTypes>("SELECT * FROM ROOMTYPES WHERE ID = @id", new { id} );
             }
         }
+
+        public async Task<RoomTypes> GetRoomType(string name)
+        {
+            using (var c = new SqlConnection(_connectionString))
+            {
+                return await c.QueryFirstOrDefaultAsync<RoomTypes>("SELECT * FROM ROOMTYPES WHERE NAME = @name", new { name });
+            }
+        }
     }
 }

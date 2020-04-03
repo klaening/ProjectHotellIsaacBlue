@@ -9,7 +9,7 @@
         <ScrollView>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.5*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height=".2*"/>
                     <RowDefinition Height=".5*"/>
@@ -23,7 +23,7 @@
                        Style="{StaticResource h1Label}"
                        Grid.Column="0" Grid.Row="0"
                        HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"/>
+                       VerticalTextAlignment="Start"/>
                 <Label Style="{StaticResource pLabel}"
                        Grid.Column="0" Grid.Row="1"
                        Margin="25,0"

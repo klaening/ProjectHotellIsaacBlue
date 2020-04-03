@@ -23,5 +23,9 @@ namespace WebApi_Example_Domain.Services
         {
             return await _roomTypeRepository.GetRoomType(id);
         }
+        public async Task<RoomTypes> GetRoomType(string name)
+        {
+            return await _roomTypeRepository.GetRoomType(name);
+        }
     }
 }

@@ -22,7 +22,8 @@
                            Margin="0, 20, 0, 5"/>-->
                 <Frame BackgroundColor="white"
                        CornerRadius="15"
-                       Margin="20,0">
+                       Margin="20,0"
+                       Padding="10,30">
                     <StackLayout>
                         <Grid Margin="15, 0">
                             <Grid.RowDefinitions>
@@ -38,16 +39,13 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
+                                <RowDefinition Height="30"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                        
+
                             <Label Text="Name:" 
                                Grid.Column="0" Grid.Row="0"/>
                             <Label Text="Email:"
@@ -56,91 +54,73 @@
                                Grid.Column="0" Grid.Row="2"/>
                             <Label Text="End Date:"
                                Grid.Column="0" Grid.Row="3"/>
+                            <Label Text="Total Days:"
+                                   Grid.Column="0" Grid.Row="4"/>
+
+
                             <Label Text="Roomtype:" 
-                               Grid.Column="0" Grid.Row="4"/>
-                        
-                            <Label Text="No of rooms"
-                                   Grid.Column="0" Grid.Row="5"
-                                   Margin="15,0"/>
+                               Grid.Column="0" Grid.Row="6"/>
                             <Label Text="Price"
-                                   Grid.Column="0" Grid.Row="6"
-                                   Margin="15,0"/>
-                            <Label Text="Extra bed"
                                    Grid.Column="0" Grid.Row="7"
                                    Margin="15,0"/>
-                            <Label Text="Breakfast"
+                            <Label Text="Extra bed"
                                    Grid.Column="0" Grid.Row="8"
                                    Margin="15,0"/>
-
-
-                            <Label Text="Roomtype:"
-                               Grid.Column="0" Grid.Row="10"/>
-
-                            <Label Text="No of rooms"
-                                   Grid.Column="0" Grid.Row="11"
-                                   Margin="15,0"/>
-                            <Label Text="Price"
-                                   Grid.Column="0" Grid.Row="12"
-                                   Margin="15,0"/>
-                            <Label Text="Extra bed"
-                                   Grid.Column="0" Grid.Row="13"
-                                   Margin="15,0"/>
                             <Label Text="Breakfast"
-                                   Grid.Column="0" Grid.Row="14"
+                                   Grid.Column="0" Grid.Row="9"
                                    Margin="15,0"/>
+
 
                             <Label Text="Total Cost:" 
-                               Grid.Column="0" Grid.Row="16"/>
+                               Grid.Column="0" Grid.Row="12"
+                                   FontSize="20"/>
 
                             <!--Här börjar användarspecifik input-->
 
                             <Label x:Name="ReviewNameLabel"
-                                Text="Andy Pandy" 
+                                Text="No name"
                                Grid.Column="1" Grid.Row="0"/>
                             <Label x:Name="ReviewEmailLabel"
-                                Text="andy.pandy@gmail.com"
+                                Text="No email"
                                Grid.Column="1" Grid.Row="1"/>
                             <Label x:Name="ReviewStartDateLabel"
-                                Text="2020-03-09" 
+                                Text="No start date" 
                                Grid.Column="1" Grid.Row="2"/>
                             <Label x:Name="ReviewEndDateLabel"
-                                Text="2020-03-15"
+                                Text="No end date"
                                Grid.Column="1" Grid.Row="3"/>
-                            <Label Text="1-bed room" 
-                               Grid.Column="1" Grid.Row="4"/>
+                            <Label x:Name="ReviewTotalDays"
+                                   Text="No Info"
+                                   Grid.Column="1" Grid.Row="4"/>
 
-                            <Label Text="2"
-                                   Grid.Column="1" Grid.Row="5"/>
-                            <Label Text="125"
+
+                            <Label x:Name="ReviewRoomType"
+                                Text="No type chosen"
                                    Grid.Column="1" Grid.Row="6"/>
-                            <Label Text="YES"
+                            <Label x:Name="ReviewPrice"
+                                   Text="Info not available"
                                    Grid.Column="1" Grid.Row="7"/>
-                            <Label Text="YES"
+                            <Label x:Name="ReviewExtraBed"
+                                Text="Not chosen"
                                    Grid.Column="1" Grid.Row="8"/>
-
-                            <Label Text="2-bed room"
-                               Grid.Column="1" Grid.Row="10"/>
-
-                            <Label Text="2"
-                                   Grid.Column="1" Grid.Row="11"/>
-                            <Label Text="125"
-                                   Grid.Column="1" Grid.Row="12"/>
-                            <Label Text="YES"
-                                   Grid.Column="1" Grid.Row="13"/>
-                            <Label Text="YES"
-                                   Grid.Column="1" Grid.Row="14"/>
+                            <Label x:Name="ReviewBreakfast"
+                                Text="Not chosen"
+                                   Grid.Column="1" Grid.Row="9"/>
 
                             <Label x:Name="ReviewTotalCostLabel"
-                                Text="1213:-" 
-                               Grid.Column="1" Grid.Row="16"/>
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                Text="Info not available" 
+                               Grid.Column="1" Grid.Row="12"/>
 
-                     
+
                         </Grid>
                     </StackLayout>
                 </Frame>
                 <Button x:Name="confirmBooking"
                         Text="Confirm Booking"
                         Padding="10"
+                        Margin="20"
                         BackgroundColor="white"
                         FontSize="16"
                         FontAttributes="Bold"

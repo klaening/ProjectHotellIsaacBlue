@@ -24,7 +24,14 @@
       <HintPath>..\..\..\..\..\Microsoft\Xamarin\NuGet\xamarin.forms\4.3.0.908675\lib\MonoAndroid90\Xamarin.Forms.Platform.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
+
   <ItemGroup>
+    <Compile Update="Registration\AccountRegistrationPage.xaml.cs">
+      <DependentUpon>AccountRegistrationPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Registration\CustomerRegistrationPage.xaml">
     <EmbeddedResource Update="GuestPages\BreakFast\Views\BreakfastFirstPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -58,7 +65,7 @@
     <EmbeddedResource Update="GuestPages\GuestParkingPage2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="RegisterPage.xaml">
+    <EmbeddedResource Update="Registration\AccountRegistrationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

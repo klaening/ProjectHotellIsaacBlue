@@ -23,15 +23,15 @@ namespace Hotell_Isaac_Blue
         {
             try
             {
-                string[] primaryKeys = new string[] { UsernameEntry.Text, PasswordEntry.Text };
-
                 string path = "accounts/";
 
-                var response = APIServices.Services.GetService(path, primaryKeys);
+                string[] source = new string[] { UsernameEntry.Text, PasswordEntry.Text };
+
+                var response = APIServices.Services.GetRequest(path, source);
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    //Returnerar json datan för det kontot
+                    //Returnerar json data för det kontot
                     string result = await response.Content.ReadAsStringAsync();
                     var activeUser = JsonConvert.DeserializeObject<Accounts>(result);
                     ActiveUser.Account = activeUser;
@@ -56,7 +56,7 @@ namespace Hotell_Isaac_Blue
 
         private void SignUpBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new RegisterPage());
+            Navigation.PushAsync(new AccountRegistrationPage());
         }
     }
 }

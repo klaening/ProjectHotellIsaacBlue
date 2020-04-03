@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Hotell_Isaac_Blue.Tables;
-
+using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,10 +17,11 @@ namespace Hotell_Isaac_Blue
         DateTime dateMinValue = DateTime.MinValue;
         DateTime startDate;
         DateTime endDate;
-        string roomType;
+        string pickedRoomType = null;
         short guestQty;
         bool extraBed = false;
         bool breakfast = false;
+        RoomTypes RoomType = null;
         public GuestBookingSecondPage()
         {
             InitializeComponent();
@@ -27,22 +29,59 @@ namespace Hotell_Isaac_Blue
 
         private void Result_Btn_Clicked(object sender, EventArgs e)
         {
-            roomType = (string)RoomType_Picker.SelectedItem;
-            guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
-            extraBed = Bed_Switch.IsToggled;
-            breakfast = Breakfast_Switch.IsToggled;
-
-            ActiveBooking.Booking = new Bookings
+            if (ActiveUser.Account.CustomersID == null)
+                Navigation.PushAsync(new CustomerRegistrationPage());
+            else
             {
-                QTYPERSONS = guestQty,
-                STARTDATE = startDate,
-                ENDDATE = endDate,
-                EXTRABED = extraBed,
-                BREAKFAST = breakfast
-            };
+                pickedRoomType = (string)RoomType_Picker.SelectedItem;
+                guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
+                extraBed = Bed_Switch.IsToggled;
+                breakfast = Breakfast_Switch.IsToggled;
 
-            Navigation.PushAsync(new GuestBookingThirdPage());
+                ActiveBooking.Booking = new Bookings
+                {
+                    QTYPERSONS = guestQty,
+                    STARTDATE = startDate,
+                    ENDDATE = endDate,
+                    EXTRABED = extraBed,
+                    BREAKFAST = breakfast,
+                    CUSTOMERSID = ActiveUser.Account.CustomersID
+                };
+
+                GetRoomType();
+
+                //Nånstans ska det göras en check på om det finns ett sådant rum ledigt de datumen
+
+                ActiveBooking.RoomID = RoomType.ID;
+
+                Navigation.PushAsync(new GuestBookingThirdPage());
+            }
         }
+
+        /// <summary>
+        /// Kanske kan ta bort denna
+        /// </summary>
+        private async void GetRoomType()
+        {
+            try
+            {
+                var path = "roomtypes/";
+                var source = new string[] { pickedRoomType };
+
+                var response = APIServices.Services.GetRequest(path, source);
+                string result = await response.Content.ReadAsStringAsync();
+
+                //Vi får ett objekt av en RoomTypes som vi vill använda på BookingThirdPage
+                RoomType = JsonConvert.DeserializeObject<RoomTypes>(result);
+
+            }
+            catch (Exception)
+            {   ///////////////////////////////////////////////
+                await DisplayAlert("Hej", "Hej", "OK");
+                ///////////////////////////////////////////////
+            }
+        }
+
         private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)
         {
             DateTime pickedDate = e.NewDate;
@@ -62,9 +101,6 @@ namespace Hotell_Isaac_Blue
 
                 SDDateLabel.Text = date;
                 SDYearLabel.Text = year;
-
-                if (EDDateLabel.Text != null)
-                    TotDaysLabel.Text = CalculateTotalDays();
             }
         }
 
@@ -87,25 +123,19 @@ namespace Hotell_Isaac_Blue
 
                 EDDateLabel.Text = date;
                 EDYearLabel.Text = year;
-
-                if (SDDateLabel.Text != null)
-                    TotDaysLabel.Text = CalculateTotalDays();
             }
-        }
-
-        private string CalculateTotalDays()
-        {
-            TimeSpan ts = endDate - startDate;
-            int days = (int)ts.TotalDays;
-
-            return "Total days: " + days;
         }
 
         private (string date, string year) ReturnDateAndYear(string longDate)
         {
             string[] dateSplit = longDate.Split(' ');
             string date = dateSplit[0].Remove(3) + ",";
-            dateSplit[1] = dateSplit[1].Remove(3);
+            
+            if (dateSplit[1].Length > 3)
+            {
+                dateSplit[1] = dateSplit[1].Remove(3);
+            }
+
             dateSplit[2] = dateSplit[2].Remove(dateSplit[2].Length - 1);
             string year = dateSplit[3];
 
