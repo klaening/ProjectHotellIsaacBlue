@@ -21,10 +21,15 @@ namespace Hotell_Isaac_Blue
         short guestQty;
         bool extraBed = false;
         bool breakfast = false;
+        //Ta bort?
         RoomTypes RoomType = null;
         public GuestBookingSecondPage()
         {
             InitializeComponent();
+
+            //Vi får ett objekt av en RoomTypes som vi vill använda på BookingThirdPage
+            //Göra en get för att se vilka rumstyper som finns?
+            //RoomType = JsonConvert.DeserializeObject<RoomTypes>(result)
         }
 
         private void Result_Btn_Clicked(object sender, EventArgs e)
@@ -48,38 +53,52 @@ namespace Hotell_Isaac_Blue
                     CUSTOMERSID = ActiveUser.Account.CustomersID
                 };
 
-                GetRoomType();
+                GetRoomNo();
 
                 //Nånstans ska det göras en check på om det finns ett sådant rum ledigt de datumen
-
-                ActiveBooking.RoomID = RoomType.ID;
 
                 Navigation.PushAsync(new GuestBookingThirdPage());
             }
         }
 
-        /// <summary>
-        /// Kanske kan ta bort denna
-        /// </summary>
-        private async void GetRoomType()
+        private async void GetRoomNo()
         {
             try
             {
-                string path = "roomtypes/";
+                //Get från Rooms med RoomType namn för att få tag på id
+                string path = "rooms/roomtype/";
                 string source = pickedRoomType;
 
                 var response = APIServices.Services.GetRequest(path, source);
-                string result = await response.Content.ReadAsStringAsync();
+                var result = await response.Content.ReadAsStringAsync();
 
-                //Vi får ett objekt av en RoomTypes som vi vill använda på BookingThirdPage
-                RoomType = JsonConvert.DeserializeObject<RoomTypes>(result);
+                List<Rooms> rooms = JsonConvert.DeserializeObject<List<Rooms>>(result);
 
+                //Randomizer som ska tas bort
+                short roomID = RandomRoom(rooms);
+
+                ActiveBooking.RoomID = roomID;
+
+                //Get på bokningar för att se om dessa rum är möjliga att boka?
             }
             catch (Exception)
             {   ///////////////////////////////////////////////
-                await DisplayAlert("Hej", "Hej", "OK");
+                await DisplayAlert("Error", "No such rooms are available for these dates", "OK");
                 ///////////////////////////////////////////////
             }
+        }
+
+        //Ska tas bort
+        private short RandomRoom(List<Rooms> rooms)
+        {
+            Random rnd = new Random();
+
+            int max = rooms.Count;
+            int randomRoom = (short)rnd.Next(0, max);
+
+            short roomID = rooms[randomRoom].ID;
+
+            return roomID;
         }
 
         private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)
