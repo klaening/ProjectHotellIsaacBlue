@@ -25,7 +25,7 @@ namespace Hotell_Isaac_Blue
             string userName = userNameEntry.Text;
             string password = passwordEntry.Text;
 
-            string[] userNameKey = { userName };
+            string userNameKey = userName;
             string path = "accounts/";
 
             var response = APIServices.Services.GetRequest(path, userNameKey);

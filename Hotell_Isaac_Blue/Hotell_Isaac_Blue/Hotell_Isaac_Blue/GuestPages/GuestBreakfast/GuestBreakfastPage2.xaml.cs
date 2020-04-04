@@ -21,8 +21,8 @@ namespace Hotell_Isaac_Blue.Guest.GuestBreakfast
 
         private async void Breakfast_Continue_Clicked(object sender, EventArgs e)
         {
-            var path = "bookings/";
-            var bookingNo = new string[] { BreakfastEntry.Text };
+            string path = "bookings/";
+            string bookingNo = BreakfastEntry.Text;
 
             var response = APIServices.Services.GetRequest(path, bookingNo);
             string result = await response.Content.ReadAsStringAsync();
