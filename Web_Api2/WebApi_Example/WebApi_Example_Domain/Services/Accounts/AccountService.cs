@@ -43,6 +43,11 @@ namespace WebApi_Example_Domain.Services
         {
             return await _accountRepository.UpdateAccount(account);
         }
+
+        public async Task<bool> DeleteAccount(int id)
+        {
+            return await _accountRepository.DeleteAccount(id);
+        }
     }
 }
 
