@@ -31,11 +31,18 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
-        public async Task<Rooms> GetRoom(int id)
+        public async Task<Rooms> GetRoom(short id)
         {
             using (var c = new SqlConnection(_connectionString))
             {
                 return await c.QueryFirstOrDefaultAsync<Rooms>("SELECT * FROM ROOMS WHERE ID = @id", new { id} );
+            }
+        }
+        public async Task<IEnumerable<Rooms>> GetRooms(short id)
+        {
+            using (var c = new SqlConnection(_connectionString))
+            {
+                return await c.QueryAsync<Rooms>("SELECT * FROM ROOMS WHERE ROOMTYPESID = @id", new { id });
             }
         }
     }

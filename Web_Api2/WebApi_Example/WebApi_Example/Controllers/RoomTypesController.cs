@@ -23,17 +23,19 @@ namespace WebApi_Example.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
+        public async Task<IActionResult> Get(string idString)
         {
             try
             {
-                int idInt = int.Parse(id);
+                int idInt = int.Parse(idString);
                 return Ok(await _roomTypeService.GetRoomType(idInt));
             }
             catch (System.Exception)
             {
-                return Ok(await _roomTypeService.GetRoomType(id));
+                return Ok(await _roomTypeService.GetRoomType(idString));
             }
         }
+
+        //Testa att lägg till en med string i en HttpGet
     }
 }

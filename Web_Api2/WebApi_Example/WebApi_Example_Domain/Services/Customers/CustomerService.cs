@@ -8,12 +8,12 @@ namespace WebApi_Example_Domain.Services
     public class CustomerService : ICustomerService
     {
         private readonly ICustomerRepository _customerRepository;
-        private readonly IAccountRepository accountRepository;
+        private readonly IAccountRepository _accountRepository;
 
         public CustomerService(ICustomerRepository customerRepository, IAccountRepository accountRepository)
         {
             _customerRepository = customerRepository;
-            this.accountRepository = accountRepository;
+            _accountRepository = accountRepository;
         }
 
         public async Task<IEnumerable<Customers>> GetCustomers()
@@ -30,9 +30,9 @@ namespace WebApi_Example_Domain.Services
         {
             await _customerRepository.AddCustomer(customer, accountID);
 
-            var account = await this.accountRepository.GetAccount(accountID);
+            var account = await _accountRepository.GetAccount(accountID);
             account.CUSTOMERSID = customer.ID;
-            this.accountRepository.UpdateAccount(account);
+            await _accountRepository.UpdateAccount(account);
 
             return true;
         }
