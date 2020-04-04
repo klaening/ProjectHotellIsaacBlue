@@ -19,7 +19,7 @@ namespace WebApi_Example_Domain.Services
             return await _roomTypeRepository.GetRoomTypes();
         }
 
-        public async Task<RoomTypes> GetRoomType(int id)
+        public async Task<RoomTypes> GetRoomType(short id)
         {
             return await _roomTypeRepository.GetRoomType(id);
         }

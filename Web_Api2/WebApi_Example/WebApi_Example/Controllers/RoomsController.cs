@@ -28,7 +28,6 @@ namespace WebApi_Example.Controllers
             return Ok(await _roomService.GetRoom(id));
         }
 
-        //Vi vill hämta rum av en specifik typ
         [HttpGet("roomType/{roomTypeName}")]
         public async Task<IActionResult> Get(string roomTypeName)
         {

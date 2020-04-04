@@ -22,20 +22,18 @@ namespace WebApi_Example.Controllers
             return Ok(await _roomTypeService.GetRoomTypes());
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string idString)
+        [HttpGet("{uri}")]
+        public async Task<IActionResult> Get(string uri)
         {
             try
             {
-                int idInt = int.Parse(idString);
-                return Ok(await _roomTypeService.GetRoomType(idInt));
+                short id = short.Parse(uri);
+                return Ok(await _roomTypeService.GetRoomType(id));
             }
             catch (System.Exception)
             {
-                return Ok(await _roomTypeService.GetRoomType(idString));
+                return Ok(await _roomTypeService.GetRoomType(uri));
             }
         }
-
-        //Testa att lägg till en med string i en HttpGet
     }
 }
