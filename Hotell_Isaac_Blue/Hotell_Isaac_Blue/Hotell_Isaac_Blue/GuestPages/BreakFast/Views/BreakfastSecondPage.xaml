@@ -4,9 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Hotell_Isaac_Blue.GuestPages.BreakFast.Views.BreakfastFirstPage">
-
-    
+             x:Class="Hotell_Isaac_Blue.GuestPages.BreakFast.Views.BreakfastSecondPage">
+    <ContentPage.Content>
         <StackLayout BackgroundColor="White">
             <StackLayout>
                 <Label Text="Come and eat together with us!"
@@ -22,41 +21,65 @@
                     Aspect="AspectFit"
                     Margin="10,0,10,0"/>
             </StackLayout>
+
             <StackLayout>
-
-                <Label Text="Gone are the days of boring continental breakfasts. Instead, we're saying good morning with dumplings, prosciutto with sliced melon, and airy eggs Benedict at some of the best breakfasts our editors have eaten at hotels around the world."
-                   Margin="15,0,15,0"
-                   FontAttributes="Italic"
-                   FontSize="12"
-                   TextColor="Black"/>
-                <!--<Image Source="Coffe.png"
-               Grid.ColumnSpan="3"
-               Grid.Row="1"
-               Aspect="AspectFit"
-                   Margin="10,0,10,0"/>-->
-                <StackLayout>
-
-                    <Label Text="Only 8$ / Week!"
-                       HorizontalOptions="Center"
-                       FontSize="20"
-                       FontAttributes="Bold"
-                       TextColor="Black"
-                       Margin="0,30,0,0"
-                       />
-                    <Entry x:Name="BookingEntry" Placeholder="Enter Booking Nr" 
-                        HorizontalOptions="Center"
-                        Margin=" 30,0,30,0"
-                        TextColor="Black"/>
-                    <Button Text="Buy Breakfast"                          
-                        BackgroundColor="Gray"
-                        Margin="80,0,80,0"
-                        TextColor="White"
-                        FontAttributes="Bold"
-                        FontSize="18"
-                        Clicked="Button_Clicked"/>
                 
+                <Frame BackgroundColor="LightBlue"
+                       Margin="10"
+                       HeightRequest="100">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-            </StackLayout>
+
+                        <Label Text="Name: "
+                               TextColor="Black"
+                               Grid.Row="0"/>
+                        <Label Text=""
+                               x:Name="labelNameReview"
+                               TextColor="Black"
+                               Grid.Row="0"
+                               Grid.Column="1"/>
+                        
+                        <Label Text="Email: "
+                               TextColor="Black"
+                               Grid.Row="1"/>
+                        <Label Text=""
+                               x:Name="labelEmailReview"
+                               TextColor="Black"
+                               Grid.Row="0"
+                               Grid.Column="1"/>
+
+                        <Label Text="BookingNo: "
+                               TextColor="Black"
+                               Grid.Row="2"/>
+                        <Label Text="{Binding bookingNo}"
+                               x:Name="labelBookingNoReview"
+                               TextColor="Black"
+                               Grid.Row="0"
+                               Grid.Column="1"/>
+                        <Button Text="Book!"
+                                x:Name="BookBreakfast"
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Margin="150,0,0,0"
+                                BackgroundColor="Gray"
+                                TextColor="White"
+                                Clicked="BookBreakfast_Clicked"/>
+                    </Grid>
+                    
+
+                </Frame>
+               
+               
             </StackLayout>
             <Frame BackgroundColor="White"
                CornerRadius="3"
@@ -109,7 +132,6 @@
                 </StackLayout>
 
             </Frame>
-
         </StackLayout>
-    
+    </ContentPage.Content>
 </ContentPage>

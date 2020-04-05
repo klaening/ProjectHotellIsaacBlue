@@ -17,38 +17,19 @@ namespace Hotell_Isaac_Blue.GuestPages.BreakFast.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BreakfastFirstPage : ContentPage
     {
+       
         public BreakfastFirstPage()
         {           
             InitializeComponent();
             
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        public async void Button_Clicked(object sender, EventArgs e)
         {
-            
+            BreakfastModel.BookingNo = BookingEntry.Text;
+            await Navigation.PushAsync(new BreakfastSecondPage());
 
-            string[] key = new string[] { BookingEntry.Text };
-            string path = "bookings/";
-
-            var response = APIServices.Services.GetService(path, key);
-            string result = await response.Content.ReadAsStringAsync();
-            var testBooking = JsonConvert.DeserializeObject<Bookings>(result);
-
-            
-
-            if (response.IsSuccessStatusCode)
-            {
-                await DisplayAlert("Success!", "Added Breakfast", "ok");
-
-                testBooking.BREAKFAST = false;
-                await APIServices.Services.PutServiceAsync(testBooking,path + key[0] +"/");
-             
-            }
-            else
-            {
-                await DisplayAlert("Error!", "Deleted Request", "ok");
-            }
-           
         }
+ 
     }
 }
