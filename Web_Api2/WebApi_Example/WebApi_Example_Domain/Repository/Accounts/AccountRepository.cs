@@ -70,7 +70,6 @@ namespace WebApi_Example_Domain.Repository
                 {
                     return false;
                 }
-
             }
         }
 
@@ -81,6 +80,22 @@ namespace WebApi_Example_Domain.Repository
                 try
                 {
                     await c.ExecuteAsync("UPDATE ACCOUNTS SET USERNAME = @username, USERPASSWORD = @userpassword, CUSTOMERSID = @customersid WHERE ID = @id", new { account.USERNAME, account.USERPASSWORD, account.CUSTOMERSID, account.ID });
+                    return true;
+                }
+                catch (System.Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public async Task<bool> DeleteAccount(int id)
+        {
+            using (var c = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    await c.ExecuteAsync("DELETE FROM ACCOUNTS WHERE ID = @id", new { id });
                     return true;
                 }
                 catch (System.Exception)

@@ -23,16 +23,9 @@ namespace Hotell_Isaac_Blue.APIServices
             var response = await client.PostAsync(HOST + path, content);
         }
 
-        public static HttpResponseMessage GetRequest(string path, string[] primaryKeys)
+        public static HttpResponseMessage GetRequest(string path, string source)
         {
             var client = new HttpClient();
-
-            string source = string.Empty;
-
-            foreach (var key in primaryKeys)
-            {
-                source += key + "/";
-            }
 
             //Returnerar Status kod
             var response = client.GetAsync(HOST + path + source);

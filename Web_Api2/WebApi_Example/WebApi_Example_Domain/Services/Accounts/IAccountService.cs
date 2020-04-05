@@ -12,5 +12,6 @@ namespace WebApi_Example_Domain.Services
         Task<Accounts> GetAccount(string id);
         Task<Accounts> GetAccount(string userName, string password);
         Task<bool> UpdateAccount(Accounts account);
+        Task<bool> DeleteAccount(int id);
     }
 }

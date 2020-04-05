@@ -53,5 +53,11 @@ namespace WebApi_Example.Controllers
         {
             return Ok(await _accountService.UpdateAccount(accounts));
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return Ok(await _accountService.DeleteAccount(id));
+        }
     }
 }

@@ -65,8 +65,8 @@ namespace Hotell_Isaac_Blue
         {
             try
             {
-                var path = "roomtypes/";
-                var source = new string[] { pickedRoomType };
+                string path = "roomtypes/";
+                string source = pickedRoomType;
 
                 var response = APIServices.Services.GetRequest(path, source);
                 string result = await response.Content.ReadAsStringAsync();

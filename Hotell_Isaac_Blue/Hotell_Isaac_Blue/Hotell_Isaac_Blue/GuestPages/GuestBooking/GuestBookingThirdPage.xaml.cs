@@ -43,9 +43,9 @@ namespace Hotell_Isaac_Blue
 
         private async void GetCustomer(string id)
         {
-            var path = "customers/";
+            string path = "customers/";
 
-            string[] source = new string[] { id };
+            string source =  id;
 
             var response = APIServices.Services.GetRequest(path, source);
             string result = await response.Content.ReadAsStringAsync();
@@ -58,7 +58,7 @@ namespace Hotell_Isaac_Blue
         private async void GetRoomType(int roomID)
         {
             var path = "rooms/";
-            var source = new string[] { roomID.ToString() };
+            var source = roomID.ToString();
 
             var response = APIServices.Services.GetRequest(path, source);
             string result = await response.Content.ReadAsStringAsync();
@@ -66,7 +66,7 @@ namespace Hotell_Isaac_Blue
             Rooms room = JsonConvert.DeserializeObject<Rooms>(result);
 
             path = "roomtypes/";
-            source[0] = room.ROOMTYPESID.ToString();
+            source = room.ROOMTYPESID.ToString();
 
             response = APIServices.Services.GetRequest(path, source);
             result = await response.Content.ReadAsStringAsync();
