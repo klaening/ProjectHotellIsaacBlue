@@ -30,7 +30,7 @@ namespace Hotell_Isaac_Blue
         private void Result_Btn_Clicked(object sender, EventArgs e)
         {
             if (ActiveUser.Account.CustomersID == null)
-                Navigation.PushAsync(new AccountRegistrationPage());
+                Navigation.PushAsync(new CustomerRegistrationPage());
             else
             {
                 pickedRoomType = (string)RoomType_Picker.SelectedItem;
@@ -38,9 +38,7 @@ namespace Hotell_Isaac_Blue
                 extraBed = Bed_Switch.IsToggled;
                 breakfast = Breakfast_Switch.IsToggled;
 
-                ActiveBooking active = new ActiveBooking();
-
-                active.Booking = new Bookings
+                ActiveBooking.Booking = new Bookings
                 {
                     QTYPERSONS = guestQty,
                     STARTDATE = startDate,
@@ -54,9 +52,9 @@ namespace Hotell_Isaac_Blue
 
                 //Nånstans ska det göras en check på om det finns ett sådant rum ledigt de datumen
 
-                active.RoomID = RoomType.ID;
+                ActiveBooking.RoomID = RoomType.ID;
 
-                Navigation.PushAsync(new GuestBookingThirdPage(active));
+                Navigation.PushAsync(new GuestBookingThirdPage());
             }
         }
 
@@ -67,8 +65,8 @@ namespace Hotell_Isaac_Blue
         {
             try
             {
-                var path = "roomtypes/";
-                var source = new string[] { pickedRoomType };
+                string path = "roomtypes/";
+                string source = pickedRoomType;
 
                 var response = APIServices.Services.GetRequest(path, source);
                 string result = await response.Content.ReadAsStringAsync();

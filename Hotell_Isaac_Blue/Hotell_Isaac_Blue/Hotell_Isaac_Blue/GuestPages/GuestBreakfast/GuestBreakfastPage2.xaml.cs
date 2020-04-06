@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Hotell_Isaac_Blue.Tables;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,9 +19,27 @@ namespace Hotell_Isaac_Blue.Guest.GuestBreakfast
             InitializeComponent();
         }
 
-        private void Breakfast_Continue_Clicked(object sender, EventArgs e)
+        private async void Breakfast_Continue_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GuestBreakfastPage3());
+            string path = "bookings/";
+            string bookingNo = BreakfastEntry.Text;
+
+            var response = APIServices.Services.GetRequest(path, bookingNo);
+            string result = await response.Content.ReadAsStringAsync();
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                Bookings updatedBooking = JsonConvert.DeserializeObject<Bookings>(result);
+
+                if (!updatedBooking.BREAKFAST)
+                    updatedBooking.BREAKFAST = true;
+                else
+                    updatedBooking.BREAKFAST = false;
+
+                await APIServices.Services.PutRequestAsync(path, updatedBooking);
+            }
+
+            await Navigation.PushAsync(new GuestBreakfastPage3());
         }
 
         private void FirstPage_Home_Clicked(object sender, EventArgs e)

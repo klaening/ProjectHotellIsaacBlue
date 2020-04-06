@@ -39,13 +39,13 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
-        public async Task<bool> AddCustomer(Customers customer)
+        public async Task<bool> AddCustomer(Customers customer, int accountID)
         {
             using (var c = new SqlConnection(_connectionString))
             {
                 try
                 {
-                    await c.ExecuteAsync("INSERT INTO CUSTOMERS (SOCNUMBER, FIRSTNAME, LASTNAME, EMAIL, STREETADRESS, CITY, COUNTRY, ICE, CUSTOMERTYPESID) VALUES (@SocNumber, @FirstName, @LastName, @Email, @StreetAdress, @City, @Country, @ICE, @CustomerTypesID)", new { customer.SOCNUMBER, customer.FIRSTNAME, customer.LASTNAME, customer.EMAIL, customer.STREETADRESS, customer.CITY, customer.COUNTRY, customer.ICE, customer.CUSTOMERTYPESID });
+                    customer.ID = await c.QueryFirstAsync<int>("INSERT INTO CUSTOMERS (SOCNUMBER, FIRSTNAME, LASTNAME, EMAIL, STREETADRESS, CITY, COUNTRY, ICE, CUSTOMERTYPESID) OUTPUT INSERTED.Id VALUES (@SocNumber, @FirstName, @LastName, @Email, @StreetAdress, @City, @Country, @ICE, @CustomerTypesID)", new { customer.SOCNUMBER, customer.FIRSTNAME, customer.LASTNAME, customer.EMAIL, customer.STREETADRESS, customer.CITY, customer.COUNTRY, customer.ICE, customer.CUSTOMERTYPESID });
                     return true;
                 }
                 catch (System.Exception)

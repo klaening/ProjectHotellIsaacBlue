@@ -25,7 +25,7 @@ namespace Hotell_Isaac_Blue
             {
                 string path = "accounts/";
 
-                string[] source = new string[] { UsernameEntry.Text, PasswordEntry.Text };
+                string source = UsernameEntry.Text + "/" + PasswordEntry.Text;
 
                 var response = APIServices.Services.GetRequest(path, source);
 

@@ -98,40 +98,13 @@ namespace WebApi_Example_Domain.Repository
             {
                 try
                 {
-                    StringBuilder syntax = new StringBuilder();
+                    await c.ExecuteAsync("UPDATE BOOKINGS SET QTYPERSONS = @qtyPersons, STARTDATE = @startDate, ENDDATE = @endDate, ETA = @ETA, TIMEARRIVAL = @timeArrival, " +
+                        "TIMEDEPARTURE = @timeDeparture, SPECIALNEEDS = @specialNeeds, EXTRABED = @extraBed, PARKING = @parking, BREAKFAST = @breakfast, " +
+                        "CUSTOMERSID = @customersID, STAFFID = @staffID WHERE ID = @id", 
+                        new { bookings.QTYPERSONS, bookings.STARTDATE, bookings.ENDDATE, bookings.ETA, bookings.TIMEARRIVAL, 
+                            bookings.TIMEDEPARTURE, bookings.SPECIALNEEDS, bookings.EXTRABED, bookings.PARKING, bookings.BREAKFAST, 
+                            bookings.CUSTOMERSID, bookings.STAFFID, bookings.ID });
 
-                    string tableName = bookings.GetType().Name;
-                    long id = bookings.ID;
-
-                    syntax.Append($"UPDATE {tableName} SET ");
-
-                    foreach (var column in bookings.GetType().GetProperties())
-                    {
-                        if (column.Name != "ID")
-                        {
-                            syntax.Append($"{column.Name} = ");
-
-                            if (column.GetValue(bookings) == null)
-                                syntax.Append("NULL, ");
-                            else if (column.PropertyType.Equals(typeof(Boolean)))
-                            {
-                                if ((bool)column.GetValue(bookings))
-                                    syntax.Append("1, ");
-                                else
-                                    syntax.Append("0, ");
-                            }
-                            else if (column.PropertyType.Equals(typeof(DateTime)) || column.PropertyType.Equals(typeof(DateTime?)))
-                                syntax.Append($"'{column.GetValue(bookings)}', ");
-                            else
-                                syntax.Append($"{column.GetValue(bookings)}, ");
-                        }
-                    }
-
-                    syntax.Remove(syntax.Length - 2, 1);
-
-                    syntax.Append($"WHERE ID = {id}");
-
-                    await c.ExecuteAsync(syntax.ToString());
                     return true;
                 }
                 catch (System.Exception)

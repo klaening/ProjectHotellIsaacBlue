@@ -12,25 +12,18 @@ namespace Hotell_Isaac_Blue
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GuestBookingThirdPage : ContentPage
     {
-        ActiveBooking ActiveBooking = null;
         DateTime startDate = DateTime.MinValue;
         DateTime endDate = DateTime.MinValue;
         RoomTypes roomType = null;
         Customers customerDetails = null;
 
-        public GuestBookingThirdPage() { }
-
-        public GuestBookingThirdPage(ActiveBooking activeBooking)
+        public GuestBookingThirdPage()
         {
             //FUUUUUUUUL KOOOOOOOOOD!!!!!!!
             InitializeComponent();
 
-            ActiveBooking = activeBooking;
-
             startDate = ActiveBooking.Booking.STARTDATE;
             endDate = ActiveBooking.Booking.ENDDATE.Date;
-
-            ActiveBooking = activeBooking;
 
             GetCustomer(ActiveUser.Account.CustomersID.ToString());
             GetRoomType(ActiveBooking.RoomID);
@@ -50,9 +43,9 @@ namespace Hotell_Isaac_Blue
 
         private async void GetCustomer(string id)
         {
-            var path = "customers/";
+            string path = "customers/";
 
-            string[] source = new string[] { id };
+            string source =  id;
 
             var response = APIServices.Services.GetRequest(path, source);
             string result = await response.Content.ReadAsStringAsync();
@@ -65,7 +58,7 @@ namespace Hotell_Isaac_Blue
         private async void GetRoomType(int roomID)
         {
             var path = "rooms/";
-            var source = new string[] { roomID.ToString() };
+            var source = roomID.ToString();
 
             var response = APIServices.Services.GetRequest(path, source);
             string result = await response.Content.ReadAsStringAsync();
@@ -73,7 +66,7 @@ namespace Hotell_Isaac_Blue
             Rooms room = JsonConvert.DeserializeObject<Rooms>(result);
 
             path = "roomtypes/";
-            source[0] = room.ROOMTYPESID.ToString();
+            source = room.ROOMTYPESID.ToString();
 
             response = APIServices.Services.GetRequest(path, source);
             result = await response.Content.ReadAsStringAsync();
@@ -99,9 +92,11 @@ namespace Hotell_Isaac_Blue
             //Skapar ett nytt Booking object och anropar en Service som kallar på Stored Procedure sp_BookingsInsert
             //ActiveBooking booking = ActiveBooking;
 
-            var path = "bookings/";
+            var path = "bookings/room/" + ActiveBooking.RoomID;
 
-            var response = APIServices.Services.PostRequestAsync(path, ActiveBooking);
+            Bookings booking = ActiveBooking.Booking;
+
+            var response = APIServices.Services.PostRequestAsync(path, booking);
 
             //Kolla om det gick bra, isf töm ActiveBooking.Booking
             //Får ingen info i responsen står fortfarande Waiting for results eller liknande
