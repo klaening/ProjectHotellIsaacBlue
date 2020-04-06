@@ -17,13 +17,14 @@ namespace Hotell_Isaac_Blue
         public SettingsPage()
         {
             InitializeComponent();
-            SetCustomerInfo();
+            SetCustomerInfo("4");
         }
 
-        private async void SetCustomerInfo()
+        //Metoden skall ta in ett id 
+        private async void SetCustomerInfo(string id)
         {
             string path = "customers/";
-            string source = "4";
+            string source = id;
 
             var response = APIServices.Services.GetRequest(path, source);
 
@@ -41,15 +42,14 @@ namespace Hotell_Isaac_Blue
                 countryEntry.Text = customer.COUNTRY;
                 streetAdressEntry.Text = customer.STREETADRESS;
                 iceEntry.Text = customer.ICE;
-            }
-                
+            }            
         }
 
         private async void UpdateInfo_Clicked(object sender, EventArgs e)
         {
             //En metod som updaterar den inloggade kundens uppgifter.
             string path = "customers/";
-            string source = "4";
+            string source = "4");
 
             var response = APIServices.Services.GetRequest(path, source);
 
