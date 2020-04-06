@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Hotell_Isaac_Blue.Tables;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,16 +17,62 @@ namespace Hotell_Isaac_Blue
         public SettingsPage()
         {
             InitializeComponent();
+            SetCustomerInfo();
         }
 
-        private async void GetCustomer()
+        private async void SetCustomerInfo()
         {
-            //En metod som hämtar den inloggade kunden och fyller i dess info om det finns.
+            string path = "customers/";
+            string source = "4";
+
+            var response = APIServices.Services.GetRequest(path, source);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+
+                var result = await response.Content.ReadAsStringAsync();
+                Customers customer = JsonConvert.DeserializeObject<Customers>(result);
+
+                socNrEntry.Text = customer.SOCNUMBER;
+                firstNameEntry.Text = customer.FIRSTNAME;
+                lastNameEntry.Text = customer.LASTNAME;
+                emailEntry.Text = customer.EMAIL;
+                cityEntry.Text = customer.CITY;
+                countryEntry.Text = customer.COUNTRY;
+                streetAdressEntry.Text = customer.STREETADRESS;
+                iceEntry.Text = customer.ICE;
+            }
+                
         }
 
-        private void UpdateInfo_Clicked(object sender, EventArgs e)
+        private async void UpdateInfo_Clicked(object sender, EventArgs e)
         {
             //En metod som updaterar den inloggade kundens uppgifter.
+            string path = "customers/";
+            string source = "4";
+
+            var response = APIServices.Services.GetRequest(path, source);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var result = await response.Content.ReadAsStringAsync();
+                Customers customer = JsonConvert.DeserializeObject<Customers>(result);
+
+                customer.SOCNUMBER = socNrEntry.Text;
+                customer.FIRSTNAME = firstNameEntry.Text;
+                customer.LASTNAME = lastNameEntry.Text;
+                customer.EMAIL = emailEntry.Text;
+                customer.CITY = cityEntry.Text;
+                customer.COUNTRY = countryEntry.Text;
+                customer.STREETADRESS = streetAdressEntry.Text;
+                customer.ICE = iceEntry.Text;
+
+                await APIServices.Services.PutRequestAsync(path, customer);
+
+                await DisplayAlert("Updated!","Your information have been updated","Ok");
+            }
+
+            
         }
     }
 }
