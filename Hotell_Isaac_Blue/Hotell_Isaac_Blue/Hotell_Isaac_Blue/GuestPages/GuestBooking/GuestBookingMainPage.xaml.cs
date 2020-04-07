@@ -33,7 +33,7 @@ namespace Hotell_Isaac_Blue
 
             string[] source = new string[] { Convert.ToString(ActiveUser.Account.CustomersID) };
 
-            var response = Services.GetService(path, source);
+            var response = Services.GetRequest(path, source[0]);
             string result = await response.Content.ReadAsStringAsync();
 
             var activeBooking = JsonConvert.DeserializeObject<Bookings>(result);
