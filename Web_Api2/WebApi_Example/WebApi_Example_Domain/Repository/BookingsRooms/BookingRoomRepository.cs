@@ -39,6 +39,14 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
+        public async Task<IEnumerable<short>> GetRoomID(long bookingID)
+        {
+            using (var c = new SqlConnection(_connectionString))
+            {
+                return await c.QueryAsync<short>("SELECT ROOMSID FROM BOOKINGSROOMS WHERE BOOKINGSID = @bookingID", new { bookingID });
+            }
+        }
+
         public async Task<bool> AddBookingRoom(BookingsRooms bookingsRooms)
         {
             using (var c = new SqlConnection(_connectionString))
