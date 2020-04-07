@@ -23,9 +23,15 @@ namespace WebApi_Example.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get(short id)
         {
             return Ok(await _roomService.GetRoom(id));
+        }
+
+        [HttpGet("roomType/{roomTypeName}")]
+        public async Task<IActionResult> Get(string roomTypeName)
+        {
+            return Ok(await _roomService.GetRooms(roomTypeName));
         }
     }
 }

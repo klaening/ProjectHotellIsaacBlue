@@ -7,7 +7,7 @@ namespace WebApi_Example_Domain.Repository
     public interface IRoomTypeRepository
     {
         Task<IEnumerable<RoomTypes>> GetRoomTypes();
-        Task<RoomTypes> GetRoomType(int id);
+        Task<RoomTypes> GetRoomType(short id);
         Task<RoomTypes> GetRoomType(string name);
     }
 }

@@ -31,7 +31,7 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
-        public async Task<RoomTypes> GetRoomType(int id)
+        public async Task<RoomTypes> GetRoomType(short id)
         {
             using (var c = new SqlConnection(_connectionString))
             {
