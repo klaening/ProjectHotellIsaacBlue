@@ -22,10 +22,13 @@
                        VerticalOptions="Center"
                        Margin="5"
                        TextColor="Black"/>
-                <Label Text="15$ / Week"
+                <Label Text="Only 80 sek each day!"
                        HorizontalOptions="Center"
+                       FontSize="20"
                        FontAttributes="Bold"
-                       FontSize="16"/>
+                       TextColor="Black"
+                       Margin="0,30,0,0"
+                       />
                 <Frame BackgroundColor="LightBlue"
                        Margin="15"
                        HeightRequest="100">

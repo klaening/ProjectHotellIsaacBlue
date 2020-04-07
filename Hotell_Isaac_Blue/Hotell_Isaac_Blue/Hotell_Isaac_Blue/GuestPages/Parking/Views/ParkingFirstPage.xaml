@@ -25,7 +25,7 @@
                    TextColor="Black"/>
                 <StackLayout>
 
-                    <Label Text="Only 15$ / Week!"
+                    <Label Text="Only 80 sek each day!"
                        HorizontalOptions="Center"
                        FontSize="20"
                        FontAttributes="Bold"
@@ -34,7 +34,7 @@
                        />
                     <Entry x:Name="BookingParkEntry" Placeholder="Enter Booking Nr" 
                         HorizontalOptions="Center"
-                        Margin=" 30,0,30,0"
+                        Margin=" 0,0,0,0"
                         TextColor="Black"/>
                     <Button Text="Add ParkingSpot" x:Name="Parkingspot"                          
                         BackgroundColor="Gray"
@@ -46,24 +46,7 @@
 
                 </StackLayout>
             </StackLayout>
-            <StackLayout>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Text="User Settings"
-                            Grid.Column="0"/>
-                    <Button Text="Home"
-                            Grid.Column="1"/>
-                    <Button Text="Contact Us"
-                            Grid.Column="2"/>
-                </Grid>
-            </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

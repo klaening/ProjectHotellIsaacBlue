@@ -28,6 +28,13 @@
                        VerticalOptions="Center"
                        Margin="5"
                        TextColor="Black"/>
+                <Label Text="Only 80 sek each day!"
+                       HorizontalOptions="Center"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       Margin="0,30,0,0"
+                       />
                 <Frame BackgroundColor="LightBlue"
                        Margin="10"
                        HeightRequest="100">
@@ -114,28 +121,6 @@
                        Grid.Column="3"
                        Grid.Row="0"/>
                 </Grid>
-            </Frame>
-            <Frame HeightRequest="43">
-
-                <StackLayout>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Button Text="User Settings"
-                            Grid.Column="0"/>
-                        <Button Text="Home"
-                            Grid.Column="1"/>
-                        <Button Text="Contact Us"
-                            Grid.Column="2"/>
-                    </Grid>
-                </StackLayout>
-
             </Frame>
         </StackLayout>
     </ContentPage.Content>
