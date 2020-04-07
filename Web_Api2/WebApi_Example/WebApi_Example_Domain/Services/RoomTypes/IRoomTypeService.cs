@@ -7,7 +7,7 @@ namespace WebApi_Example_Domain.Services
     public interface IRoomTypeService
     {
         Task<IEnumerable<RoomTypes>> GetRoomTypes();
-        Task<RoomTypes> GetRoomType(int id);
+        Task<RoomTypes> GetRoomType(short id);
         Task<RoomTypes> GetRoomType(string name);
     }
 }

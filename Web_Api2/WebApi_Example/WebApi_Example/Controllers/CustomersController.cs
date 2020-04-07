@@ -28,10 +28,10 @@ namespace WebApi_Example.Controllers
             return Ok(await _customerService.GetCustomer(id));
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Add([FromBody] Customers customer)
+        [HttpPost("account/{accountID}")]
+        public async Task<IActionResult> Add([FromBody] Customers customer, int accountID)
         {
-            return Ok(await _customerService.AddCustomer(customer));
+            return Ok(await _customerService.AddCustomer(customer, accountID));
         }
     }
 }

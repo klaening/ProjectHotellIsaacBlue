@@ -17,81 +17,88 @@ namespace Hotell_Isaac_Blue
         DateTime dateMinValue = DateTime.MinValue;
         DateTime startDate;
         DateTime endDate;
-        string roomType;
+        string pickedRoomType = null;
         short guestQty;
         bool extraBed = false;
         bool breakfast = false;
+        //Ta bort?
+        RoomTypes RoomType = null;
         public GuestBookingSecondPage()
         {
             InitializeComponent();
+
+            //Vi får ett objekt av en RoomTypes som vi vill använda på BookingThirdPage
+            //Göra en get för att se vilka rumstyper som finns?
+            //RoomType = JsonConvert.DeserializeObject<RoomTypes>(result)
         }
 
-        private async void Result_Btn_Clicked(object sender, EventArgs e)
+        private void Result_Btn_Clicked(object sender, EventArgs e)
         {
-            roomType = (string)RoomType_Picker.SelectedItem;
-            guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
-            extraBed = Bed_Switch.IsToggled;
-            breakfast = Breakfast_Switch.IsToggled;
-
-            ActiveBooking.Booking = new Bookings
-            {
-                QTYPERSONS = guestQty,
-                STARTDATE = startDate,
-                ENDDATE = endDate,
-                EXTRABED = extraBed,
-                BREAKFAST = breakfast
-            };
-
-            RoomTypes rt = new RoomTypes();
-            ActiveBooking.RoomType = rt;
-
-            ActiveBooking.RoomType.NAME = roomType;
-
             if (ActiveUser.Account.CustomersID == null)
-                await Navigation.PushAsync(new AccountRegistrationPage());
+                Navigation.PushAsync(new CustomerRegistrationPage());
             else
             {
-                GetRoomType();
-                GetCustomer();
+                pickedRoomType = (string)RoomType_Picker.SelectedItem;
+                guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
+                extraBed = Bed_Switch.IsToggled;
+                breakfast = Breakfast_Switch.IsToggled;
 
-                await Navigation.PushAsync(new GuestBookingThirdPage());
+                ActiveBooking.Booking = new Bookings
+                {
+                    QTYPERSONS = guestQty,
+                    STARTDATE = startDate,
+                    ENDDATE = endDate,
+                    EXTRABED = extraBed,
+                    BREAKFAST = breakfast,
+                    CUSTOMERSID = ActiveUser.Account.CustomersID
+                };
+
+                GetRoomNo();
+
+                //Nånstans ska det göras en check på om det finns ett sådant rum ledigt de datumen
+
+                Navigation.PushAsync(new GuestBookingThirdPage());
             }
         }
 
-        private async void GetRoomType()
+        private async void GetRoomNo()
         {
             try
             {
-                var path = "roomtypes/";
-                var source = new string[] { ActiveBooking.RoomType.NAME };
+                //Get från Rooms med RoomType namn för att få tag på id
+                string path = "rooms/roomtype/";
+                string source = pickedRoomType;
 
-                var response = APIServices.Services.GetService(path, source);
+                var response = APIServices.Services.GetRequest(path, source);
+                var result = await response.Content.ReadAsStringAsync();
 
-                string result = await response.Content.ReadAsStringAsync();
+                List<Rooms> rooms = JsonConvert.DeserializeObject<List<Rooms>>(result);
 
-                var roomType = JsonConvert.DeserializeObject<RoomTypes>(result);
+                //Randomizer som ska tas bort
+                short roomID = RandomRoom(rooms);
 
-                ActiveBooking.RoomType = roomType;
+                ActiveBooking.RoomID = roomID;
 
+                //Get på bokningar för att se om dessa rum är möjliga att boka?
             }
             catch (Exception)
-            {
-                await DisplayAlert("Hej", "Hej", "OK");            
+            {   ///////////////////////////////////////////////
+                await DisplayAlert("Error", "No such rooms are available for these dates", "OK");
+                ///////////////////////////////////////////////
             }
         }
 
-        private async void GetCustomer()
+        //Ska tas bort
+        private short RandomRoom(List<Rooms> rooms)
         {
-            var path = "customers/";
+            Random rnd = new Random();
 
-            string[] source = new string[] { ActiveUser.Account.CustomersID.ToString() };
+            int max = rooms.Count;
+            int randomRoom = (short)rnd.Next(0, max);
 
-            var response = APIServices.Services.GetService(path, source);
-            string result = await response.Content.ReadAsStringAsync();
+            short roomID = rooms[randomRoom].ID;
 
-            var activeCustomer = JsonConvert.DeserializeObject<Customers>(result);
-
-            ActiveCustomer.Customer = activeCustomer;
+            return roomID;
         }
 
         private void DatePickerSD_DateSelected(object sender, DateChangedEventArgs e)
@@ -113,9 +120,6 @@ namespace Hotell_Isaac_Blue
 
                 SDDateLabel.Text = date;
                 SDYearLabel.Text = year;
-
-                if (EDDateLabel.Text != null)
-                    TotDaysLabel.Text = CalculateTotalDays();
             }
         }
 
@@ -138,27 +142,19 @@ namespace Hotell_Isaac_Blue
 
                 EDDateLabel.Text = date;
                 EDYearLabel.Text = year;
-
-                if (SDDateLabel.Text != null)
-                    TotDaysLabel.Text = CalculateTotalDays();
             }
-        }
-
-        private string CalculateTotalDays()
-        {
-            TimeSpan ts = endDate - startDate;
-            int totalDays = (int)ts.TotalDays;
-
-            ActiveBooking.TotalDays = totalDays;
-
-            return "Total days: " + totalDays;
         }
 
         private (string date, string year) ReturnDateAndYear(string longDate)
         {
             string[] dateSplit = longDate.Split(' ');
             string date = dateSplit[0].Remove(3) + ",";
-            dateSplit[1] = dateSplit[1].Remove(3);
+            
+            if (dateSplit[1].Length > 3)
+            {
+                dateSplit[1] = dateSplit[1].Remove(3);
+            }
+
             dateSplit[2] = dateSplit[2].Remove(dateSplit[2].Length - 1);
             string year = dateSplit[3];
 

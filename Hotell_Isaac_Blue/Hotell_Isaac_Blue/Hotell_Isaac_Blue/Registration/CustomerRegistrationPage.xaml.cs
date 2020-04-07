@@ -16,24 +16,12 @@ namespace Hotell_Isaac_Blue
         public CustomerRegistrationPage()
         {
             InitializeComponent();
-
-            /* Om active customer redan har info kopplat till sig, så sätts de i textfälten */
-
-            if (ActiveCustomer.Customer != null)
-            {
-                socNrEntry.Text = ActiveCustomer.Customer.SOCNUMBER;
-                firstNameEntry.Text = ActiveCustomer.Customer.FIRSTNAME;
-                lastNameEntry.Text = ActiveCustomer.Customer.LASTNAME;
-                emailEntry.Text = ActiveCustomer.Customer.EMAIL;
-                streetAdressEntry.Text = ActiveCustomer.Customer.STREETADRESS;
-                cityEntry.Text = ActiveCustomer.Customer.CITY;
-                countryEntry.Text = ActiveCustomer.Customer.COUNTRY;
-                iceEntry.Text = ActiveCustomer.Customer.ICE;
-            }
         }
 
         private async void RegisterBtn_Clicked(object sender, EventArgs e)
         {
+
+            // Skapa en get på Customer socnumber i web api
 
             Customers customer = new Customers()
             {
@@ -47,11 +35,12 @@ namespace Hotell_Isaac_Blue
                 ICE = iceEntry.Text,
             };
 
-            ActiveCustomer.Customer = customer;
+            //Default är 1
+            customer.CUSTOMERTYPESID = 1;
 
-            string path = "customers/";
+            string path = "customers/account/" + ActiveUser.Account.ID;
 
-            await APIServices.Services.PostServiceAsync(path, customer);
+            await APIServices.Services.PostRequestAsync(path, customer);
         }
     }
 }

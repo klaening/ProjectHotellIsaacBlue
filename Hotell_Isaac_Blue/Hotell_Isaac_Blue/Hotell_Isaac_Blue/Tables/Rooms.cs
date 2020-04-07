@@ -4,11 +4,10 @@ using System.Text;
 
 namespace Hotell_Isaac_Blue.Tables
 {
-    public class RoomTypes
+    public class Rooms
     {
         public short ID { get; set; }
-        public string NAME { get; set; }
-        public decimal COST { get; set; }
-        public short QTYBEDS { get; set; }
+        public short ROOMNUM { get; set; }
+        public short ROOMTYPESID { get; set; }
     }
 }

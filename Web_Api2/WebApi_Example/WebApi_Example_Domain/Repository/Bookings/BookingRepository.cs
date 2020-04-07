@@ -1,6 +1,8 @@
 ﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Text;
 using System.Threading.Tasks;
 using WebApi_Example_Domain.Models;
 
@@ -39,28 +41,47 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
-        public async Task<bool> AddBooking(Bookings bookings, int roomID)
+        public async Task<bool> AddBooking(Bookings bookings, short roomID)
         {
             using (var c = new SqlConnection(_connectionString))
             {
                 try
                 {
-                    await c.ExecuteAsync("EXEC sp_BOOKINGS_INSERT @CUSTOMERSID = @customersID, @QTYPERSONS = @qtyPersons, @STARTDATE = @startDate, " +
-                        "@ENDDATE = @endDate, @ETA = @eta, @TIMEARRIVAL = @timeArrival, @SPECIALNEEDS = @specialNeeds, @EXTRABED = @extraBed, @PARKING = " +
-                        "@parking, @BREAKFAST = @breakfast, @STAFFID = @staffID, @ROOMID = @roomID", new {
-    bookings.QTYPERSONS,
-    bookings.STARTDATE,
-    bookings.ENDDATE,
-    bookings.ETA,
-    bookings.TIMEARRIVAL,
-    bookings.TIMEDEPARTURE,
-    bookings.SPECIALNEEDS, 
-    bookings.EXTRABED, 
-    bookings.PARKING, 
-    bookings.BREAKFAST, 
-    bookings.CUSTOMERSID, 
-    bookings.STAFFID,
-    roomID });
+                    var syntax = new StringBuilder();
+
+                    syntax.Append($"EXEC sp_BOOKINGS_INSERT ");
+                    syntax.Append($"@CUSTOMERSID = {bookings.CUSTOMERSID}, ");
+                    syntax.Append($"@QTYPERSONS = {bookings.QTYPERSONS}, ");
+                    syntax.Append($"@STARTDATE = '{bookings.STARTDATE}', ");
+                    syntax.Append($"@ENDDATE = '{bookings.ENDDATE}', ");
+
+                    if (bookings.ETA != null)
+                        syntax.Append($"@ETA = {bookings.ETA}");
+                    else
+                        syntax.Append("@ETA = NULL, ");
+
+                    if (bookings.TIMEARRIVAL != null)
+                        syntax.Append($"@TIMEARRIVAL = '{bookings.TIMEARRIVAL}', ");
+                    else
+                        syntax.Append("@TIMEARRIVAL = NULL, ");
+
+                    if (bookings.SPECIALNEEDS != null)
+                        syntax.Append($"@SPECIALNEEDS = '{bookings.SPECIALNEEDS}', ");
+                    else
+                        syntax.Append("@SPECIALNEEDS = NULL, ");
+
+                    syntax.Append($"@EXTRABED = {bookings.EXTRABED}, ");
+                    syntax.Append($"@PARKING = {bookings.PARKING}, ");
+                    syntax.Append($"@BREAKFAST = {bookings.BREAKFAST}, ");
+
+                    if (bookings.SPECIALNEEDS != null)
+                        syntax.Append($"@STAFFID = {bookings.STAFFID}, ");
+                    else
+                        syntax.Append("@STAFFID = NULL, ");
+
+                    syntax.Append($"@ROOMID = {roomID}");
+
+                    await c.ExecuteAsync(syntax.ToString());
                     return true;
                 }
                 catch (System.Exception)
@@ -71,13 +92,19 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
-        public async Task<bool> UpdateBooking(int id)
+        public async Task<bool> UpdateBooking(Bookings bookings)
         {
             using (var c = new SqlConnection(_connectionString))
             {
                 try
                 {
-                    await c.ExecuteAsync("UPDATE BOOKINGS SET BREAKFAST = 0 WHERE ID = @id", new { id });
+                    await c.ExecuteAsync("UPDATE BOOKINGS SET QTYPERSONS = @qtyPersons, STARTDATE = @startDate, ENDDATE = @endDate, ETA = @ETA, TIMEARRIVAL = @timeArrival, " +
+                        "TIMEDEPARTURE = @timeDeparture, SPECIALNEEDS = @specialNeeds, EXTRABED = @extraBed, PARKING = @parking, BREAKFAST = @breakfast, " +
+                        "CUSTOMERSID = @customersID, STAFFID = @staffID WHERE ID = @id", 
+                        new { bookings.QTYPERSONS, bookings.STARTDATE, bookings.ENDDATE, bookings.ETA, bookings.TIMEARRIVAL, 
+                            bookings.TIMEDEPARTURE, bookings.SPECIALNEEDS, bookings.EXTRABED, bookings.PARKING, bookings.BREAKFAST, 
+                            bookings.CUSTOMERSID, bookings.STAFFID, bookings.ID });
+
                     return true;
                 }
                 catch (System.Exception)

@@ -47,5 +47,17 @@ namespace WebApi_Example.Controllers
         {
             return Ok(await _accountService.AddAccount(accounts));
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] Accounts accounts)
+        {
+            return Ok(await _accountService.UpdateAccount(accounts));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return Ok(await _accountService.DeleteAccount(id));
+        }
     }
 }

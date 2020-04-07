@@ -7,37 +7,12 @@ namespace Hotell_Isaac_Blue.Helpers
 {
     public class Helpers
     {
-        public static List<string> ExtractData(string result)
+        public static int CalculateTotalDays(DateTime startDate, DateTime endDate)
         {
-            string[] resultSplit = result.Split(',');
-            List<string> wantedResults = new List<string>();
+            TimeSpan ts = endDate - startDate;
+            int totalDays = (int)ts.TotalDays;
 
-            foreach (var item in resultSplit)
-            {
-                var step1 = item;
-                string[] step1Array = step1.Split(':');
-
-                wantedResults.Add(step1Array[1]);
-            }
-
-            for (int i = 0; i < wantedResults.Count; i++)
-            {
-                if (wantedResults[i].Contains('"'))
-                {
-                    wantedResults[i] = wantedResults[i].Remove(0, 1);
-                    wantedResults[i] = wantedResults[i].Remove(wantedResults[i].Length - 1);
-                }
-                if (wantedResults[i].Contains("null"))
-                {
-                    wantedResults[i] = null;
-                }
-                if (wantedResults[i].Contains('}'))
-                {
-                    wantedResults[i] = wantedResults[i].Remove(wantedResults[i].Length - 1);
-                }
-            }
-
-            return wantedResults;
+            return totalDays;
         }
     }
 }

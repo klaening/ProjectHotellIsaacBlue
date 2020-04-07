@@ -25,13 +25,13 @@ namespace Hotell_Isaac_Blue
             {
                 string path = "accounts/";
 
-                string[] source = new string[] { UsernameEntry.Text, PasswordEntry.Text };
+                string source = UsernameEntry.Text + "/" + PasswordEntry.Text;
 
-                var response = APIServices.Services.GetService(path, source);
+                var response = APIServices.Services.GetRequest(path, source);
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    //Returnerar json datan för det kontot
+                    //Returnerar json data för det kontot
                     string result = await response.Content.ReadAsStringAsync();
                     var activeUser = JsonConvert.DeserializeObject<Accounts>(result);
                     ActiveUser.Account = activeUser;

@@ -4,11 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Hotell_Isaac_Blue.GuestMainPage">
+             x:Class="Hotell_Isaac_Blue.GuestMainPage"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -26,11 +26,16 @@
                     WidthRequest="210"
                     Margin="20,0"
                     HorizontalOptions="Start"
-                    Grid.Row="0"/>
+                    Grid.Row="0"
+                    Grid.ColumnSpan="3"/>
                     <Frame x:Name="BookingsFrame"     
                     BackgroundColor="#f1c40f"
                     Grid.Row="1"
+                    Grid.ColumnSpan="3"
                     Margin="15,5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BookingsFrame_Tapped"/>
+                        </Frame.GestureRecognizers>
                         <StackLayout>
                             <Grid>
                                 <Image Source="GMPcalendar"
@@ -55,8 +60,12 @@
 
                     <Frame x:Name="InfoFrame"
                     Grid.Row="2"
+                    Grid.ColumnSpan="3"
                     BackgroundColor="#e67e22"
                     Margin="15,5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="InfoFrame_Tapped"/>
+                        </Frame.GestureRecognizers>
                         <StackLayout>
                             <Grid>
                                 <Image Source="GMPinfo"
@@ -82,8 +91,12 @@
 
                     <Frame x:Name="BreakfastFrame"
                     Grid.Row="3"
+                    Grid.ColumnSpan="3"
                     BackgroundColor="#d35400"
                     Margin="15,5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BreakfastFrame_Tapped"/>
+                        </Frame.GestureRecognizers>
                         <StackLayout>
                             <Grid>
                                 <Image Source="GMPbreakfast"
@@ -107,9 +120,13 @@
                     </Frame>
 
                     <Frame x:Name="ParkingFrame"
-                Grid.Row="4"
+                    Grid.Row="4"
+                    Grid.ColumnSpan="3"
                     BackgroundColor="#c0392b"
                     Margin="15,5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ParkingFrame_Tapped"/>
+                        </Frame.GestureRecognizers>
                         <StackLayout>
                             <Grid>
                                 <Image Source="GMPcar"
@@ -130,6 +147,99 @@
                                 HeightRequest="100"/>
                             </Grid>
                         </StackLayout>
+                    </Frame>
+        
+                   <!--Knapp för log out-->
+
+                    <ImageButton x:Name="MyProfileBtn"
+                                 Source="account.png"
+                                 Margin="0, 0, 0,-20"
+                                 BackgroundColor="Transparent"
+                                 Scale="0.4"
+                                 Grid.Row="0"
+                                 Grid.Column="2"
+                                 HorizontalOptions="End"
+                                 VerticalOptions="End"
+                                 Clicked="MyProfileBtn_Clicked"/>
+
+                    <Frame x:Name="MyProfileFrame" 
+                           IsVisible="False"
+                           Margin="0, 20, -10, 0"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="0"
+                           Grid.RowSpan="3"
+                           BorderColor="White"
+                           Padding="0"
+                           BackgroundColor="#2C3A3E">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40*"/>
+                                    <ColumnDefinition Width="60*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label x:Name="menuUserName"
+                                       Text="Andreas Carlsson"
+                                       Style="{StaticResource h2Label}"
+                                       FontSize="23"
+                                       Grid.Row="1"
+                                       Grid.ColumnSpan="2"
+                                       HorizontalOptions="Center"/>
+                                <ImageButton x:Name="CloseUserMenu"
+                                             Source="close.png"
+                                             Scale=".4"
+                                             BackgroundColor="Transparent"
+                                             Grid.Column="1"
+                                             Grid.Row="0"
+                                             HorizontalOptions="End"
+                                             Margin="0,0,10,0"
+                                             Clicked="CloseUserMenu_Clicked"/>
+                                <BoxView BackgroundColor="White"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="Center"
+                                         WidthRequest="220"
+                                         HeightRequest="3"
+                                         Grid.Row="2"
+                                         Grid.ColumnSpan="2"/>
+                                <Image Source="settings.png"
+                                       Scale=".4"
+                                       HorizontalOptions="End"
+                                       Grid.Row="3"
+                                       Grid.Column="0"/>
+                                <Button x:Name="SettingsBtn"
+                                    Text="Settings"
+                                    TextColor="White"
+                                    FontSize="18"
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    HeightRequest="40"
+                                    Clicked="LogOutBtn_Clicked"
+                                    BackgroundColor="Transparent"/>
+                                <Image Source="logout.png"
+                                       Scale=".4"
+                                       Grid.Row="4"
+                                       HorizontalOptions="End"/>
+                                <Button x:Name="LogOutBtn"
+                                    Text="Sign out"
+                                    TextColor="White"
+                                    FontSize="18"
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    HeightRequest="40"
+                                    Clicked="LogOutBtn_Clicked"
+                                    BackgroundColor="Transparent"/>
+                                </Grid>
+                            </StackLayout>
                     </Frame>
                 </Grid>
             </StackLayout>

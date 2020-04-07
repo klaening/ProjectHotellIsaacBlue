@@ -16,26 +16,7 @@ namespace Hotell_Isaac_Blue
         public GuestMainPage()
         {
             InitializeComponent();
-            AddTapGestures();
-        }
-
-        private void AddTapGestures()
-        {
-            var tapBookingsFrame = new TapGestureRecognizer();
-            tapBookingsFrame.Tapped += BookingsFrame_Tapped;
-            BookingsFrame.GestureRecognizers.Add(tapBookingsFrame);
-
-            var tapInfoFrame = new TapGestureRecognizer();
-            tapInfoFrame.Tapped += InfoFrame_Tapped;
-            InfoFrame.GestureRecognizers.Add(tapInfoFrame);
-
-            var tapBreakfastFrame = new TapGestureRecognizer();
-            tapBreakfastFrame.Tapped += BreakfastFrame_Tapped;
-            BreakfastFrame.GestureRecognizers.Add(tapBreakfastFrame);
-
-            var tapParkingFrame = new TapGestureRecognizer();
-            tapParkingFrame.Tapped += ParkingFrame_Tapped;
-            ParkingFrame.GestureRecognizers.Add(tapParkingFrame);
+            menuUserName.Text = "Hi! " + ActiveUser.Account.UserName;
         }
 
         private void ParkingFrame_Tapped(object sender, EventArgs e)
@@ -76,6 +57,34 @@ namespace Hotell_Isaac_Blue
         private void ParkingBtn_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new GuestParkingPage());
+        }
+
+        private void MyProfileBtn_Clicked(object sender, EventArgs e)
+        {
+            if (MyProfileFrame.IsVisible == true)
+            {
+                MyProfileFrame.IsVisible = false;
+            }
+            else if (MyProfileFrame.IsVisible == false)
+            {
+                MyProfileFrame.IsVisible = true;
+            }
+        }
+
+        private async void LogOutBtn_Clicked(object sender, EventArgs e)
+        {
+
+            var logOut = await DisplayAlert("Logging out!","Are you sure you want to log out?", "Log Out", "Stay");
+            if (logOut)
+            {
+                ActiveUser.Account = null;
+                await Navigation.PushAsync(new MainPage());
+            }
+        }
+
+        private void CloseUserMenu_Clicked(object sender, EventArgs e)
+        {
+            MyProfileFrame.IsVisible = false;
         }
     }
 }

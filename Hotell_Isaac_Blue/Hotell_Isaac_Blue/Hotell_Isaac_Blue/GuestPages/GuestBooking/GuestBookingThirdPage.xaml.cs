@@ -12,31 +12,77 @@ namespace Hotell_Isaac_Blue
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GuestBookingThirdPage : ContentPage
     {
+        DateTime StartDate = DateTime.MinValue;
+        DateTime EndDate = DateTime.MinValue;
+        RoomTypes RoomType = null;
+        Customers CustomerDetails = null;
+
         public GuestBookingThirdPage()
         {
             //FUUUUUUUUL KOOOOOOOOOD!!!!!!!
             InitializeComponent();
 
-            ReviewNameLabel.Text = $"{ActiveCustomer.Customer.FIRSTNAME} {ActiveCustomer.Customer.LASTNAME}";
-            ReviewEmailLabel.Text = ActiveCustomer.Customer.EMAIL;
+            StartDate = ActiveBooking.Booking.STARTDATE;
+            EndDate = ActiveBooking.Booking.ENDDATE.Date;
+
+            GetCustomer(ActiveUser.Account.CustomersID.ToString());
+            GetRoomType(ActiveBooking.RoomID);
+
+            ReviewNameLabel.Text = $"{CustomerDetails.FIRSTNAME} {CustomerDetails.LASTNAME}";
+            ReviewEmailLabel.Text = CustomerDetails.EMAIL;
             ReviewStartDateLabel.Text = ActiveBooking.Booking.STARTDATE.ToString();
             ReviewEndDateLabel.Text = ActiveBooking.Booking.ENDDATE.ToString();
-            ReviewTotalDays.Text = ActiveBooking.TotalDays.ToString();
-            ReviewRoomType.Text = ActiveBooking.RoomType.NAME;
-            ReviewPrice.Text = ActiveBooking.RoomType.COST.ToString();
+            ReviewTotalDays.Text = Helpers.Helpers.CalculateTotalDays(StartDate, EndDate).ToString();
+            ReviewRoomType.Text = RoomType.NAME;
+            ReviewPrice.Text = RoomType.COST.ToString();
             ReviewExtraBed.Text = ActiveBooking.Booking.EXTRABED.ToString();
             ReviewBreakfast.Text = ActiveBooking.Booking.BREAKFAST.ToString();
 
             ReviewTotalCostLabel.Text = GetTotalPrice();
         }
 
+        private async void GetCustomer(string id)
+        {
+            string path = "customers/";
+
+            string source =  id;
+
+            var response = APIServices.Services.GetRequest(path, source);
+            string result = await response.Content.ReadAsStringAsync();
+
+            var activeCustomer = JsonConvert.DeserializeObject<Customers>(result);
+
+            CustomerDetails = activeCustomer;
+        }
+
+        private async void GetRoomType(int roomID)
+        {
+            var path = "rooms/";
+            var source = roomID.ToString();
+
+            var response = APIServices.Services.GetRequest(path, source);
+            string result = await response.Content.ReadAsStringAsync();
+
+            Rooms room = JsonConvert.DeserializeObject<Rooms>(result);
+
+            path = "roomtypes/";
+            source = room.ROOMTYPESID.ToString();
+
+            response = APIServices.Services.GetRequest(path, source);
+            result = await response.Content.ReadAsStringAsync();
+
+            RoomType = JsonConvert.DeserializeObject<RoomTypes>(result);
+        }
+
         private string GetTotalPrice()
         {
-            decimal? totalPrice = ActiveBooking.RoomType.COST * ActiveBooking.TotalDays;
+            int totalDays = Helpers.Helpers.CalculateTotalDays(StartDate, EndDate);
+
+            decimal? totalPrice = RoomType.COST * totalDays;
             if (ActiveBooking.Booking.BREAKFAST == true)
-                totalPrice += 80 * ActiveBooking.TotalDays;
+                totalPrice += 80 * totalDays;
             if (ActiveBooking.Booking.EXTRABED == true)
-                totalPrice += 100 * ActiveBooking.TotalDays;
+                totalPrice += 100 * totalDays;
 
             return totalPrice.ToString();
         }
@@ -44,63 +90,19 @@ namespace Hotell_Isaac_Blue
         private async void confirmBooking_Clicked(object sender, EventArgs e)
         {
             //Skapar ett nytt Booking object och anropar en Service som kallar på Stored Procedure sp_BookingsInsert
+            //ActiveBooking booking = ActiveBooking;
+
+            var path = "bookings/room/" + ActiveBooking.RoomID;
+
             Bookings booking = ActiveBooking.Booking;
 
-            var path = "bookings/";
+            var response = APIServices.Services.PostRequestAsync(path, booking);
 
-            var response = APIServices.Services.PostServiceAsync(path, booking);
+            //Kolla om det gick bra, isf töm ActiveBooking.Booking
+            //Får ingen info i responsen står fortfarande Waiting for results eller liknande
+            await DisplayAlert("Booking succesful!", "Show bookings", "OK");
 
-
-
-            //if (ActiveUser.Account.CustomersID != null)
-            //{
-            //    //hämta värden och sätt de i customers klassen, bokning görs.
-
-            //    var client = new HttpClient();
-
-            //    string findCustomer = Convert.ToString(ActiveUser.Account.CustomersID);
-
-            //    //Returnerar Status kod
-            //    var response = await client.GetAsync("https://hotellisaacbluewebapi.azurewebsites.net/api/customers/" + findCustomer + "/");
-
-
-            //    if (response.ToString().Contains("StatusCode: 200"))
-            //    {
-            //        //Returnerar json datan för det kontot
-            //        string result = await response.Content.ReadAsStringAsync();
-
-            //        //En lista med all aktuell data i json skriptet
-            //        List<string> wantedResults = Helpers.Helpers.ExtractData(result);
-
-            //        //Sätter den aktiva användaren till det konto som loggat in
-            //        ActiveCustomer.customer = new Customers
-            //        {
-            //            ID = Convert.ToInt64(wantedResults[0]),
-            //            SOCNUMBER = wantedResults[1],
-            //            FIRSTNAME = wantedResults[2],
-            //            LASTNAME = wantedResults[3],
-            //            EMAIL = wantedResults[4],
-            //            STREETADRESS = wantedResults[5],
-            //            CITY = wantedResults[6],
-            //            COUNTRY = wantedResults[7],
-            //            ICE = wantedResults[8],
-            //            CUSTOMERTYPESID = short.Parse(wantedResults[9]),
-            //        };
-
-            //        await Navigation.PushAsync(new GuestMainPage());
-            //    }
-            //}
-            //else
-            //{
-            //    await Navigation.PushAsync(new CustomerRegistrationPage());
-            //}
-            ////await DisplayAlert("Alert", "Successfully", "OK");
-
-        }
-
-        private void GetInfo_Clicked(object sender, EventArgs e)
-        {
-
+            await Navigation.PushAsync(new GuestBookingMainPage());
         }
     }
 }
