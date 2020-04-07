@@ -12,29 +12,29 @@ namespace Hotell_Isaac_Blue
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GuestBookingThirdPage : ContentPage
     {
-        DateTime startDate = DateTime.MinValue;
-        DateTime endDate = DateTime.MinValue;
-        RoomTypes roomType = null;
-        Customers customerDetails = null;
+        DateTime StartDate = DateTime.MinValue;
+        DateTime EndDate = DateTime.MinValue;
+        RoomTypes RoomType = null;
+        Customers CustomerDetails = null;
 
         public GuestBookingThirdPage()
         {
             //FUUUUUUUUL KOOOOOOOOOD!!!!!!!
             InitializeComponent();
 
-            startDate = ActiveBooking.Booking.STARTDATE;
-            endDate = ActiveBooking.Booking.ENDDATE.Date;
+            StartDate = ActiveBooking.Booking.STARTDATE;
+            EndDate = ActiveBooking.Booking.ENDDATE.Date;
 
             GetCustomer(ActiveUser.Account.CustomersID.ToString());
             GetRoomType(ActiveBooking.RoomID);
 
-            ReviewNameLabel.Text = $"{customerDetails.FIRSTNAME} {customerDetails.LASTNAME}";
-            ReviewEmailLabel.Text = customerDetails.EMAIL;
+            ReviewNameLabel.Text = $"{CustomerDetails.FIRSTNAME} {CustomerDetails.LASTNAME}";
+            ReviewEmailLabel.Text = CustomerDetails.EMAIL;
             ReviewStartDateLabel.Text = ActiveBooking.Booking.STARTDATE.ToString();
             ReviewEndDateLabel.Text = ActiveBooking.Booking.ENDDATE.ToString();
-            ReviewTotalDays.Text = Helpers.Helpers.CalculateTotalDays(startDate, endDate).ToString();
-            ReviewRoomType.Text = roomType.NAME;
-            ReviewPrice.Text = roomType.COST.ToString();
+            ReviewTotalDays.Text = Helpers.Helpers.CalculateTotalDays(StartDate, EndDate).ToString();
+            ReviewRoomType.Text = RoomType.NAME;
+            ReviewPrice.Text = RoomType.COST.ToString();
             ReviewExtraBed.Text = ActiveBooking.Booking.EXTRABED.ToString();
             ReviewBreakfast.Text = ActiveBooking.Booking.BREAKFAST.ToString();
 
@@ -52,7 +52,7 @@ namespace Hotell_Isaac_Blue
 
             var activeCustomer = JsonConvert.DeserializeObject<Customers>(result);
 
-            customerDetails = activeCustomer;
+            CustomerDetails = activeCustomer;
         }
 
         private async void GetRoomType(int roomID)
@@ -71,14 +71,14 @@ namespace Hotell_Isaac_Blue
             response = APIServices.Services.GetRequest(path, source);
             result = await response.Content.ReadAsStringAsync();
 
-            roomType = JsonConvert.DeserializeObject<RoomTypes>(result);
+            RoomType = JsonConvert.DeserializeObject<RoomTypes>(result);
         }
 
         private string GetTotalPrice()
         {
-            int totalDays = Helpers.Helpers.CalculateTotalDays(startDate, endDate);
+            int totalDays = Helpers.Helpers.CalculateTotalDays(StartDate, EndDate);
 
-            decimal? totalPrice = roomType.COST * totalDays;
+            decimal? totalPrice = RoomType.COST * totalDays;
             if (ActiveBooking.Booking.BREAKFAST == true)
                 totalPrice += 80 * totalDays;
             if (ActiveBooking.Booking.EXTRABED == true)
