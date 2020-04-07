@@ -18,7 +18,7 @@ namespace Hotell_Isaac_Blue
         {
             InitializeComponent();
             GetBookings();
-            if(ActiveBooking.Booking.ID != null)
+            if (ActiveBooking.Booking.ID != null && ActiveBooking.Booking.ID != null)
             {
                 BookingDetails();
             }
