@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Hotell_Isaac_Blue.GuestPages.Parking.Views.ParkingFirstPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <StackLayout>
+                <Label Text="Park your car and walk"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                       TextColor="Black" FontAttributes="Bold"
+                       FontSize="25"/>
+                <Image Source="parking"
+                       Margin="15"/>
+            </StackLayout>
+            <StackLayout>
+
+                <Label Text="Our environment feels amazing and we want you to enjoy as much as you can. Park your car at our parking and enjoy walking around! We will take care of your car while you are staying with us. Wash, polish included in price. We will also clean up your car inside. Thx for choosing interest in our hotel services. Have a nice day!"
+                   Margin="15,0,15,0"
+                   FontAttributes="Italic"
+                   FontSize="12"
+                   TextColor="Black"/>
+                <StackLayout>
+
+                    <Label Text="Only 80 sek each day!"
+                       HorizontalOptions="Center"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       Margin="0,30,0,0"
+                       />
+                    <Entry x:Name="BookingParkEntry" Placeholder="Enter Booking Nr" 
+                        HorizontalOptions="Center"
+                        Margin=" 0,0,0,0"
+                        TextColor="Black"/>
+                    <Button Text="Add ParkingSpot" x:Name="Parkingspot"                          
+                        BackgroundColor="Gray"
+                        Margin="80,0,80,0"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                            Clicked="Parkingspot_Clicked"/>
+
+                </StackLayout>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
