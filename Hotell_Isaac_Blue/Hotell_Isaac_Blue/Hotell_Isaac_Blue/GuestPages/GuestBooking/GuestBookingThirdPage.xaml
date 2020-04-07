@@ -56,7 +56,7 @@
                                Grid.Column="0" Grid.Row="3"/>
                             <Label Text="Total Days:"
                                    Grid.Column="0" Grid.Row="4"/>
-
+                            
 
                             <Label Text="Roomtype:" 
                                Grid.Column="0" Grid.Row="6"/>
@@ -69,7 +69,10 @@
                             <Label Text="Breakfast"
                                    Grid.Column="0" Grid.Row="9"
                                    Margin="15,0"/>
-
+                            <Label Text="Parking:"
+                                   Grid.Column="0"
+                                   Grid.Row="10"
+                                   Margin="15,0"/>
 
                             <Label Text="Total Cost:" 
                                Grid.Column="0" Grid.Row="12"
@@ -106,7 +109,10 @@
                             <Label x:Name="ReviewBreakfast"
                                 Text="Not chosen"
                                    Grid.Column="1" Grid.Row="9"/>
-
+                            <Label x:Name="ReviewParking"
+                                Text="Not chosen"
+                                   Grid.Column="1" Grid.Row="10"/>
+                            
                             <Label x:Name="ReviewTotalCostLabel"
                                    FontSize="20"
                                    FontAttributes="Bold"

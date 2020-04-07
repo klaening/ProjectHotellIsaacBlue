@@ -1,39 +1,37 @@
-﻿
+﻿using Hotell_Isaac_Blue.Tables;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Net.Http;
-using Hotell_Isaac_Blue.Tables;
-using System.Diagnostics;
 
-namespace Hotell_Isaac_Blue.GuestPages.BreakFast.Views
+namespace Hotell_Isaac_Blue.GuestPages.Parking.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class BreakfastFirstPage : ContentPage
+    public partial class ParkingFirstPage : ContentPage
     {
-       
-        public BreakfastFirstPage()
-        {           
+        public ParkingFirstPage()
+        {
             InitializeComponent();
-            
         }
 
-        public async void Button_Clicked(object sender, EventArgs e)
+        private async void Parkingspot_Clicked(object sender, EventArgs e)
         {
             try
             {
-                string key = BookingEntry.Text;
+                string key = BookingParkEntry.Text;
                 string path = "bookings/";
 
                 var response = APIServices.Services.GetRequest(path, key);
                 string result = await response.Content.ReadAsStringAsync();
+
                 ActiveBooking.Booking = JsonConvert.DeserializeObject<Bookings>(result);
-                await Navigation.PushAsync(new BreakfastSecondPage());
+
+                await Navigation.PushAsync(new ParkingSecondPage());
             }
             catch (Exception)
             {
@@ -42,6 +40,5 @@ namespace Hotell_Isaac_Blue.GuestPages.BreakFast.Views
             }
             
         }
- 
     }
 }

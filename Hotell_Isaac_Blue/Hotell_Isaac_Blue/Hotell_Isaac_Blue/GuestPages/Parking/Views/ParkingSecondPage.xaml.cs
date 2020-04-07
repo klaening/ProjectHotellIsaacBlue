@@ -1,34 +1,38 @@
-﻿using Hotell_Isaac_Blue.Tables;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Hotell_Isaac_Blue.Tables;
 using Newtonsoft.Json;
-using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Hotell_Isaac_Blue.GuestPages.BreakFast.Views
+namespace Hotell_Isaac_Blue.GuestPages.Parking.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class BreakfastSecondPage : ContentPage
+    public partial class ParkingSecondPage : ContentPage
     {
-        public BreakfastSecondPage()
+        public ParkingSecondPage()
         {
             InitializeComponent();
             labelStartDateReview.Text = ActiveBooking.Booking.STARTDATE.ToString();
             labelEndDateReview.Text = ActiveBooking.Booking.ENDDATE.ToString();
             labelBookingNoReview.Text = ActiveBooking.Booking.ID.ToString();
-            if (ActiveBooking.Booking.BREAKFAST == false)
+            if (ActiveBooking.Booking.PARKING == false)
             {
-                BookBreakfast.Text = "Book!";
+                BookParking.Text = "Book!";
+                ConfirmParking.Text = "Want to add parking to your booking?";
             }
             else
             {
-                BookBreakfast.Text = "UnBook!";
+                BookParking.Text = "UnBook!";
+                ConfirmParking.Text = "Want to remove your parking booking?";
             }
         }
 
-
-        private async void BookBreakfast_Clicked(object sender, EventArgs e)
+        private async void BookParking_Clicked(object sender, EventArgs e)
         {
-
             string key = ActiveBooking.Booking.ID.ToString();
             string path = "bookings/";
 
@@ -45,17 +49,17 @@ namespace Hotell_Isaac_Blue.GuestPages.BreakFast.Views
 
 
 
-                if (bookingActive.BREAKFAST == false)
+                if (bookingActive.PARKING == false)
                 {
-                    await DisplayAlert("BREAKFAST", "Added Breakfast", "ok");
-                    bookingActive.BREAKFAST = true;
+                    await DisplayAlert("PARKING", "Added Parking", "ok");
+                    bookingActive.PARKING = true;
                     await APIServices.Services.PutRequestAsync(path, bookingActive);
                     await Navigation.PushAsync(new GuestBookingThirdPage());
                 }
                 else
                 {
-                    await DisplayAlert("BREAKFAST", "UnBooked Breakfast", "ok");
-                    bookingActive.BREAKFAST = false;
+                    await DisplayAlert("PARKING", "UnBooked Parking", "ok");
+                    bookingActive.PARKING = false;
                     await APIServices.Services.PutRequestAsync(path, bookingActive);
                     await Navigation.PushAsync(new GuestBookingThirdPage());
                 }
@@ -65,7 +69,6 @@ namespace Hotell_Isaac_Blue.GuestPages.BreakFast.Views
             {
                 await DisplayAlert("Error!", "Invalid bookingNo", "ok");
             }
-
         }
     }
 }

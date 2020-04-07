@@ -23,7 +23,11 @@
             </StackLayout>
 
             <StackLayout>
-                
+                <Label Text="Confirm your breakfast booking."
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Margin="5"
+                       TextColor="Black"/>
                 <Frame BackgroundColor="LightBlue"
                        Margin="10"
                        HeightRequest="100">
@@ -39,37 +43,38 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-
-                        <Label Text="Name: "
+                    
+                        <Label Text="StartDate: "
                                TextColor="Black"
                                Grid.Row="0"/>
-                        <Label Text=""
-                               x:Name="labelNameReview"
+                        <Label Text="{Binding ActiveBooking.Booking.StartDate}"
+                               x:Name="labelStartDateReview"
                                TextColor="Black"
                                Grid.Row="0"
                                Grid.Column="1"/>
                         
-                        <Label Text="Email: "
+                        <Label Text="EndDate: "
                                TextColor="Black"
                                Grid.Row="1"/>
-                        <Label Text=""
-                               x:Name="labelEmailReview"
+                        <Label Text="{Binding ActiveBooking.Booking.EndDate}"
+                               x:Name="labelEndDateReview"
                                TextColor="Black"
-                               Grid.Row="0"
+                               Grid.Row="1"
                                Grid.Column="1"/>
 
                         <Label Text="BookingNo: "
                                TextColor="Black"
                                Grid.Row="2"/>
-                        <Label Text="{Binding bookingNo}"
+                        <Label Text="{Binding ActiveBooking.Booking.ID}"
                                x:Name="labelBookingNoReview"
                                TextColor="Black"
-                               Grid.Row="0"
+                               Grid.Row="2"
                                Grid.Column="1"/>
                         <Button Text="Book!"
                                 x:Name="BookBreakfast"
                                 Grid.Row="3"
                                 Grid.Column="1"
+                                WidthRequest="50"
                                 Margin="150,0,0,0"
                                 BackgroundColor="Gray"
                                 TextColor="White"

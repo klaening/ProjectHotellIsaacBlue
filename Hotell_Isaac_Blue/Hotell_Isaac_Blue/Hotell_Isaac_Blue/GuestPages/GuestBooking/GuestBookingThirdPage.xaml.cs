@@ -37,7 +37,7 @@ namespace Hotell_Isaac_Blue
             ReviewPrice.Text = roomType.COST.ToString();
             ReviewExtraBed.Text = ActiveBooking.Booking.EXTRABED.ToString();
             ReviewBreakfast.Text = ActiveBooking.Booking.BREAKFAST.ToString();
-
+            ReviewParking.Text = ActiveBooking.Booking.PARKING.ToString();
             ReviewTotalCostLabel.Text = GetTotalPrice();
         }
 
@@ -83,6 +83,9 @@ namespace Hotell_Isaac_Blue
                 totalPrice += 80 * totalDays;
             if (ActiveBooking.Booking.EXTRABED == true)
                 totalPrice += 100 * totalDays;
+            if(ActiveBooking.Booking.PARKING == true)
+                totalPrice += 80 * totalDays;
+            
 
             return totalPrice.ToString();
         }

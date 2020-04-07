@@ -47,7 +47,7 @@
                         HorizontalOptions="Center"
                         Margin=" 30,0,30,0"
                         TextColor="Black"/>
-                    <Button Text="Buy Breakfast"                          
+                    <Button Text="Add Breakfast"                          
                         BackgroundColor="Gray"
                         Margin="80,0,80,0"
                         TextColor="White"

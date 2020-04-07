@@ -34,6 +34,12 @@
     <EmbeddedResource Update="GuestPages\BreakFast\Views\BreakfastSecondPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="GuestPages\Parking\Views\ParkingFirstPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="GuestPages\Parking\Views\ParkingSecondPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Registration\CustomerRegistrationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -73,6 +79,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="GuestPages\BreakFast\Models\" />
     <Folder Include="GuestPages\BreakFast\ViewModels\" />
+    <Folder Include="GuestPages\Parking\Models\" />
+    <Folder Include="GuestPages\Parking\ViewModels\" />
   </ItemGroup>
 </Project>
