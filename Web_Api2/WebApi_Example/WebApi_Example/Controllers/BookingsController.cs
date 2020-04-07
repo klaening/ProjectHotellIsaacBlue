@@ -29,6 +29,12 @@ namespace WebApi_Example.Controllers
             return Ok(await _bookingService.GetBooking(id));
         }
 
+        [HttpGet("customer/{customerID}")]
+        public async Task<IActionResult> Get(long customerID)
+        {
+            return Ok(await _bookingService.GetCustomerBooking(customerID));
+        }
+
         [HttpPost("room/{roomID}")]
         public async Task<IActionResult> Add([FromBody] Bookings bookings, short roomID)
         {
