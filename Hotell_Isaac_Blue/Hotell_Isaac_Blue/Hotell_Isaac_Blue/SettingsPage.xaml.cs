@@ -46,29 +46,32 @@ namespace Hotell_Isaac_Blue
 
         private async void UpdateInfo_Clicked(object sender, EventArgs e)
         {
-            //Informationen uppdateras inte
             string path = "customers/";
-            string source = "4";
 
-            var response = APIServices.Services.GetRequest(path, source);
-
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            Customers customer = new Customers
             {
-                var result = await response.Content.ReadAsStringAsync();
-                Customers customer = JsonConvert.DeserializeObject<Customers>(result);
+                SOCNUMBER = socNrEntry.Text,
+                FIRSTNAME = firstNameEntry.Text,
+                LASTNAME = lastNameEntry.Text,
+                EMAIL = emailEntry.Text,
+                CITY = cityEntry.Text,
+                COUNTRY = countryEntry.Text,
+                STREETADRESS = streetAdressEntry.Text,
+                ICE = iceEntry.Text
+            };
 
-                customer.SOCNUMBER = socNrEntry.Text;
-                customer.FIRSTNAME = firstNameEntry.Text;
-                customer.LASTNAME = lastNameEntry.Text;
-                customer.EMAIL = emailEntry.Text;
-                customer.CITY = cityEntry.Text;
-                customer.COUNTRY = countryEntry.Text;
-                customer.STREETADRESS = streetAdressEntry.Text;
-                customer.ICE = iceEntry.Text;
-
+            if (ActiveUser.Account.CustomersID.HasValue)
+            {
                 await APIServices.Services.PutRequestAsync(path, customer);
 
-                await DisplayAlert("Updated!","Your information have been updated","Ok");
+                await DisplayAlert("Updated!", "Your information have been updated", "Ok");
+                await Navigation.PushAsync(new GuestMainPage());
+            }
+            else if (!ActiveUser.Account.CustomersID.HasValue)
+            {
+                await APIServices.Services.PostRequestAsync(path, customer);
+
+                await DisplayAlert("Created!", "Your information have been updated", "Ok");
                 await Navigation.PushAsync(new GuestMainPage());
             }
         }
