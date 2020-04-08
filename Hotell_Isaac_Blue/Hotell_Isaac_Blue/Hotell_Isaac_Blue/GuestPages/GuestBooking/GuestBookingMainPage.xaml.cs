@@ -30,27 +30,26 @@ namespace Hotell_Isaac_Blue
         {
             var path = "bookings/";
 
-            string[] source = new string[] { Convert.ToString(ActiveUser.Account.CustomersID) };
+            string source = Convert.ToString(ActiveUser.Account.CustomersID);
 
-            var response = Services.GetRequest(path, source[0]);
+            var response = Services.GetRequest(path, source);
             string result = await response.Content.ReadAsStringAsync();
 
             var activeBooking = JsonConvert.DeserializeObject<Bookings>(result);
 
-            ActiveBooking.Booking = activeBooking;
             
             if (activeBooking.ID != null)
             {
-                BookingDetails();
+                BookingDetails(activeBooking);
             }
         }
 
         
-        public void BookingDetails()
+        public void BookingDetails(Bookings activeBooking)
         {
-            bookingNr.Text = Convert.ToString(ActiveBooking.Booking.ID);
-            startDate.Text = Convert.ToString(ActiveBooking.Booking.STARTDATE);
-            endDate.Text = Convert.ToString(ActiveBooking.Booking.ENDDATE);
+            bookingNr.Text = Convert.ToString(activeBooking.ID);
+            startDate.Text = Convert.ToString(activeBooking.STARTDATE);
+            endDate.Text = Convert.ToString(activeBooking.ENDDATE);
         }
 
         private void NewBooking_Clicked(object sender, EventArgs e)
