@@ -39,11 +39,11 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
-        public async Task<IEnumerable<short>> GetRoomID(long bookingID)
+        public async Task<IEnumerable<BookingsRooms>> GetRoomID(long bookingID)
         {
             using (var c = new SqlConnection(_connectionString))
             {
-                return await c.QueryAsync<short>("SELECT ROOMSID FROM BOOKINGSROOMS WHERE BOOKINGSID = @bookingID", new { bookingID });
+                return await c.QueryAsync<BookingsRooms>("SELECT * FROM BOOKINGSROOMS WHERE BOOKINGSID = @bookingID", new { bookingID });
             }
         }
 

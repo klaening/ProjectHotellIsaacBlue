@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebApi_Example_Domain.Models;
 
@@ -10,6 +11,7 @@ namespace WebApi_Example_Domain.Repository
         Task<IEnumerable<Bookings>> GetBookings();
         Task<Bookings> GetBooking(int id);
         Task<bool> UpdateBooking(Bookings bookings);
-        Task<IEnumerable<Bookings>> GetCustomerBooking(long customerID);
+        Task<IEnumerable<Bookings>> GetCustomerBookings(long customerID);
+        Task<IEnumerable<Bookings>> GetCustomerBookings(long customerID, DateTime dateToday);
     }
 }

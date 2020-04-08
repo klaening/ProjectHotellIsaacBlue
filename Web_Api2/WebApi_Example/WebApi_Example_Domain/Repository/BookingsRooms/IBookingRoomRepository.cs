@@ -9,6 +9,6 @@ namespace WebApi_Example_Domain.Repository
         Task<bool> AddBookingRoom(BookingsRooms bookingsRooms);
         Task<IEnumerable<BookingsRooms>> GetBookingRooms();
         Task<BookingsRooms> GetBookingRoom(int id);
-        Task<IEnumerable<short>> GetRoomID(long bookingID);
+        Task<IEnumerable<BookingsRooms>> GetRoomID(long bookingID);
     }
 }
