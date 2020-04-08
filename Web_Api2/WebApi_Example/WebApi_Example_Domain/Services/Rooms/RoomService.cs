@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebApi_Example_Domain.Models;
 using WebApi_Example_Domain.Repository;
@@ -31,6 +32,11 @@ namespace WebApi_Example_Domain.Services
             var roomType = await _roomTypeRepository.GetRoomType(roomTypeName);
 
             return await _roomRepository.GetRooms(roomType.ID);        
+        }
+
+        public async Task<IEnumerable<Rooms>> GetAvailableRooms(DateTime startDate, DateTime endDate, short roomType)
+        {
+            return await _roomRepository.GetAvailableRooms(startDate, endDate, roomType);
         }
     }
 }
