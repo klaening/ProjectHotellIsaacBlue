@@ -25,12 +25,12 @@ namespace Hotell_Isaac_Blue
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(20) });
             grid.RowDefinitions.Add(new RowDefinition());
 
-            grid.Children.Add(new Label { Text = "Booking Nr:" }, 0, 0);
-            grid.Children.Add(new Label { Text = "Start Date:" }, 1, 0);
-            grid.Children.Add(new Label { Text = "End Date: " }, 2, 0);
+            grid.Children.Add(new Label { Text = "Booking Nr:", FontAttributes = FontAttributes.Bold }, 0, 0);
+            grid.Children.Add(new Label { Text = "Start Date:", FontAttributes = FontAttributes.Bold }, 1, 0);
+            grid.Children.Add(new Label { Text = "End Date:", FontAttributes = FontAttributes.Bold }, 2, 0);
             grid.Children.Add(new Label { Text = booking.ID.ToString() }, 0, 1);
-            grid.Children.Add(new Label { Text = booking.STARTDATE.ToString("dd/MM/yyyy") }, 1, 1);
-            grid.Children.Add(new Label { Text = booking.ENDDATE.ToString("dd/MM/yyyy") }, 2, 1);
+            grid.Children.Add(new Label { Text = booking.STARTDATE.ToString("dddd d/MM/yyyy") }, 1, 1);
+            grid.Children.Add(new Label { Text = booking.ENDDATE.ToString("dddd d/MM/yyyy") }, 2, 1);
 
             StackLayout frameStack = new StackLayout();
             frameStack.Children.Add(grid);

@@ -52,7 +52,6 @@ namespace Hotell_Isaac_Blue
             {
                 await DisplayAlert("Error", "No such rooms are available for these dates", "OK");
             }
-
         }
 
         private async Task GetRoomNo()
@@ -68,11 +67,9 @@ namespace Hotell_Isaac_Blue
 
             var roomType = JsonConvert.DeserializeObject<RoomTypes>(result);
 
-            var start = startDate.GetDateTimeFormats();
-
             //Nu vill jag göra en get med rumstypnumret och två datum.
             path = $"rooms/roomtype/{roomType.ID}/";
-            source = "start=" + startDate.ToString("dd/MM/yyyy") + "/end=" + endDate.ToString("dd/MM/yyyy");
+            source = "start=" + startDate.ToString("yyyy-MM-dd") + "/end=" + endDate.ToString("yyyy-MM-dd");
 
             response = APIServices.Services.GetRequest(path, source);
             result = await response.Content.ReadAsStringAsync();
