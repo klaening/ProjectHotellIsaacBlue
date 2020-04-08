@@ -21,6 +21,8 @@ namespace Hotell_Isaac_Blue
             InitializeComponent();
             if (ActiveUser.Account.CustomersID != null)
                 RegisterBtn.Text = "Update information";
+            else
+                RegisterBtn.Text = "Register";
             SetCustomerInfo();
         }
         private async void SetCustomerInfo()
