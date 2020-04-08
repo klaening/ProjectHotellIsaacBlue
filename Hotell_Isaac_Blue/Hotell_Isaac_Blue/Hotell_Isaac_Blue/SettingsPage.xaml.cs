@@ -46,22 +46,23 @@ namespace Hotell_Isaac_Blue
 
         private async void UpdateInfo_Clicked(object sender, EventArgs e)
         {
-            string path = "customers/";
-
-            Customers customer = new Customers
-            {
-                SOCNUMBER = socNrEntry.Text,
-                FIRSTNAME = firstNameEntry.Text,
-                LASTNAME = lastNameEntry.Text,
-                EMAIL = emailEntry.Text,
-                CITY = cityEntry.Text,
-                COUNTRY = countryEntry.Text,
-                STREETADRESS = streetAdressEntry.Text,
-                ICE = iceEntry.Text
-            };
-
+            
             if (ActiveUser.Account.CustomersID.HasValue)
             {
+                string path = "customers/";
+
+                Customers customer = new Customers
+                {
+                    SOCNUMBER = socNrEntry.Text,
+                    FIRSTNAME = firstNameEntry.Text,
+                    LASTNAME = lastNameEntry.Text,
+                    EMAIL = emailEntry.Text,
+                    CITY = cityEntry.Text,
+                    COUNTRY = countryEntry.Text,
+                    STREETADRESS = streetAdressEntry.Text,
+                    ICE = iceEntry.Text
+                };
+
                 await APIServices.Services.PutRequestAsync(path, customer);
 
                 await DisplayAlert("Updated!", "Your information have been updated", "Ok");
@@ -69,6 +70,20 @@ namespace Hotell_Isaac_Blue
             }
             else if (!ActiveUser.Account.CustomersID.HasValue)
             {
+                string path = "customers/";
+
+                Customers customer = new Customers
+                {
+                    SOCNUMBER = socNrEntry.Text,
+                    FIRSTNAME = firstNameEntry.Text,
+                    LASTNAME = lastNameEntry.Text,
+                    EMAIL = emailEntry.Text,
+                    CITY = cityEntry.Text,
+                    COUNTRY = countryEntry.Text,
+                    STREETADRESS = streetAdressEntry.Text,
+                    ICE = iceEntry.Text
+                };
+
                 await APIServices.Services.PostRequestAsync(path, customer);
 
                 await DisplayAlert("Created!", "Your information have been updated", "Ok");
