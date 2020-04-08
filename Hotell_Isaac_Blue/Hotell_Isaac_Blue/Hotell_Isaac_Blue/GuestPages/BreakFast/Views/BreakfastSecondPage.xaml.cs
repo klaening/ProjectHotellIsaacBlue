@@ -40,26 +40,21 @@ namespace Hotell_Isaac_Blue.GuestPages.BreakFast.Views
                 ActiveBooking.Booking = JsonConvert.DeserializeObject<Bookings>(result);
                 ActiveBooking.RoomID = 1; // SKALL TAS BORT NÄR MICKE FIXAT
                 await DisplayAlert("GLÖM EJ", "Ta bort ROOMID på BreakfastsecondPage!", "jaja ok");
-                var bookingActive = ActiveBooking.Booking;
 
 
-
-
-                if (bookingActive.BREAKFAST == false)
+                if (ActiveBooking.Booking.BREAKFAST == false)
                 {
+                    ActiveBooking.Booking.BREAKFAST = true;
                     await DisplayAlert("BREAKFAST", "Added Breakfast", "ok");
-                    bookingActive.BREAKFAST = true;
-                    await APIServices.Services.PutRequestAsync(path, bookingActive);
                     await Navigation.PushAsync(new GuestBookingThirdPage());
                 }
                 else
                 {
                     await DisplayAlert("BREAKFAST", "UnBooked Breakfast", "ok");
-                    bookingActive.BREAKFAST = false;
-                    await APIServices.Services.PutRequestAsync(path, bookingActive);
+                    ActiveBooking.Booking.BREAKFAST = false;
                     await Navigation.PushAsync(new GuestBookingThirdPage());
                 }
-
+                await APIServices.Services.PutRequestAsync(path, ActiveBooking.Booking);
             }
             else
             {

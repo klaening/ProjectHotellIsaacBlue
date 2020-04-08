@@ -33,37 +33,31 @@ namespace Hotell_Isaac_Blue.GuestPages.Parking.Views
 
         private async void BookParking_Clicked(object sender, EventArgs e)
         {
-            string key = ActiveBooking.Booking.ID.ToString();
-            string path = "bookings/";
 
+            string key = ActiveBooking.Booking.ID.ToString();           
+            string path = "bookings/";
             var response = APIServices.Services.GetRequest(path, key);
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 string result = await response.Content.ReadAsStringAsync();
                 ActiveBooking.Booking = JsonConvert.DeserializeObject<Bookings>(result);
-                ActiveBooking.RoomID = 1; // SKALL TAS BORT NÄR MICKE FIXAT
                 await DisplayAlert("GLÖM EJ", "Ta bort ROOMID på BreakfastsecondPage!", "jaja ok");
-                var bookingActive = ActiveBooking.Booking;
 
 
-
-
-                if (bookingActive.PARKING == false)
+                if (ActiveBooking.Booking.PARKING == false)
                 {
                     await DisplayAlert("PARKING", "Added Parking", "ok");
-                    bookingActive.PARKING = true;
-                    await APIServices.Services.PutRequestAsync(path, bookingActive);
+                    ActiveBooking.Booking.PARKING = true;                    
                     await Navigation.PushAsync(new GuestBookingThirdPage());
                 }
                 else
                 {
                     await DisplayAlert("PARKING", "UnBooked Parking", "ok");
-                    bookingActive.PARKING = false;
-                    await APIServices.Services.PutRequestAsync(path, bookingActive);
+                    ActiveBooking.Booking.PARKING = false;
                     await Navigation.PushAsync(new GuestBookingThirdPage());
                 }
-
+                await APIServices.Services.PutRequestAsync(path, ActiveBooking.Booking);
             }
             else
             {
