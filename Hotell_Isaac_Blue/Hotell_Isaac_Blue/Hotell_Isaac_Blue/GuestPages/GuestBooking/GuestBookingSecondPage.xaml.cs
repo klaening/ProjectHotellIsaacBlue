@@ -68,13 +68,11 @@ namespace Hotell_Isaac_Blue
 
             var roomType = JsonConvert.DeserializeObject<RoomTypes>(result);
 
-
-            string[] startDateFormat = startDate.GetDateTimeFormats();
-            string[] endDateFormat = endDate.GetDateTimeFormats();
+            var start = startDate.GetDateTimeFormats();
 
             //Nu vill jag göra en get med rumstypnumret och två datum.
             path = $"rooms/roomtype/{roomType.ID}/";
-            source = "start=" + startDateFormat[5] + "/end=" + endDateFormat[5];
+            source = "start=" + startDate.ToString("dd/MM/yyyy") + "/end=" + endDate.ToString("dd/MM/yyyy");
 
             response = APIServices.Services.GetRequest(path, source);
             result = await response.Content.ReadAsStringAsync();

@@ -13,16 +13,42 @@ namespace Hotell_Isaac_Blue.Helpers
         public static async void UpdateAccountInfo(this Accounts account)
         {
             string path = "accounts/";
-
             string source = account.ID.ToString();
+
             var response = APIServices.Services.GetRequest(path, source);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                //Returnerar json data för det kontot
                 string result = await response.Content.ReadAsStringAsync();
-                var activeUser = JsonConvert.DeserializeObject<Accounts>(result);
-                ActiveUser.Account = activeUser;
+                ActiveUser.Account = JsonConvert.DeserializeObject<Accounts>(result);
+            }
+        }
+
+        public static async void UpdateBookingInfo(this Bookings booking, long bookingNo)
+        {
+            string path = "bookings/";
+            string source = bookingNo.ToString();
+
+            var response = APIServices.Services.GetRequest(path, source);
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                string result = await response.Content.ReadAsStringAsync();
+                ActiveBooking.Booking = JsonConvert.DeserializeObject<Bookings>(result);
+            }
+
+
+
+            path = "bookingsrooms/booking/";
+            source = bookingNo.ToString();
+
+            response = APIServices.Services.GetRequest(path, source);
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                string result = await response.Content.ReadAsStringAsync();
+                var bookingsRooms = JsonConvert.DeserializeObject<List<BookingsRooms>>(result);
+                ActiveBooking.RoomID = bookingsRooms[0].RoomsID;
             }
         }
     }
