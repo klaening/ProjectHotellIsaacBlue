@@ -17,10 +17,9 @@ namespace Hotell_Isaac_Blue
         public GuestBookingMainPage()
         {
             InitializeComponent();
-            GetBookings();
-            if (ActiveBooking.Booking.ID != null && ActiveBooking.Booking.ID != null)
+            if(ActiveUser.Account.CustomersID != null)
             {
-                BookingDetails();
+                GetBookings();
             }
             
         }
@@ -39,6 +38,11 @@ namespace Hotell_Isaac_Blue
             var activeBooking = JsonConvert.DeserializeObject<Bookings>(result);
 
             ActiveBooking.Booking = activeBooking;
+            
+            if (activeBooking.ID != null)
+            {
+                BookingDetails();
+            }
         }
 
         

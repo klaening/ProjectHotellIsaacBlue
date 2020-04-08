@@ -7,7 +7,8 @@
              x:Class="Hotell_Isaac_Blue.CustomerRegistrationPage"
              BackgroundColor="#026672">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
+            <StackLayout>
             <Label Text="Enter your information below:"
                    Style="{StaticResource pLabel}"
                    FontSize="20"
@@ -52,5 +53,6 @@
                 HorizontalOptions="Center"
                 WidthRequest="150"/>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
