@@ -28,7 +28,9 @@
                        Grid.Column="0" Grid.Row="1"
                        Margin="25,0"
                        VerticalTextAlignment="Start">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim arcu id laoreet euismod. Nam metus nisi, elementum quis velit sed, luctus pharetra nunc. Vestibulum fringilla aliquet nisl id congue. Aenean ultricies lacus eget mattis placerat. Aliquam quis arcu risus. Nullam in diam mollis dui porttitor ornare ac sed orci.
+                    Every bedroom at Hotel Isaac has been designed to give guests a relaxed yet memorable stay.
+Our rooms breathe uniqueness, style, comfort and everything else. Watch free movies from our XL king-size, super comfy beds after washing off the jet lag in the amazing rain shower.
+Hotel Isaac is the ideal choice for any traveller, whether you're on a bussiness trip, or exploring the famous landmarks.
                 </Label>
                 <Label Text="Your bookings:"
                        Style="{StaticResource pLabel}"
