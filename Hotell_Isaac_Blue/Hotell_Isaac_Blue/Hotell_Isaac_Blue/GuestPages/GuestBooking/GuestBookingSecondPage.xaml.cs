@@ -34,35 +34,31 @@ namespace Hotell_Isaac_Blue
 
         private async void Result_Btn_Clicked(object sender, EventArgs e)
         {
-            if (ActiveUser.Account.CustomersID == null)
-                await Navigation.PushAsync(new CustomerRegistrationPage());
-            else
+            pickedRoomType = (string)RoomType_Picker.SelectedItem;
+            guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
+            extraBed = Bed_Switch.IsToggled;
+            breakfast = Breakfast_Switch.IsToggled;
+
+            ActiveBooking.Booking = new Bookings
             {
-                pickedRoomType = (string)RoomType_Picker.SelectedItem;
-                guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
-                extraBed = Bed_Switch.IsToggled;
-                breakfast = Breakfast_Switch.IsToggled;
+                QTYPERSONS = guestQty,
+                STARTDATE = startDate,
+                ENDDATE = endDate,
+                EXTRABED = extraBed,
+                BREAKFAST = breakfast,
+                CUSTOMERSID = ActiveUser.Account.CustomersID
+            };
 
-                ActiveBooking.Booking = new Bookings
-                {
-                    QTYPERSONS = guestQty,
-                    STARTDATE = startDate,
-                    ENDDATE = endDate,
-                    EXTRABED = extraBed,
-                    BREAKFAST = breakfast,
-                    CUSTOMERSID = ActiveUser.Account.CustomersID
-                };
-
-                try
-                {
-                    await GetRoomNo();
-                    await Navigation.PushAsync(new GuestBookingThirdPage());
-                }
-                catch (Exception)
-                {
-                    await DisplayAlert("Error", "No such rooms are available for these dates", "OK");
-                }
+            try
+            {
+                await GetRoomNo();
+                await Navigation.PushAsync(new GuestBookingThirdPage());
             }
+            catch (Exception)
+            {
+                await DisplayAlert("Error", "No such rooms are available for these dates", "OK");
+            }
+
         }
 
         private async Task GetRoomNo()

@@ -27,9 +27,7 @@ namespace Hotell_Isaac_Blue.APIServices
         {
             var client = new HttpClient();
 
-            //Returnerar Status kod
             var response = client.GetAsync(HOST + path + source);
-
             var statusCode = response.Result;
 
             return statusCode;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hotell_Isaac_Blue.Helpers;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -41,6 +42,14 @@ namespace Hotell_Isaac_Blue
             string path = "customers/account/" + ActiveUser.Account.ID;
 
             await APIServices.Services.PostRequestAsync(path, customer);
+
+            Update.UpdateAccountInfo(ActiveUser.Account);
+
+            var vUpdatedPage = new GuestBookingThirdPage();
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            Navigation.InsertPageBefore(vUpdatedPage, this);
+
+            await Navigation.PopAsync();
         }
     }
 }
