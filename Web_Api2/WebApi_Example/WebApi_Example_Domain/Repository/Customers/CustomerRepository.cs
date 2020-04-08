@@ -55,5 +55,23 @@ namespace WebApi_Example_Domain.Repository
 
             }
         }
+
+        public async Task<bool> UpdateCustomer(Customers customer)
+        {
+            using (var c = new SqlConnection(_connectionString))
+            {
+                try
+                {
+                    await c.ExecuteAsync("UPDATE CUSTOMERS SET SOCNUMBER = @socNumber, FIRSTNAME = @firstName, LASTNAME = @lastName, EMAIL = @email, STREETADRESS = @streetAdress, CITY = @city, COUNTRY = @country, ICE = @ice, CUSTOMERTYPESID = @customerTypesID WHERE ID = @id",
+                        new { customer.SOCNUMBER, customer.FIRSTNAME, customer.LASTNAME, customer.EMAIL, customer.STREETADRESS, customer.CITY, customer.COUNTRY, customer.ICE, customer.CUSTOMERTYPESID, customer.ID });
+
+                    return true;
+                }
+                catch (System.Exception)
+                {
+                    return false;                
+                }
+            }
+        }
     }
 }

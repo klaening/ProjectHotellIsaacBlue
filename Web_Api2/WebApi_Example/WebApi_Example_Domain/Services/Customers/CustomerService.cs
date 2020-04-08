@@ -36,5 +36,10 @@ namespace WebApi_Example_Domain.Services
 
             return true;
         }
+
+        public async Task<bool> UpdateCustomer(Customers customer)
+        {
+            return await _customerRepository.UpdateCustomer(customer);
+        }
     }
 }
