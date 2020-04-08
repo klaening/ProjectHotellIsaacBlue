@@ -33,5 +33,11 @@ namespace WebApi_Example.Controllers
         {
             return Ok(await _customerService.AddCustomer(customer, accountID));
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] Customers customer)
+        {
+            return Ok(await _customerService.UpdateCustomer(customer));
+        }
     }
 }

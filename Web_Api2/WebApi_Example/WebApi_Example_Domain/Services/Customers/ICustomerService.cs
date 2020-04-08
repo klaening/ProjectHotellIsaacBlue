@@ -9,5 +9,6 @@ namespace WebApi_Example_Domain.Services
         Task<bool> AddCustomer(Customers customer, int accountID);
         Task<IEnumerable<Customers>> GetCustomers();
         Task<Customers> GetCustomer(int id);
+        Task<bool> UpdateCustomer(Customers customer);
     }
 }
