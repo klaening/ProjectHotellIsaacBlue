@@ -87,5 +87,10 @@ namespace Hotell_Isaac_Blue
         {
             MyProfileFrame.IsVisible = false;
         }
+
+        private void SettingsBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new CustomerRegistrationPage());
+        }
     }
 }

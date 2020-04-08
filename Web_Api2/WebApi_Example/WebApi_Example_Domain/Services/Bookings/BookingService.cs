@@ -33,5 +33,10 @@ namespace WebApi_Example_Domain.Services
         {
             return await _bookingRepository.UpdateBooking(bookings);
         }
+
+        public async Task<IEnumerable<Bookings>> GetCustomerBooking(long customerID)
+        {
+            return await _bookingRepository.GetCustomerBooking(customerID);
+        }
     }
 }

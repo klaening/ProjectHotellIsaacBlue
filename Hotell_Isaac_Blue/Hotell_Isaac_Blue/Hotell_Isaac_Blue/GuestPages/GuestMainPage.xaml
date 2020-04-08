@@ -222,7 +222,7 @@
                                     Grid.Column="1"
                                     HorizontalOptions="Start"
                                     HeightRequest="40"
-                                    Clicked="LogOutBtn_Clicked"
+                                    Clicked="SettingsBtn_Clicked"
                                     BackgroundColor="Transparent"/>
                                 <Image Source="logout.png"
                                        Scale=".4"

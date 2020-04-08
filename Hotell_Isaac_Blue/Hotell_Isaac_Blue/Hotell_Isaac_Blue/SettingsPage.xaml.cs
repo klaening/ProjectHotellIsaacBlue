@@ -12,25 +12,23 @@ using Xamarin.Forms.Xaml;
 namespace Hotell_Isaac_Blue
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CustomerRegistrationPage : ContentPage
+    public partial class SettingsPage : ContentPage
     {
         Customers customer;
+        string path = "customers/";
 
-        public CustomerRegistrationPage()
+        public SettingsPage()
         {
             InitializeComponent();
-            if (ActiveUser.Account.CustomersID != null)
-                RegisterBtn.Text = "Update information";
-            else
-                RegisterBtn.Text = "Register";
             SetCustomerInfo();
         }
+
         private async void SetCustomerInfo()
-        {
-            //Kolla över denna lösning på if. HasValue kan medföra problem
-            if (ActiveUser.Account.CustomersID != null)
+        {    
+
+            //Kolla över denna lösning på if. Has value kan medföra problem
+            if (ActiveUser.Account.CustomersID.HasValue)
             {
-                string path = "customers/";
                 string source = ActiveUser.Account.CustomersID.ToString();
 
                 var response = APIServices.Services.GetRequest(path, source);
@@ -46,13 +44,14 @@ namespace Hotell_Isaac_Blue
                 countryEntry.Text = customer.COUNTRY;
                 streetAdressEntry.Text = customer.STREETADRESS;
                 iceEntry.Text = customer.ICE;
-            }
+            }     
         }
-        private async void RegisterBtn_Clicked(object sender, EventArgs e)
+
+        private async void UpdateInfo_Clicked(object sender, EventArgs e)
         {
-            if (ActiveUser.Account.CustomersID != null)
+            
+            if (ActiveUser.Account.CustomersID.HasValue)
             {
-                string path = "customers/";
 
                 customer.SOCNUMBER = socNrEntry.Text;
                 customer.FIRSTNAME = firstNameEntry.Text;
@@ -65,33 +64,32 @@ namespace Hotell_Isaac_Blue
 
                 await APIServices.Services.PutRequestAsync(path, customer);
 
-                await DisplayAlert("Updated!", "Your information have been updated.", "Ok");                
+                await DisplayAlert("Updated!", "Your information have been updated.", "Ok");
+                await Navigation.PushAsync(new GuestMainPage());
             }
-            else if (ActiveUser.Account.CustomersID == null)
+            else if (!ActiveUser.Account.CustomersID.HasValue)
             {
-                Customers customer = new Customers()
+
+                string path = "customers/account/" + ActiveUser.Account.ID;
+
+                Customers customer = new Customers
                 {
                     SOCNUMBER = socNrEntry.Text,
                     FIRSTNAME = firstNameEntry.Text,
                     LASTNAME = lastNameEntry.Text,
                     EMAIL = emailEntry.Text,
-                    STREETADRESS = streetAdressEntry.Text,
                     CITY = cityEntry.Text,
                     COUNTRY = countryEntry.Text,
+                    STREETADRESS = streetAdressEntry.Text,
                     ICE = iceEntry.Text,
+                    CUSTOMERTYPESID = 1
                 };
-
-                //Default är 1
-                customer.CUSTOMERTYPESID = 1;
-
-                string path = "customers/account/" + ActiveUser.Account.ID;
-
+                    
                 await APIServices.Services.PostRequestAsync(path, customer);
 
                 await DisplayAlert("Saved!", "Your information have been saved.", "Ok");
+                await Navigation.PushAsync(new GuestMainPage());
             }
-
-            await Navigation.PopAsync();
         }
     }
 }
