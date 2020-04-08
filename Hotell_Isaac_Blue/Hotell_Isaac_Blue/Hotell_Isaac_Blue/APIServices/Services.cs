@@ -13,10 +13,10 @@ namespace Hotell_Isaac_Blue.APIServices
         public static async Task PostRequestAsync(string path, Object objectclass)
         {
             var client = new HttpClient();
-            var json = JsonConvert.SerializeObject(objectclass/*, new JsonSerializerSettings
+            var json = JsonConvert.SerializeObject(objectclass, new JsonSerializerSettings
             {
                 NullValueHandling = NullValueHandling.Ignore
-            }*/);
+            });
 
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
 

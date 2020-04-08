@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 using WebApi_Example_Domain.Models;
 using WebApi_Example_Domain.Services;
@@ -28,10 +29,16 @@ namespace WebApi_Example.Controllers
             return Ok(await _roomService.GetRoom(id));
         }
 
-        [HttpGet("roomType/{roomTypeName}")]
+        [HttpGet("roomtype/{roomTypeName}")]
         public async Task<IActionResult> Get(string roomTypeName)
         {
             return Ok(await _roomService.GetRooms(roomTypeName));
+        }
+
+        [HttpGet("roomtype/{roomType}/start={startDate}/end={endDate}")]
+        public async Task<IActionResult> Get(DateTime startDate, DateTime endDate, short roomType)
+        {
+            return Ok(await _roomService.GetAvailableRooms(startDate, endDate, roomType));
         }
     }
 }

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Hotell_Isaac_Blue.GuestPages.Parking.Views.ParkingSecondPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <StackLayout>
+                <Label Text="Park your car and walk"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                       TextColor="Black" FontAttributes="Bold"
+                       FontSize="25"/>
+                <Image Source="parking"
+                       Margin="15"/>
+            </StackLayout>
+            <StackLayout>
+                <Label x:Name="ConfirmParking" Text="Confirm your Parking."
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Margin="5"
+                       TextColor="Black"/>
+                <Label Text="Only 80 sek each day!"
+                       HorizontalOptions="Center"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       Margin="0,30,0,0"
+                       />
+                <Frame BackgroundColor="LightBlue"
+                       Margin="15"
+                       HeightRequest="100">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Label Text="StartDate: "
+                               TextColor="Black"
+                               Grid.Row="0"/>
+                        <Label Text="{Binding ActiveBooking.Booking.StartDate}"
+                               x:Name="labelStartDateReview"
+                               TextColor="Black"
+                               Grid.Row="0"
+                               Grid.Column="1"/>
+
+                        <Label Text="EndDate: "
+                               TextColor="Black"
+                               Grid.Row="1"/>
+                        <Label Text="{Binding ActiveBooking.Booking.EndDate}"
+                               x:Name="labelEndDateReview"
+                               TextColor="Black"
+                               Grid.Row="1"
+                               Grid.Column="1"/>
+
+                        <Label Text="BookingNo: "
+                               TextColor="Black"
+                               Grid.Row="2"/>
+                        <Label Text="{Binding ActiveBooking.Booking.ID}"
+                               x:Name="labelBookingNoReview"
+                               TextColor="Black"
+                               Grid.Row="2"
+                               Grid.Column="1"/>
+
+                        <Button Text="Book!"
+                                x:Name="BookParking"
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                WidthRequest="90"
+                                Margin="100,0,0,0"
+                                BackgroundColor="Gray"
+                                TextColor="White"
+                                CornerRadius="0"
+                                Clicked="BookParking_Clicked"/>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

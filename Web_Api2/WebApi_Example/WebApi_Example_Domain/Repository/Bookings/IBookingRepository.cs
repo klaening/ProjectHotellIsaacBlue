@@ -10,5 +10,6 @@ namespace WebApi_Example_Domain.Repository
         Task<IEnumerable<Bookings>> GetBookings();
         Task<Bookings> GetBooking(int id);
         Task<bool> UpdateBooking(Bookings bookings);
+        Task<IEnumerable<Bookings>> GetCustomerBooking(long customerID);
     }
 }

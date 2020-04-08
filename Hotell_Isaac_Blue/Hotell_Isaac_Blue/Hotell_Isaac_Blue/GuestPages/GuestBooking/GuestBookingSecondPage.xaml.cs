@@ -32,10 +32,10 @@ namespace Hotell_Isaac_Blue
             //RoomType = JsonConvert.DeserializeObject<RoomTypes>(result)
         }
 
-        private void Result_Btn_Clicked(object sender, EventArgs e)
+        private async void Result_Btn_Clicked(object sender, EventArgs e)
         {
             if (ActiveUser.Account.CustomersID == null)
-                Navigation.PushAsync(new CustomerRegistrationPage());
+                await Navigation.PushAsync(new CustomerRegistrationPage());
             else
             {
                 pickedRoomType = (string)RoomType_Picker.SelectedItem;
@@ -53,48 +53,56 @@ namespace Hotell_Isaac_Blue
                     CUSTOMERSID = ActiveUser.Account.CustomersID
                 };
 
-                GetRoomNo();
-
-                //Nånstans ska det göras en check på om det finns ett sådant rum ledigt de datumen
-
-                Navigation.PushAsync(new GuestBookingThirdPage());
+                try
+                {
+                    await GetRoomNo();
+                    await Navigation.PushAsync(new GuestBookingThirdPage());
+                }
+                catch (Exception)
+                {
+                    await DisplayAlert("Error", "No such rooms are available for these dates", "OK");
+                }
             }
         }
 
-        private async void GetRoomNo()
+        private async Task GetRoomNo()
         {
-            try
-            {
-                //Get från Rooms med RoomType namn för att få tag på id
-                string path = "rooms/roomtype/";
-                string source = pickedRoomType;
+            //Jag vill kolla vilka rum som är lediga mellan två datum med rumstypnummer det som gästen valt
 
-                var response = APIServices.Services.GetRequest(path, source);
-                var result = await response.Content.ReadAsStringAsync();
+            //Get för att få tag på rumstypsnummer
+            string path = "roomtypes/";
+            string source = pickedRoomType;
 
-                List<Rooms> rooms = JsonConvert.DeserializeObject<List<Rooms>>(result);
+            var response = APIServices.Services.GetRequest(path, source);
+            string result = await response.Content.ReadAsStringAsync();
 
-                //Randomizer som ska tas bort
-                short roomID = RandomRoom(rooms);
+            var roomType = JsonConvert.DeserializeObject<RoomTypes>(result);
 
-                ActiveBooking.RoomID = roomID;
 
-                //Get på bokningar för att se om dessa rum är möjliga att boka?
-            }
-            catch (Exception)
-            {   ///////////////////////////////////////////////
-                await DisplayAlert("Error", "No such rooms are available for these dates", "OK");
-                ///////////////////////////////////////////////
-            }
+            string[] startDateFormat = startDate.GetDateTimeFormats();
+            string[] endDateFormat = endDate.GetDateTimeFormats();
+
+            //Nu vill jag göra en get med rumstypnumret och två datum.
+            path = $"rooms/roomtype/{roomType.ID}/";
+            source = "start=" + startDateFormat[5] + "/end=" + endDateFormat[5];
+
+            response = APIServices.Services.GetRequest(path, source);
+            result = await response.Content.ReadAsStringAsync();
+
+            var availableRooms = JsonConvert.DeserializeObject<List<Rooms>>(result);
+
+            if (availableRooms.Count == 0)
+                throw new Exception();
+
+            ActiveBooking.RoomID = RandomRoom(availableRooms);
         }
 
-        //Ska tas bort
         private short RandomRoom(List<Rooms> rooms)
         {
             Random rnd = new Random();
 
             int max = rooms.Count;
-            int randomRoom = (short)rnd.Next(0, max);
+            int randomRoom = (short)rnd.Next(1, max);
 
             short roomID = rooms[randomRoom].ID;
 
@@ -149,7 +157,7 @@ namespace Hotell_Isaac_Blue
         {
             string[] dateSplit = longDate.Split(' ');
             string date = dateSplit[0].Remove(3) + ",";
-            
+
             if (dateSplit[1].Length > 3)
             {
                 dateSplit[1] = dateSplit[1].Remove(3);

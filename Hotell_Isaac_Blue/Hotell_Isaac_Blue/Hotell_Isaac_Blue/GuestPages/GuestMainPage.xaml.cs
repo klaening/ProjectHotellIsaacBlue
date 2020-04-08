@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Hotell_Isaac_Blue.GuestPages.BreakFast.Views;
+using Hotell_Isaac_Blue.GuestPages.Parking.Views;
 using Hotell_Isaac_Blue.Tables;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,12 +22,12 @@ namespace Hotell_Isaac_Blue
 
         private void ParkingFrame_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GuestParkingPage());
+            Navigation.PushAsync(new ParkingFirstPage());
         }
 
         private void BreakfastFrame_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GuestBreakfastPage());
+            Navigation.PushAsync(new BreakfastFirstPage());
         }
 
         private void InfoFrame_Tapped(object sender, EventArgs e)
@@ -51,12 +52,12 @@ namespace Hotell_Isaac_Blue
 
         private void BreakfastBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GuestBreakfastPage());
+            //Navigation.PushAsync(new GuestBreakfastPage());
         }
 
         private void ParkingBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GuestParkingPage());
+            //Navigation.PushAsync(new GuestParkingPage());
         }
 
         private void MyProfileBtn_Clicked(object sender, EventArgs e)
