@@ -45,7 +45,8 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="4"
                 Grid.Row="3"
-                Margin="20,0,0,20"/>
+                Margin="15,0,15,0"
+                VerticalOptions="Center"/>
 
                     <mymap:Map
                     Grid.Column="0"
@@ -59,7 +60,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="50"/>
-                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="100"/>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
@@ -91,7 +92,8 @@
                         Grid.Column="0"
                         Grid.ColumnSpan="3"
                         Grid.Row="2"
-                        HorizontalTextAlignment="Center"/>
+                        HorizontalTextAlignment="Center"
+                        Margin="15,0,15,0"/>
                     
                     
                 <Label
@@ -111,8 +113,7 @@
                     
                     <Label
                         Text="031-20 30 40"
-                        FontSize="20"
-                        TextColor="Black"
+                        Style="{StaticResource pLabel}"
                         Grid.Column="1"
                         HorizontalTextAlignment="Center"
                         Grid.Row="5"/>
@@ -125,8 +126,7 @@
 
                     <Label
                         Text="info@hotelisaac.com"
-                        FontSize="20"
-                        TextColor="Black"
+                        Style="{StaticResource pLabel}"
                         Grid.Column="0"
                         Grid.ColumnSpan="3"
                         HorizontalTextAlignment="Center"
