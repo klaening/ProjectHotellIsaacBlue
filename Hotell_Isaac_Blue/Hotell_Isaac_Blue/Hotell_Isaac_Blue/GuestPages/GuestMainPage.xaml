@@ -110,7 +110,7 @@
                                 Grid.Column="1"
                                 VerticalOptions="Center"
                                 HorizontalOptions="Start"/>
-                                <Label Text="Add our fantastic breakfast to your stay."
+                                <Label Text="Add our delicious breakfast to your stay."
                                 Style="{StaticResource pLabel}"
                                 Grid.Column="1"
                                 Grid.Row="1"
