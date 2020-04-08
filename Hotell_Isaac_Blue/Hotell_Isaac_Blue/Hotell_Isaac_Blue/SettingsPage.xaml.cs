@@ -14,24 +14,27 @@ namespace Hotell_Isaac_Blue
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {
+        Customers customer;
+        string path = "customers/";
+
         public SettingsPage()
         {
             InitializeComponent();
             SetCustomerInfo();
         }
 
-        //Metoden skall ta in ett id 
         private async void SetCustomerInfo()
         {    
+
+            //Kolla över denna lösning på if. Has value kan medföra problem
             if (ActiveUser.Account.CustomersID.HasValue)
             {
-                string path = "customers/";
                 string source = ActiveUser.Account.CustomersID.ToString();
 
                 var response = APIServices.Services.GetRequest(path, source);
                 var result = await response.Content.ReadAsStringAsync();
 
-                Customers customer = JsonConvert.DeserializeObject<Customers>(result);
+                customer = JsonConvert.DeserializeObject<Customers>(result);
 
                 socNrEntry.Text = customer.SOCNUMBER;
                 firstNameEntry.Text = customer.FIRSTNAME;
@@ -49,28 +52,25 @@ namespace Hotell_Isaac_Blue
             
             if (ActiveUser.Account.CustomersID.HasValue)
             {
-                string path = "customers/";
 
-                Customers customer = new Customers
-                {
-                    SOCNUMBER = socNrEntry.Text,
-                    FIRSTNAME = firstNameEntry.Text,
-                    LASTNAME = lastNameEntry.Text,
-                    EMAIL = emailEntry.Text,
-                    CITY = cityEntry.Text,
-                    COUNTRY = countryEntry.Text,
-                    STREETADRESS = streetAdressEntry.Text,
-                    ICE = iceEntry.Text
-                };
+                customer.SOCNUMBER = socNrEntry.Text;
+                customer.FIRSTNAME = firstNameEntry.Text;
+                customer.LASTNAME = lastNameEntry.Text;
+                customer.EMAIL = emailEntry.Text;
+                customer.CITY = cityEntry.Text;
+                customer.COUNTRY = countryEntry.Text;
+                customer.STREETADRESS = streetAdressEntry.Text;
+                customer.ICE = iceEntry.Text;
 
                 await APIServices.Services.PutRequestAsync(path, customer);
 
-                await DisplayAlert("Updated!", "Your information have been updated", "Ok");
+                await DisplayAlert("Updated!", "Your information have been updated.", "Ok");
                 await Navigation.PushAsync(new GuestMainPage());
             }
             else if (!ActiveUser.Account.CustomersID.HasValue)
             {
-                string path = "customers/";
+
+                string path = "customers/account/" + ActiveUser.Account.ID;
 
                 Customers customer = new Customers
                 {
@@ -81,12 +81,13 @@ namespace Hotell_Isaac_Blue
                     CITY = cityEntry.Text,
                     COUNTRY = countryEntry.Text,
                     STREETADRESS = streetAdressEntry.Text,
-                    ICE = iceEntry.Text
+                    ICE = iceEntry.Text,
+                    CUSTOMERTYPESID = 1
                 };
-
+                    
                 await APIServices.Services.PostRequestAsync(path, customer);
 
-                await DisplayAlert("Created!", "Your information have been updated", "Ok");
+                await DisplayAlert("Saved!", "Your information have been saved.", "Ok");
                 await Navigation.PushAsync(new GuestMainPage());
             }
         }
