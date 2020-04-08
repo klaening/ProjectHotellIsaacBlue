@@ -80,10 +80,8 @@ namespace Hotell_Isaac_Blue
                     CITY = cityEntry.Text,
                     COUNTRY = countryEntry.Text,
                     ICE = iceEntry.Text,
+                    CUSTOMERTYPESID = 1
                 };
-
-                //Default är 1
-                customer.CUSTOMERTYPESID = 1;
 
                 string path = "customers/account/" + ActiveUser.Account.ID;
 

@@ -21,20 +21,14 @@ namespace Hotell_Isaac_Blue
         short guestQty;
         bool extraBed = false;
         bool breakfast = false;
-        //Ta bort?
-        RoomTypes RoomType = null;
         public GuestBookingSecondPage()
         {
             InitializeComponent();
-
-            //Vi får ett objekt av en RoomTypes som vi vill använda på BookingThirdPage
-            //Göra en get för att se vilka rumstyper som finns?
-            //RoomType = JsonConvert.DeserializeObject<RoomTypes>(result)
         }
 
         private async void Result_Btn_Clicked(object sender, EventArgs e)
         {
-            pickedRoomType = (string)RoomType_Picker.SelectedItem;
+            pickedRoomType = RoomType_Picker.SelectedItem.ToString();
             guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
             extraBed = Bed_Switch.IsToggled;
             breakfast = Breakfast_Switch.IsToggled;
