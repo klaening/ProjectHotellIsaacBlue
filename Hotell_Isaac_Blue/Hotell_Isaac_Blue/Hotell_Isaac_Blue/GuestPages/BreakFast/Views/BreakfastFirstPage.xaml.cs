@@ -27,9 +27,10 @@ namespace Hotell_Isaac_Blue.GuestPages.BreakFast.Views
         {
             try
             {
+                string path = "bookings/" + BookingEntry.Text + "/";
+                string key = "customer/" + ActiveUser.Account.ID;
                 
-                string key = BookingEntry.Text;
-                string path = "bookings/";
+               
 
                 var response = APIServices.Services.GetRequest(path, key);
                 string result = await response.Content.ReadAsStringAsync();
