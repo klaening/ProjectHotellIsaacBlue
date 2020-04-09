@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hotell_Isaac_Blue.Tables
+namespace Hotell_Isaac_Blue.Models
 {
     public class Bookings
     {
