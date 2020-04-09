@@ -7,93 +7,42 @@
              x:Class="Hotell_Isaac_Blue.GuestBookingMainPage">
     <ContentPage.Content>
         <ScrollView>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height=".2*"/>
-                    <RowDefinition Height=".5*"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Text="Booking"
+            <StackLayout Padding="30">
+                <Label Text="Bookings"
                        Style="{StaticResource h1Label}"
-                       Grid.Column="0" Grid.Row="0"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Start"/>
+
                 <Label Style="{StaticResource pLabel}"
-                       Grid.Column="0" Grid.Row="1"
-                       Margin="25,0"
                        VerticalTextAlignment="Start">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim arcu id laoreet euismod. Nam metus nisi, elementum quis velit sed, luctus pharetra nunc. Vestibulum fringilla aliquet nisl id congue. Aenean ultricies lacus eget mattis placerat. Aliquam quis arcu risus. Nullam in diam mollis dui porttitor ornare ac sed orci.
-                </Label>
-                <Label Text="Your bookings:"
-                       Style="{StaticResource pLabel}"
-                       FontAttributes="Bold"
-                       Grid.Column="0" Grid.Row="2"
-                       VerticalOptions="Start"
-                       Margin="30,0"/>
-                <Frame Grid.Column="0" Grid.Row="3"
-                       Margin="30, 0"
-                       BorderColor="Black">
-                    <StackLayout>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Label Text="Booking Nr"
-                                   FontAttributes="Bold"
-                                   Grid.Row="0" Grid.Column="0"
-                                   HorizontalOptions="Start"/>
-                            <Label Text="Start Date"
-                                   FontAttributes="Bold"
-                                   Grid.Row="0" Grid.Column="1"
-                                   HorizontalOptions="Start"/>
-                            <Label Text="End Date"
-                                   FontAttributes="Bold"
-                                   Grid.Row="0" Grid.Column="2"
-                                   HorizontalOptions="Start"/>
-                            <Label x:Name="bookingNr"
-                                Text="1882-15-1272" 
-                                    Grid.Row="1" Grid.Column="0"
-                                    HorizontalOptions="Start"/>
-                            <Label x:Name="startDate"
-                                Text="2020-03-09" 
-                                    Grid.Row="1" Grid.Column="1"
-                                    HorizontalOptions="Start"/>
-                            <Label x:Name="endDate"
-                                Text="2020-03-15" 
-                                    Grid.Row="1" Grid.Column="2"
-                                    HorizontalOptions="Start"/>
-                        </Grid>
-                    </StackLayout>
-                </Frame>
-               
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim arcu id laoreet euismod. Nam metus nisi, elementum quis velit sed, luctus pharetra nunc. Vestibulum fringilla aliquet nisl id congue. Aenean ultricies lacus eget mattis placerat. Aliquam quis arcu risus. Nullam in diam mollis dui porttitor ornare ac sed orci.</Label>
+
                 <ImageButton Source="plus.png"
                              HorizontalOptions="Center"
-                             VerticalOptions="Start"
-                             Grid.Column="0"
-                             Grid.Row="4"
-                             Scale="0.5"
+                             VerticalOptions="Center"
+                             HeightRequest="100"
+                             Margin="0,30,0,10"
                              Clicked="NewBooking_Clicked"
                              BackgroundColor="Transparent"/>
-                <Label Text="New Booking"
+
+                <Label Text="Add New Booking"
                        FontAttributes="Bold"
-                       TextColor="white"
-                       Grid.Column="0"
-                       Grid.Row="4"
+                       TextColor="White"
                        VerticalOptions="End"
                        HorizontalOptions="Center"/>
-            </Grid>
+
+                <Label Text="Your active bookings:"
+                       Style="{StaticResource pLabel}"
+                       FontAttributes="Bold"
+                       VerticalOptions="Start"
+                       Margin="0,50,0,0"/>
+
+                <StackLayout x:Name="bookingStack">
+
+                    <!--Här läggs alla bokningar till-->
+
+                </StackLayout>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

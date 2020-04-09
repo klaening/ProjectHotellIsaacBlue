@@ -21,47 +21,36 @@ namespace Hotell_Isaac_Blue
         short guestQty;
         bool extraBed = false;
         bool breakfast = false;
-        //Ta bort?
-        RoomTypes RoomType = null;
         public GuestBookingSecondPage()
         {
             InitializeComponent();
-
-            //Vi får ett objekt av en RoomTypes som vi vill använda på BookingThirdPage
-            //Göra en get för att se vilka rumstyper som finns?
-            //RoomType = JsonConvert.DeserializeObject<RoomTypes>(result)
         }
 
         private async void Result_Btn_Clicked(object sender, EventArgs e)
         {
-            if (ActiveUser.Account.CustomersID == null)
-                await Navigation.PushAsync(new CustomerRegistrationPage());
-            else
+            pickedRoomType = RoomType_Picker.SelectedItem.ToString();
+            guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
+            extraBed = Bed_Switch.IsToggled;
+            breakfast = Breakfast_Switch.IsToggled;
+
+            ActiveBooking.Booking = new Bookings
             {
-                pickedRoomType = (string)RoomType_Picker.SelectedItem;
-                guestQty = short.Parse(GuestsQty_Picker.SelectedItem.ToString());
-                extraBed = Bed_Switch.IsToggled;
-                breakfast = Breakfast_Switch.IsToggled;
+                QTYPERSONS = guestQty,
+                STARTDATE = startDate,
+                ENDDATE = endDate,
+                EXTRABED = extraBed,
+                BREAKFAST = breakfast,
+                CUSTOMERSID = ActiveUser.Account.CustomersID
+            };
 
-                ActiveBooking.Booking = new Bookings
-                {
-                    QTYPERSONS = guestQty,
-                    STARTDATE = startDate,
-                    ENDDATE = endDate,
-                    EXTRABED = extraBed,
-                    BREAKFAST = breakfast,
-                    CUSTOMERSID = ActiveUser.Account.CustomersID
-                };
-
-                try
-                {
-                    await GetRoomNo();
-                    await Navigation.PushAsync(new GuestBookingThirdPage());
-                }
-                catch (Exception)
-                {
-                    await DisplayAlert("Error", "No such rooms are available for these dates", "OK");
-                }
+            try
+            {
+                await GetRoomNo();
+                await Navigation.PushAsync(new GuestBookingThirdPage());
+            }
+            catch (Exception)
+            {
+                await DisplayAlert("Error", "No such rooms are available for these dates", "OK");
             }
         }
 
@@ -78,13 +67,9 @@ namespace Hotell_Isaac_Blue
 
             var roomType = JsonConvert.DeserializeObject<RoomTypes>(result);
 
-
-            string[] startDateFormat = startDate.GetDateTimeFormats();
-            string[] endDateFormat = endDate.GetDateTimeFormats();
-
             //Nu vill jag göra en get med rumstypnumret och två datum.
             path = $"rooms/roomtype/{roomType.ID}/";
-            source = "start=" + startDateFormat[5] + "/end=" + endDateFormat[5];
+            source = "start=" + startDate.ToString("yyyy-MM-dd") + "/end=" + endDate.ToString("yyyy-MM-dd");
 
             response = APIServices.Services.GetRequest(path, source);
             result = await response.Content.ReadAsStringAsync();
