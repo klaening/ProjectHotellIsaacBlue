@@ -66,9 +66,17 @@ namespace Hotell_Isaac_Blue
 
                 await APIServices.Services.PutRequestAsync(path, customer);
 
-                await DisplayAlert("Updated!", "Your information have been updated.", "Ok");                
+                await DisplayAlert("Updated!", "Your information have been updated.", "Ok");
+
+                ActiveUser.Account.UpdateAccountInfo();
+
+                var vUpdatedPage = new GuestMainPage();
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                Navigation.InsertPageBefore(vUpdatedPage, this);
+
+                await Navigation.PopAsync();
             }
-            else if (ActiveUser.Account.CustomersID == null)
+            else
             {
                 Customers customer = new Customers()
                 {
@@ -88,15 +96,15 @@ namespace Hotell_Isaac_Blue
                 await APIServices.Services.PostRequestAsync(path, customer);
 
                 await DisplayAlert("Saved!", "Your information have been saved.", "Ok");
+
+                ActiveUser.Account.UpdateAccountInfo();
+
+                var vUpdatedPage = new GuestBookingThirdPage();
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                Navigation.InsertPageBefore(vUpdatedPage, this);
+
+                await Navigation.PopAsync();
             }
-
-            ActiveUser.Account.UpdateAccountInfo();
-
-            var vUpdatedPage = new GuestBookingThirdPage();
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-            Navigation.InsertPageBefore(vUpdatedPage, this);
-
-            await Navigation.PopAsync();
         }
     }
 }

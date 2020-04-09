@@ -65,6 +65,7 @@ namespace Hotell_Isaac_Blue
                 await APIServices.Services.PutRequestAsync(path, customer);
 
                 await DisplayAlert("Updated!", "Your information have been updated.", "Ok");
+                var navStack = Navigation.NavigationStack;
                 await Navigation.PushAsync(new GuestMainPage());
             }
             else if (!ActiveUser.Account.CustomersID.HasValue)
