@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Hotell_Isaac_Blue.Tables;
+using Hotell_Isaac_Blue.Models;
 using System.Net;
 
 namespace Hotell_Isaac_Blue

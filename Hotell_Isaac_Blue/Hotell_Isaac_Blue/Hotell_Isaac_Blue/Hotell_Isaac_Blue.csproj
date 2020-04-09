@@ -26,65 +26,53 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Registration\AccountRegistrationPage.xaml.cs">
+    <Compile Update="Views\Registration\AccountRegistrationPage.xaml.cs">
       <DependentUpon>AccountRegistrationPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="GuestPages\BreakFast\Views\BreakfastSecondPage.xaml">
+    <EmbeddedResource Update="Views\GuestPages\BreakFast\Views\BreakfastSecondPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="GuestPages\Parking\Views\ParkingFirstPage.xaml">
+    <EmbeddedResource Update="Views\GuestPages\Parking\Views\ParkingFirstPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="GuestPages\Parking\Views\ParkingSecondPage.xaml">
+    <EmbeddedResource Update="Views\GuestPages\Parking\Views\ParkingSecondPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Registration\CustomerRegistrationPage.xaml">
+    <EmbeddedResource Update="Views\Registration\CustomerRegistrationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="GuestPages\BreakFast\Views\BreakfastFirstPage.xaml">
+    <EmbeddedResource Update="Views\GuestPages\BreakFast\Views\BreakfastFirstPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
       
-    <EmbeddedResource Update="GuestPages\GuestBooking\GuestBookingSecondPage.xaml">
+    <EmbeddedResource Update="Views\GuestPages\GuestBooking\GuestBookingSecondPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="GuestPages\GuestBooking\GuestBookingThirdPage.xaml">
+    <EmbeddedResource Update="Views\GuestPages\GuestBooking\GuestBookingThirdPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="GuestPages\GuestBooking\GuestBookingMainPage.xaml">
+    <EmbeddedResource Update="Views\GuestPages\GuestBooking\GuestBookingMainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="GuestPages\GuestParkingPage3.xaml">
+    <EmbeddedResource Update="Views\GuestPages\GuestInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="GuestPages\GuestBreakfastPage.xaml">
+    <EmbeddedResource Update="Views\GuestPages\GuestMainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="GuestPages\GuestInfoPage.xaml">
+    <EmbeddedResource Update="Views\Registration\AccountRegistrationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="GuestPages\GuestParkingPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="GuestPages\GuestMainPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="GuestPages\GuestParkingPage2.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Registration\AccountRegistrationPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="SettingsPage.xaml">
+    <EmbeddedResource Update="Views\SettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GuestPages\BreakFast\Models\" />
-    <Folder Include="GuestPages\BreakFast\ViewModels\" />
-    <Folder Include="GuestPages\Parking\Models\" />
-    <Folder Include="GuestPages\Parking\ViewModels\" />
+    <Folder Include="Views\GuestPages\BreakFast\Models\" />
+    <Folder Include="Views\GuestPages\BreakFast\ViewModels\" />
+    <Folder Include="Views\GuestPages\Parking\Models\" />
+    <Folder Include="Views\GuestPages\Parking\ViewModels\" />
   </ItemGroup>
 </Project>

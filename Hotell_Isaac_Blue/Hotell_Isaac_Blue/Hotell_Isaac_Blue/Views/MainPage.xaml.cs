@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
-using Hotell_Isaac_Blue.Tables;
+using Hotell_Isaac_Blue.Models;
 using Hotell_Isaac_Blue.Helpers;
 using System.Net;
 

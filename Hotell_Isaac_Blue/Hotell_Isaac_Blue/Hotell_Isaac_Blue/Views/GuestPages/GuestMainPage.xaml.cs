@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Hotell_Isaac_Blue.GuestPages.BreakFast.Views;
 using Hotell_Isaac_Blue.GuestPages.Parking.Views;
-using Hotell_Isaac_Blue.Tables;
+using Hotell_Isaac_Blue.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

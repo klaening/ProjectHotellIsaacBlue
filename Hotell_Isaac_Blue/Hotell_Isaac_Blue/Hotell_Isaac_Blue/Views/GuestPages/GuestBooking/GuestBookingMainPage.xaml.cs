@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Hotell_Isaac_Blue.APIServices;
 using Hotell_Isaac_Blue.Helpers;
-using Hotell_Isaac_Blue.Tables;
+using Hotell_Isaac_Blue.Models;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

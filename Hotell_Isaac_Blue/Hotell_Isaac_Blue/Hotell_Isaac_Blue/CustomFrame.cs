@@ -1,4 +1,4 @@
-﻿using Hotell_Isaac_Blue.Tables;
+﻿using Hotell_Isaac_Blue.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

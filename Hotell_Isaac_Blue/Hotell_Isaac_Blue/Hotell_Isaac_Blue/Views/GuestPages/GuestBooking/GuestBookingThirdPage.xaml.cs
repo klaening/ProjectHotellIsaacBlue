@@ -4,7 +4,7 @@ using Xamarin.Forms.Xaml;
 using Hotell_Isaac_Blue;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Hotell_Isaac_Blue.Tables;
+using Hotell_Isaac_Blue.Models;
 using Newtonsoft.Json;
 
 namespace Hotell_Isaac_Blue

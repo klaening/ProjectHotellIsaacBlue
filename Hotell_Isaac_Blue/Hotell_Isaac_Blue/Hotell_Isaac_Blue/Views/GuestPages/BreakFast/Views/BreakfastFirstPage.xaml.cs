@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Net.Http;
-using Hotell_Isaac_Blue.Tables;
+using Hotell_Isaac_Blue.Models;
 using System.Diagnostics;
 
 namespace Hotell_Isaac_Blue.GuestPages.BreakFast.Views
