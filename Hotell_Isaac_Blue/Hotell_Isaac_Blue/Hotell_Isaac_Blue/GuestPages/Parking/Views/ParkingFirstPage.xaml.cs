@@ -24,7 +24,7 @@ namespace Hotell_Isaac_Blue.GuestPages.Parking.Views
             try
             {
                 string path = "bookings/" + BookingParkEntry.Text + "/";
-                string key = "customer/" + ActiveUser.Account.ID;
+                string key = "customer/" + ActiveUser.Account.CustomersID;
 
                 var response = APIServices.Services.GetRequest(path, key); // Hämtar ett request och sparar i varibel response
                 string result = await response.Content.ReadAsStringAsync(); // Läser av värdet och sparar i variabel result
