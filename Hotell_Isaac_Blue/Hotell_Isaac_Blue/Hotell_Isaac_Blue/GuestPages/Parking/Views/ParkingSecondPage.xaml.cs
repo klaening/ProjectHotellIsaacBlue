@@ -13,19 +13,26 @@ namespace Hotell_Isaac_Blue.GuestPages.Parking.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ParkingSecondPage : ContentPage
     {
+        public int ParkingTotalCost { get; set; }
         public ParkingSecondPage()
         {
             InitializeComponent();
+            ParkingTotalCost = 80 * Helpers.Helpers.CalculateTotalDays(ActiveBooking.Booking.STARTDATE, ActiveBooking.Booking.ENDDATE);
+        // Hämtar och sätter värden på labels.
             labelStartDateReview.Text = ActiveBooking.Booking.STARTDATE.ToString();
             labelEndDateReview.Text = ActiveBooking.Booking.ENDDATE.ToString();
             labelBookingNoReview.Text = ActiveBooking.Booking.ID.ToString();
+            labelParkingTotalCost.Text = ParkingTotalCost.ToString();
+
             if (ActiveBooking.Booking.PARKING == false)
             {
+                // Sätter värdet på Knappen till Book! om Parking = false.
                 BookParking.Text = "Book!";
                 ConfirmParking.Text = "Want to add parking to your booking?";
             }
             else
             {
+                // Sätter värdet på Knappen till UnBook! om Parking = true.
                 BookParking.Text = "UnBook!";
                 ConfirmParking.Text = "Want to remove your parking booking?";
             }
@@ -42,22 +49,20 @@ namespace Hotell_Isaac_Blue.GuestPages.Parking.Views
             {
                 string result = await response.Content.ReadAsStringAsync();
                 ActiveBooking.Booking = JsonConvert.DeserializeObject<Bookings>(result);
-                await DisplayAlert("GLÖM EJ", "Ta bort ROOMID på BreakfastsecondPage!", "jaja ok");
-
+                ActiveBooking.RoomID = 1; // SKALL TAS BORT NÄR MICKE FIXAT
 
                 if (ActiveBooking.Booking.PARKING == false)
-                {
-                    await DisplayAlert("PARKING", "Added Parking", "ok");
-                    ActiveBooking.Booking.PARKING = true;                    
-                    await Navigation.PushAsync(new GuestBookingThirdPage());
+                {                   
+                    ActiveBooking.Booking.PARKING = true;                   
+                    await DisplayAlert("PARKING", "Added Parking", "ok");                    
                 }
                 else
-                {
-                    await DisplayAlert("PARKING", "UnBooked Parking", "ok");
+                {                   
                     ActiveBooking.Booking.PARKING = false;
-                    await Navigation.PushAsync(new GuestBookingThirdPage());
+                    await DisplayAlert("PARKING", "UnBooked Parking", "ok");
                 }
                 await APIServices.Services.PutRequestAsync(path, ActiveBooking.Booking);
+                await Navigation.PushAsync(new GuestBookingThirdPage());
             }
             else
             {

@@ -9,12 +9,16 @@ namespace Hotell_Isaac_Blue.GuestPages.BreakFast.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BreakfastSecondPage : ContentPage
     {
+        public int BreakfastTotalCost { get; set; }
         public BreakfastSecondPage()
         {
             InitializeComponent();
+            BreakfastTotalCost = 80 * Helpers.Helpers.CalculateTotalDays(ActiveBooking.Booking.STARTDATE, ActiveBooking.Booking.ENDDATE);
             labelStartDateReview.Text = ActiveBooking.Booking.STARTDATE.ToString();
             labelEndDateReview.Text = ActiveBooking.Booking.ENDDATE.ToString();
             labelBookingNoReview.Text = ActiveBooking.Booking.ID.ToString();
+            labelBreakfastTotalCost.Text = BreakfastTotalCost.ToString();
+
             if (ActiveBooking.Booking.BREAKFAST == false)
             {
                 BookBreakfast.Text = "Book!";
@@ -39,22 +43,19 @@ namespace Hotell_Isaac_Blue.GuestPages.BreakFast.Views
                 string result = await response.Content.ReadAsStringAsync();
                 ActiveBooking.Booking = JsonConvert.DeserializeObject<Bookings>(result);
                 ActiveBooking.RoomID = 1; // SKALL TAS BORT NÄR MICKE FIXAT
-                await DisplayAlert("GLÖM EJ", "Ta bort ROOMID på BreakfastsecondPage!", "jaja ok");
-
 
                 if (ActiveBooking.Booking.BREAKFAST == false)
                 {
-                    ActiveBooking.Booking.BREAKFAST = true;
-                    await DisplayAlert("BREAKFAST", "Added Breakfast", "ok");
-                    await Navigation.PushAsync(new GuestBookingThirdPage());
+                    ActiveBooking.Booking.BREAKFAST = true;                     
+                    await DisplayAlert("BREAKFAST", "Added Breakfast", "ok");                   
                 }
                 else
                 {
-                    await DisplayAlert("BREAKFAST", "UnBooked Breakfast", "ok");
-                    ActiveBooking.Booking.BREAKFAST = false;
-                    await Navigation.PushAsync(new GuestBookingThirdPage());
+                    ActiveBooking.Booking.BREAKFAST = false;                   
+                    await DisplayAlert("BREAKFAST", "UnBooked Breakfast", "ok");                   
                 }
                 await APIServices.Services.PutRequestAsync(path, ActiveBooking.Booking);
+                await Navigation.PushAsync(new GuestBookingThirdPage());
             }
             else
             {
