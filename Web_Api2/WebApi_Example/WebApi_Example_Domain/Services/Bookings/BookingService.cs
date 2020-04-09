@@ -44,5 +44,10 @@ namespace WebApi_Example_Domain.Services
         {
             return await _bookingRepository.GetCustomerBookings(customerID, dateToday);
         }
+
+        public async Task<Bookings> GetCustomerBooking(long id, long customerID)
+        {
+            return await _bookingRepository.GetCustomerBooking(id, customerID);
+        }
     }
 }
