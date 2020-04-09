@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Hotell_Isaac_Blue.APIServices;
+using Hotell_Isaac_Blue.Helpers;
 using Hotell_Isaac_Blue.Tables;
 using Newtonsoft.Json;
 using Xamarin.Forms;
@@ -19,37 +20,36 @@ namespace Hotell_Isaac_Blue
             InitializeComponent();
             if(ActiveUser.Account.CustomersID != null)
             {
-                GetBookings();
+                GetCustomerBookings();
             }
-            
         }
 
-        
-
-        private async void GetBookings()
+        private async void GetCustomerBookings()
         {
             var path = "bookings/";
 
-            string source = Convert.ToString(ActiveUser.Account.CustomersID);
+            string source = "customer/" + ActiveUser.Account.CustomersID.ToString() + "/end=" + DateTime.Now.ToString("yyyy-MM-dd");
 
             var response = Services.GetRequest(path, source);
             string result = await response.Content.ReadAsStringAsync();
 
-            var activeBooking = JsonConvert.DeserializeObject<Bookings>(result);
+            var customerBookings = JsonConvert.DeserializeObject<List<Bookings>>(result);
 
-            
-            if (activeBooking.ID != null)
+            foreach (var booking in customerBookings)
             {
-                BookingDetails(activeBooking);
-            }
-        }
+                CustomFrame frame = new CustomFrame(booking);
+                
+                var tapGestureRecognizer = new TapGestureRecognizer();
+                tapGestureRecognizer.Tapped += (s, e) =>
+                {
+                    ActiveBooking.Booking.UpdateBookingInfo(frame.BookingNo);
+                    Navigation.PushAsync(new GuestBookingThirdPage());
+                };
 
-        
-        public void BookingDetails(Bookings activeBooking)
-        {
-            bookingNr.Text = Convert.ToString(activeBooking.ID);
-            startDate.Text = Convert.ToString(activeBooking.STARTDATE);
-            endDate.Text = Convert.ToString(activeBooking.ENDDATE);
+                frame.GestureRecognizers.Add(tapGestureRecognizer);
+
+                bookingStack.Children.Add(frame);
+            }
         }
 
         private void NewBooking_Clicked(object sender, EventArgs e)

@@ -41,11 +41,19 @@ namespace WebApi_Example_Domain.Repository
             }
         }
 
-        public async Task<IEnumerable<Bookings>> GetCustomerBooking(long customerID)
+        public async Task<IEnumerable<Bookings>> GetCustomerBookings(long customerID)
         {
             using (var c = new SqlConnection(_connectionString))
             {
                 return await c.QueryAsync<Bookings>("SELECT * FROM BOOKINGS WHERE CUSTOMERSID = @customerID", new { customerID });
+            }
+        }
+
+        public async Task<IEnumerable<Bookings>> GetCustomerBookings(long customerID, DateTime dateToday)
+        {
+            using (var c = new SqlConnection(_connectionString))
+            {
+                return await c.QueryAsync<Bookings>("SELECT * FROM BOOKINGS WHERE CUSTOMERSID = @customerID AND ENDDATE >= @dateToday", new { customerID, dateToday });
             }
         }
 

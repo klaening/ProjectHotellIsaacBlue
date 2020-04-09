@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hotell_Isaac_Blue.Helpers;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -79,10 +80,8 @@ namespace Hotell_Isaac_Blue
                     CITY = cityEntry.Text,
                     COUNTRY = countryEntry.Text,
                     ICE = iceEntry.Text,
+                    CUSTOMERTYPESID = 1
                 };
-
-                //Default är 1
-                customer.CUSTOMERTYPESID = 1;
 
                 string path = "customers/account/" + ActiveUser.Account.ID;
 
@@ -90,6 +89,12 @@ namespace Hotell_Isaac_Blue
 
                 await DisplayAlert("Saved!", "Your information have been saved.", "Ok");
             }
+
+            ActiveUser.Account.UpdateAccountInfo();
+
+            var vUpdatedPage = new GuestBookingThirdPage();
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            Navigation.InsertPageBefore(vUpdatedPage, this);
 
             await Navigation.PopAsync();
         }

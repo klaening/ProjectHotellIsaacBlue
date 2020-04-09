@@ -28,6 +28,12 @@ namespace WebApi_Example.Controllers
             return Ok(await _bookingRoomService.GetBookingRoom(id));
         }
 
+        [HttpGet("booking/{bookingID}")]
+        public async Task<IActionResult> Get(long bookingID)
+        {
+            return Ok(await _bookingRoomService.GetRoomID(bookingID));
+        }
+
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] BookingsRooms bookingsRooms)
         {

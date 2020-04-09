@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using WebApi_Example_Domain.Models;
 using WebApi_Example_Domain.Services;
 using System.Web;
+using System;
 
 namespace WebApi_Example.Controllers
 {
@@ -32,8 +33,15 @@ namespace WebApi_Example.Controllers
         [HttpGet("customer/{customerID}")]
         public async Task<IActionResult> Get(long customerID)
         {
-            return Ok(await _bookingService.GetCustomerBooking(customerID));
+            return Ok(await _bookingService.GetCustomerBookings(customerID));
         }
+
+        [HttpGet("customer/{customerID}/end={dateToday}")]
+        public async Task<IActionResult> Get(long customerID, DateTime dateToday)
+        {
+            return Ok(await _bookingService.GetCustomerBookings(customerID, dateToday));
+        }
+
 
         [HttpPost("room/{roomID}")]
         public async Task<IActionResult> Add([FromBody] Bookings bookings, short roomID)

@@ -81,42 +81,31 @@
                             <!--Här börjar användarspecifik input-->
 
                             <Label x:Name="ReviewNameLabel"
-                                Text="No name"
                                Grid.Column="1" Grid.Row="0"/>
                             <Label x:Name="ReviewEmailLabel"
-                                Text="No email"
                                Grid.Column="1" Grid.Row="1"/>
                             <Label x:Name="ReviewStartDateLabel"
-                                Text="No start date" 
                                Grid.Column="1" Grid.Row="2"/>
                             <Label x:Name="ReviewEndDateLabel"
-                                Text="No end date"
                                Grid.Column="1" Grid.Row="3"/>
                             <Label x:Name="ReviewTotalDays"
-                                   Text="No Info"
                                    Grid.Column="1" Grid.Row="4"/>
 
 
                             <Label x:Name="ReviewRoomType"
-                                Text="No type chosen"
                                    Grid.Column="1" Grid.Row="6"/>
                             <Label x:Name="ReviewPrice"
-                                   Text="Info not available"
                                    Grid.Column="1" Grid.Row="7"/>
                             <Label x:Name="ReviewExtraBed"
-                                Text="Not chosen"
                                    Grid.Column="1" Grid.Row="8"/>
                             <Label x:Name="ReviewBreakfast"
-                                Text="Not chosen"
                                    Grid.Column="1" Grid.Row="9"/>
                             <Label x:Name="ReviewParking"
-                                Text="Not chosen"
                                    Grid.Column="1" Grid.Row="10"/>
                             
                             <Label x:Name="ReviewTotalCostLabel"
                                    FontSize="20"
                                    FontAttributes="Bold"
-                                Text="Info not available" 
                                Grid.Column="1" Grid.Row="12"/>
 
 

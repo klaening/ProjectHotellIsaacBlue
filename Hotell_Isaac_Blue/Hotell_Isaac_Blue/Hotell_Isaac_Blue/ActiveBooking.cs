@@ -8,6 +8,6 @@ namespace Hotell_Isaac_Blue
     public static class ActiveBooking
     {
         public static Bookings Booking { get; set; }
-        public static short RoomID { get; set; }
+        public static short? RoomID { get; set; }
     }
 }

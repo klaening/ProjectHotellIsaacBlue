@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebApi_Example_Domain.Models;
 using WebApi_Example_Domain.Repository;
@@ -34,9 +35,14 @@ namespace WebApi_Example_Domain.Services
             return await _bookingRepository.UpdateBooking(bookings);
         }
 
-        public async Task<IEnumerable<Bookings>> GetCustomerBooking(long customerID)
+        public async Task<IEnumerable<Bookings>> GetCustomerBookings(long customerID)
         {
-            return await _bookingRepository.GetCustomerBooking(customerID);
+            return await _bookingRepository.GetCustomerBookings(customerID);
+        }
+
+        public async Task<IEnumerable<Bookings>> GetCustomerBookings(long customerID, DateTime dateToday)
+        {
+            return await _bookingRepository.GetCustomerBookings(customerID, dateToday);
         }
     }
 }
