@@ -103,7 +103,7 @@ namespace Hotell_Isaac_Blue
 
         private async void confirmBooking_Clicked(object sender, EventArgs e)
         {
-            if (ActiveUser.Account.ID == null)
+            if (Convert.ToString(ActiveUser.Account.ID) == null)
             {
                 await Navigation.PushAsync(new CustomerRegistrationPage());
             }
