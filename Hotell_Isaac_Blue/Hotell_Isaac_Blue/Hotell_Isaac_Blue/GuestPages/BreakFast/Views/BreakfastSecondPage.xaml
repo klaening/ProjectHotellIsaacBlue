@@ -37,7 +37,7 @@
                        />
                 <Frame BackgroundColor="LightBlue"
                        Margin="10"
-                       HeightRequest="100">
+                       HeightRequest="150">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
@@ -46,7 +46,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="120"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
@@ -77,12 +77,18 @@
                                TextColor="Black"
                                Grid.Row="2"
                                Grid.Column="1"/>
+                        <Label Text="Total Cost:"
+                               Grid.Row="3"/>
+                        <Label Text="{Binding BreakfastTotalCost}"
+                               x:Name="labelBreakfastTotalCost"
+                               Grid.Column="1"
+                               Grid.Row="3"/>
                         <Button Text="Book!"
                                 x:Name="BookBreakfast"
-                                Grid.Row="3"
+                                Grid.Row="4"
                                 Grid.Column="1"
-                                WidthRequest="90"
-                                Margin="100,0,0,0"
+                                WidthRequest="120"
+                                Margin="80,0,0,0"
                                 BackgroundColor="Gray"
                                 TextColor="White"
                                 Clicked="BookBreakfast_Clicked"/>

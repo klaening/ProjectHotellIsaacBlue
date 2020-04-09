@@ -24,7 +24,6 @@
                    FontSize="12"
                    TextColor="Black"/>
                 <StackLayout>
-
                     <Label Text="Only 80 sek each day!"
                        HorizontalOptions="Center"
                        FontSize="20"
@@ -34,8 +33,8 @@
                        />
                     <Entry x:Name="BookingParkEntry" Placeholder="Enter Booking Nr" 
                         HorizontalOptions="Center"
-                        Margin=" 0,0,0,0"
-                        TextColor="Black"/>
+                        TextColor="Black"
+                        PlaceholderColor="Black"/>
                     <Button Text="Add ParkingSpot" x:Name="Parkingspot"                          
                         BackgroundColor="Gray"
                         Margin="80,0,80,0"
