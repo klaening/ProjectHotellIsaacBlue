@@ -27,6 +27,7 @@ namespace Hotell_Isaac_Blue.GuestPages.BreakFast.Views
         {
             try
             {
+                
                 string key = BookingEntry.Text;
                 string path = "bookings/";
 

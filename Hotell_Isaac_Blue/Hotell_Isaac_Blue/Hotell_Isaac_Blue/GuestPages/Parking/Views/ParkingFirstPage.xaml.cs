@@ -23,19 +23,18 @@ namespace Hotell_Isaac_Blue.GuestPages.Parking.Views
         {
             try
             {
-                string key = BookingParkEntry.Text;
-                string path = "bookings/";
+                string key = BookingParkEntry.Text; // Sätter key till värdet som användare skriver in.
+                string path = "bookings/"; //  pqth för själva booking.
 
-                var response = APIServices.Services.GetRequest(path, key);
-                string result = await response.Content.ReadAsStringAsync();
+                var response = APIServices.Services.GetRequest(path, key); // Hämtar ett request och sparar i varibel response
+                string result = await response.Content.ReadAsStringAsync(); // Läser av värdet och sparar i variabel result
 
-                ActiveBooking.Booking = JsonConvert.DeserializeObject<Bookings>(result);
+                ActiveBooking.Booking = JsonConvert.DeserializeObject<Bookings>(result); // Deserialize json till ett object (ActiveBooking.Booking)
 
                 await Navigation.PushAsync(new ParkingSecondPage());
             }
             catch (Exception)
             {
-
                 await DisplayAlert("Error", "Please Enter a valid Booking Number", "ok");
             }
             

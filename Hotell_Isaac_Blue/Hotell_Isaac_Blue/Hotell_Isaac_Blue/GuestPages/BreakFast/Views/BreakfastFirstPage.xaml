@@ -29,11 +29,7 @@
                    FontAttributes="Italic"
                    FontSize="12"
                    TextColor="Black"/>
-                <!--<Image Source="Coffe.png"
-               Grid.ColumnSpan="3"
-               Grid.Row="1"
-               Aspect="AspectFit"
-                   Margin="10,0,10,0"/>-->
+
                 <StackLayout>
 
                 <Label Text="Only 80 sek each day!"
@@ -46,7 +42,8 @@
                 <Entry x:Name="BookingEntry" Placeholder="Enter Booking Nr" 
                         HorizontalOptions="Center"
                         Margin=" 30,0,30,0"
-                        TextColor="Black"/>
+                        TextColor="Black"
+                        PlaceholderColor="Black"/>
                     <Button Text="Add Breakfast"                          
                         BackgroundColor="Gray"
                         Margin="80,0,80,0"
@@ -54,9 +51,7 @@
                         FontAttributes="Bold"
                         FontSize="18"
                         Clicked="Button_Clicked"/>
-                
-
-            </StackLayout>
+                 </StackLayout>
             </StackLayout>
         <Frame BackgroundColor="White"
                CornerRadius="3"
